@@ -1,0 +1,85 @@
+@import "https://fonts.googleapis.com/css?family=Lato:light, lightitalic, normal, italic, bold, bolditalic|Lato:300:light, lightitalic, normal, italic, bold, bolditalic|Muli:light, lightitalic, normal, italic, bold, bolditalic";
+
+input {
+    font: 200 normal;
+}
+
+.form-html {
+    color: #0C5474;
+}
+
+.form-all {
+    background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.65) !important;
+}
+
+.form-checkbox-item label, .form-radio-item label, .form-label-top, .form-label-left, .form-label-right, .form-html {
+    color: #237EBA;
+}
+
+/* Hot fix: Prevent paragraph out of white panel. */
+.form-line {
+    width:inherit;
+}
+
+/* Popup description. */
+.form-description {
+    border: 1px solid #237EBA;
+    border-radius: 6px;
+    background: none repeat scroll 0% 0% #FEFEFE;
+    white-space: normal;
+}
+
+.form-description-arrow {
+    border-color:transparent #237EBA transparent transparent;
+    border-style:solid;
+    border-width:7px;
+    height:0;
+    width:0;
+    left:-14px;
+    top:10px;
+    position:absolute;
+}    
+    
+.form-description-arrow-small {
+    border-color:transparent #237EBA transparent transparent;
+    border-style:solid;
+    border-width:7px;
+    height:0;
+    width:0;
+    left:-14px;
+    top:10px;
+    position:absolute;
+}
+
+.form-description-content {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Reset headers titled with brown with border and bg-color. */
+.form-header-group {
+    background-color: transparent !important;
+    border: none;
+    padding: 24px 0px;
+}
+
+.form-header-group .form-header {
+    color: #237EBA;
+}
+
+/* Error text and background. */
+.form-line-error .form-error-message {
+    background-color: #fefefe !important;
+    color: red !important;
+}
+
+/* Button */
+.form-submit-button:hover {
+    background: none repeat scroll 0% 0% #9BD0F2 !important;
+}
+
+/* Hack for jotform's bug. */
+.form-line-error {
+    overflow: visible !important;
+}

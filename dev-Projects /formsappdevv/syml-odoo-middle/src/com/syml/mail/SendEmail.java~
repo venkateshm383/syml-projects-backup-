@@ -1,0 +1,99 @@
+package com.syml.mail;
+import java.util.*;
+
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+import com.syml.constants.SymlConstant;
+import com.syml.helper.GenericHelperClass;
+import com.syml.openerp.CreateNote;
+
+public class SendEmail
+{
+	 static	Logger log = LoggerFactory.getLogger(SendEmail.class);
+	
+	
+	
+	 
+	public void sendEmailMortgage(String subject,String body){
+		
+		log.info("inside sendEmailMortgage method  of SendEmai class");
+		
+		SymlConstant sc=new SymlConstant();
+		 final String fromEmail = sc.getFromEmail(); //requires valid gmail id
+	         final String password =sc.getPassword(); // correct password for gmail id
+	        final String toEmail = sc.getToEmail(); // can be any email id
+	         
+	        log.info("TLSEmail Start");
+	        Properties props = new Properties();
+	        props.put("mail.smtp.host", sc.getSmtpHost()); //SMTP Host
+	        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");// ignore the certificate issue
+	        props.put("mail.smtp.port",sc.getSmtpPort()); //TLS Port
+	        props.put("mail.smtp.auth", sc.getSmtpAuth()); //enable authentication
+	        props.put("mail.smtp.starttls.enable", sc.getSmtpTTLSEnabled()); //enable STARTTLS
+	         
+	                //create Authenticator object to pass in Session.getInstance argument
+	        Authenticator auth = new Authenticator() {
+	            //override the getPasswordAuthentication method
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(fromEmail, password);
+	            }
+	        };
+	        javax.mail.Session session = javax.mail.Session.getInstance(props, auth);
+	        HashSet<String> recipents=new HashSet<String>();
+	        //recipents.add("venkatesh.m@bizruntime.com");
+	         //recipents.add("deepali.singh@bizruntime.com");
+	      //  EmailUtil.sendEmail(session,fromEmail, toEmail,subject,body);
+	     
+	         
+	        EmailUtil.sendMail(session, fromEmail,"venkatesh.m@bizruntime.com", subject,ReferralInstructionsMessageTemplate.ReferralInstructions("Venkatesh","iPhone"),recipents, "");
+	         
+	}
+	
+	
+public static void sendEmail(String subject,String body,String toEmail,HashSet recipients){
+		
+		log.info("inside sendEmailMortgage method  of SendEmai class");
+		
+		SymlConstant sc=new SymlConstant();
+		 final String fromEmail = sc.getFromEmail(); //requires valid gmail id
+	         final String password =sc.getPassword(); // correct password for gmail id
+	       // final String toEmail = sc.getToEmail(); // can be any email id
+	         
+	        log.info("TLSEmail Start");
+	        Properties props = new Properties();
+	        props.put("mail.smtp.host", sc.getSmtpHost()); //SMTP Host
+	        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");// ignore the certificate issue
+	        props.put("mail.smtp.port",sc.getSmtpPort()); //TLS Port
+	        props.put("mail.smtp.auth", sc.getSmtpAuth()); //enable authentication
+	        props.put("mail.smtp.starttls.enable", sc.getSmtpTTLSEnabled()); //enable STARTTLS
+	         
+	                //create Authenticator object to pass in Session.getInstance argument
+	        Authenticator auth = new Authenticator() {
+	            //override the getPasswordAuthentication method
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(fromEmail, password);
+	            }
+	        };
+	        Session session = Session.getInstance(props, auth);
+	      //  HashSet<String> recipents=new HashSet<String>();
+	        //recipents.add("venkatesh.m@bizruntime.com");
+	         //recipents.add("deepali.singh@bizruntime.com");
+	      //  EmailUtil.sendEmail(session,fromEmail, toEmail,subject,body);
+	     
+	      //   CreateNote.createNote(, body, )
+	        EmailUtil.sendMail(session, fromEmail,toEmail, subject,body,recipients, "");
+	         
+	}
+	
+	
+	
+	
+   
+   
+}

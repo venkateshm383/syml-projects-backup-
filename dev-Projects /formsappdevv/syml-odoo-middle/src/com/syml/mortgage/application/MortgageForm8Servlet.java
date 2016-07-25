@@ -1,0 +1,380 @@
+package com.syml.mortgage.application;
+
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import net.iharder.Base64;
+
+import com.debortoliwines.openerp.api.FilterCollection;
+import com.debortoliwines.openerp.api.ObjectAdapter;
+import com.debortoliwines.openerp.api.Row;
+import com.debortoliwines.openerp.api.RowCollection;
+import com.debortoliwines.openerp.api.Session;
+import com.sendwithus.SendWithUsExample;
+import com.syml.constants.SymlConstant;
+import com.syml.couchbase.CouchBaseOperation;
+import com.syml.helper.GenericHelperClass;
+import com.syml.mail.MortgageApplicationTemplate.CompletedMortgageAppMailTemplate;
+import com.syml.mail.MortgageApplicationTemplate.SendinMailToReferrerTemplate;
+import com.syml.mail.MortgageApplicationTemplate.ThankyouMailTemplateforApplicant;
+import com.syml.openerp.CreateApplicant;
+import com.syml.openerp.DocumentAnalyzerRestCall;
+import com.syml.openerp.RestCallClass;
+import com.syml.pdfGeneration.MortgageApplicationPdfGeneration;
+
+public class MortgageForm8Servlet extends HttpServlet {
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		Logger log = LoggerFactory.getLogger(MortgageForm8Servlet.class);
+		SymlConstant sc = new SymlConstant();
+		HashMap dataStoreValue = new HashMap();
+		String filepath = null;
+		String applicantName = "";
+		String applicantLastName = "";
+		String applicantOneEmail = "";
+		String applicantTwoEmail = "";
+		String applicantThreeEmail = "";
+		int applicantId = 0;
+		String coApplicantName = "";
+		String referrerEmail = "";
+		String applicantTwoFirstName = "";
+		String applicantTwoLastName = "";
+		int applicantId2 = 0;
+		String referralName="";
+		try {
+			log.debug("inside service method");
+
+			String uniid = req.getParameter("uniid");
+			HttpSession ses = req.getSession(true);
+			int leadId=0;
+			
+			try{
+				leadId=Integer.parseInt((String)ses.getAttribute("crmLeadId"));
+			}catch(Exception e){
+				
+			}
+
+			String coapplicant = req.getParameter("coapplicant");
+
+			String co_applicantExsist = "";
+			try {
+				co_applicantExsist = (String) ses
+						.getAttribute("otherApplicant");
+				if(co_applicantExsist==null){
+					co_applicantExsist="";
+				}
+			} catch (Exception e) {
+
+			}
+
+			// session.setAttribute("crmLeadId", crmLeadId);
+			try {
+				referrerEmail = (String) ses.getAttribute("referralEmail");
+				referrerEmail=referrerEmail.trim();
+				referralName = (String) ses.getAttribute("referralName");
+
+				applicantName = (String) ses.getAttribute("applicantFirstName");
+				applicantLastName = (String) ses
+						.getAttribute("applicantLasttName");
+				applicantOneEmail = (String) ses.getAttribute("applicantEmail");
+				applicantId = Integer.parseInt((String) ses
+						.getAttribute("applicantID"));
+			} catch (Exception e) {
+			}
+			try {
+				applicantTwoFirstName = (String) ses
+						.getAttribute("co_applicantFirstName");
+				if(applicantTwoFirstName==null){
+					applicantTwoFirstName="";
+				}
+				
+				applicantTwoLastName = (String) ses
+						.getAttribute("co_applicantLastName");
+				applicantTwoEmail = (String) ses
+						.getAttribute("co_applicantEmail");
+				
+				if(applicantTwoEmail==null){
+					applicantTwoEmail="";
+				}
+				applicantId2 = Integer.parseInt((String) ses
+						.getAttribute("applicantId2"));
+			} catch (Exception e) {
+
+			}
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			log.debug("old unique id is  " + uniid);
+			// get current date time with Calendar()
+			Calendar cal = Calendar.getInstance();
+			String currentDateTime = (dateFormat.format(cal.getTime()));
+
+			String form1UniqueId = (String) ses.getAttribute("form1uniqueId");
+			// if(uniid.equals(form1UniqueId)){
+			// get ip of latest form sumitted
+			String ip = req.getRemoteAddr();
+			// if(uniid.equals(form1UniqueId)){
+
+			BufferedImage image = null;
+			BufferedImage image1 = null;
+
+			String areUsingTouchScreenDevice = req.getParameter("q35_areYou");
+			if (areUsingTouchScreenDevice.equals("Yes")) {
+
+			
+				String fileName = req.getParameter("sign1");
+
+				String newString = fileName.substring(22);
+
+				if (co_applicantExsist.equalsIgnoreCase("Yes")) {
+					String filename2 = req.getParameter("sign2");
+					String newString1 = filename2.substring(22);
+					byte[] decodedBytes1 = Base64.decode(newString1);
+					image1 = ImageIO.read(new ByteArrayInputStream(
+							decodedBytes1));
+
+				}
+
+				byte[] decodedBytes = Base64.decode(newString);
+
+				if (decodedBytes == null) {
+					System.out.println("decodedBytes  is null");
+				}
+
+				image = ImageIO.read(new ByteArrayInputStream(decodedBytes));
+
+				filepath = MortgageApplicationPdfGeneration
+						.MortgageApplicationPdfGenerationMethod(applicantName,
+								areUsingTouchScreenDevice, co_applicantExsist,
+								image, image1, "", "");
+				if (image == null) {
+					System.out.println("Buffered Image is null");
+				}
+			} else {
+				String mytypedname2 = req.getParameter("secondname");
+				// / System.out.println(mytypedname2);
+				String mytypedname1 = req.getParameter("firstname");
+				dataStoreValue.put("Signature_mytypedname1", mytypedname1);
+				dataStoreValue.put("Signature_mytypedname2", mytypedname2);
+				filepath = MortgageApplicationPdfGeneration
+						.MortgageApplicationPdfGenerationMethod(applicantName,
+								areUsingTouchScreenDevice, "Yes", null, null,
+								mytypedname1, mytypedname2);
+
+			}
+
+			// Logic to store Signature in OpenERP
+System.out.println("file path ----------"+filepath);
+			CreateApplicant signatureAppliant = new CreateApplicant();
+
+			signatureAppliant.updateApplicantSignatureAndIp(applicantId,
+					cal.getTime(), ip);
+			
+			
+			if(applicantId2!=0){
+				signatureAppliant.updateApplicantSignatureAndIp(applicantId2,
+						cal.getTime(), ip);
+			}
+			log.debug("going to update signature");
+			try{
+			/*ThankyouMailTemplateforApplicant
+					.ThankyouMailTemplateforApplicantMethod(applicantOneEmail,
+							applicantName, applicantTwoEmail,
+							applicantThreeEmail, applicantId, applicantId2,
+							"applicant.record", filepath);*/
+				SendWithUsExample sendWithUsExample=new SendWithUsExample();
+				//sendWithUsExample.sendTOclientCompletedApp(applicantName,applicantOneEmail ,applicantTwoFirstName ,applicantTwoEmail, applicantThreeEmail);
+		/*	String referralName=getReferralname(referrerEmail);
+			if(referralName==null){*/
+				//referralName=new GenericHelperClass().getReferralnameByLeadID(""+leadId);
+			/*	
+			}else if(referralName.isEmpty()){
+				referralName=new GenericHelperClass().getReferralnameByLeadID(""+leadId);
+
+			}*/
+			System.out.println("referral name -------------------------"+referralName);
+				sendWithUsExample.sendTOreferralCompletedApp(referralName.trim(), applicantName,referrerEmail, applicantTwoFirstName);
+				sendWithUsExample.sendDisclosuresToclientCompletedApp(applicantName, applicantOneEmail, applicantTwoFirstName, applicantTwoEmail, applicantThreeEmail, filepath);
+			/*SendinMailToReferrerTemplate.SendinMailToReferrerTemplateMethod(
+					referrerEmail, applicantName, applicantLastName,
+					applicantTwoFirstName, applicantTwoLastName, applicantId,
+					"applicant.record");*/
+			}catch(Exception e){
+				
+			}
+			try{
+				GenericHelperClass genericHelperClass=new GenericHelperClass();
+				log.debug("getting oppeunity name");
+				Session	openERPSession=genericHelperClass.getOdooConnection();
+					ObjectAdapter applicantAd3 = openERPSession.getObjectAdapter("crm.lead");
+					com.debortoliwines.openerp.api.FilterCollection filters11 = new com.debortoliwines.openerp.api.FilterCollection();
+					filters11.add("id","=",leadId);
+					com.debortoliwines.openerp.api.RowCollection partners11 = applicantAd3.searchAndReadObject(filters11, new String[]{"name","id"});
+					Row row=partners11.get(0);
+							log.debug("getting opprunity name:"+row.get("name"));
+							String val=null;
+							try{
+								val=row.get("referred_source").toString();
+							}catch(Exception e){
+								
+							}
+							if(val!=null){
+							new SendWithUsExample().sentToSupportReferralMissing(row.get("name").toString(), "support@visdom.ca");
+							}//CompletedMortgageAppMailTemplate.CompletedMortgageAppMailTemplateMethod(leadId, "crm.lead", row.get("name").toString(), applicantName, applicantLastName);
+			}catch(Exception e){
+				log.error("error in sending mail of completionOf maortgage"+e);
+			}
+
+			  Path path = Paths.get(filepath);
+			  byte[] data1 = Files.readAllBytes(path);
+	CouchBaseOperation storedata=new CouchBaseOperation();
+	HashMap data11=new HashMap();
+	data11.put("Mortgage Brokerage DisclosuresPdffile", data1);
+	storedata.storeDataInCouchBase("Disclosures_"+applicantId, "mortgageForm8", data11);
+	dataStoreValue.put("Mortgage Brokerage Disclosures_id", "Disclosures_"+applicantId);
+			String id="Applicant_"+applicantId;
+			dataStoreValue.put("Applicant-subForm8","Mortgage Form 8");
+
+			storedata.appendDataInCouchBase(id, dataStoreValue);
+			JSONObject jsonObject=	storedata.getData(id);
+			if(jsonObject!=null){
+				new GenericHelperClass().createNote2(new Integer(applicantId), jsonObject.toString(), "Applicant Json Data", "applicant.record");
+			}
+
+
+			try {
+				File file2 = new File(filepath);
+				file2.delete();
+				log.debug("pdf file deleted   -----------");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			org.codehaus.jettison.json.JSONObject jsoObject=new org.codehaus.jettison.json.JSONObject();
+			jsoObject.put("id", id);
+			new	DocumentAnalyzerRestCall(jsoObject
+					.toString()).start();
+		
+			// req.setAttribute("applicantId",applicantId);
+			req.setAttribute(
+					"message",
+					"Thank you for completing the Visdom Mortgage Application.  We will be in touch with you very soon.");
+			req.getRequestDispatcher("MortgageApplicationSucess.jsp").forward(
+					req, res);
+
+			// res.sendRedirect("http://form.jotformpro.com/form/50496822883971?uniqueId"+form1UniqueId);
+			/*
+			 * }else{ req.setAttribute("message",
+			 * "Both forms not filled by same Person Please fill the Form once agian"
+			 * );
+			 * req.getRequestDispatcher("MortgageApplicationSucess.jsp").forward
+			 * (req, res);
+			 * 
+			 * 
+			 * 
+			 * }
+			 */
+			/*
+			 * }else{ req.setAttribute("message",
+			 * " We are sorry, but it seems the security and reliability of your internet connection may have been weakened.  To protect your identity and the security of your information, can you please submit this application again"
+			 * );
+			 * req.getRequestDispatcher("MortgageApplicationSucess.jsp").forward
+			 * (req, res);
+			 * 
+			 * }
+			 */
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
+	public String getReferralname(String referralEmail){
+		String referralName=null;
+		String contactId=null;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 RowCollection referralList=null;
+			try{
+				
+			Session	openERPSession=new GenericHelperClass().getOdooConnection();
+			ObjectAdapter referral=openERPSession.getObjectAdapter("hr.applicant");
+
+			
+		
+		    		
+		    			FilterCollection filters1=new FilterCollection();
+						filters1.add("email_from","=",referralEmail.toLowerCase().trim());
+					    
+					   referralList= referral.searchAndReadObject(filters1, new String[]{"email_from","name","partner_id"});
+					   	System.out.println(referralList.size()+"id");
+		    	
+		    
+		    
+		    
+		    for (Row row : referralList){
+				if(row
+						.get("partner_id")!=null){
+					Object [] object=(Object[])row.get("partner_id");
+					contactId= object[0].toString();
+				}
+			}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		
+		
+		try{
+			Session openERPSession=new GenericHelperClass().getOdooConnection();
+			System.out.println("Seesion is"+openERPSession);
+		ObjectAdapter opprtunity=openERPSession.getObjectAdapter("res.partner");
+		
+		FilterCollection filter=new FilterCollection();
+		filter.add("id", "=", contactId);
+		RowCollection row=opprtunity.searchAndReadObject(filter,new String[]{"id","name"});
+		Row row1=row.get(0);
+		referralName=row1.get("name").toString();
+System.out.println("-----------------referral soursce Name--------------------- "+referralName);
+		}catch(Exception e){
+			
+		}
+		
+		return referralName;
+	}
+
+}

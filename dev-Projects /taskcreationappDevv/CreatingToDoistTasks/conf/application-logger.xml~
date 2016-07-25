@@ -1,0 +1,95 @@
+<configuration>
+    
+  <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%coloredLevel - %logger - %message%n%xException</pattern>
+    </encoder>
+  </appender>
+ <!--  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+     <file>${application.home}/logs/application.log</file>
+     <encoder>
+       <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+     </encoder>
+   </appender> -->
+    <appender name="FLUENT_TEXT"
+		class="ch.qos.logback.more.appenders.FluentLogbackAppender">
+		<tag>taskCreationApps</tag>
+		<label>normal</label>
+		<remoteHost>52.1.244.89</remoteHost>
+		<port>24225</port>
+		<maxQueueSize>20</maxQueueSize>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %property{HOSTNAME} %logger{36}.%M %line - %msg%n</pattern>
+		</layout>
+  </appender> 
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%coloredLevel %logger{15} - %message%n%xException{5}</pattern>
+    </encoder>
+  </appender>
+  
+  <logger name="play" level="INFO" />
+  <logger name="application" level="INFO" /> 
+  <logger name="application" level="DEBUG" />
+
+  <root level="ERROR">
+    <appender-ref ref="STDOUT" />
+      <appender-ref ref="FLUENT_TEXT" />
+    
+<!--     <appender-ref ref="FILE" />
+ -->  </root>
+  
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" /> 
+  <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+      remoteHost and port are optional (default values shown)
+      <remoteHost>127.0.0.1</remoteHost>
+      <port>4560</port>
+      encoder is required
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+  </appender>
+
+  Optional
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%coloredLevel %logger{15} - %message%n%xException{5}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="LOGSTASH" />
+  </appender>
+
+  <logger name="play" level="INFO" />
+  <logger name="application" level="DEBUG" />
+  
+  Off these ones as they are annoying, and anyway we manage configuration ourself
+  <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" />
+  <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
+
+  <root level="ERROR">
+    Optional
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="ASYNC" />
+  </root>  
+</configuration>
+ -->

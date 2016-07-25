@@ -1,0 +1,30 @@
+odooHost1=OPENERP_HOST_NAME
+odooPort=OPENERP_PORT
+odooDB=OPENERP_DB_NAME
+odooUsername1=OPENERP_USERNAME
+odoopassword1=OPENERP_PASSWORD
+
+ 
+couchBaseUrl1=COUCHBASE_HOST_2
+couchBaseBucketName=COUCHBASE_BUCKET_NAME
+couchBaseBucketPassword=COUCHBASE_BUCKET_PASSWORD
+ 
+pdfPath=/opt/
+ maximumRetry=3
+
+
+odooHost2=openerp.crm.local
+odooPort2=8069
+odooDB2=symlsys
+
+odooUsername2=guy@visdom.ca
+odoopassword2=VisdomTesting
+ 
+
+couchBaseUrl2=http://107.23.89.76:8091/pools
+#couchBaseUrl2=http://52.1.244.89:8091/pools
+#http://107.23.89.76:8091/pools
+ #ec2-107-23-89-76.compute-1.amazonaws.com
+ couchBaseBucketName2=syml
+ couchBaseBucketPassword2=symL@0115
+ 

@@ -1,0 +1,71 @@
+package com.syml.mail;
+
+public class ReferralInstructionsMessageTemplate {
+	
+	public static String ReferralInstructions(String name,String touchDeviceType){
+		String message="";
+		String device="";
+		if(touchDeviceType.equals("iPhone")){
+		device= "" +
+	            "     To provide a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit  you with the referral) and a little bit of informaiton about the  client.\n\n" +
+	            "To make this process quick and simple on your iPhone, please take a moment to do the following steps:\n\n" +
+	            "1) Using your phone, click this weblink to open the Visdom Referrals Page in Safari(insert production link).\n\n" +
+	            "2) At the bottom of the screen you'll see an icon depicting an arrow that  looks like it's trying to get away from a square. Tap this button and you'll have a few options.\n\n" +
+	            "3) Tap the \"Add to Home Screen\" button.&nbsp; You'll  be asked to choose a name for the homescreen icon.\n\n " +
+	            "4) Name the Icon Visdom Referrals.\n\n" +
+	            "Please note we have also emailed you these instructions in case you are rushed for time currently. Now that you have this set up, all you need to do to send your first referral to Visdom is tap the icon on your home screen and begin earning referral fees.The referrals you send will  receive a welcome message by email which outlines the process of securing their financing quickly and easily through Visdom. As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.\n\n" +
+	            "Once again,welcome to Visdom and we look forward to helping you increase your income.\n\n\n";	
+		}else if(touchDeviceType.equals("Neither")){
+			device=""+
+
+"     To provide a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit you with the referral) and a little bit of informaiton about the client.\n\n"+ 
+
+"To make this process quick and simple on your Android phone, please take a moment to do the following steps:\n\n"+
+
+"1) On your cumputer or tablet, click this weblink to open the Visdom Referrals Page. (insert production submit referrals link).\n\n"+
+
+"2) Press the bookmarks or favorites icon in your broswer.\n\n"+
+
+"3) Name the bookmark Visdom Referrals and click OK to add it.\n\n"+
+
+"4) When you need to submit a referral, open your bookmarks and click the Visdom Referrals bookmark you just created.\n\n"+
+
+"Please note we have also emailed you these instructions in case you are rushed for time currently.  Now that you have this set up, all you need to do to send your first referral to Visdom is open your bookmarks and tap the Visdom Referrals bookmark.  The referrals you send will receive a welcome message by email which outlines the process of securing their financing quickly and easily through Visdom.  As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.\n\n"+
+
+"Once again, welcome to Visdom and we look forward to helping you increase your income.\n\n\n";
+		}else if(touchDeviceType.equals("Android")){
+			device=""+
+		"    To provide a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit  you with the referral) and a little bit of informaiton about the  client.\n\n"+
+					"To make this process quick and simple on your Android phone, please take a moment to do the following steps:\n\n"+
+		"1) Using your phone, click this weblink to open the Visdom Referrals Page in your phone Browser(insert production link)\n\n"+
+		 "2) Press the Menu button and select Bookmarks.3) Select the top left thumbnail labeled Add.\n\n"+
+		"4) Name the bookmark Visdom Referrals and click OK to add it.\n\n" +
+		"5) Press and  hold on the Visdom Referrals bookmark you just created, and select Add shortcut to Home.  This will put the Visdom Referrals shortcut icon on your Home screen to allow  one-touch access.\n\n"+
+		"Please note we have also emailed you these instructions in case you are rushed for time currently. Now that you have this set up, all you need to do to send your first referral to Visdom is tap the icon on your home screen and begin earning referral fees. The referrals you send will  receive a welcome message by email which outlines the process of securing their financing quickly and easily through Visdom. As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.\n\n"+
+		"Once again, welcome to Visdom and we look forward to helping you increase your income.\n\n\n";
+		}
+		
+		message="Good day "+name+".\n\n\n"+
+		
+			"      Welcome to the Visdom Mortgage Solutions Referral Program. Now that we are working as a team, it is our goal to make the process of participating as easy and simple as possible for you. To provide a referral, all you need to do is email the referrals contact information (including their email address) to referrals@visdom.ca.\n\n"+
+
+              ""+device+""+
+            
+            "Best Regards,\n\n"+
+           "Kendall Raessler\n"+
+            "President\n"+
+            "Visdom Mortgage Solutions\n"+
+            "administration@visdom.ca\n"+
+            "www.visdom.ca\n\n"+
+            
+            
+            "CONFIDENTIALITY: This e-mail message (including attachments, if any) is confidential and is intended only for the addressee. Any unauthorized use or disclosure is strictly prohibited. Disclosure of this e-mail to anyone other than the intended addressee does not constitute waiver of privilege. If you have received this communication in error, please notify us immediately and delete this. Thank you for your cooperation.  This message has not been encrypted. Special arrangements can be made for encryption upon request. If you no longer wish to receive e-mail messages from Visdom Mortgage Solutions , please contact the sender.\n\n"+
+           "Visit our website at www.visdom.ca  for information about our company and the services we provide.You can subscribe to Visdom Mortgage Solutions free electronic communications, or unsubscribe at any time" ;
+		
+		
+		
+		
+		return message; 
+	}
+
+}

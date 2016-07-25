@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">  <display-name>syml-odoo-middle</display-name>
+ 
+ 
+ 
+ <welcome-file-list>  
+   <welcome-file>wfg.html</welcome-file>  
+   <welcome-file>default.html</welcome-file>  
+  </welcome-file-list>  
+ 
+  <servlet>
+    <servlet-name>firstForm</servlet-name>
+    <servlet-class>com.syml.jotform.submitReferalForm.SubmitReferalForm1ServletD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>firstForm</servlet-name>
+    <url-pattern>/testme</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>applyme</servlet-name>
+    <servlet-class>com.syml.jotform.applyNowForm.ApplyNowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>applyme</servlet-name>
+    <url-pattern>/applyme</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>secondForm</servlet-name>
+    <servlet-class>com.syml.jotform.submitReferalForm.SubmitReferalForm2ServletD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>secondForm</servlet-name>
+    <url-pattern>/secondForm</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>mortgageForm</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageApplicationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm</servlet-name>
+    <url-pattern>/mortgageForm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mortgageForm1a</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm1aServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm1a</servlet-name>
+    <url-pattern>/mortgageForm1a</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mortgageForm1b</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm1bServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm1b</servlet-name>
+    <url-pattern>/mortgageForm1b</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>mortgageForm1c</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm1cServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm1c</servlet-name>
+    <url-pattern>/mortgageForm1c</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mortgageForm2</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm2</servlet-name>
+    <url-pattern>/mortgageForm2</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>mortgageForm3</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm3Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm3</servlet-name>
+    <url-pattern>/mortgageForm3</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>mortgageForm4</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm4Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm4</servlet-name>
+    <url-pattern>/mortgageForm4</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>mortgageForm5</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm5Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm5</servlet-name>
+    <url-pattern>/mortgageForm5</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mortgageForm6</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm6Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm6</servlet-name>
+    <url-pattern>/mortgageForm6</url-pattern>
+  </servlet-mapping>
+  
+  
+
+  
+  <servlet>
+    <servlet-name>mortgageForm7</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm7Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm7</servlet-name>
+    <url-pattern>/mortgageForm7</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mortgageForm8</servlet-name>
+    <servlet-class>com.syml.mortgage.application.MortgageForm8Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageForm8</servlet-name>
+    <url-pattern>/mortgageForm8</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+     <servlet>
+    <servlet-name>mortgageApplicationCo1b</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCoServlet1b</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo1b</servlet-name>
+    <url-pattern>/mortgageApplicationCo1b</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>mortgageApplicationCo1c</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCoServlet1c</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo1c</servlet-name>
+    <url-pattern>/mortgageApplicationCo1c</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>mortgageApplicationCo2</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCoServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo2</servlet-name>
+    <url-pattern>/mortgageApplicationCo2</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>mortgageApplicationCo3</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCoServlet3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo3</servlet-name>
+    <url-pattern>/mortgageApplicationCo3</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mortgageApplicationCo4</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCOServlet4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo4</servlet-name>
+    <url-pattern>/mortgageApplicationCo4</url-pattern>
+  </servlet-mapping>
+   
+  <servlet>
+    <servlet-name>mortgageApplicationCo5</servlet-name>
+    <servlet-class>com.syml.mortgage.co.MortgageApplicationCOServlet5</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mortgageApplicationCo5</servlet-name>
+    <url-pattern>/mortgageApplicationCo5</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>visdomReferalForm1</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce.FirstVisidamReferalFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm1</servlet-name>
+    <url-pattern>/visdomReferalForm1</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>visdomReferalForm2</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce.SecondVisdomReferrelFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm2</servlet-name>
+    <url-pattern>/visdomReferalForm2</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>visdomReferalForm3</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce.ThirdVisdomReferralFomServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm3</servlet-name>
+    <url-pattern>/visdomReferalForm3</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>visdomReferalForm11</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce2.FirstVisidamReferalFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm11</servlet-name>
+    <url-pattern>/visdomReferalForm11</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>visdomReferalForm21</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce2.SecondVisdomReferrelFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm21</servlet-name>
+    <url-pattern>/visdomReferalForm21</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>visdomReferalForm31</servlet-name>
+    <servlet-class>com.syml.jotform.visdomReferrelResoursce2.ThirdVisdomReferralFomServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>visdomReferalForm31</servlet-name>
+    <url-pattern>/visdomReferalForm31</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>

@@ -1,0 +1,1279 @@
+package com.sendwithus;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import play.core.enhancers.PropertiesEnhancer.RewrittenAccessor;
+import scalaz.std.string;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sendwithus.SendWithUs;
+import com.sendwithus.exception.SendWithUsException;
+import com.sendwithus.model.DeactivatedDrips;
+import com.sendwithus.model.Email;
+import com.sendwithus.model.SendReceipt;
+
+
+
+public class SendWithUsExample {
+
+    public static final String SENDWITHUS_API_KEY = "live_a7c95c3b0fb3acb519463955b1a2be67b2299734";
+    public static final String EMAIL_ID_WELCOME_EMAIL = "tem_su5msryYNEqXUvdV9CnNgb";
+    public static final String EMAIL_ID_WELCOME_EMAIL1 = "tem_GwD5YrZnJgisMx8XPXWonT";
+    public static final String EMAIL_ID_WELCOME_EMAIL2 = "tem_smDhYJa3CP3CyCPeJv5ALF";
+    public static final String EMAIL_ID_WELCOME_EMAIL3 = "tem_vZkNdBwuKrmjKKBR5axGj3";
+    public static final String EMAIL_ID_WELCOME_EMAIL4 = "tem_dARGRv2m4bhdBKtD5VPpmn";
+    public static final String EMAIL_ID_WELCOME_EMAIL5 = "tem_e4TpkWbKTYcyKmL2tJ9MRT";
+    public static final String EMAIL_ID_WELCOME_EMAIL6 = "tem_Gy5GoFyzR6zwHL7NJkwKiC";
+    public static final String EMAIL_ID_WELCOME_EMAIL7 = "tem_WawpgMtMfXCSiCwXwRiW7B";
+    public static final String EMAIL_ID_WELCOME_EMAIL8 = "tem_2UVVLDiFtRR3oMEBukDfWT";
+    public static final String EMAIL_ID_WELCOME_EMAIL9 = "tem_89qDEGb4ewqiwbzFAK6Ckf";
+    public static final String EMAIL_ID_WELCOME_EMAIL10 = "tem_xX4UhhfXpcTNNqMWqt9PeW";
+
+    
+    
+    
+ /*public static void main(String[] args) throws JsonProcessingException {
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+System.out.println("First steps Email Ok");
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+
+
+//Send Welcome Email
+//Map<String, Object> ccMap = new HashMap<String, Object>();
+//ccMap.put("address", "deeplai.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+System.out.println("CCMAP is "+mapAsJson);
+
+
+
+
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Company"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+
+
+String myvar = "{"+
+"            \"firstName\": \"John\","+
+"            \"lastName\": \"Soiseth\","+
+"            \"email\": \"soiseth@live.com\","+
+"            \"documents\": ["+
+"                \"2013 Notice of Assessment\","+
+"                \"2014 T4\","+
+"                \"Copy of Photo ID (Driver?s Licence or Passport)\","+
+"                \"Child Tax Credit\""+
+"            ]"+
+"        },"+
+"        {"+
+"            \"firstName\": \"Joslyn\","+
+"            \"lastName\": \"Davidson\","+
+"            \"email\": \"soiseth@live.com\","+
+"            \"documents\": ["+
+"                \"Copy of Photo ID (Driver?s Licence or Passport)\","+
+"                \"Child Tax Credit\""+
+"            ]"+
+"        }";
+	
+String[] attachments = {"firstName"};
+
+
+
+
+
+ 
+
+
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage+"\t"+"Jhon");
+emailDataMap.put("ClientName", "Jhon");
+emailDataMap.put("DocumentsRequiredList", myvar);
+emailDataMap.put("DueDate", currentDateTime);
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+        	SendReceipt sendReceipt = sendwithusAPI.send(
+        		    EMAIL_ID_WELCOME_EMAIL,
+        		    recipientMap,
+        		    senderMap,
+        		    emailDataMap,
+        		    null,
+        		    null,
+        		    attachments
+        		    
+        		);
+        	
+        	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }*/
+    public void getsendWithUs(String applicantname) throws JsonProcessingException {
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+System.out.println("First steps Email Ok");
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+
+
+//Send Welcome Email
+//Map<String, Object> ccMap = new HashMap<String, Object>();
+//ccMap.put("address", "deeplai.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+System.out.println("CCMAP is "+mapAsJson);
+
+
+
+
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Company"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+
+
+String myvar = "{"+
+"            \"firstName\": \"John\","+
+"            \"lastName\": \"Soiseth\","+
+"            \"email\": \"soiseth@live.com\","+
+"            \"documents\": ["+
+"                \"2013 Notice of Assessment\","+
+"                \"2014 T4\","+
+"                \"Copy of Photo ID (Driver?s Licence or Passport)\","+
+"                \"Child Tax Credit\""+
+"            ]"+
+"        },"+
+"        {"+
+"            \"firstName\": \"Joslyn\","+
+"            \"lastName\": \"Davidson\","+
+"            \"email\": \"soiseth@live.com\","+
+"            \"documents\": ["+
+"                \"Copy of Photo ID (Driver?s Licence or Passport)\","+
+"                \"Child Tax Credit\""+
+"            ]"+
+"        }";
+	
+String[] attachments = {"firstName"};
+
+
+
+
+
+ 
+
+
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage+"\t"+applicantname);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("DocumentsRequiredList", myvar);
+emailDataMap.put("DueDate", currentDateTime);
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+        	/*SendReceipt sendReceipt = sendwithusAPI.send(
+        		    EMAIL_ID_WELCOME_EMAIL,
+        		    recipientMap,
+        		    senderMap,
+        		    emailDataMap,
+        		    null,
+        		    null,
+        		    attachments
+        		    
+        		);*/
+        	
+        	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    public void getsendWithUsRefferal(String applicantname,String referralEmail ,String referralSourceName) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+System.out.println("First steps Email Ok");
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", referralSourceName); // optional
+recipientMap.put("address", referralEmail);
+
+
+
+
+//Send Welcome Email
+//Map<String, Object> ccMap = new HashMap<String, Object>();
+//ccMap.put("address", "deeplai.singh@bizruntime.com");
+
+/*
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+*/
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+System.out.println("CCMAP is "+mapAsJson);
+
+
+
+
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", " Referral - Proposal Notification"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+	
+String[] attachments = {"firstName"};
+
+
+
+
+
+ 
+
+
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ReferralSourceName", referralSourceName);
+emailDataMap.put("ClientName", applicantname);
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+        	/*SendReceipt sendReceipt = sendwithusAPI.send(
+        		    EMAIL_ID_WELCOME_EMAIL,
+        		    recipientMap,
+        		    senderMap,
+        		    emailDataMap,
+        		    null,
+        		    null,
+        		    attachments
+        		    
+        		);*/
+        	
+        	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL1,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL1)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsApplicant_CoApplicant(String applicantname,String propersolLink,String applicantEmail,String coApplicantEmail) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+System.out.println("First steps Email Ok");
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", applicantname); // optional
+recipientMap.put("address",applicantEmail);
+
+
+
+
+//Send Welcome Email
+//Map<String, Object> ccMap = new HashMap<String, Object>();
+//ccMap.put("address", "deeplai.singh@bizruntime.com");
+
+if(coApplicantEmail!=null){
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", coApplicantEmail);
+ccMap[0]=ccMap1;
+
+}
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+System.out.println("CCMAP is "+mapAsJson);
+
+
+
+
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Client - Proposal Notification"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("ProposalLink", propersolLink);
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+        	/*SendReceipt sendReceipt = sendwithusAPI.send(
+        		    EMAIL_ID_WELCOME_EMAIL,
+        		    recipientMap,
+        		    senderMap,
+        		    emailDataMap,
+        		    null,
+        		    null,
+        		    attachments
+        		    
+        		);*/
+        	
+        	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL2,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL2)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsReferalProposal(String applicantname,String referalSourceName,String referralEmail,String singulerPlureler,String lenderNAme) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+System.out.println("First steps Email Ok");
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", referalSourceName); // optional
+recipientMap.put("address", referralEmail);
+
+
+/*Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;*/
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+System.out.println("CCMAP is "+mapAsJson);
+
+
+
+
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Referral - Proposal Notification"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+
+emailDataMap.put("ReferralSourceName",referalSourceName);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("SingularPlural", singulerPlureler);
+emailDataMap.put("LenderName", lenderNAme);
+
+emailDataMap.put("ClientNamePossessive", "ClientName + "+"‘s" );
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+        	/*SendReceipt sendReceipt = sendwithusAPI.send(
+        		    EMAIL_ID_WELCOME_EMAIL,
+        		    recipientMap,
+        		    senderMap,
+        		    emailDataMap,
+        		    null,
+        		    null,
+        		    attachments
+        		    
+        		);*/
+        	
+        	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL2,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL2)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsProductSelection(String applicantname,String lenderNAme,String productName,String mortgageType,String term,String amortization,String interestRate,String expectedPayment,String applicantEmail,String coApplicantEmail) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", applicantname); // optional
+recipientMap.put("address", applicantEmail);
+
+if(coApplicantEmail!=null){
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", coApplicantEmail);
+ccMap[0]=ccMap1;
+}
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Client - Product Selection"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("LenderName", lenderNAme);
+emailDataMap.put("ProductName",productName);
+emailDataMap.put("MortgageType", mortgageType);
+emailDataMap.put("Term", term);
+emailDataMap.put("Amortization", amortization);
+emailDataMap.put("InterestRate", interestRate);
+emailDataMap.put("ExpectedPayment", expectedPayment);
+
+
+
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL3,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL3)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsClient_LawyerDetail(String applicantname) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Client - Lawyer Details"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ClientName", applicantname);
+
+
+
+
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL4,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL4)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsClient_RefferalSource(String applicantname,String referralSourceName,String referralEmail) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", referralSourceName); // optional
+recipientMap.put("address", referralEmail);
+
+
+/*Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;*/
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Referral - Lender Approval"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ReferralSourceName", referralSourceName);
+emailDataMap.put("ClientName", applicantname);
+
+
+
+
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL5,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL5)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+   /* public void getsendWithUsApplicantCompasation(String applicantname,String lenderName) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Client - File Complete"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ClientName", applicantname);
+
+emailDataMap.put("LenderName", lenderName);
+
+
+
+
+
+        // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL6,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL6)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }*/
+    
+    
+   /* public void getsendWithUsReferral_FileComplete(String applicantname,String referalSourceName) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Referral - File Complete"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ReferralSourceName", referalSourceName);
+emailDataMap.put("ClientName", applicantname);
+ // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL7,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL7)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    */
+    
+    public void getsendWithUsApplicant_Client_FinalCongratulations(String applicantname,String surveyLink) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", "vikash"); // optional
+recipientMap.put("address", "vikash.singh@bizruntime.com");
+
+
+Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Client - Final Congratulations"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("SurveyLink", surveyLink);
+
+ // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL8,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL8)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    
+    public void getsendWithUsReferral_Final_Congratulations(String applicantname,String refSource,String referralEmail,String referralFeeAmount) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", refSource); // optional
+recipientMap.put("address", referralEmail);
+
+
+/*Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;*/
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Referral Final Congratulations"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ReferralSourceName", refSource);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("ReferralFeeAmount", referralFeeAmount);
+
+ // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL9,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL9)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    
+    public void getsendWithUsReferral_Referral_Paid(String applicantname,String refSource,String referralMail,String referralFeeAmount) throws JsonProcessingException {
+
+    	Map<String, Object>[] ccMap = (Map<String, Object>[]) new Map[1];
+        SendWithUs sendwithusAPI = new SendWithUs(SENDWITHUS_API_KEY);
+
+        // Print list of available emails
+        try {
+            Email[] emails = sendwithusAPI.emails();
+            for (int i = 0; i < emails.length; i++) {
+                System.out.println(emails[i].toString());
+            }
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+// Send Welcome Email
+Map<String, Object> recipientMap = new HashMap<String, Object>();
+recipientMap.put("name", refSource); // optional
+recipientMap.put("address", referralMail);
+
+
+/*Map<String, Object> ccMap1 = new HashMap<String, Object>();
+ccMap1.put("address", "venkatesh.m@bizruntime.com");
+ccMap[0]=ccMap1;*/
+
+String mapAsJson = new ObjectMapper().writeValueAsString(ccMap);
+// sender is optional
+Map<String, Object> senderMap = new HashMap<String, Object>();
+senderMap.put("name", "Referral - Paid"); // optional
+senderMap.put("address", "vikash.singh@bizruntime.com");
+senderMap.put("reply_to", "vikash.singh@bizruntime.com"); // optional
+
+// email data in to inject in the email template
+Map<String, Object> emailDataMap = new HashMap<String, Object>();
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SendWithUsExample sendus=new SendWithUsExample();
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE, 3);
+String currentDateTime=(dateFormat.format(cal.getTime())); 
+String mesage=sendus.getGreeting();
+emailDataMap.put("Greeting", mesage);
+emailDataMap.put("ReferralSourceName", refSource);
+emailDataMap.put("ClientName", applicantname);
+emailDataMap.put("ReferralFeeAmount", referralFeeAmount);
+
+ // Example sending a simple email
+        System.out.println("Before Try");
+        try {
+               	
+           SendReceipt sendReceipt = sendwithusAPI.send(EMAIL_ID_WELCOME_EMAIL10,
+                recipientMap,
+                senderMap,
+                emailDataMap,
+                ccMap
+                
+            );
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+            System.out.println(e.toString());
+        }
+        
+        // Example sending the same simple email using the new SendWithUsSendRequest class
+        try {
+			SendWithUsSendRequest request = new SendWithUsSendRequest()
+            	.setEmailId(EMAIL_ID_WELCOME_EMAIL10)
+        		.setRecipient(recipientMap)
+        		.setSender(senderMap)
+        		.setEmailData(emailDataMap)
+        		.setCcRecipients(ccMap)
+        		;
+            SendReceipt sendReceipt = sendwithusAPI.send(request);
+            System.out.println(sendReceipt);
+        } catch (SendWithUsException e) {
+           e.printStackTrace();
+        }
+    }
+    public String getGreeting(){
+    	String greeting="";
+    	GregorianCalendar time = new GregorianCalendar();  
+    	int hour = time.get(Calendar.HOUR_OF_DAY);  
+    	int min = time.get(Calendar.MINUTE);  
+    	int day = time.get(Calendar.DAY_OF_MONTH);  
+    	int month = time.get(Calendar.MONTH) + 1;  
+    	int year = time.get(Calendar.YEAR);  
+
+    	System.out.println("The current time is \t" + hour + ":" + min);  
+    	System.out.println("Today's date is \t" + month + "/" + day + "/"  
+    	  + year);  
+
+    	if (hour < 12 && hour>5){
+    		greeting="Good Morning!";
+    	 System.out.println("Good Morning!");  
+    	}else if (hour < 17 && !(hour == 12)){  
+    		greeting="Good Afternoon";
+    	 System.out.println("Good Afternoon");  
+    	}else if (hour == 12)  {
+    		greeting="Good Noon";
+
+    	 System.out.println("Good Noon");  
+    }else if (hour > 17 && hour<5)  {
+    		 System.out.println("Hello");  
+    	}else  
+    	 System.out.println("Good Evening"); 
+		return greeting;
+    	
+    	
+    	
+    }
+
+}
