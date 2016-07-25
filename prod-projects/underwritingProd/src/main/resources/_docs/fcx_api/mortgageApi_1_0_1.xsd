@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by Dave Krick (D LIMITED PARTNERSHIP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="FCXGlobalTypeApi_1_0_1.xsd"/>
+	<xs:element name="mortgage" type="MortgageType"/>
+	<xs:complexType name="MortgageType">
+		<xs:sequence>
+			<xs:element name="actualPaymentTerm" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The period of time over which the interest rate, payment and other mortgage conditions are set. At the end of the term the mortgage is due and payable unless renewed. (Months)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="3"/>
+						<xs:maxExclusive value="1000"/>
+						<xs:minExclusive value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="amortizationTerm" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The contractual period over which the mortgage amortization is calculated. (Months)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="3"/>
+						<xs:maxExclusive value="1000"/>
+						<xs:minExclusive value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="balanceRemaining" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>New Morgtage:
+       - do not enter
+Existing Mortages: 
+     - Current outstanding balance</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="15"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="10000000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="cashBackAmt" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The cash back amount in dollars.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="cashBackOverride" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Yes/No flag indicating if the Cash back Amount or the Cash back Percent was calculated.
+If ‘Y’ the Cash Back Percent was calculated (cash back percent = cash back amount/ total loan amount*100).
+If 'N' the Cash Back Amount was calculated (cash back amount = total loan amount * cash back percent/100).
+
+Y=Yes, N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="cashBackPercentage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The cash back percentage. </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="5"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="currentMortgageNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lender’s account number of existing mortgage if refinance deal.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="existingMortgageHolder" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of existing mortgage holder.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="insuredFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag indicating that mortgage default insurance is required.
+Y=Yes, N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="interestCompoundDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interest compounding method used to calculate payment.
+Menu Code: INTERESTCOMPOUND</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Semi Annually</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Monthly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="interestOnlyFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Y = Interest Only
+N = Principal And Interest</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Interest Only</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>Principal And Interest</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="repaymentTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the type of repayment used when calculating the payment.
+Menu Code: REPAYMENTTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Blended PI</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Interest Plus Fixed Principal</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Interest Only Variable</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Interest Only Fixed</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>At Maturity</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="interestTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the type of interest used on this mortgage, ie. fixed, adjustable, variable.
+Menu Code: INTERESTTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Fixed</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Adjustable</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Capped Variable</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Variable</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Buydown</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="loanTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the type of loan, ie, Mortgage,LOC,MCM.
+Menu Code: LOANTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Mortgage</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Secured LOC</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Multiple Component</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="locRepaymentTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Repayment type for Mortgage Insurance Line of Credit.
+Menu Code: LOCREPAYMENTTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>5/20</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>10/15</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="maturityDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date the payment term matures. The last day of the term of the mortgage agreement. </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="miReferenceNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The MI policy number (Certificate) assigned by the Mortgage Insurer for this mortgage. If mortgage is new, this elment will not be present.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mortgageInsurerId" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Mortgage Insurance Provider ,(existing subject property mortgages only).
+Menu Code: MORTGAGEINSURANCECARRIER</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>CMHC</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Genworth</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Canada Guaranty</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mortgageTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates lien position/charge type.
+Menu Code: MORTGAGETYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>First</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Second</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Third</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mtgInsIncludeFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Yes/No flag indicating if the MI Premium is to be financed (capitalized) or paid upfront at closing. 
+Y=Yes, N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="netLoanAmount" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Requested loan amount or base loan amount.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="originalMortgageAmount" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Original mortgage amount if the mortgage is refinance.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PAndIPaymentAmount" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Principal and Interest portion of payment in frequency payment amount.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paymentFrequencyDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates frequency when payments are to be made.
+Menu Code: PAYMENTFREQUENCY</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Monthly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Semi Monthly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Biweekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Accelerated Biweekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Weekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Accelerated Weekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paymentTermDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the type of term of the morgage, ie. closed/open.
+Menu Code: TERMTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Closed</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Open</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Convertible</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="payoffTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If morgtage is to be paid off, indicates when and how.
+Menu Code: MORTGAGEPAYOFFTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Prior to Advance</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>From Proceeds</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interest Rate</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="requestedRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Interest rate applicable to mortgage. Supplied by the Mortgage Product selected if available or entered manually.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="12"/>
+									<xs:fractionDigits value="6"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="1000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="discount" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Discount percentage subtracted from Interest rate.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="12"/>
+									<xs:fractionDigits value="6"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="1000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="premium" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Premium percentage added to the Interest rate.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="12"/>
+									<xs:fractionDigits value="6"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="1000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="buyDownRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage (basis points) subtracted from interest rate. </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="12"/>
+									<xs:fractionDigits value="6"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="1000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="netRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Calculated rate based on requested rate, discount, buy down, and premium.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="12"/>
+									<xs:fractionDigits value="6"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="1000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="interestRate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interest Rate entered  by user on existing mortgages.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="12"/>
+						<xs:fractionDigits value="6"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="1000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="refiAdditionalInformation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>User entered information about the existing mortgage  that can not be entered in any defined attributes (ie.MCM details).</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="512"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="refiBlendedAmortization" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Yes or No flag to indicate a blended amortization in a refinance application.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="singleProgressiveTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies whether the mortgage advance is single or progressive advancements.
+0 - No (single advance)
+1 - Yes (Progress advances)
+Menu Code: SINGLEPROGRESSIVETYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mortgageadditionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

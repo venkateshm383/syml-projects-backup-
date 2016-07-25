@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="_resources/background.css">
+<link type="text/css" rel="stylesheet" href="_resources/forms.css">
+<link type="text/css" rel="stylesheet" href="_resources/template.css">
+</head>
+<body>
+
+
+
+
+
+
+	<div style="padding-bottom: 20px; margin-top: 20px; padding-left: 45%">
+		<img alt="Visdom Logo" height="90" width="260"
+			src="https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png" />
+
+
+	</div>
+
+	<div class="container-fluid">
+
+
+		<form name="myForm" action="#" onsubmit="return validateForm()">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-7 container-bg text-color-blue">
+					<div style="padding-top: 50px"></div>
+
+
+
+
+
+
+
+
+
+					<div>
+						<center>
+							<h4>Welcome to the Visdom Mortgage Solutions referral
+								program.</h4>
+						</center>
+					</div>
+					<br>
+
+
+					<div class="form-group" style="width: 60%">
+						<label for="usr"> <Strong>What best describes
+								your role? </Strong><span style="color: red; font-size: 3">*</span></label>
+
+					</div>
+
+
+					<div class="btn-group" data-toggle="buttons">
+						<label style="width: 180px" class="btn btn-primary realtor">
+							<input type="radio" name="options" id="option1"
+							value="Completed App" required>Realtor
+						</label> <label style="width: 180px" class="btn btn-primary planner">
+							<input type="radio" name="options" id="option2"
+							value="Awaiting Docs" required>Financial planner
+						</label> <br> <br> <label style="width: 180px"
+							class="btn btn-primary prof"> <input type="radio"
+							name="options" id="option3" value="All Product" required>
+							Professional
+						</label> <label style="width: 180px" class="btn btn-primary client">
+							<input type="radio" name="options" id="option4" value="Proposal"
+							required> Client
+						</label>
+
+
+
+					</div>
+					<br> <br>
+					<div class="form-group" style="width: 60%">
+						<label for="usr"> <Strong>Your First Name </Strong><span
+							style="color: red; font-size: 3">*</span></label> <input type="text"
+							name="fname" class="form-control" required>
+
+					</div>
+					<br>
+					<div class="form-group" style="width: 60%">
+						<label for="pwd"><Strong>Your Last Name</Strong> <span
+							style="color: red; font-size: 3">*</span> </label> <input type="text"
+							name="lname" class="form-control" required>
+					</div>
+					<br>
+
+
+
+
+
+
+					<div class="form-group" style="width: 60%">
+						<label for="pwd"><Strong> E-mail Address</Strong><span
+							style="color: red; font-size: 3">*</span> </label> <input type="email"
+							name="email" class="form-control"
+							placeholder="Ex: myemail@example.com" data-toggle="tooltip"
+							data-placement="right"
+							title="All communication occurs by email with your referral including the initial private mortgage application. Please double check email address for accuracy."
+							required>
+					</div>
+
+					<div class="form-group" style="width: 60%">
+						<input type="email" name="email2" class="form-control"
+							placeholder="Confirm Email" required>
+						<div id="error"></div>
+					</div>
+					<br>
+
+					<div class="form-group" style="width: 40%"
+						title="This is the text of the tooltip">
+						<label><Strong>Phone Number </Strong> <span
+							style="color: red; font-size: 3">*</span> </label> <input type="text"
+							class="form-control" name="phone" id="phonedatata"
+							data-toggle="tooltip" data-placement="right"
+							title="Please provide a mobile number so we can better assist your referral by phone if required."
+							required /> <span>Please specify numeric values only </span>
+					</div>
+					<br>
+					<div class="form-group" style="width: 100%">
+						<label for="pwd"><Strong>In some regulated
+								occupations, referral compensation must be paid to the company a
+								person is licensed with rather than directly to individuals
+								(e.g. Real Estate Agent, Mortgage Broker). Should referral
+								compensation be paid directly to you or to the company you work
+								with? * </Strong><span style="color: red; font-size: 3">*</span> </label>
+					</div>
+
+
+
+
+
+					<div class="btn-group" data-toggle="buttons">
+						<label style="width: 100px" class="btn btn-primary test1">
+							<input type="radio" name="sendMe" id="option1" value="Charity"
+							required> Charity
+						</label> <label style="width: 100px" class="btn btn-primary test">
+							<input type="radio" name="sendMe" id="option2" value="Send To Me"
+							required> Send To me
+						</label>
+					</div>
+					<br>
+					<br>
+
+					<div class="collapse">
+
+						<div class="form-group" style="width: 60%">
+							<label for="pwd"><Strong> Company Name </Strong><span
+								style="color: red; font-size: 3">*</span> </label> <input type="text"
+								name="reffirstname" class="form-control" required>
+						</div>
+
+						<div class="form-group" style="width: 60%">
+							<label for="pwd"><Strong> Company Address </Strong><span
+								style="color: red; font-size: 3">*</span> </label> <input
+								id="geocomplete1" type="text" name="formatted_address"
+								class="form-control" placeholder="Enter Location" required>
+						</div>
+					</div>
+
+
+					<div class="form-group" style="width: 70%">
+						<label for="pwd"><Strong> What is the name of the
+								Brokerage you are licensed under? </Strong><span
+							style="color: red; font-size: 3">*</span> </label> <input type="text"
+							name="reffirstname" class="form-control" required>
+					</div>
+					<div class="map_canvas"></div>
+					<div class="form-group" style="width: 60%; height: 30%">
+						<label for="pwd"><Strong> What is the address of
+								the Brokerage?</Strong> <span style="color: red; font-size: 3">*</span> </label>
+						<input id="geocomplete" type="text" name="formatted_address"
+							class="form-control" placeholder="Enter Location" required>
+
+
+					</div>
+					<div class="form-group" style="width: 60%">
+						<label for="pwd"><Strong> What is the phone
+								number of the Brokerage? </Strong> <span style="color: red; font-size: 3">*</span>
+						</label> <input type="text" name="reffirstname" class="form-control"
+							required>
+					</div>
+
+					<div class="form-group" style="width: 60%">
+						<label for="pwd"><Strong>Who is the Broker that
+								manages the company where you are licenced? </Strong> <span
+							style="color: red; font-size: 3">*</span> </label> <input type="text"
+							name="reffirstname" class="form-control" required>
+					</div>
+					<div class="form-group" style="width: 100%">
+						<label for="pwd"><Strong>Who referred you to
+								Visdom? (Or how did you find Visdom in the event you were not
+								referred by a person) </Strong> <span style="color: red; font-size: 3">*</span>
+						</label> <input type="text" name="reflastname" class="form-control"
+							required>
+					</div>
+					<br>
+
+
+
+					<div align="left">
+
+						<input type="submit" class="btn btn-primary btn-block"
+							value="Submit">
+					</div>
+
+
+
+
+					<div style="padding-bottom: 50px;"></div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+		</form>
+	</div>
+
+
+</body>
+
+
+
+<script>
+$(document).ready(function(){
+  
+    $(".test1").click(function(){
+        $(".collapse").collapse('show');
+    });
+    $(".test").click(function(){
+        $(".collapse").collapse('hide');
+    });
+});
+</script>
+
+</html>

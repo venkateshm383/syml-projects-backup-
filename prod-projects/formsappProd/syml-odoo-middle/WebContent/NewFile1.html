@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>jQuery Signature Pad Examples</title>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+<link href="jquery.signaturepad.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/flashcanvas.js"></script><![endif]-->
+
+</head>
+<body>
+
+
+<form method="post" action="">
+<div class="sigPad" id="linear" style="width:404px;">
+ 
+<ul class="sigNav">
+<li ><a href="#draw-it" ></a></li>
+<li class="clearButton"><a href="#clear">Clear</a></li>
+</ul>
+<div class="sig sigWrapper" style="height:auto;">
+<div class="typed"></div>
+<canvas class="pad" width="400" height="250"></canvas>
+<input type="hidden" name="output" class="output">
+</div>
+ </div> 
+
+</form>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="numeric-1.2.6.min.js"></script> 
+<script src="bezier.js"></script> 
+<script src="jquery.signaturepad.js"></script> 
+<script>
+    $(document).ready(function() {
+      $('#linear').signaturePad({drawOnly:true, lineTop:200});
+      $('#smoothed').signaturePad({drawOnly:true, drawBezierCurves:true, lineTop:200});
+      $('#smoothed-variableStrokeWidth').signaturePad({drawOnly:true, drawBezierCurves:true, variableStrokeWidth:true, lineTop:200});
+    });
+  </script> 
+<script src="../assets/json2.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>

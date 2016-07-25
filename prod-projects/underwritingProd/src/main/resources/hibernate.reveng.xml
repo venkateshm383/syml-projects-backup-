@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<type-mapping>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+</type-mapping>
+<table-filter match-catalog="underwriting" match-name="res_partner" />
+	<table-filter match-catalog="underwriting" match-name="crm_lead" />
+	<table-filter match-catalog="underwriting" match-name="crm_meeting" />
+	<table-filter match-catalog="underwriting"
+		match-name="product_product" />
+	<table-filter match-catalog="underwriting"
+		match-name="product_template" />
+	<table-filter match-catalog="underwriting" match-name="product_uom" />
+	<table-filter match-catalog="underwriting"
+		match-name="product_uom_categ" />
+	<table catalog="underwriting" name="product_uom_categ" class="ProductUomCateg">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="name"></column>
+	</table>
+	<table catalog="underwriting" name="crm_meeting" class="OpportunityMetting">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="date_closed"></column>
+		<column name="allday"></column>
+		<column name="sequence"></column>
+		<column name="we"></column>
+		<column name="base_calendar_alarm_id"></column>
+		<column name="rrule"></column>
+		<column name="duration"></column>
+		<column name="organizer"></column>
+		<column name="month_list"></column>
+		<column name="user_id"></column>
+		<column name="vtimezone"></column>
+		<column name="tu"></column>
+		<column name="recurrency"></column>
+		<column name="week_list"></column>
+		<column name="state"></column>
+		<column name="base_calendar_url"></column>
+		<column name="location"></column>
+		<column name="th"></column>
+		<column name="exrule"></column>
+		<column name="exdate"></column>
+		<column name="fr"></column>
+		<column name="recurrent_id_date"></column>
+		<column name="description"></column>
+		<column name="end_date"></column>
+		<column name="class"></column>
+		<column name="byday"></column>
+		<column name="date"></column>
+		<column name="active"></column>
+		<column name="day"></column>
+		<column name="name"></column>
+		<column name="count"></column>
+		<column name="end_type"></column>
+		<column name="date_open"></column>
+		<column name="date_deadline"></column>
+		<column name="mo"></column>
+		<column name="interval"></column>
+		<column name="su"></column>
+		<column name="alarm_id"></column>
+		<column name="recurrent_id"></column>
+		<column name="select1"></column>
+		<column name="organizer_id"></column>
+		<column name="sa"></column>
+		<column name="rrule_type"></column>
+		<column name="show_as"></column>
+		<column name="opportunity_id"></column>
+		<column name="phonecall_id"></column>
+	</table>
+	<table catalog="underwriting" name="crm_lead" class="Opportunity">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="date_closed"></column>
+		<column name="type_id"></column>
+		<column name="color"></column>
+		<column name="date_action_last"></column>
+		<column name="day_close"></column>
+		<column name="active"></column>
+		<column name="street"></column>
+		<column name="day_open"></column>
+		<column name="contact_name"></column>
+		<column name="partner_id"></column>
+		<column name="city"></column>
+		<column name="date_open"></column>
+		<column name="user_id"></column>
+		<column name="opt_out"></column>
+		<column name="title"></column>
+		<column name="partner_name"></column>
+		<column name="planned_revenue"></column>
+		<column name="country_id"></column>
+		<column name="company_id"></column>
+		<column name="priority"></column>
+		<column name="state"></column>
+		<column name="email_cc"></column>
+		<column name="date_action_next"></column>
+		<column name="type"></column>
+		<column name="street2"></column>
+		<column name="function"></column>
+		<column name="fax"></column>
+		<column name="description"></column>
+		<column name="planned_cost"></column>
+		<column name="ref2"></column>
+		<column name="section_id"></column>
+		<column name="title_action"></column>
+		<column name="phone"></column>
+		<column name="probability"></column>
+		<column name="payment_mode"></column>
+		<column name="date_action"></column>
+		<column name="name"></column>
+		<column name="stage_id"></column>
+		<column name="zip"></column>
+		<column name="date_deadline"></column>
+		<column name="mobile"></column>
+		<column name="ref"></column>
+		<column name="channel_id"></column>
+		<column name="state_id"></column>
+		<column name="email_from"></column>
+		<column name="referred"></column>
+	</table>
+	<table catalog="underwriting" name="product_uom" class="ProductUom">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="uom_type"></column>
+		<column name="category_id"></column>
+		<column name="name"></column>
+		<column name="rounding"></column>
+		<column name="factor"></column>
+		<column name="active"></column>
+	</table>
+	<table catalog="underwriting" name="res_partner" class="Lender">
+		<column name="id"></column>
+		<column name="name"></column>
+		<column name="lang"></column>
+		<column name="company_id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="comment"></column>
+		<column name="ean13"></column>
+		<column name="color"></column>
+		<column name="image"></column>
+		<column name="use_parent_address"></column>
+		<column name="active"></column>
+		<column name="street"></column>
+		<column name="supplier"></column>
+		<column name="city"></column>
+		<column name="user_id"></column>
+		<column name="zip"></column>
+		<column name="title"></column>
+		<column name="function"></column>
+		<column name="country_id"></column>
+		<column name="parent_id"></column>
+		<column name="employee"></column>
+		<column name="type"></column>
+		<column name="email"></column>
+		<column name="vat"></column>
+		<column name="website"></column>
+		<column name="fax"></column>
+		<column name="street2"></column>
+		<column name="phone"></column>
+		<column name="credit_limit"></column>
+		<column name="date"></column>
+		<column name="tz"></column>
+		<column name="customer"></column>
+		<column name="image_medium"></column>
+		<column name="mobile"></column>
+		<column name="ref"></column>
+		<column name="image_small"></column>
+		<column name="birthdate"></column>
+		<column name="is_company"></column>
+		<column name="state_id"></column>
+		<column name="notification_email_send"></column>
+		<column name="opt_out"></column>
+		<column name="signup_type"></column>
+		<column name="signup_expiration"></column>
+		<column name="signup_token"></column>
+		<column name="last_reconciliation_date"></column>
+		<column name="debit_limit"></column>
+		<column name="vat_subjected"></column>
+		<column name="section_id"></column>
+	</table>
+	<table catalog="underwriting" name="product_template" class="ProductTemplate">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="warranty"></column>
+		<column name="uos_id"></column>
+		<column name="list_price"></column>
+		<column name="description"></column>
+		<column name="weight"></column>
+		<column name="weight_net"></column>
+		<column name="standard_price"></column>
+		<column name="mes_type"></column>
+		<column name="uom_id"></column>
+		<column name="description_purchase"></column>
+		<column name="cost_method"></column>
+		<column name="categ_id"></column>
+		<column name="name"></column>
+		<column name="uos_coeff"></column>
+		<column name="volume"></column>
+		<column name="sale_ok"></column>
+		<column name="description_sale"></column>
+		<column name="product_manager"></column>
+		<column name="company_id"></column>
+		<column name="state"></column>
+		<column name="produce_delay"></column>
+		<column name="uom_po_id"></column>
+		<column name="rental"></column>
+		<column name="type"></column>
+		<column name="loc_rack"></column>
+		<column name="loc_row"></column>
+		<column name="sale_delay"></column>
+		<column name="loc_case"></column>
+		<column name="supply_method"></column>
+		<column name="procure_method"></column>
+		<column name="purchase_ok"></column>
+	</table>
+	<table catalog="underwriting" name="product_product" class="Product">
+		<column name="id"></column>
+		<column name="create_uid"></column>
+		<column name="create_date"></column>
+		<column name="write_date"></column>
+		<column name="write_uid"></column>
+		<column name="ean13"></column>
+		<column name="color"></column>
+		<column name="image"></column>
+		<column name="price_extra"></column>
+		<column name="default_code"></column>
+		<column name="name_template"></column>
+		<column name="active"></column>
+		<column name="variants"></column>
+		<column name="image_medium"></column>
+		<column name="image_small"></column>
+		<column name="product_tmpl_id"></column>
+		<column name="price_margin"></column>
+		<column name="track_outgoing"></column>
+		<column name="track_incoming"></column>
+		<column name="valuation"></column>
+		<column name="track_production"></column>
+	</table>
+</hibernate-reverse-engineering>

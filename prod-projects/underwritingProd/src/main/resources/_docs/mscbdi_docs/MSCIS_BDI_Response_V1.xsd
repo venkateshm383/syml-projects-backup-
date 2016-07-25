@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:r="http://MSC.IntegrationService.Schemas.MorWEB.BDI.Response.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://MSC.IntegrationService.Schemas.MorWEB.BDI.Response.1" version="1.0.3">
+	<xs:element name="BDIResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:MortgageApplication" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="status" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="ok"/>
+						<xs:enumeration value="warning"/>
+						<xs:enumeration value="error"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MortgageApplication">
+		<xs:complexType>
+			<xs:attribute name="applicationNumber" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="12"/>
+						<xs:pattern value="[0-9aA-zA]*"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

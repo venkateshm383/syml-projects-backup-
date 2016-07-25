@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	test();
+	
+     $("line").hover(function(){
+    	document.getElementById("tooltip").innerHTML="lead count"+$("#data").val();
+    	
+    }); 
+});
+</script>
+
+<script type="text/javascript">
+
+function test(){
+	var data = {q:"Type:Opportunity" ,
+            pretty: true
+            };
+	
+	  $.ajax({
+	        type : 'POST',
+	        url : "http://52.1.244.89:9200/syml1/_search",
+	        dataType: 'jsonp',
+            crossDomain: true,
+            data: data,
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	        	document.getElementById("data").value=data.hits.total;
+	   
+	        },
+	        error : function(data) {
+	           alert("error"+data);
+	        }
+	    });
+	
+	   
+}
+</script>
+</head>
+<body>
+
+<svg height="210" width="500">
+  <line x1="200" y1="0" data-toggle="tooltip" title="Hooray!" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2"  />
+<text class="tooltip" id="tooltip"
+
+	      x="0" y="0" visibility="hidden">Tooltip</text></svg>
+<input type="hidden"  id="data">
+
+
+
+
+</body>
+</html>

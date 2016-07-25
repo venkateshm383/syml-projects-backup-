@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by Dave Krick (D LIMITED PARTNERSHIP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="FCXGlobalTypeApi_1_0_1.xsd"/>
+	<xs:complexType name="BaseApplicantType">
+		<xs:complexContent>
+			<xs:extension base="BasePersonType">
+				<xs:sequence>
+					<xs:element name="addressDetail" type="ApplicantAddressType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="bankruptcyStatusDd" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes the applicant’s bankruptcy status.
+Menu Code: BANKRUPTCYSTATUS</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:totalDigits value="2"/>
+								<xs:fractionDigits value="0"/>
+								<xs:minExclusive value="-1"/>
+								<xs:maxExclusive value="100"/>
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>Never Bankrupt</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Fully Discharged</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Partially Discharged</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="citizenshipTypeDd" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes the applicant's citizenship status.
+Menu Code: CITIZENSHIPTYPE</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:totalDigits value="2"/>
+								<xs:fractionDigits value="0"/>
+								<xs:minExclusive value="-1"/>
+								<xs:maxExclusive value="100"/>
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>Citizen</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Unknown</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Resident</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>Landed Immigrant</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Foreign Alien</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>Student Visa</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="6">
+									<xs:annotation>
+										<xs:documentation>Work Visa</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="7">
+									<xs:annotation>
+										<xs:documentation>Non Resident</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="clientReferenceNumber" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Institution-defined reference number, typically from a corporate Central Information system or other client system of record indicating the number assigned to the client relationship.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="20"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="employeeNumber" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Contains the employee number of the applicant, if the applicant is an employee of the lender. Number is assigned by lender.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="35"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="existingClient" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates whether applicant is an existing Client of lender.
+Y=Yes, N=No</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="1"/>
+								<xs:enumeration value="N">
+									<xs:annotation>
+										<xs:documentation>No</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Y">
+									<xs:annotation>
+										<xs:documentation>Yes</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="firstTimeBuyer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates whether applicant is a first time buyer.
+Y=Yes, N=No</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="1"/>
+								<xs:enumeration value="N">
+									<xs:annotation>
+										<xs:documentation>No</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Y">
+									<xs:annotation>
+										<xs:documentation>Yes</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="isEmployeeDd" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates whether applicant is an employee of lender.
+Menu Code: EMPLOYEEDD</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:totalDigits value="2"/>
+								<xs:fractionDigits value="0"/>
+								<xs:minExclusive value="-1"/>
+								<xs:maxExclusive value="100"/>
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>No</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Yes</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="identification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information used to verify the identity of the person.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="identificationNumber" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Identification number/code of the indentification type.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="30"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="identificationCountry" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Country of identification.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="30"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="identificationTypeDd" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Source of identification  (driver license, passport).
+Menu Code: IDENTIFICATIONTYPE</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:decimal">
+											<xs:totalDigits value="2"/>
+											<xs:fractionDigits value="0"/>
+											<xs:minExclusive value="-1"/>
+											<xs:maxExclusive value="100"/>
+											<xs:enumeration value="10">
+												<xs:annotation>
+													<xs:documentation>Birth Certificate</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="11">
+												<xs:annotation>
+													<xs:documentation>Driver&amp;apos;s License</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="12">
+												<xs:annotation>
+													<xs:documentation>Health Insurance Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="13">
+												<xs:annotation>
+													<xs:documentation>Old Age Security Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="14">
+												<xs:annotation>
+													<xs:documentation>Social Insurance Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="30">
+												<xs:annotation>
+													<xs:documentation>Certificate of Naturalization</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="31">
+												<xs:annotation>
+													<xs:documentation>Citizenship Certificate</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="32">
+												<xs:annotation>
+													<xs:documentation>Green Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="33">
+												<xs:annotation>
+													<xs:documentation>IMM 1000 Immigration Form</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="34">
+												<xs:annotation>
+													<xs:documentation>IMM 1442 Citizenship and Immigration Canada</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="35">
+												<xs:annotation>
+													<xs:documentation>Passport</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="36">
+												<xs:annotation>
+													<xs:documentation>Permanent Resident Card or IMM5292</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="50">
+												<xs:annotation>
+													<xs:documentation>Alberta Registries</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="51">
+												<xs:annotation>
+													<xs:documentation>Dept. of Community Govt. and Trans.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="52">
+												<xs:annotation>
+													<xs:documentation>Dept. of Govt. Services and Lands NL</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="53">
+												<xs:annotation>
+													<xs:documentation>Dept. of Service of NS and Municipal Relations</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="54">
+												<xs:annotation>
+													<xs:documentation>Dept. of Trans. and Public Works PEI</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="55">
+												<xs:annotation>
+													<xs:documentation>Government of the NT Dept. of Trans.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="56">
+												<xs:annotation>
+													<xs:documentation>Insurance Corporation of BC</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="57">
+												<xs:annotation>
+													<xs:documentation>Saskatchewan Government Insurance</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="58">
+												<xs:annotation>
+													<xs:documentation>Service New Brunswick</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="70">
+												<xs:annotation>
+													<xs:documentation>ABM card or Client Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="71">
+												<xs:annotation>
+													<xs:documentation>Client Card from the CNIB</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="72">
+												<xs:annotation>
+													<xs:documentation>Credit Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="73">
+												<xs:annotation>
+													<xs:documentation>Employee ID Card</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="90">
+												<xs:annotation>
+													<xs:documentation>Other</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="relationshipToPrimaryApplicant" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Menu Code : RELATIONSHIP</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="3"/>
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>Spouse</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Common-Law</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Related Family Member</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>Other</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Parent</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>Sibling</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="6">
+									<xs:annotation>
+										<xs:documentation>Child</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="7">
+									<xs:annotation>
+										<xs:documentation>Grandchild</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="8">
+									<xs:annotation>
+										<xs:documentation>Grandparent</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ApplicantApplicationType">
+		<xs:complexContent>
+			<xs:extension base="BaseApplicantType">
+				<xs:sequence>
+					<xs:element name="employmentHistory" type="EmploymentHistoryType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Uses compressedl street address format (Address2Type)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="otherIncome" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="IncomeType">
+									<xs:sequence>
+										<xs:element name="incomeTypeDd" type="incomeTypeOtherDd">
+											<xs:annotation>
+												<xs:documentation>menucode api : other income   4,5,7,8,10</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="asset" type="AssetType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="liability" type="LiabilityType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Liabilities entered or changed by broker (if extracted from Credit Bureau).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="otherProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>List of other properties and mortgages owned by applicant.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="property" type="PropertyType"/>
+								<xs:element name="mortgage" type="MortgageType" minOccurs="0" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="applicantadditionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ApplicantAddressType">
+		<xs:complexContent>
+			<xs:extension base="QualifiedAddressType">
+				<xs:sequence>
+					<xs:element name="monthsAtAddress" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Number of months at this address.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:int">
+								<xs:totalDigits value="4"/>
+								<xs:maxExclusive value="10000"/>
+								<xs:minExclusive value="-1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="residentialStatusDd" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Applicant's status at this address. (Own/Rent etc)
+Menu Code: RESIDENTIALSTATUS</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:totalDigits value="2"/>
+								<xs:fractionDigits value="0"/>
+								<xs:minExclusive value="-1"/>
+								<xs:maxExclusive value="100"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Own</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Rent</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>Live With Parents</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="99">
+									<xs:annotation>
+										<xs:documentation>Other</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rentPaymentAmount" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>if residential status is rent, the amount of rent payment.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:totalDigits value="13"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minExclusive value="-100000000000"/>
+								<xs:maxExclusive value="100000000000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssetType">
+		<xs:sequence>
+			<xs:element name="assetDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description of asset entered by user.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="assetTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Categorization of the asset.
+Menu Code: ASSETTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Savings</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>RRSP</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Gift</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Vehicle</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Stocks/Bonds/Mutual</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="8">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="11">
+							<xs:annotation>
+								<xs:documentation>Household Goods</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="12">
+							<xs:annotation>
+								<xs:documentation>Life Insurance</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="13">
+							<xs:annotation>
+								<xs:documentation>Deposit on Purchase</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="assetValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Value of asset entered by user</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="additionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EmploymentHistoryType">
+		<xs:sequence>
+			<xs:element name="contact" type="ContactTypeAddresstype2" minOccurs="0"/>
+			<xs:element name="employerName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="employmentHistoryStatusDd">
+				<xs:annotation>
+					<xs:documentation>Indicates current or previous employment.
+Menu Code: EMPLOYMENTHISTORYSTATUS</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Current</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Previous</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="employmentHistoryTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates type of employment, IE. full or part time, seasonal etc.
+Menu Code: EMPLOYMENTHISTORYTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="10000000000000"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Full Time</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Part Time</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Seasonal</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="income" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="IncomeType">
+							<xs:sequence>
+								<xs:element name="incomeTypeDd" type="incomeTypeEmploymentDd">
+									<xs:annotation>
+										<xs:documentation>menu code :employment income   0,1,2,3,6,11</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="industrySectorDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Distinct subset of industry this applicant is employed in.
+Menu Code: INDUSTRYSECTOR</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Construction</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Government</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Health</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Education</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>High-Tech</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Retail Sales</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7">
+							<xs:annotation>
+								<xs:documentation>Leisure/Entertainment</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="8">
+							<xs:annotation>
+								<xs:documentation>Banking/Finance</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="9">
+							<xs:annotation>
+								<xs:documentation>Transportation</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="10">
+							<xs:annotation>
+								<xs:documentation>Services</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="11">
+							<xs:annotation>
+								<xs:documentation>Manufacturing</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="12">
+							<xs:annotation>
+								<xs:documentation>Farming/Natural Resources</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="13">
+							<xs:annotation>
+								<xs:documentation>Varies</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="jobTitle" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Job title of applicant entered by user.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="monthsOfService" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Length of service at this employer.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="3"/>
+						<xs:maxExclusive value="1000"/>
+						<xs:minExclusive value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="occupationDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Occupation of applicant at this employer.
+Menu Code: OCCUPATION</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Management</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Clerical</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Labour/Tradesperson</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Retired</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Professional</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Self-Employed</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="selfEmploymentDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="companyType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>User entered description of the type of company that the applicant owes.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="35"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="grossRevenue" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Gross revenue reported of the company owned by the applicant and employing the applicant.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="13"/>
+									<xs:fractionDigits value="2"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="100000000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="operatingAs" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Operating name of the company owned and employing the applicant.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="35"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="timeInIndustry" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The number of months an applicant has been employed in a particular industry. (months)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="3"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="additionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncomeType">
+		<xs:sequence>
+			<xs:element name="incomeAmount">
+				<xs:annotation>
+					<xs:documentation>Amount of income applicant received.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="incomeDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free form text entered by user to indicated the source of the income.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="incomePeriodDd">
+				<xs:annotation>
+					<xs:documentation>Indicates frequency income received.
+Menu Code: INCOMEPERIOD</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Annual</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Semi-Annual</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Quarterly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Monthly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Semi-Monthly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Bi-Weekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Weekly</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="additionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LiabilityType">
+		<xs:sequence>
+			<xs:element name="creditLimit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Credit limit for a credit card or Line of Credit.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="liabilityAmount" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Outstanding amount/balance remaining.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="liabilityDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free form description, entered by user, that describes the institution or company that owns the liability.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="liabilityMonthlyPayment" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The amount of the monthly payment.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="liabilityPayOffTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates how the liability will be eliminated before closing.
+Menu Code: LIABILITYPAYOFFTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Prior to Advance</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>From Proceeds</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="liabilityTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the type of liability.
+Menu Code: LIABILITYTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Credit Card</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Personal Loan</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Auto Loan</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Alimony</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Child Support</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7">
+							<xs:annotation>
+								<xs:documentation>Student Loan</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="8">
+							<xs:annotation>
+								<xs:documentation>Wage Garnishment</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="9">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="10">
+							<xs:annotation>
+								<xs:documentation>Unsecured Line of Credit</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="11">
+							<xs:annotation>
+								<xs:documentation>Income Tax</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="13">
+							<xs:annotation>
+								<xs:documentation>Secured Line of Credit</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="14">
+							<xs:annotation>
+								<xs:documentation>Lease</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="16">
+							<xs:annotation>
+								<xs:documentation>Auto Lease</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="maturityDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Maturity date, if applicable, of the liability.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="additionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

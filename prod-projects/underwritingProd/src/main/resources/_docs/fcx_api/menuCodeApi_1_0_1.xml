@@ -1,0 +1,5286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Feb 19,2013 - deploy with Expert 2.20 - removed NEWCONSTRUCTION  code - 1 (Construction)  -->
+<menuCode>
+	<all>
+		<menuCodeName>AFFILIATIONPROGRAM</menuCodeName>
+		<columnName>
+			<name>affiliationProgramDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>002 - Employés BNC</textEnglish>
+			<textFrench>002 - Employés BNC</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>011 - (SERVIQ)</textEnglish>
+			<textFrench>011 - (SERVIQ)</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>012 - (AMLFC)</textEnglish>
+			<textFrench>012 - (AMLFC)</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>013 - (ACDQ)</textEnglish>
+			<textFrench>013 - (ACDQ)</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>013 - Barreau du Québec</textEnglish>
+			<textFrench>013 - Barreau du Québec</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>013 - (OPPQ)</textEnglish>
+			<textFrench>013 - (OPPQ)</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>013 - (SPGQ)</textEnglish>
+			<textFrench>013 - (SPGQ)</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>013 - Employés CGI</textEnglish>
+			<textFrench>013 - Employés CGI </textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>013 - (CMA)</textEnglish>
+			<textFrench>013 - (CMA)</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>015 - Réseau HEC Montréal</textEnglish>
+			<textFrench>015 - Réseau HEC Montréal</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>016 - (CDNQ)</textEnglish>
+			<textFrench>016 - (CDNQ)</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>023 - (CA)</textEnglish>
+			<textFrench>023 - (CA)</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>025 - Ordre des CGA du Qc</textEnglish>
+			<textFrench>025 - Ordre des CGA du Qc</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>043 - (FBN)</textEnglish>
+			<textFrench>043 - (FBN)</textFrench>
+		</text>
+		<text>
+			<code>15</code>
+			<textEnglish>063 - Employés FBN</textEnglish>
+			<textFrench>063 - Employés FBN</textFrench>
+		</text>
+		<text>
+			<code>16</code>
+			<textEnglish>063 - Employés CABN</textEnglish>
+			<textFrench>063 - Employés CABN</textFrench>
+		</text>
+		<text>
+			<code>17</code>
+			<textEnglish>063 - (DDH)</textEnglish>
+			<textFrench>063 - (DDH)</textFrench>
+		</text>
+		<text>
+			<code>18</code>
+			<textEnglish>063 - Évaluateurs agréés</textEnglish>
+			<textFrench>063 - Évaluateurs agréés</textFrench>
+		</text>
+		<text>
+			<code>19</code>
+			<textEnglish>063 - Éval. stagiaires</textEnglish>
+			<textFrench>063 - Éval. stagiaires</textFrench>
+		</text>
+		<text>
+			<code>20</code>
+			<textEnglish>063 - Tech. en évaluation</textEnglish>
+			<textFrench>063 - Tech. en évaluation</textFrench>
+		</text>
+		<text>
+			<code>21</code>
+			<textEnglish>063 - Insp. en bâtiments</textEnglish>
+			<textFrench>063 - Insp. en bâtiments</textFrench>
+		</text>
+		<text>
+			<code>22</code>
+			<textEnglish>063 - (CPR)</textEnglish>
+			<textFrench>063 - (CPR)</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>AMORTIZATIONTERMTYPE</menuCodeName>
+		<columnName>
+			<name>amortizationDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>5 Years</textEnglish>
+			<textFrench>5 ans</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>10 Years</textEnglish>
+			<textFrench>10 ans</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>15 Years</textEnglish>
+			<textFrench>15 ans</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>20 Years</textEnglish>
+			<textFrench>20 ans</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>25 Years</textEnglish>
+			<textFrench>25 ans</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>APPLICATIONTYPE</menuCodeName>
+		<columnName>
+			<name>dealTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Approval</textEnglish>
+			<textFrench>Approbation</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Pre-Approval</textEnglish>
+			<textFrench>Préautorisation</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>ASSETTYPE</menuCodeName>
+		<columnName>
+			<name>assetTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Savings</textEnglish>
+			<textFrench>Épargne</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>RRSP</textEnglish>
+			<textFrench>REER</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Gift</textEnglish>
+			<textFrench>Don</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Vehicle</textEnglish>
+			<textFrench>Véhicule</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Stocks/Bonds/Mutual</textEnglish>
+			<textFrench>Actions, obligations, fonds mutuels</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Household Goods</textEnglish>
+			<textFrench>Biens ménagers</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Life Insurance</textEnglish>
+			<textFrench>Assurance vie</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Deposit on Purchase</textEnglish>
+			<textFrench>Dépôt à l&amp;apos;achat</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>BANKRUPTCYSTATUS</menuCodeName>
+		<columnName>
+			<name>bankruptcyStatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Never Bankrupt</textEnglish>
+			<textFrench>Aucune faillite</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Fully Discharged</textEnglish>
+			<textFrench>Entièrement réhabillité</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Partially Discharged</textEnglish>
+			<textFrench>Réhabillité en partie</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>BORROWERADDRESSTYPE</menuCodeName>
+		<columnName>
+			<name>addressTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Current</textEnglish>
+			<textFrench>Actuel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Previous</textEnglish>
+			<textFrench>Précédent</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Mailing</textEnglish>
+			<textFrench>Adresse postale</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>BORROWERGROUPTYPE</menuCodeName>
+		<columnName>
+			<name>applicantGroupTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Applicant</textEnglish>
+			<textFrench>Demandeur</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Co Signer</textEnglish>
+			<textFrench>Cosignataire</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Guarantor</textEnglish>
+			<textFrench>Endosseur</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>CITIZENSHIPTYPE</menuCodeName>
+		<columnName>
+			<name>citizenshipTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Citizen</textEnglish>
+			<textFrench>Citoyen</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Unknown</textEnglish>
+			<textFrench>Inconnu</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Resident</textEnglish>
+			<textFrench>Résident</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Landed Immigrant</textEnglish>
+			<textFrench>Résident permanent</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Foreign Alien</textEnglish>
+			<textFrench>Étranger</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Student Visa</textEnglish>
+			<textFrench>Visa étudiant</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Work Visa</textEnglish>
+			<textFrench>Visa de travail</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Non Resident</textEnglish>
+			<textFrench>Non-résident</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>COMPONENTTYPE</menuCodeName>
+		<columnName>
+			<name>componentTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Mortgage</textEnglish>
+			<textFrench>Hypothèque</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Line Of Credit</textEnglish>
+			<textFrench>Marge de crédit</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Loan</textEnglish>
+			<textFrench>Prêt</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Credit Card</textEnglish>
+			<textFrench>Carte de crédit</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Overdraft</textEnglish>
+			<textFrench>Découvert</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>CONDITIONRESPONSIBILITYROLE</menuCodeName>
+		<columnName>
+			<name>documentResponsibilityRoleDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Applicant</textEnglish>
+			<textFrench>Demandeur</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Underwriter</textEnglish>
+			<textFrench>Souscripteur</textFrench>
+		</text>
+		<text>
+			<code>50</code>
+			<textEnglish>Solicitor</textEnglish>
+			<textFrench>Notaire</textFrench>
+		</text>
+		<text>
+			<code>51</code>
+			<textEnglish>Appraiser</textEnglish>
+			<textFrench>Évaluateur</textFrench>
+		</text>
+		<text>
+			<code>90</code>
+			<textEnglish>Source of Business</textEnglish>
+			<textFrench>Source d&amp;apos;affaire</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>COUNTRYTYPE</menuCodeName>
+		<columnName>
+			<name>countryTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Canada</textEnglish>
+			<textFrench>Canada</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>United States</textEnglish>
+			<textFrench>États-Unis</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>COVERAGETYPE</menuCodeName>
+		<columnName>
+			<name>coverageTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Life Disability and Critical Illness</textEnglish>
+			<textFrench>Vie, invalidité et maladie grave</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Life and Disability</textEnglish>
+			<textFrench>Vie et invalidité</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Life and Critical Illness</textEnglish>
+			<textFrench>Vie et maladies graves</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Life</textEnglish>
+			<textFrench>Vie</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>None</textEnglish>
+			<textFrench>Aucune</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>CREDITBUREAUNAME</menuCodeName>
+		<columnName>
+			<name>creditBureauNameDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Equifax</textEnglish>
+			<textFrench>Equifax</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>CREDITBUREAUREPORTTYPE</menuCodeName>
+		<columnName>
+			<name>creditBureauReportTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Single</textEnglish>
+			<textFrench>Unique</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Joint</textEnglish>
+			<textFrench>Conjoint</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DEALNOTESCATEGORY</menuCodeName>
+		<columnName>
+			<name>categoryDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>General</textEnglish>
+			<textFrench>Général</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Admin</textEnglish>
+			<textFrench>Admin.</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Source of Business</textEnglish>
+			<textFrench>Source of Business</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Decisioning</textEnglish>
+			<textFrench>Decisioning</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>MI Response</textEnglish>
+			<textFrench>MI Response</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Deal Ingestion</textEnglish>
+			<textFrench>Deal Ingestion</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DEALPURPOSE</menuCodeName>
+		<columnName>
+			<name>dealPurposeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Purchase</textEnglish>
+			<textFrench>Achat</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Purchase + Improvements</textEnglish>
+			<textFrench>Achat avec améliorations</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Refinance</textEnglish>
+			<textFrench>Refinancement</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>ETO</textEnglish>
+			<textFrench>Retraite d'équité</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Switch / Transfer</textEnglish>
+			<textFrench>Transfert ou Subrogation</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Port</textEnglish>
+			<textFrench>Port</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Deficiency Sale</textEnglish>
+			<textFrench>Vente avec insuffisance de solde</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Workout</textEnglish>
+			<textFrench>Remplacement</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DENIALREASON</menuCodeName>
+		<columnName>
+			<name>denialReasonDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Previous Bankrupt</textEnglish>
+			<textFrench>Faillite précédente</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Credit History</textEnglish>
+			<textFrench>Historique du crédit</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>No Credit Bureau</textEnglish>
+			<textFrench>Pas de Bureau de crédit</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Income Type</textEnglish>
+			<textFrench>Type de revenu</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Income Insufficient</textEnglish>
+			<textFrench>Revenu insuffisant</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Income Verification</textEnglish>
+			<textFrench>Vérification de revenu</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Income Multi</textEnglish>
+			<textFrench>Revenu multi</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Job Stability</textEnglish>
+			<textFrench>Stabilité d&amp;apos;emploi</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Net Worth</textEnglish>
+			<textFrench>Valeur nette</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Down Payment</textEnglish>
+			<textFrench>Mise de fonds</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Multi-Covenant</textEnglish>
+			<textFrench>Engagement multiple</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>GDSTDS</textEnglish>
+			<textFrench>ABDATD</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Property</textEnglish>
+			<textFrench>Propriété</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>Product Unavailable</textEnglish>
+			<textFrench>Produit non disponible</textFrench>
+		</text>
+		<text>
+			<code>15</code>
+			<textEnglish>Land Status Unclear</textEnglish>
+			<textFrench>Statut du terrain imprécis</textFrench>
+		</text>
+		<text>
+			<code>16</code>
+			<textEnglish>External Lender Refused</textEnglish>
+			<textFrench>Prêteur externe refusé</textFrench>
+		</text>
+		<text>
+			<code>17</code>
+			<textEnglish>Return to broker for correction *</textEnglish>
+			<textFrench>Renvoyer au courtier pour correction*</textFrench>
+		</text>
+		<text>
+			<code>18</code>
+			<textEnglish>Source Resubmission</textEnglish>
+			<textFrench>Nouvel envoi d&amp;apos;une source</textFrench>
+		</text>
+		<text>
+			<code>19</code>
+			<textEnglish>IC-Reject *</textEnglish>
+			<textFrench>Règles d&amp;apos;ingestion refusées</textFrench>
+		</text>
+		<text>
+			<code>20</code>
+			<textEnglish>Duplicate Deal Adopted</textEnglish>
+			<textFrench>Demande dupliqué adopté</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DOCUMENTSTATUS</menuCodeName>
+		<columnName>
+			<name>documentStatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Open</textEnglish>
+			<textFrench>Ouvert</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Requested</textEnglish>
+			<textFrench>Demandé</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Received</textEnglish>
+			<textFrench>Reçu</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Approved</textEnglish>
+			<textFrench>Approuvé</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Insufficient</textEnglish>
+			<textFrench>Insuffisant</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Waived</textEnglish>
+			<textFrench>Exonéré</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Rejected</textEnglish>
+			<textFrench>Refusé</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Caution</textEnglish>
+			<textFrench>Mise en garde</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Waive Requested</textEnglish>
+			<textFrench>Exonération demandée</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DOWNPAYMENTSOURCETYPE</menuCodeName>
+		<columnName>
+			<name>downPaymentSourceTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Sale of Existing Property</textEnglish>
+			<textFrench>Vente de propriété existante</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Personal Cash</textEnglish>
+			<textFrench>Ressources personnelles en espèces</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>RRSP</textEnglish>
+			<textFrench>REER</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Borrowed Against Liquid Assets</textEnglish>
+			<textFrench>Emprunt sur biens en espèces</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Gift</textEnglish>
+			<textFrench>Don</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Sweat Equity</textEnglish>
+			<textFrench>Équité gagnée</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Existing Equity</textEnglish>
+			<textFrench>Existant</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Secondary Financing</textEnglish>
+			<textFrench>Financement secondaire</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Grants</textEnglish>
+			<textFrench>Subventions</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DWELLINGSTYLE</menuCodeName>
+		<columnName>
+			<name>dwellingStyleDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>One Storey</textEnglish>
+			<textFrench>Un étage</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Bi-Level</textEnglish>
+			<textFrench>Deux niveaux</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Two Storey</textEnglish>
+			<textFrench>Deux étages</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Split Level</textEnglish>
+			<textFrench>Paliers multiples</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Storey and a Half</textEnglish>
+			<textFrench>Étage et demi</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Three Storey</textEnglish>
+			<textFrench>Trois étages</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>DWELLINGTYPE</menuCodeName>
+		<columnName>
+			<name>dwellingTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Detached</textEnglish>
+			<textFrench>Détaché</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Semi-Detached</textEnglish>
+			<textFrench>Semi-détachée</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Duplex - Detached</textEnglish>
+			<textFrench>Duplex - détaché</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Duplex - Semi-Detached</textEnglish>
+			<textFrench>Duplex - semi-détaché</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Row Housing</textEnglish>
+			<textFrench>Maison en rangée</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Apartment Low Rise</textEnglish>
+			<textFrench>Appartement - Faible élévation</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Apartment High Rise</textEnglish>
+			<textFrench>Appartement - Haut élévation</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Mobile</textEnglish>
+			<textFrench>Maison mobile</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Tri Plex - Detached</textEnglish>
+			<textFrench>Triplex détaché</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Tri Plex - Semi-Detached</textEnglish>
+			<textFrench>Triplex semi-détaché</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Stacked</textEnglish>
+			<textFrench>Habitation à surface invariable</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Modular Home - Detached</textEnglish>
+			<textFrench>Maison modulaire détachée</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Modular Home - Semi-Detached</textEnglish>
+			<textFrench>Maison modulaire semi-détachée</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Four Plex - Detached</textEnglish>
+			<textFrench>Quadruplex détaché</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>Four Plex - Semi-Detached</textEnglish>
+			<textFrench>Quadruplex semi-détaché</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>EMPLOYEEDD</menuCodeName>
+		<columnName>
+			<name>isEmployeeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>EMPLOYMENTHISTORYSTATUS</menuCodeName>
+		<columnName>
+			<name>employmentHistoryStatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Current</textEnglish>
+			<textFrench>Actuel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Previous</textEnglish>
+			<textFrench>Précédent</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>EMPLOYMENTHISTORYTYPE</menuCodeName>
+		<columnName>
+			<name>employmentHistoryTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Full Time</textEnglish>
+			<textFrench>Temps plein</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Part Time</textEnglish>
+			<textFrench>Temps partiel</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Seasonal</textEnglish>
+			<textFrench>Saisonnier</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>ESCROWTYPE</menuCodeName>
+		<columnName>
+			<name>escrowPaymentDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Property Tax</textEnglish>
+			<textFrench>Taxes foncières</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Hazard Insurance</textEnglish>
+			<textFrench>Assurance risques</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Flood Insurance</textEnglish>
+			<textFrench>Assurance inondation</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Credit Life</textEnglish>
+			<textFrench>Assurance créance en cas de décès</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Mortgage Insurance</textEnglish>
+			<textFrench>Assurance hypothécaire</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Earthquake Insurance</textEnglish>
+			<textFrench>Assurance séisme</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Mud Insurance</textEnglish>
+			<textFrench>Assurance boue</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>FEEPAYMENTMETHOD</menuCodeName>
+		<columnName>
+			<name>feePaymentMethodDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Take From First Advance</textEnglish>
+			<textFrench>Take From First Advance</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Cheque</textEnglish>
+			<textFrench>Cheque</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Take From Each Advance</textEnglish>
+			<textFrench>Take From Each Advance</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>FEEPAYORTYPE</menuCodeName>
+		<columnName>
+			<name>feePayorTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>None</textEnglish>
+			<textFrench>None</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Source of Business</textEnglish>
+			<textFrench>Source of Business</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Source Firm</textEnglish>
+			<textFrench>Source Firm</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Solicitor</textEnglish>
+			<textFrench>Solicitor</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Appraiser</textEnglish>
+			<textFrench>Appraiser</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Mortgage Insurer</textEnglish>
+			<textFrench>Mortgage Insurer</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Client</textEnglish>
+			<textFrench>Client</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>FEESTATUS</menuCodeName>
+		<columnName>
+			<name>feeStatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Required</textEnglish>
+			<textFrench>Required</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Received</textEnglish>
+			<textFrench>Received</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Waived</textEnglish>
+			<textFrench>Waived</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Update</textEnglish>
+			<textFrench>Update</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>FEETYPE</menuCodeName>
+		<columnName>
+			<name>feeTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Appraisal</textEnglish>
+			<textFrench>Évaluation</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Bridge</textEnglish>
+			<textFrench>Bridge</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>BuyDown Fee</textEnglish>
+			<textFrench>BuyDown Fee</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Standby Fee</textEnglish>
+			<textFrench>Standby Fee</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Appraisal Fee Payable</textEnglish>
+			<textFrench>Appraisal Fee Payable</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Agent Referral Fee</textEnglish>
+			<textFrench>Agent Referral Fee</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Origination Fee</textEnglish>
+			<textFrench>Origination Fee</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Application Fee</textEnglish>
+			<textFrench>Frais de demande</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Inspection Fee</textEnglish>
+			<textFrench>Inspection Fee</textFrench>
+		</text>
+		<text>
+			<code>21</code>
+			<textEnglish>Property Tax Holdback</textEnglish>
+			<textFrench>Retenue de taxe foncière</textFrench>
+		</text>
+		<text>
+			<code>22</code>
+			<textEnglish>Appraisal Fee (Additional)</textEnglish>
+			<textFrench>Appraisal Fee (Additional)</textFrench>
+		</text>
+		<text>
+			<code>23</code>
+			<textEnglish>Cancellation Fee</textEnglish>
+			<textFrench>Cancellation Fee</textFrench>
+		</text>
+		<text>
+			<code>27</code>
+			<textEnglish>Courier Fee</textEnglish>
+			<textFrench>Courier Fee</textFrench>
+		</text>
+		<text>
+			<code>30</code>
+			<textEnglish>Wire</textEnglish>
+			<textFrench>Wire</textFrench>
+		</text>
+		<text>
+			<code>31</code>
+			<textEnglish>Application Fee - Not Capitalized</textEnglish>
+			<textFrench>Application Fee - Not Capitalized</textFrench>
+		</text>
+		<text>
+			<code>32</code>
+			<textEnglish>Mortgage Renewal Fee</textEnglish>
+			<textFrench>Mortgage Renewal Fee</textFrench>
+		</text>
+		<text>
+			<code>33</code>
+			<textEnglish>Title Insurance Fee</textEnglish>
+			<textFrench>Title Insurance Fee</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>GARAGESIZE</menuCodeName>
+		<columnName>
+			<name>garageSizeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Single</textEnglish>
+			<textFrench>Simple</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Double</textEnglish>
+			<textFrench>Double</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Triple</textEnglish>
+			<textFrench>Triple</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>None</textEnglish>
+			<textFrench>Aucun</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>GARAGETYPE</menuCodeName>
+		<columnName>
+			<name>garageTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Attached</textEnglish>
+			<textFrench>Attaché</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Detached</textEnglish>
+			<textFrench>Détaché</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>Gender(applicant)</menuCodeName>
+		<columnName>
+			<name>gender</name>
+		</columnName>
+		<text>
+			<code>F</code>
+			<textEnglish>Female</textEnglish>
+			<textFrench>Female</textFrench>
+		</text>
+		<text>
+			<code>M</code>
+			<textEnglish>Male</textEnglish>
+			<textFrench>Male</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>Gender(non applicant)</menuCodeName>
+		<columnName>
+			<name>genderDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Male</textEnglish>
+			<textFrench>Male</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Female</textEnglish>
+			<textFrench>Female</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>HEATTYPE</menuCodeName>
+		<columnName>
+			<name>heatTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Electric Baseboard</textEnglish>
+			<textFrench>Plinthes électriques</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Forced Air Gas/Oil/Electric</textEnglish>
+			<textFrench>Convexion à gaz, huile ou électricité</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Hot Water Heating</textEnglish>
+			<textFrench>Chauffage à l&amp;apos;eau chaude</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>IDENTIFICATIONTYPE</menuCodeName>
+		<columnName>
+			<name>identificationTypeDd</name>
+		</columnName>
+		<text>
+			<code>10</code>
+			<textEnglish>Birth Certificate</textEnglish>
+			<textFrench>Acte de naissance</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Driver&amp;apos;s License</textEnglish>
+			<textFrench>Permis de conduire</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Health Insurance Card</textEnglish>
+			<textFrench>Carte d&amp;apos;assurance-maladie</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Old Age Security Card</textEnglish>
+			<textFrench>Carte de sécurité de la vieillesse</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>Social Insurance Card</textEnglish>
+			<textFrench>Carte d&amp;apos;assurance sociale</textFrench>
+		</text>
+		<text>
+			<code>30</code>
+			<textEnglish>Certificate of Naturalization</textEnglish>
+			<textFrench>Décret de naturalisation</textFrench>
+		</text>
+		<text>
+			<code>31</code>
+			<textEnglish>Citizenship Certificate</textEnglish>
+			<textFrench>Certificat de citoyenneté canadienne</textFrench>
+		</text>
+		<text>
+			<code>32</code>
+			<textEnglish>Green Card</textEnglish>
+			<textFrench>Carte verte</textFrench>
+		</text>
+		<text>
+			<code>33</code>
+			<textEnglish>IMM 1000 Immigration Form</textEnglish>
+			<textFrench>Formulaire d&amp;apos;immigration IMM 1000</textFrench>
+		</text>
+		<text>
+			<code>34</code>
+			<textEnglish>IMM 1442 Citizenship and Immigration Canada</textEnglish>
+			<textFrench>Formulaire IMM 1442 de Citoyenneté et Immigration Canada</textFrench>
+		</text>
+		<text>
+			<code>35</code>
+			<textEnglish>Passport</textEnglish>
+			<textFrench>Passeport</textFrench>
+		</text>
+		<text>
+			<code>36</code>
+			<textEnglish>Permanent Resident Card or IMM5292</textEnglish>
+			<textFrench>Carte de résident permanent ou IMM 5292</textFrench>
+		</text>
+		<text>
+			<code>50</code>
+			<textEnglish>Alberta Registries</textEnglish>
+			<textFrench>Registres de l&amp;apos;Alberta</textFrench>
+		</text>
+		<text>
+			<code>51</code>
+			<textEnglish>Dept. of Community Govt. and Trans.</textEnglish>
+			<textFrench>Min. du Dév. écon. et des Transports</textFrench>
+		</text>
+		<text>
+			<code>52</code>
+			<textEnglish>Dept. of Govt. Services and Lands NL</textEnglish>
+			<textFrench>Dep. of Gov. Services and Lands (T.-N.)</textFrench>
+		</text>
+		<text>
+			<code>53</code>
+			<textEnglish>Dept. of Service of NS and Municipal Relations</textEnglish>
+			<textFrench>Services Nouvelle-Écosse et Relations avec les municipalités</textFrench>
+		</text>
+		<text>
+			<code>54</code>
+			<textEnglish>Dept. of Trans. and Public Works PEI</textEnglish>
+			<textFrench>Dep. of Trans. and Public Works (Î.-P.-É.)</textFrench>
+		</text>
+		<text>
+			<code>55</code>
+			<textEnglish>Government of the NT Dept. of Trans.</textEnglish>
+			<textFrench>Gouvernement des T.N.-O., Dep. of Transp.</textFrench>
+		</text>
+		<text>
+			<code>56</code>
+			<textEnglish>Insurance Corporation of BC</textEnglish>
+			<textFrench>Corporation d&amp;apos;assurance de la C-B</textFrench>
+		</text>
+		<text>
+			<code>57</code>
+			<textEnglish>Saskatchewan Government Insurance</textEnglish>
+			<textFrench>Assurance du gouvernement de la Saskatchewan</textFrench>
+		</text>
+		<text>
+			<code>58</code>
+			<textEnglish>Service New Brunswick</textEnglish>
+			<textFrench>Service du Nouveau Brunswick</textFrench>
+		</text>
+		<text>
+			<code>70</code>
+			<textEnglish>ABM card or Client Card</textEnglish>
+			<textFrench>Carte de guichet automatique ou carte client</textFrench>
+		</text>
+		<text>
+			<code>71</code>
+			<textEnglish>Client Card from the CNIB</textEnglish>
+			<textFrench>Carte client de l&amp;apos;INCA</textFrench>
+		</text>
+		<text>
+			<code>72</code>
+			<textEnglish>Credit Card</textEnglish>
+			<textFrench>Carte de crédit</textFrench>
+		</text>
+		<text>
+			<code>73</code>
+			<textEnglish>Employee ID Card</textEnglish>
+			<textFrench>Carte d&amp;apos;identification d&amp;apos;employé</textFrench>
+		</text>
+		<text>
+			<code>90</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INCOMEPERIOD</menuCodeName>
+		<columnName>
+			<name>incomePeriodDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Annual</textEnglish>
+			<textFrench>Annuel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Semi-Annual</textEnglish>
+			<textFrench>À chaque semestre</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Quarterly</textEnglish>
+			<textFrench>À chaque trimestre</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Monthly</textEnglish>
+			<textFrench>Mensuellement</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Semi-Monthly</textEnglish>
+			<textFrench>Deux fois par mois</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Bi-Weekly</textEnglish>
+			<textFrench>Aux deux semaines</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Weekly</textEnglish>
+			<textFrench>Hebdomadaire</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INCOMETYPE</menuCodeName>
+		<columnName>
+			<name>incomeTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Salary</textEnglish>
+			<textFrench>Salaire</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Hourly</textEnglish>
+			<textFrench>À l&amp;apos;heure</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Hourly + Commissions</textEnglish>
+			<textFrench>À l&amp;apos;heure + commissions</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Commissions</textEnglish>
+			<textFrench>Commissions</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Interest Income</textEnglish>
+			<textFrench>Revenus d&amp;apos;intérêt</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Child Support</textEnglish>
+			<textFrench>Pension pour enfant</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Self-Employed</textEnglish>
+			<textFrench>Travailleur autonome</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Pension</textEnglish>
+			<textFrench>Pension</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Alimony</textEnglish>
+			<textFrench>Pension alimentaire</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Rental Income</textEnglish>
+			<textFrench>Revenu locatif</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Other Employment Income</textEnglish>
+			<textFrench>Autre revenu d&amp;apos;emploi</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INCOMETYPEOTHER</menuCodeName>
+		<columnName>
+			<name>incomeTypeDd</name>
+		</columnName>
+		<text>
+			<code>4</code>
+			<textEnglish>Interest Income</textEnglish>
+			<textFrench>Revenus d&amp;apos;intérêt</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Child Support</textEnglish>
+			<textFrench>Pension pour enfant</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Pension</textEnglish>
+			<textFrench>Pension</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Alimony</textEnglish>
+			<textFrench>Pension alimentaire</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INCOMETYPEEMPLOYMENT</menuCodeName>
+		<columnName>
+			<name>incomeTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Salary</textEnglish>
+			<textFrench>Salaire</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Hourly</textEnglish>
+			<textFrench>À l&amp;apos;heure</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Hourly + Commissions</textEnglish>
+			<textFrench>À l&amp;apos;heure + commissions</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Commissions</textEnglish>
+			<textFrench>Commissions</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Self-Employed</textEnglish>
+			<textFrench>Travailleur autonome</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Other Employment Income</textEnglish>
+			<textFrench>Autre revenu d&amp;apos;emploi</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INCOMETYPERENTAL</menuCodeName>
+		<columnName>
+			<name>incomeTypeDd</name>
+		</columnName>
+		<text>
+			<code>9</code>
+			<textEnglish>Rental Income</textEnglish>
+			<textFrench>Revenu locatif</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INDUSTRYSECTOR</menuCodeName>
+		<columnName>
+			<name>industrySectorDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Construction</textEnglish>
+			<textFrench>Construction</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Government</textEnglish>
+			<textFrench>Gouvernement</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Health</textEnglish>
+			<textFrench>Santé</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Education</textEnglish>
+			<textFrench>Éducation</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>High-Tech</textEnglish>
+			<textFrench>Technologie</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Retail Sales</textEnglish>
+			<textFrench>Commerce de détail</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Leisure/Entertainment</textEnglish>
+			<textFrench>Loisirs et divertissements</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Banking/Finance</textEnglish>
+			<textFrench>Services bancaires et financiers</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Transportation</textEnglish>
+			<textFrench>Transport</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Services</textEnglish>
+			<textFrench>Services</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Manufacturing</textEnglish>
+			<textFrench>Industries manufacturières</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Farming/Natural Resources</textEnglish>
+			<textFrench>Agriculture et ressources naturelles</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Varies</textEnglish>
+			<textFrench>Variable</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INSURANCEPROPORTIONS</menuCodeName>
+		<columnName>
+			<name>insuranceProportionsDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Home Owner Plus Option</textEnglish>
+			<textFrench>Home Owner Plus Option</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Total Option</textEnglish>
+			<textFrench>Total Option</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Regular Option</textEnglish>
+			<textFrench>Regular Option</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INSURANCESTATUS</menuCodeName>
+		<columnName>
+			<name>InsuranceStatusDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Accepted</textEnglish>
+			<textFrench>Accepted</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Refused</textEnglish>
+			<textFrench>Refused</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Ineligible</textEnglish>
+			<textFrench>Ineligible</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INSURANCETYPE</menuCodeName>
+		<columnName>
+			<name>insuranceTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Life</textEnglish>
+			<textFrench>Life</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Disability</textEnglish>
+			<textFrench>Disability</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Critical Illness</textEnglish>
+			<textFrench>Critical Illness</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INTERESTCOMPOUND</menuCodeName>
+		<columnName>
+			<name>interestCompoundDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Semi Annually</textEnglish>
+			<textFrench>Semi-annuel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Monthly</textEnglish>
+			<textFrench>Mensuel</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>INTERESTTYPE</menuCodeName>
+		<columnName>
+			<name>interestTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Fixed</textEnglish>
+			<textFrench>Fixe</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Adjustable</textEnglish>
+			<textFrench>Ajustable</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Capped Variable</textEnglish>
+			<textFrench>Variable plafonnée</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Variable</textEnglish>
+			<textFrench>Variable</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Buydown</textEnglish>
+			<textFrench>Escompté</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LANGUAGEPREFERENCE</menuCodeName>
+		<columnName>
+			<name>languagePreferenceDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>English</textEnglish>
+			<textFrench>Anglais</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>French</textEnglish>
+			<textFrench>Français</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LIABILITYPAYOFFTYPE</menuCodeName>
+		<columnName>
+			<name>liabilityPayOffTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Prior to Advance</textEnglish>
+			<textFrench>Antérieur à l&amp;apos;avance</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>From Proceeds</textEnglish>
+			<textFrench>Issu du produit</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LIABILITYTYPE</menuCodeName>
+		<columnName>
+			<name>liabilityTypeDd</name>
+		</columnName>
+		<text>
+			<code>2</code>
+			<textEnglish>Credit Card</textEnglish>
+			<textFrench>Carte de crédit</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Personal Loan</textEnglish>
+			<textFrench>Prêt personnel</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Auto Loan</textEnglish>
+			<textFrench>Prêt automobile</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Alimony</textEnglish>
+			<textFrench>Pension alimentaire</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Child Support</textEnglish>
+			<textFrench>Pension pour enfant</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Student Loan</textEnglish>
+			<textFrench>Prêt étudiant</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Wage Garnishment</textEnglish>
+			<textFrench>Saisie du salaire</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Unsecured Line of Credit</textEnglish>
+			<textFrench>Marge de crédit non garantie</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Income Tax</textEnglish>
+			<textFrench>Impôt</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Secured Line of Credit</textEnglish>
+			<textFrench>Marge de crédit garantie</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>Lease</textEnglish>
+			<textFrench>Crédit-bail</textFrench>
+		</text>
+		<text>
+			<code>16</code>
+			<textEnglish>Auto Lease</textEnglish>
+			<textFrench>Crédit-bail automobile</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LINEOFBUSINESS</menuCodeName>
+		<columnName>
+			<name>lineOfBusinessDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>A</textEnglish>
+			<textFrench>A</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>B</textEnglish>
+			<textFrench>B</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>C</textEnglish>
+			<textFrench>C</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LIVINGSPACEUNITOFMEASURE</menuCodeName>
+		<columnName>
+			<name>livingSpaceUnitOfMeasurDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Sq M</textEnglish>
+			<textFrench>mètres carrés</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Sq Ft</textEnglish>
+			<textFrench>pieds carrés</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LOANTYPE</menuCodeName>
+		<columnName>
+			<name>loanTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Mortgage</textEnglish>
+			<textFrench>Hypothèque</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Secured LOC</textEnglish>
+			<textFrench>Marge de crédit garantie</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Multiple Component</textEnglish>
+			<textFrench>Composantes multiples</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LOCREPAYMENTTYPE</menuCodeName>
+		<columnName>
+			<name>locRepaymentTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>5/20</textEnglish>
+			<textFrench>5/20</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>10/15</textEnglish>
+			<textFrench>10/15</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>LOTSIZEUNITOFMEASURE</menuCodeName>
+		<columnName>
+			<name>lotSizeUnitOfMeasureDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Sq M</textEnglish>
+			<textFrench>mètres carrés</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Sq Ft</textEnglish>
+			<textFrench>pieds carrés</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Acres</textEnglish>
+			<textFrench>Acres</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Hectares</textEnglish>
+			<textFrench>Hectares</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>MARITALSTATUS</menuCodeName>
+		<columnName>
+			<name>maritalStatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Single</textEnglish>
+			<textFrench>Célibataire</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Married</textEnglish>
+			<textFrench>Marié</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Common Law</textEnglish>
+			<textFrench>Conjoint de fait</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Separated</textEnglish>
+			<textFrench>Séparé</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Divorced</textEnglish>
+			<textFrench>Divorcé</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Widowed</textEnglish>
+			<textFrench>Veuf</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>MLSLISTINGFLAG</menuCodeName>
+		<columnName>
+			<name>mlsListingFlag</name>
+		</columnName>
+		<text>
+			<code>N</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+		<text>
+			<code>Y</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>MORTGAGEINSURANCECARRIER</menuCodeName>
+		<columnName>
+			<name>mortgageInsurerId</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>CMHC</textEnglish>
+			<textFrench>SCHL</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Genworth</textEnglish>
+			<textFrench>Genworth</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Canada Guaranty</textEnglish>
+			<textFrench>Canada Guaranty</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>MORTGAGEPAYOFFTYPE</menuCodeName>
+		<columnName>
+			<name>payoffTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Prior to Advance</textEnglish>
+			<textFrench>Antérieur à l&amp;apos;avance</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>From Proceeds</textEnglish>
+			<textFrench>Issu du produit</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>MORTGAGETYPE</menuCodeName>
+		<columnName>
+			<name>mortgageTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>First</textEnglish>
+			<textFrench>Première</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Second</textEnglish>
+			<textFrench>Deuxième</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Third</textEnglish>
+			<textFrench>Troisième</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>NEWCONSTRUCTION</menuCodeName>
+		<columnName>
+			<name>newConstructionDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Existing</textEnglish>
+			<textFrench>Existante</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Construction</textEnglish>
+			<textFrench>En construction</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>New</textEnglish>
+			<textFrench>Nouvelle</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>OCCUPANCYTYPE</menuCodeName>
+		<columnName>
+			<name>occupancyTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Owner-Occupied</textEnglish>
+			<textFrench>Occupé par propriétaire</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Owner-Occupied &amp;amp; Rental</textEnglish>
+			<textFrench>Occupé par propriétaire et locataire</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Rental</textEnglish>
+			<textFrench>Location</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Second Home</textEnglish>
+			<textFrench>Résidence secondaire</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>OCCUPATION</menuCodeName>
+		<columnName>
+			<name>occupationDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Management</textEnglish>
+			<textFrench>Direction</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Clerical</textEnglish>
+			<textFrench>Personnel de bureau</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Labour/Tradesperson</textEnglish>
+			<textFrench>Main-d&amp;apos;oeuvre qualifiée</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Retired</textEnglish>
+			<textFrench>Retraité</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Professional</textEnglish>
+			<textFrench>Professionnel</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Self-Employed</textEnglish>
+			<textFrench>Travailleur autonome</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PARTYTYPE</menuCodeName>
+		<columnName>
+			<name>partyTypeDd</name>
+		</columnName>
+		<text>
+			<code>50</code>
+			<textEnglish>Solicitor</textEnglish>
+			<textFrench>Notaire</textFrench>
+		</text>
+		<text>
+			<code>51</code>
+			<textEnglish>Appraiser</textEnglish>
+			<textFrench>Évaluateur</textFrench>
+		</text>
+		<text>
+			<code>55</code>
+			<textEnglish>Solicitor Network</textEnglish>
+			<textFrench>Réseau de notaires</textFrench>
+		</text>
+		<text>
+			<code>56</code>
+			<textEnglish>Referral Source</textEnglish>
+			<textFrench>Source de référence</textFrench>
+		</text>
+		<text>
+			<code>57</code>
+			<textEnglish>Referring Website</textEnglish>
+			<textFrench>Site Web d'origine</textFrench>
+		</text>
+		<text>
+			<code>62</code>
+			<textEnglish>Service Branch</textEnglish>
+			<textFrench>Succursale de service</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PAYMENTFREQUENCY</menuCodeName>
+		<columnName>
+			<name>paymentFrequencyDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Monthly</textEnglish>
+			<textFrench>Mensuel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Semi Monthly</textEnglish>
+			<textFrench>Deux fois par mois</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Biweekly</textEnglish>
+			<textFrench>Aux deux semaines</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Accelerated Biweekly</textEnglish>
+			<textFrench>Aux deux semaines accéléré</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Weekly</textEnglish>
+			<textFrench>Hebdomadaire</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Accelerated Weekly</textEnglish>
+			<textFrench>Hebdomadaire accéléré</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PHONETYPE</menuCodeName>
+		<columnName>
+			<name>phoneTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Home</textEnglish>
+			<textFrench>Numéro de téléphone résidentiel</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Cell</textEnglish>
+			<textFrench>Cellulaire</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Work</textEnglish>
+			<textFrench>Numéro de téléphone au travail</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Fax</textEnglish>
+			<textFrench>Télécopieur</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PREFCONTACTMETHOD</menuCodeName>
+		<columnName>
+			<name>preferredContactMethodDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Home Phone</textEnglish>
+			<textFrench>Numéro de téléphone résidentiel</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Cell Phone</textEnglish>
+			<textFrench>Cellulaire</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Fax</textEnglish>
+			<textFrench>Télécopieur</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>E-mail</textEnglish>
+			<textFrench>Adresse couriel</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Work Phone</textEnglish>
+			<textFrench>Numéro de téléphone au travail</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Mail</textEnglish>
+			<textFrench>Poste</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PREFERREDDELIVERYMETHOD</menuCodeName>
+		<columnName>
+			<name>preferredDeliveryMethodDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Email</textEnglish>
+			<textFrench>Email</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Fax</textEnglish>
+			<textFrench>Fax</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Email back to requester</textEnglish>
+			<textFrench>Email back to requester</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>N/A</textEnglish>
+			<textFrench>N/A</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PREPAYMENTOPTIONS</menuCodeName>
+		<columnName>
+			<name>prepaymentOptionsDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>3 Month Penalty</textEnglish>
+			<textFrench>Pénalité de 3 mois</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Open With Penalty</textEnglish>
+			<textFrench>Ouvert avec pénalité</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>NHA</textEnglish>
+			<textFrench>CNB</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Not Allowed</textEnglish>
+			<textFrench>Non permis</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Open</textEnglish>
+			<textFrench>Ouvert</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>2 Month Penalty</textEnglish>
+			<textFrench>Pénalité de 2 mois</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PRIVILEGEPAYMENT</menuCodeName>
+		<columnName>
+			<name>privilegePaymentDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>15 + 15</textEnglish>
+			<textFrench>15 + 15</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>10 + 10</textEnglish>
+			<textFrench>10 + 10</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>20 + 20</textEnglish>
+			<textFrench>20 + 20</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Not Allowed</textEnglish>
+			<textFrench>Non permis</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Open</textEnglish>
+			<textFrench>Ouvert</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PROFILESTATUS</menuCodeName>
+		<columnName>
+			<name>profilestatusDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Active</textEnglish>
+			<textFrench> Actif</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Suspended</textEnglish>
+			<textFrench>Suspension</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Deactivated</textEnglish>
+			<textFrench>Désactivé</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Disallowed</textEnglish>
+			<textFrench>Interdit</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Caution</textEnglish>
+			<textFrench>Mise en garde</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>On Leave</textEnglish>
+			<textFrench>En congé</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PROPERTYEXPENSEPERIOD</menuCodeName>
+		<columnName>
+			<name>propertyExpensePeriodDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Annual</textEnglish>
+			<textFrench>À chaque année</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Semi-Annual</textEnglish>
+			<textFrench>À chaque semestre</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Quarterly</textEnglish>
+			<textFrench>À chaque trimestre</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Monthly</textEnglish>
+			<textFrench>Mensuel</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Semi-Monthly</textEnglish>
+			<textFrench>Deux fois par mois</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Bi-Weekly</textEnglish>
+			<textFrench>Aux deux semaines</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Weekly</textEnglish>
+			<textFrench>Hebdomadaire</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PROPERTYEXPENSETYPE</menuCodeName>
+		<columnName>
+			<name>propertyExpenseTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Municipal Taxes</textEnglish>
+			<textFrench>Taxes municipales</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Condo Fees</textEnglish>
+			<textFrench>Charges de copropriété</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Heating Expense</textEnglish>
+			<textFrench>Frais de chauffage</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Insurance</textEnglish>
+			<textFrench>Assurance</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Hydro</textEnglish>
+			<textFrench>Électricité</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Management Expenses</textEnglish>
+			<textFrench>Frais de gestion</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Repairs</textEnglish>
+			<textFrench>Réparations</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Interest Charges</textEnglish>
+			<textFrench>Frais d&amp;apos;intérêt</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>General Expenses</textEnglish>
+			<textFrench>Frais généraux</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PROPERTYTYPE</menuCodeName>
+		<columnName>
+			<name>propertyTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>FreeHold</textEnglish>
+			<textFrench>Libre</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>LeaseHold</textEnglish>
+			<textFrench>À bail</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Condo</textEnglish>
+			<textFrench>Condo</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>PROVINCE</menuCodeName>
+		<columnName>
+			<name>provinceDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Alberta</textEnglish>
+			<textFrench>Alberta</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>British Columbia</textEnglish>
+			<textFrench>Colombie-Britannique</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Manitoba</textEnglish>
+			<textFrench>Manitoba</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>New Brunswick</textEnglish>
+			<textFrench>Nouveau-Brunswick</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Newfoundland and Labrador</textEnglish>
+			<textFrench>Terre-Neuve et Labrador</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Northwest Territories</textEnglish>
+			<textFrench>Territoires du Nord-Ouest</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Nova Scotia</textEnglish>
+			<textFrench>Nouvelle-Écosse</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Nunavut</textEnglish>
+			<textFrench>Nunavut</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Ontario</textEnglish>
+			<textFrench>Ontario</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Prince Edward Island</textEnglish>
+			<textFrench>Île-du-Prince-Édouard</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Quebec</textEnglish>
+			<textFrench>Québec</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Saskatchewan</textEnglish>
+			<textFrench>Saskatchewan</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Yukon</textEnglish>
+			<textFrench>Yukon</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>RELATIONSHIP</menuCodeName>
+		<columnName>
+			<name>relationshipToPrimaryApplicant</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Spouse</textEnglish>
+			<textFrench>Conjoint</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Common-Law</textEnglish>
+			<textFrench>Conjoint de fait</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Related Family Member</textEnglish>
+			<textFrench>Membre de la famille apparentée</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Parent</textEnglish>
+			<textFrench>Parent</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Sibling</textEnglish>
+			<textFrench>Frère/soeur</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Child</textEnglish>
+			<textFrench>Enfant</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Grandchild</textEnglish>
+			<textFrench>Petit-enfant</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Grandparent</textEnglish>
+			<textFrench>Grand-parent</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>RENTALOFFSETOPTION</menuCodeName>
+		<columnName>
+			<name>rentalOffsetOption</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>None</textEnglish>
+			<textFrench>Aucune</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Add Percentage to Gross Income</textEnglish>
+			<textFrench>Ajouter pourcentage au revenu brut</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Reduce Rental exp., add bal to Gross Inc.</textEnglish>
+			<textFrench>Réduire les frais de location et ajouter le solde au revenu brut</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>REPAYMENTTYPE</menuCodeName>
+		<columnName>
+			<name>repaymentTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Blended PI</textEnglish>
+			<textFrench>Paiement de capital et d&amp;apos;intérêts réunis</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Interest Plus Fixed Principal</textEnglish>
+			<textFrench>Intérêts et versement fixe sur le capital</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Interest Only Variable</textEnglish>
+			<textFrench>&amp;quot;Non amorti, taux variable&amp;quot;</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Interest Only Fixed</textEnglish>
+			<textFrench>intérêt seulement à taux fixe</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>At Maturity</textEnglish>
+			<textFrench>À l&amp;apos;échéance</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>REQUESTAPPRAISAL</menuCodeName>
+		<columnName>
+			<name>requestAppraisalDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>RESIDENTIALSTATUS</menuCodeName>
+		<columnName>
+			<name>residentialStatusDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Own</textEnglish>
+			<textFrench>Propriétaire</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Rent</textEnglish>
+			<textFrench>Locataire</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Live With Parents</textEnglish>
+			<textFrench>Avec ses parents</textFrench>
+		</text>
+		<text>
+			<code>99</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SALUTATION</menuCodeName>
+		<columnName>
+			<name>salutationDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Mr.</textEnglish>
+			<textFrench>M.</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Mrs.</textEnglish>
+			<textFrench>Mme</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Ms.</textEnglish>
+			<textFrench>Mme</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Dr.</textEnglish>
+			<textFrench>Dr</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Rev.</textEnglish>
+			<textFrench>Révérend</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Miss</textEnglish>
+			<textFrench>Mlle</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Judge</textEnglish>
+			<textFrench>Juge</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SECTIONCODE</menuCodeName>
+		<columnName>
+			<name>sectionCode</name>
+		</columnName>
+		<text>
+			<code>ASUM</code>
+			<textEnglish>Assumption Policies</textEnglish>
+			<textFrench>Assumption Policies</textFrench>
+		</text>
+		<text>
+			<code>COND</code>
+			<textEnglish>This Commitment is Conditional Upon</textEnglish>
+			<textFrench>This Commitment is Conditional Upon</textFrench>
+		</text>
+		<text>
+			<code>FLEX</code>
+			<textEnglish>Payment Flexibility Policies</textEnglish>
+			<textFrench>Payment Flexibility Policies</textFrench>
+		</text>
+		<text>
+			<code>INST</code>
+			<textEnglish>Instructions</textEnglish>
+			<textFrench>Instructions</textFrench>
+		</text>
+		<text>
+			<code>MCM</code>
+			<textEnglish>MCM Component Details</textEnglish>
+			<textFrench>Détails de composant MCM</textFrench>
+		</text>
+		<text>
+			<code>OTHR</code>
+			<textEnglish>Other</textEnglish>
+			<textFrench>Autre</textFrench>
+		</text>
+		<text>
+			<code>PORT</code>
+			<textEnglish>Portability Policies</textEnglish>
+			<textFrench>Portability Policies</textFrench>
+		</text>
+		<text>
+			<code>PREP</code>
+			<textEnglish>Prepayment Policies</textEnglish>
+			<textFrench>Prepayment Policies</textFrench>
+		</text>
+		<text>
+			<code>RADJ</code>
+			<textEnglish>Rate Adjustment Policies</textEnglish>
+			<textFrench>Rate Adjustment Policies</textFrench>
+		</text>
+		<text>
+			<code>SVCH</code>
+			<textEnglish>Administration and Service Fees</textEnglish>
+			<textFrench>Administration and Service Fees</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SERVICEPRODUCT</menuCodeName>
+		<columnName>
+			<name>mtgProductId</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Full Service</textEnglish>
+			<textFrench>Service complet</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Basic Service</textEnglish>
+			<textFrench>Service de base</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Partial Coverage</textEnglish>
+			<textFrench>Couverture partielle</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Cash Back</textEnglish>
+			<textFrench>Remise en argent</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Flex Down</textEnglish>
+			<textFrench>Mise de fonds multisource</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Alt A Upfront Premium</textEnglish>
+			<textFrench>Alt A Prime d'avance</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Family Plan</textEnglish>
+			<textFrench>Plan Familial</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>New in Canada</textEnglish>
+			<textFrench>Nouveaux arrivants au Canada </textFrench>
+		</text>
+		<text>
+			<code>15</code>
+			<textEnglish>Staff application</textEnglish>
+			<textFrench>Application de Personnel</textFrench>
+		</text>
+		<text>
+			<code>16</code>
+			<textEnglish>Spousal Buyout</textEnglish>
+			<textFrench>Achat Conjoints</textFrench>
+		</text>
+		<text>
+			<code>17</code>
+			<textEnglish>Vacation Home</textEnglish>
+			<textFrench>Vacances á la maison</textFrench>
+		</text>
+		<text>
+			<code>20</code>
+			<textEnglish>Equity Assist</textEnglish>
+			<textFrench>Avantage Perspectives</textFrench>
+		</text>
+		<text>
+			<code>21</code>
+			<textEnglish>Low Doc</textEnglish>
+			<textFrench>Documentation réduite</textFrench>
+		</text>
+		<text>
+			<code>22</code>
+			<textEnglish>Equity Guide</textEnglish>
+			<textFrench>Guide de crédit</textFrench>
+		</text>
+		<text>
+			<code>23</code>
+			<textEnglish>CMHC Self-Employed Simplified</textEnglish>
+			<textFrench>Option Simplifiée SCHL TA</textFrench>
+		</text>
+		<text>
+			<code>26</code>
+			<textEnglish>Chattel Loan Insurance</textEnglish>
+			<textFrench>Hypothèque mobilière</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SERVICEPROVIDER</menuCodeName>
+		<columnName>
+			<name>mtgProviderId</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>CMHC</textEnglish>
+			<textFrench>SCHL</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Genworth</textEnglish>
+			<textFrench>Genworth</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Canada Guaranty</textEnglish>
+			<textFrench>Canada Guaranty</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SEWAGETYPE</menuCodeName>
+		<columnName>
+			<name>sewageTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Municipal</textEnglish>
+			<textFrench>Municipal</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Septic</textEnglish>
+			<textFrench>Septique</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Holding Tank</textEnglish>
+			<textFrench>Réservoir de rétention</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SINGLEPROGRESSIVETYPE</menuCodeName>
+		<columnName>
+			<name>singleProgressiveTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SMOKER</menuCodeName>
+		<columnName>
+			<name>smokerDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SOLICITATION</menuCodeName>
+		<columnName>
+			<name>solicitationDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>Non</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Oui</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>STATE</menuCodeName>
+		<columnName>
+			<name>provinceDd</name>
+		</columnName>
+		<text>
+			<code>20</code>
+			<textEnglish>Alabama</textEnglish>
+			<textFrench>Alabama</textFrench>
+		</text>
+		<text>
+			<code>21</code>
+			<textEnglish>Alaska</textEnglish>
+			<textFrench>Alaska</textFrench>
+		</text>
+		<text>
+			<code>22</code>
+			<textEnglish>American Samoa</textEnglish>
+			<textFrench>Samoa américaines</textFrench>
+		</text>
+		<text>
+			<code>23</code>
+			<textEnglish>Arizona</textEnglish>
+			<textFrench>Arizona</textFrench>
+		</text>
+		<text>
+			<code>24</code>
+			<textEnglish>Arkansas</textEnglish>
+			<textFrench>Arkansas</textFrench>
+		</text>
+		<text>
+			<code>25</code>
+			<textEnglish>California</textEnglish>
+			<textFrench>Californie</textFrench>
+		</text>
+		<text>
+			<code>26</code>
+			<textEnglish>Colorado</textEnglish>
+			<textFrench>Colorado</textFrench>
+		</text>
+		<text>
+			<code>27</code>
+			<textEnglish>Connecticut</textEnglish>
+			<textFrench>Connecticut</textFrench>
+		</text>
+		<text>
+			<code>28</code>
+			<textEnglish>Delaware</textEnglish>
+			<textFrench>Delaware</textFrench>
+		</text>
+		<text>
+			<code>29</code>
+			<textEnglish>District of Columbia</textEnglish>
+			<textFrench>District fédéral de Columbia</textFrench>
+		</text>
+		<text>
+			<code>30</code>
+			<textEnglish>Federated States of Micronesia</textEnglish>
+			<textFrench>États fédérés de Micronésie</textFrench>
+		</text>
+		<text>
+			<code>31</code>
+			<textEnglish>Florida</textEnglish>
+			<textFrench>Floride</textFrench>
+		</text>
+		<text>
+			<code>32</code>
+			<textEnglish>Georgia</textEnglish>
+			<textFrench>Géorgie</textFrench>
+		</text>
+		<text>
+			<code>33</code>
+			<textEnglish>Guam</textEnglish>
+			<textFrench>Guam</textFrench>
+		</text>
+		<text>
+			<code>34</code>
+			<textEnglish>Hawaii</textEnglish>
+			<textFrench>Hawaï</textFrench>
+		</text>
+		<text>
+			<code>35</code>
+			<textEnglish>Idaho</textEnglish>
+			<textFrench>Idaho</textFrench>
+		</text>
+		<text>
+			<code>36</code>
+			<textEnglish>Illinois</textEnglish>
+			<textFrench>Illinois</textFrench>
+		</text>
+		<text>
+			<code>37</code>
+			<textEnglish>Indiana</textEnglish>
+			<textFrench>Indiana</textFrench>
+		</text>
+		<text>
+			<code>38</code>
+			<textEnglish>Iowa</textEnglish>
+			<textFrench>Iowa</textFrench>
+		</text>
+		<text>
+			<code>39</code>
+			<textEnglish>Kansas</textEnglish>
+			<textFrench>Kansas</textFrench>
+		</text>
+		<text>
+			<code>40</code>
+			<textEnglish>Kentucky</textEnglish>
+			<textFrench>Kentucky</textFrench>
+		</text>
+		<text>
+			<code>41</code>
+			<textEnglish>Louisiana</textEnglish>
+			<textFrench>Louisiane</textFrench>
+		</text>
+		<text>
+			<code>42</code>
+			<textEnglish>Maine</textEnglish>
+			<textFrench>Maine</textFrench>
+		</text>
+		<text>
+			<code>43</code>
+			<textEnglish>Marshall Islands</textEnglish>
+			<textFrench>Îles Marshall</textFrench>
+		</text>
+		<text>
+			<code>44</code>
+			<textEnglish>Maryland</textEnglish>
+			<textFrench>Maryland</textFrench>
+		</text>
+		<text>
+			<code>45</code>
+			<textEnglish>Massachusetts</textEnglish>
+			<textFrench>Massachusetts</textFrench>
+		</text>
+		<text>
+			<code>46</code>
+			<textEnglish>Michigan</textEnglish>
+			<textFrench>Michigan</textFrench>
+		</text>
+		<text>
+			<code>47</code>
+			<textEnglish>Minnesota</textEnglish>
+			<textFrench>Minnesota</textFrench>
+		</text>
+		<text>
+			<code>48</code>
+			<textEnglish>Mississippi</textEnglish>
+			<textFrench>Mississippi</textFrench>
+		</text>
+		<text>
+			<code>49</code>
+			<textEnglish>Missouri</textEnglish>
+			<textFrench>Missouri</textFrench>
+		</text>
+		<text>
+			<code>50</code>
+			<textEnglish>Montana</textEnglish>
+			<textFrench>Montana</textFrench>
+		</text>
+		<text>
+			<code>51</code>
+			<textEnglish>Nebraska</textEnglish>
+			<textFrench>Nebraska</textFrench>
+		</text>
+		<text>
+			<code>52</code>
+			<textEnglish>Nevada</textEnglish>
+			<textFrench>Nevada</textFrench>
+		</text>
+		<text>
+			<code>53</code>
+			<textEnglish>New Hampshire</textEnglish>
+			<textFrench>New Hampshire</textFrench>
+		</text>
+		<text>
+			<code>54</code>
+			<textEnglish>New Jersey</textEnglish>
+			<textFrench>New Jersey</textFrench>
+		</text>
+		<text>
+			<code>55</code>
+			<textEnglish>New Mexico</textEnglish>
+			<textFrench>Nouveau-Mexique</textFrench>
+		</text>
+		<text>
+			<code>56</code>
+			<textEnglish>New York</textEnglish>
+			<textFrench>New York</textFrench>
+		</text>
+		<text>
+			<code>57</code>
+			<textEnglish>North Carolina</textEnglish>
+			<textFrench>Caroline du Nord</textFrench>
+		</text>
+		<text>
+			<code>58</code>
+			<textEnglish>North Dakota</textEnglish>
+			<textFrench>Dakota du Nord</textFrench>
+		</text>
+		<text>
+			<code>59</code>
+			<textEnglish>Northern Mariana Islands</textEnglish>
+			<textFrench>Îles Mariannes du Nord</textFrench>
+		</text>
+		<text>
+			<code>60</code>
+			<textEnglish>Ohio</textEnglish>
+			<textFrench>Ohio</textFrench>
+		</text>
+		<text>
+			<code>61</code>
+			<textEnglish>Oklahoma</textEnglish>
+			<textFrench>Oklahoma</textFrench>
+		</text>
+		<text>
+			<code>62</code>
+			<textEnglish>Oregon</textEnglish>
+			<textFrench>Oregon</textFrench>
+		</text>
+		<text>
+			<code>63</code>
+			<textEnglish>Palau</textEnglish>
+			<textFrench>Palau</textFrench>
+		</text>
+		<text>
+			<code>64</code>
+			<textEnglish>Pennsylvania</textEnglish>
+			<textFrench>Pennsylvanie</textFrench>
+		</text>
+		<text>
+			<code>65</code>
+			<textEnglish>Puerto Rico</textEnglish>
+			<textFrench>Puerto Rico</textFrench>
+		</text>
+		<text>
+			<code>66</code>
+			<textEnglish>Rhode Island</textEnglish>
+			<textFrench>Rhode Island</textFrench>
+		</text>
+		<text>
+			<code>67</code>
+			<textEnglish>South Carolina</textEnglish>
+			<textFrench>Caroline du Sud</textFrench>
+		</text>
+		<text>
+			<code>68</code>
+			<textEnglish>South Dakota</textEnglish>
+			<textFrench>Dakota du Sud</textFrench>
+		</text>
+		<text>
+			<code>69</code>
+			<textEnglish>Tennessee</textEnglish>
+			<textFrench>Tennessee</textFrench>
+		</text>
+		<text>
+			<code>70</code>
+			<textEnglish>Texas</textEnglish>
+			<textFrench>Texas</textFrench>
+		</text>
+		<text>
+			<code>71</code>
+			<textEnglish>Utah</textEnglish>
+			<textFrench>Utah</textFrench>
+		</text>
+		<text>
+			<code>72</code>
+			<textEnglish>Vermont</textEnglish>
+			<textFrench>Vermont</textFrench>
+		</text>
+		<text>
+			<code>73</code>
+			<textEnglish>Virgin islands</textEnglish>
+			<textFrench>Îles Vierges</textFrench>
+		</text>
+		<text>
+			<code>74</code>
+			<textEnglish>Virginia</textEnglish>
+			<textFrench>Virginie</textFrench>
+		</text>
+		<text>
+			<code>75</code>
+			<textEnglish>Washington</textEnglish>
+			<textFrench>Washington</textFrench>
+		</text>
+		<text>
+			<code>76</code>
+			<textEnglish>West Virginia</textEnglish>
+			<textFrench>Virginie-Occidentale</textFrench>
+		</text>
+		<text>
+			<code>77</code>
+			<textEnglish>Wisconsin</textEnglish>
+			<textFrench>Wisconsin</textFrench>
+		</text>
+		<text>
+			<code>78</code>
+			<textEnglish>Wyoming</textEnglish>
+			<textFrench>Wyoming</textFrench>
+		</text>
+		<text>
+			<code>79</code>
+			<textEnglish>Armed Forces Americas (except Canada)</textEnglish>
+			<textFrench>Forces armées de pays des Amériques (sauf le Canada)</textFrench>
+		</text>
+		<text>
+			<code>80</code>
+			<textEnglish>Armed Forces Europe, Africa, The Middle East and Canada</textEnglish>
+			<textFrench>&amp;quot;Forces armées de pays d&amp;apos;Europe, d&amp;apos;Afrique, du Moyen-Orient et du Canada&amp;quot;</textFrench>
+		</text>
+		<text>
+			<code>81</code>
+			<textEnglish>Armed Forces Pacific</textEnglish>
+			<textFrench>Forces armées du Pacifique</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>STREETDIRECTION</menuCodeName>
+		<columnName>
+			<name>streetDirectionDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>N</textEnglish>
+			<textFrench>N</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>S</textEnglish>
+			<textFrench>S.</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>E</textEnglish>
+			<textFrench>E.</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>W</textEnglish>
+			<textFrench>O.</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>NE</textEnglish>
+			<textFrench>N.-E.</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>NW</textEnglish>
+			<textFrench>N.-O.</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>SE</textEnglish>
+			<textFrench>S.-E.</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>SW</textEnglish>
+			<textFrench>S.-O.</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>STREETTYPE</menuCodeName>
+		<columnName>
+			<name>streetTypeDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Avenue</textEnglish>
+			<textFrench>Avenue</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Boulevard</textEnglish>
+			<textFrench>Boulevard</textFrench>
+		</text>
+		<text>
+			<code>3</code>
+			<textEnglish>Circle</textEnglish>
+			<textFrench>Circle</textFrench>
+		</text>
+		<text>
+			<code>4</code>
+			<textEnglish>Crescent</textEnglish>
+			<textFrench>Crescent</textFrench>
+		</text>
+		<text>
+			<code>5</code>
+			<textEnglish>Drive</textEnglish>
+			<textFrench>Drive</textFrench>
+		</text>
+		<text>
+			<code>6</code>
+			<textEnglish>Gate</textEnglish>
+			<textFrench>Gate</textFrench>
+		</text>
+		<text>
+			<code>7</code>
+			<textEnglish>Highway</textEnglish>
+			<textFrench>Highway</textFrench>
+		</text>
+		<text>
+			<code>8</code>
+			<textEnglish>Lane</textEnglish>
+			<textFrench>Lane</textFrench>
+		</text>
+		<text>
+			<code>9</code>
+			<textEnglish>Line</textEnglish>
+			<textFrench>Line</textFrench>
+		</text>
+		<text>
+			<code>10</code>
+			<textEnglish>Road</textEnglish>
+			<textFrench>Road</textFrench>
+		</text>
+		<text>
+			<code>11</code>
+			<textEnglish>Route</textEnglish>
+			<textFrench>Route</textFrench>
+		</text>
+		<text>
+			<code>12</code>
+			<textEnglish>Street</textEnglish>
+			<textFrench>Street</textFrench>
+		</text>
+		<text>
+			<code>13</code>
+			<textEnglish>Terrace</textEnglish>
+			<textFrench>Terrace</textFrench>
+		</text>
+		<text>
+			<code>14</code>
+			<textEnglish>Trail</textEnglish>
+			<textFrench>Trail</textFrench>
+		</text>
+		<text>
+			<code>15</code>
+			<textEnglish>Way</textEnglish>
+			<textFrench>Way</textFrench>
+		</text>
+		<text>
+			<code>16</code>
+			<textEnglish>Common</textEnglish>
+			<textFrench>Common</textFrench>
+		</text>
+		<text>
+			<code>17</code>
+			<textEnglish>Court</textEnglish>
+			<textFrench>Court</textFrench>
+		</text>
+		<text>
+			<code>18</code>
+			<textEnglish>Green</textEnglish>
+			<textFrench>Green</textFrench>
+		</text>
+		<text>
+			<code>19</code>
+			<textEnglish>Manor</textEnglish>
+			<textFrench>Manor</textFrench>
+		</text>
+		<text>
+			<code>20</code>
+			<textEnglish>Place</textEnglish>
+			<textFrench>Place</textFrench>
+		</text>
+		<text>
+			<code>21</code>
+			<textEnglish>Rise</textEnglish>
+			<textFrench>Rise</textFrench>
+		</text>
+		<text>
+			<code>22</code>
+			<textEnglish>Landing</textEnglish>
+			<textFrench>Landing</textFrench>
+		</text>
+		<text>
+			<code>23</code>
+			<textEnglish>Bay</textEnglish>
+			<textFrench>Bay</textFrench>
+		</text>
+		<text>
+			<code>24</code>
+			<textEnglish>Close</textEnglish>
+			<textFrench>Close</textFrench>
+		</text>
+		<text>
+			<code>25</code>
+			<textEnglish>Link</textEnglish>
+			<textFrench>Link</textFrench>
+		</text>
+		<text>
+			<code>26</code>
+			<textEnglish>Mews</textEnglish>
+			<textFrench>Mews</textFrench>
+		</text>
+		<text>
+			<code>27</code>
+			<textEnglish>View</textEnglish>
+			<textFrench>View</textFrench>
+		</text>
+		<text>
+			<code>28</code>
+			<textEnglish>Quay</textEnglish>
+			<textFrench>Quay</textFrench>
+		</text>
+		<text>
+			<code>29</code>
+			<textEnglish>Square</textEnglish>
+			<textFrench>Square</textFrench>
+		</text>
+		<text>
+			<code>30</code>
+			<textEnglish>Abbey</textEnglish>
+			<textFrench>Abbey</textFrench>
+		</text>
+		<text>
+			<code>31</code>
+			<textEnglish>Acres</textEnglish>
+			<textFrench>Acres</textFrench>
+		</text>
+		<text>
+			<code>32</code>
+			<textEnglish>Alley</textEnglish>
+			<textFrench>Alley</textFrench>
+		</text>
+		<text>
+			<code>33</code>
+			<textEnglish>Autoroute</textEnglish>
+			<textFrench>Autoroute</textFrench>
+		</text>
+		<text>
+			<code>34</code>
+			<textEnglish>Beach</textEnglish>
+			<textFrench>Beach</textFrench>
+		</text>
+		<text>
+			<code>35</code>
+			<textEnglish>Bend</textEnglish>
+			<textFrench>Bend</textFrench>
+		</text>
+		<text>
+			<code>36</code>
+			<textEnglish>By-Pass</textEnglish>
+			<textFrench>By-Pass</textFrench>
+		</text>
+		<text>
+			<code>37</code>
+			<textEnglish>Byway</textEnglish>
+			<textFrench>Byway</textFrench>
+		</text>
+		<text>
+			<code>38</code>
+			<textEnglish>Campus</textEnglish>
+			<textFrench>Campus</textFrench>
+		</text>
+		<text>
+			<code>39</code>
+			<textEnglish>Cape</textEnglish>
+			<textFrench>Cape</textFrench>
+		</text>
+		<text>
+			<code>40</code>
+			<textEnglish>Centre</textEnglish>
+			<textFrench>Centre</textFrench>
+		</text>
+		<text>
+			<code>41</code>
+			<textEnglish>Chase</textEnglish>
+			<textFrench>Chase</textFrench>
+		</text>
+		<text>
+			<code>42</code>
+			<textEnglish>Circuit</textEnglish>
+			<textFrench>Circuit</textFrench>
+		</text>
+		<text>
+			<code>43</code>
+			<textEnglish>Concession</textEnglish>
+			<textFrench>Concession</textFrench>
+		</text>
+		<text>
+			<code>44</code>
+			<textEnglish>Corners</textEnglish>
+			<textFrench>Corners</textFrench>
+		</text>
+		<text>
+			<code>45</code>
+			<textEnglish>Crossing</textEnglish>
+			<textFrench>Crossing</textFrench>
+		</text>
+		<text>
+			<code>46</code>
+			<textEnglish>Cul-de-sac</textEnglish>
+			<textFrench>Cul-de-sac</textFrench>
+		</text>
+		<text>
+			<code>47</code>
+			<textEnglish>Cove</textEnglish>
+			<textFrench>Cove</textFrench>
+		</text>
+		<text>
+			<code>48</code>
+			<textEnglish>Dale</textEnglish>
+			<textFrench>Dale</textFrench>
+		</text>
+		<text>
+			<code>49</code>
+			<textEnglish>Dell</textEnglish>
+			<textFrench>Dell</textFrench>
+		</text>
+		<text>
+			<code>50</code>
+			<textEnglish>Diversion</textEnglish>
+			<textFrench>Diversion</textFrench>
+		</text>
+		<text>
+			<code>51</code>
+			<textEnglish>Downs</textEnglish>
+			<textFrench>Downs</textFrench>
+		</text>
+		<text>
+			<code>52</code>
+			<textEnglish>End</textEnglish>
+			<textFrench>End</textFrench>
+		</text>
+		<text>
+			<code>53</code>
+			<textEnglish>Estates</textEnglish>
+			<textFrench>Estates</textFrench>
+		</text>
+		<text>
+			<code>54</code>
+			<textEnglish>Expressway</textEnglish>
+			<textFrench>Expressway</textFrench>
+		</text>
+		<text>
+			<code>55</code>
+			<textEnglish>Extension</textEnglish>
+			<textFrench>Extension</textFrench>
+		</text>
+		<text>
+			<code>56</code>
+			<textEnglish>Farm</textEnglish>
+			<textFrench>Farm</textFrench>
+		</text>
+		<text>
+			<code>57</code>
+			<textEnglish>Field</textEnglish>
+			<textFrench>Field</textFrench>
+		</text>
+		<text>
+			<code>58</code>
+			<textEnglish>Forest</textEnglish>
+			<textFrench>Forest</textFrench>
+		</text>
+		<text>
+			<code>59</code>
+			<textEnglish>Freeway</textEnglish>
+			<textFrench>Freeway</textFrench>
+		</text>
+		<text>
+			<code>60</code>
+			<textEnglish>Front</textEnglish>
+			<textFrench>Front</textFrench>
+		</text>
+		<text>
+			<code>61</code>
+			<textEnglish>Gardens</textEnglish>
+			<textFrench>Gardens</textFrench>
+		</text>
+		<text>
+			<code>62</code>
+			<textEnglish>Glade</textEnglish>
+			<textFrench>Glade</textFrench>
+		</text>
+		<text>
+			<code>63</code>
+			<textEnglish>Glen</textEnglish>
+			<textFrench>Glen</textFrench>
+		</text>
+		<text>
+			<code>64</code>
+			<textEnglish>Grounds</textEnglish>
+			<textFrench>Grounds</textFrench>
+		</text>
+		<text>
+			<code>65</code>
+			<textEnglish>Grove</textEnglish>
+			<textFrench>Grove</textFrench>
+		</text>
+		<text>
+			<code>66</code>
+			<textEnglish>Harbour</textEnglish>
+			<textFrench>Harbour</textFrench>
+		</text>
+		<text>
+			<code>67</code>
+			<textEnglish>Heights</textEnglish>
+			<textFrench>Heights</textFrench>
+		</text>
+		<text>
+			<code>68</code>
+			<textEnglish>Highlands</textEnglish>
+			<textFrench>Highlands</textFrench>
+		</text>
+		<text>
+			<code>69</code>
+			<textEnglish>Hill</textEnglish>
+			<textFrench>Hill</textFrench>
+		</text>
+		<text>
+			<code>70</code>
+			<textEnglish>Hollow</textEnglish>
+			<textFrench>Hollow</textFrench>
+		</text>
+		<text>
+			<code>71</code>
+			<textEnglish>Impasse</textEnglish>
+			<textFrench>Impasse</textFrench>
+		</text>
+		<text>
+			<code>72</code>
+			<textEnglish>Island</textEnglish>
+			<textFrench>Island</textFrench>
+		</text>
+		<text>
+			<code>73</code>
+			<textEnglish>Key</textEnglish>
+			<textFrench>Key</textFrench>
+		</text>
+		<text>
+			<code>74</code>
+			<textEnglish>Knoll</textEnglish>
+			<textFrench>Knoll</textFrench>
+		</text>
+		<text>
+			<code>75</code>
+			<textEnglish>Limits</textEnglish>
+			<textFrench>Limits</textFrench>
+		</text>
+		<text>
+			<code>76</code>
+			<textEnglish>Lookout</textEnglish>
+			<textFrench>Lookout</textFrench>
+		</text>
+		<text>
+			<code>77</code>
+			<textEnglish>Loop</textEnglish>
+			<textFrench>Loop</textFrench>
+		</text>
+		<text>
+			<code>78</code>
+			<textEnglish>Mall</textEnglish>
+			<textFrench>Mall</textFrench>
+		</text>
+		<text>
+			<code>79</code>
+			<textEnglish>Maze</textEnglish>
+			<textFrench>Maze</textFrench>
+		</text>
+		<text>
+			<code>80</code>
+			<textEnglish>Meadow</textEnglish>
+			<textFrench>Meadow</textFrench>
+		</text>
+		<text>
+			<code>81</code>
+			<textEnglish>Moor</textEnglish>
+			<textFrench>Moor</textFrench>
+		</text>
+		<text>
+			<code>82</code>
+			<textEnglish>Mount</textEnglish>
+			<textFrench>Mount</textFrench>
+		</text>
+		<text>
+			<code>83</code>
+			<textEnglish>Mountain</textEnglish>
+			<textFrench>Mountain</textFrench>
+		</text>
+		<text>
+			<code>84</code>
+			<textEnglish>Orchard</textEnglish>
+			<textFrench>Orchard</textFrench>
+		</text>
+		<text>
+			<code>85</code>
+			<textEnglish>Parade</textEnglish>
+			<textFrench>Parade</textFrench>
+		</text>
+		<text>
+			<code>86</code>
+			<textEnglish>Park</textEnglish>
+			<textFrench>Park</textFrench>
+		</text>
+		<text>
+			<code>87</code>
+			<textEnglish>Parkway</textEnglish>
+			<textFrench>Parkway</textFrench>
+		</text>
+		<text>
+			<code>88</code>
+			<textEnglish>Passage</textEnglish>
+			<textFrench>Passage</textFrench>
+		</text>
+		<text>
+			<code>89</code>
+			<textEnglish>Path</textEnglish>
+			<textFrench>Path</textFrench>
+		</text>
+		<text>
+			<code>90</code>
+			<textEnglish>Pathway</textEnglish>
+			<textFrench>Pathway</textFrench>
+		</text>
+		<text>
+			<code>91</code>
+			<textEnglish>Pines</textEnglish>
+			<textFrench>Pines</textFrench>
+		</text>
+		<text>
+			<code>92</code>
+			<textEnglish>Plaza</textEnglish>
+			<textFrench>Plaza</textFrench>
+		</text>
+		<text>
+			<code>93</code>
+			<textEnglish>Point</textEnglish>
+			<textFrench>Point</textFrench>
+		</text>
+		<text>
+			<code>94</code>
+			<textEnglish>Port</textEnglish>
+			<textFrench>Port</textFrench>
+		</text>
+		<text>
+			<code>95</code>
+			<textEnglish>Private</textEnglish>
+			<textFrench>Private</textFrench>
+		</text>
+		<text>
+			<code>96</code>
+			<textEnglish>Promenade</textEnglish>
+			<textFrench>Promenade</textFrench>
+		</text>
+		<text>
+			<code>97</code>
+			<textEnglish>Range</textEnglish>
+			<textFrench>Range</textFrench>
+		</text>
+		<text>
+			<code>98</code>
+			<textEnglish>Ridge</textEnglish>
+			<textFrench>Ridge</textFrench>
+		</text>
+		<text>
+			<code>99</code>
+			<textEnglish>Row</textEnglish>
+			<textFrench>Row</textFrench>
+		</text>
+		<text>
+			<code>100</code>
+			<textEnglish>Run</textEnglish>
+			<textFrench>Run</textFrench>
+		</text>
+		<text>
+			<code>101</code>
+			<textEnglish>Subdivision</textEnglish>
+			<textFrench>Subdivision</textFrench>
+		</text>
+		<text>
+			<code>102</code>
+			<textEnglish>Thicket</textEnglish>
+			<textFrench>Thicket</textFrench>
+		</text>
+		<text>
+			<code>103</code>
+			<textEnglish>Towers</textEnglish>
+			<textFrench>Towers</textFrench>
+		</text>
+		<text>
+			<code>104</code>
+			<textEnglish>Townline</textEnglish>
+			<textFrench>Townline</textFrench>
+		</text>
+		<text>
+			<code>105</code>
+			<textEnglish>Turnabout</textEnglish>
+			<textFrench>Turnabout</textFrench>
+		</text>
+		<text>
+			<code>106</code>
+			<textEnglish>Vale</textEnglish>
+			<textFrench>Vale</textFrench>
+		</text>
+		<text>
+			<code>107</code>
+			<textEnglish>Village</textEnglish>
+			<textFrench>Village</textFrench>
+		</text>
+		<text>
+			<code>108</code>
+			<textEnglish>Vista</textEnglish>
+			<textFrench>Vista</textFrench>
+		</text>
+		<text>
+			<code>109</code>
+			<textEnglish>Walk</textEnglish>
+			<textFrench>Walk</textFrench>
+		</text>
+		<text>
+			<code>110</code>
+			<textEnglish>Wharf</textEnglish>
+			<textFrench>Wharf</textFrench>
+		</text>
+		<text>
+			<code>111</code>
+			<textEnglish>Wood</textEnglish>
+			<textFrench>Wood</textFrench>
+		</text>
+		<text>
+			<code>112</code>
+			<textEnglish>Heath</textEnglish>
+			<textFrench>Heath</textFrench>
+		</text>
+		<text>
+			<code>113</code>
+			<textEnglish>Inlet</textEnglish>
+			<textFrench>Inlet</textFrench>
+		</text>
+		<text>
+			<code>114</code>
+			<textEnglish>Plateau</textEnglish>
+			<textFrench>Plateau</textFrench>
+		</text>
+		<text>
+			<code>115</code>
+			<textEnglish>Ramp</textEnglish>
+			<textFrench>Ramp</textFrench>
+		</text>
+		<text>
+			<code>116</code>
+			<textEnglish>Villas</textEnglish>
+			<textFrench>Villas</textFrench>
+		</text>
+		<text>
+			<code>117</code>
+			<textEnglish>Wynd</textEnglish>
+			<textFrench>Wynd</textFrench>
+		</text>
+		<text>
+			<code>118</code>
+			<textEnglish>Allée</textEnglish>
+			<textFrench>Allée</textFrench>
+		</text>
+		<text>
+			<code>119</code>
+			<textEnglish>Carré</textEnglish>
+			<textFrench>Carré</textFrench>
+		</text>
+		<text>
+			<code>120</code>
+			<textEnglish>Carrefour</textEnglish>
+			<textFrench>Carrefour</textFrench>
+		</text>
+		<text>
+			<code>121</code>
+			<textEnglish>Cercle</textEnglish>
+			<textFrench>Cercle</textFrench>
+		</text>
+		<text>
+			<code>122</code>
+			<textEnglish>Chemin</textEnglish>
+			<textFrench>Chemin</textFrench>
+		</text>
+		<text>
+			<code>123</code>
+			<textEnglish>Côte</textEnglish>
+			<textFrench>Côte</textFrench>
+		</text>
+		<text>
+			<code>124</code>
+			<textEnglish>Cour</textEnglish>
+			<textFrench>Cour</textFrench>
+		</text>
+		<text>
+			<code>125</code>
+			<textEnglish>Cours</textEnglish>
+			<textFrench>Cours</textFrench>
+		</text>
+		<text>
+			<code>126</code>
+			<textEnglish>Croissant</textEnglish>
+			<textFrench>Croissant</textFrench>
+		</text>
+		<text>
+			<code>127</code>
+			<textEnglish>Échangeur</textEnglish>
+			<textFrench>Échangeur</textFrench>
+		</text>
+		<text>
+			<code>128</code>
+			<textEnglish>Esplanade</textEnglish>
+			<textFrench>Esplanade</textFrench>
+		</text>
+		<text>
+			<code>129</code>
+			<textEnglish>Île</textEnglish>
+			<textFrench>Île</textFrench>
+		</text>
+		<text>
+			<code>130</code>
+			<textEnglish>Montée</textEnglish>
+			<textFrench>Montée</textFrench>
+		</text>
+		<text>
+			<code>131</code>
+			<textEnglish>Parc</textEnglish>
+			<textFrench>Parc</textFrench>
+		</text>
+		<text>
+			<code>132</code>
+			<textEnglish>Pointe</textEnglish>
+			<textFrench>Pointe</textFrench>
+		</text>
+		<text>
+			<code>133</code>
+			<textEnglish>Quai</textEnglish>
+			<textFrench>Quai</textFrench>
+		</text>
+		<text>
+			<code>134</code>
+			<textEnglish>Rang</textEnglish>
+			<textFrench>Rang</textFrench>
+		</text>
+		<text>
+			<code>135</code>
+			<textEnglish>Rond-point</textEnglish>
+			<textFrench>Rond-point</textFrench>
+		</text>
+		<text>
+			<code>136</code>
+			<textEnglish>Rue</textEnglish>
+			<textFrench>Rue</textFrench>
+		</text>
+		<text>
+			<code>137</code>
+			<textEnglish>Ruelle</textEnglish>
+			<textFrench>Ruelle</textFrench>
+		</text>
+		<text>
+			<code>138</code>
+			<textEnglish>Sentier</textEnglish>
+			<textFrench>Sentier</textFrench>
+		</text>
+		<text>
+			<code>139</code>
+			<textEnglish>Terrasse</textEnglish>
+			<textFrench>Terrasse</textFrench>
+		</text>
+		<text>
+			<code>140</code>
+			<textEnglish>Via</textEnglish>
+			<textFrench>Via</textFrench>
+		</text>
+		<text>
+			<code>141</code>
+			<textEnglish>Villas</textEnglish>
+			<textFrench>Villas</textFrench>
+		</text>
+		<text>
+			<code>142</code>
+			<textEnglish>Voie</textEnglish>
+			<textFrench>Voie</textFrench>
+		</text>
+		<text>
+			<code>201</code>
+			<textEnglish>Alley</textEnglish>
+			<textFrench>Alley</textFrench>
+		</text>
+		<text>
+			<code>202</code>
+			<textEnglish>Annex</textEnglish>
+			<textFrench>Annex</textFrench>
+		</text>
+		<text>
+			<code>203</code>
+			<textEnglish>Arcade</textEnglish>
+			<textFrench>Arcade</textFrench>
+		</text>
+		<text>
+			<code>204</code>
+			<textEnglish>Avenue</textEnglish>
+			<textFrench>Avenue</textFrench>
+		</text>
+		<text>
+			<code>205</code>
+			<textEnglish>Bayou</textEnglish>
+			<textFrench>Bayou</textFrench>
+		</text>
+		<text>
+			<code>206</code>
+			<textEnglish>Beach</textEnglish>
+			<textFrench>Beach</textFrench>
+		</text>
+		<text>
+			<code>207</code>
+			<textEnglish>Bend</textEnglish>
+			<textFrench>Bend</textFrench>
+		</text>
+		<text>
+			<code>208</code>
+			<textEnglish>Bluff</textEnglish>
+			<textFrench>Bluff</textFrench>
+		</text>
+		<text>
+			<code>209</code>
+			<textEnglish>Bluffs</textEnglish>
+			<textFrench>Bluffs</textFrench>
+		</text>
+		<text>
+			<code>210</code>
+			<textEnglish>Bottom</textEnglish>
+			<textFrench>Bottom</textFrench>
+		</text>
+		<text>
+			<code>211</code>
+			<textEnglish>Boulevard</textEnglish>
+			<textFrench>Boulevard</textFrench>
+		</text>
+		<text>
+			<code>212</code>
+			<textEnglish>Branch</textEnglish>
+			<textFrench>Branch</textFrench>
+		</text>
+		<text>
+			<code>213</code>
+			<textEnglish>Bridge</textEnglish>
+			<textFrench>Bridge</textFrench>
+		</text>
+		<text>
+			<code>214</code>
+			<textEnglish>Brook</textEnglish>
+			<textFrench>Brook</textFrench>
+		</text>
+		<text>
+			<code>215</code>
+			<textEnglish>Brooks</textEnglish>
+			<textFrench>Brooks</textFrench>
+		</text>
+		<text>
+			<code>216</code>
+			<textEnglish>Burg</textEnglish>
+			<textFrench>Burg</textFrench>
+		</text>
+		<text>
+			<code>217</code>
+			<textEnglish>Burgs</textEnglish>
+			<textFrench>Burgs</textFrench>
+		</text>
+		<text>
+			<code>218</code>
+			<textEnglish>Bypass</textEnglish>
+			<textFrench>Bypass</textFrench>
+		</text>
+		<text>
+			<code>219</code>
+			<textEnglish>Camp</textEnglish>
+			<textFrench>Camp</textFrench>
+		</text>
+		<text>
+			<code>220</code>
+			<textEnglish>Canyon</textEnglish>
+			<textFrench>Canyon</textFrench>
+		</text>
+		<text>
+			<code>221</code>
+			<textEnglish>Cape</textEnglish>
+			<textFrench>Cape</textFrench>
+		</text>
+		<text>
+			<code>222</code>
+			<textEnglish>Causeway</textEnglish>
+			<textFrench>Causeway</textFrench>
+		</text>
+		<text>
+			<code>223</code>
+			<textEnglish>Center</textEnglish>
+			<textFrench>Center</textFrench>
+		</text>
+		<text>
+			<code>224</code>
+			<textEnglish>Centers</textEnglish>
+			<textFrench>Centers</textFrench>
+		</text>
+		<text>
+			<code>225</code>
+			<textEnglish>Circle</textEnglish>
+			<textFrench>Circle</textFrench>
+		</text>
+		<text>
+			<code>226</code>
+			<textEnglish>Circles</textEnglish>
+			<textFrench>Circles</textFrench>
+		</text>
+		<text>
+			<code>227</code>
+			<textEnglish>Cliff</textEnglish>
+			<textFrench>Cliff</textFrench>
+		</text>
+		<text>
+			<code>228</code>
+			<textEnglish>Cliffs</textEnglish>
+			<textFrench>Cliffs</textFrench>
+		</text>
+		<text>
+			<code>229</code>
+			<textEnglish>Club</textEnglish>
+			<textFrench>Club</textFrench>
+		</text>
+		<text>
+			<code>230</code>
+			<textEnglish>Common</textEnglish>
+			<textFrench>Common</textFrench>
+		</text>
+		<text>
+			<code>231</code>
+			<textEnglish>Commons</textEnglish>
+			<textFrench>Commons</textFrench>
+		</text>
+		<text>
+			<code>232</code>
+			<textEnglish>Corner</textEnglish>
+			<textFrench>Corner</textFrench>
+		</text>
+		<text>
+			<code>233</code>
+			<textEnglish>Corners</textEnglish>
+			<textFrench>Corners</textFrench>
+		</text>
+		<text>
+			<code>234</code>
+			<textEnglish>Course</textEnglish>
+			<textFrench>Course</textFrench>
+		</text>
+		<text>
+			<code>235</code>
+			<textEnglish>Court</textEnglish>
+			<textFrench>Court</textFrench>
+		</text>
+		<text>
+			<code>236</code>
+			<textEnglish>Courts</textEnglish>
+			<textFrench>Courts</textFrench>
+		</text>
+		<text>
+			<code>237</code>
+			<textEnglish>Cove</textEnglish>
+			<textFrench>Cove</textFrench>
+		</text>
+		<text>
+			<code>238</code>
+			<textEnglish>Coves</textEnglish>
+			<textFrench>Coves</textFrench>
+		</text>
+		<text>
+			<code>239</code>
+			<textEnglish>Creek</textEnglish>
+			<textFrench>Creek</textFrench>
+		</text>
+		<text>
+			<code>240</code>
+			<textEnglish>Crescent</textEnglish>
+			<textFrench>Crescent</textFrench>
+		</text>
+		<text>
+			<code>241</code>
+			<textEnglish>Crest</textEnglish>
+			<textFrench>Crest</textFrench>
+		</text>
+		<text>
+			<code>242</code>
+			<textEnglish>Crossing</textEnglish>
+			<textFrench>Crossing</textFrench>
+		</text>
+		<text>
+			<code>243</code>
+			<textEnglish>Crossroad</textEnglish>
+			<textFrench>Crossroad</textFrench>
+		</text>
+		<text>
+			<code>244</code>
+			<textEnglish>Crossroads</textEnglish>
+			<textFrench>Crossroads</textFrench>
+		</text>
+		<text>
+			<code>245</code>
+			<textEnglish>Curve</textEnglish>
+			<textFrench>Curve</textFrench>
+		</text>
+		<text>
+			<code>246</code>
+			<textEnglish>Dale</textEnglish>
+			<textFrench>Dale</textFrench>
+		</text>
+		<text>
+			<code>247</code>
+			<textEnglish>Dam</textEnglish>
+			<textFrench>Dam</textFrench>
+		</text>
+		<text>
+			<code>248</code>
+			<textEnglish>Divide</textEnglish>
+			<textFrench>Divide</textFrench>
+		</text>
+		<text>
+			<code>249</code>
+			<textEnglish>Drive</textEnglish>
+			<textFrench>Drive</textFrench>
+		</text>
+		<text>
+			<code>250</code>
+			<textEnglish>Drives</textEnglish>
+			<textFrench>Drives</textFrench>
+		</text>
+		<text>
+			<code>251</code>
+			<textEnglish>Estate</textEnglish>
+			<textFrench>Estate</textFrench>
+		</text>
+		<text>
+			<code>252</code>
+			<textEnglish>Estates</textEnglish>
+			<textFrench>Estates</textFrench>
+		</text>
+		<text>
+			<code>253</code>
+			<textEnglish>Expressway</textEnglish>
+			<textFrench>Expressway</textFrench>
+		</text>
+		<text>
+			<code>254</code>
+			<textEnglish>Extension</textEnglish>
+			<textFrench>Extension</textFrench>
+		</text>
+		<text>
+			<code>255</code>
+			<textEnglish>Extensions</textEnglish>
+			<textFrench>Extensions</textFrench>
+		</text>
+		<text>
+			<code>256</code>
+			<textEnglish>Fall</textEnglish>
+			<textFrench>Fall</textFrench>
+		</text>
+		<text>
+			<code>257</code>
+			<textEnglish>Falls</textEnglish>
+			<textFrench>Falls</textFrench>
+		</text>
+		<text>
+			<code>258</code>
+			<textEnglish>Ferry</textEnglish>
+			<textFrench>Ferry</textFrench>
+		</text>
+		<text>
+			<code>259</code>
+			<textEnglish>Field</textEnglish>
+			<textFrench>Field</textFrench>
+		</text>
+		<text>
+			<code>260</code>
+			<textEnglish>Fields</textEnglish>
+			<textFrench>Fields</textFrench>
+		</text>
+		<text>
+			<code>261</code>
+			<textEnglish>Flat</textEnglish>
+			<textFrench>Flat</textFrench>
+		</text>
+		<text>
+			<code>262</code>
+			<textEnglish>Flats</textEnglish>
+			<textFrench>Flats</textFrench>
+		</text>
+		<text>
+			<code>263</code>
+			<textEnglish>Ford</textEnglish>
+			<textFrench>Ford</textFrench>
+		</text>
+		<text>
+			<code>264</code>
+			<textEnglish>Fords</textEnglish>
+			<textFrench>Fords</textFrench>
+		</text>
+		<text>
+			<code>265</code>
+			<textEnglish>Forest</textEnglish>
+			<textFrench>Forest</textFrench>
+		</text>
+		<text>
+			<code>266</code>
+			<textEnglish>Forge</textEnglish>
+			<textFrench>Forge</textFrench>
+		</text>
+		<text>
+			<code>267</code>
+			<textEnglish>Forges</textEnglish>
+			<textFrench>Forges</textFrench>
+		</text>
+		<text>
+			<code>268</code>
+			<textEnglish>Fork</textEnglish>
+			<textFrench>Fork</textFrench>
+		</text>
+		<text>
+			<code>269</code>
+			<textEnglish>Forks</textEnglish>
+			<textFrench>Forks</textFrench>
+		</text>
+		<text>
+			<code>270</code>
+			<textEnglish>Fort</textEnglish>
+			<textFrench>Fort</textFrench>
+		</text>
+		<text>
+			<code>271</code>
+			<textEnglish>Freeway</textEnglish>
+			<textFrench>Freeway</textFrench>
+		</text>
+		<text>
+			<code>272</code>
+			<textEnglish>Garden</textEnglish>
+			<textFrench>Garden</textFrench>
+		</text>
+		<text>
+			<code>273</code>
+			<textEnglish>Gardens</textEnglish>
+			<textFrench>Gardens</textFrench>
+		</text>
+		<text>
+			<code>274</code>
+			<textEnglish>Gateway</textEnglish>
+			<textFrench>Gateway</textFrench>
+		</text>
+		<text>
+			<code>275</code>
+			<textEnglish>Glen</textEnglish>
+			<textFrench>Glen</textFrench>
+		</text>
+		<text>
+			<code>276</code>
+			<textEnglish>Glens</textEnglish>
+			<textFrench>Glens</textFrench>
+		</text>
+		<text>
+			<code>277</code>
+			<textEnglish>Green</textEnglish>
+			<textFrench>Green</textFrench>
+		</text>
+		<text>
+			<code>278</code>
+			<textEnglish>Greens</textEnglish>
+			<textFrench>Greens</textFrench>
+		</text>
+		<text>
+			<code>279</code>
+			<textEnglish>Grove</textEnglish>
+			<textFrench>Grove</textFrench>
+		</text>
+		<text>
+			<code>280</code>
+			<textEnglish>Groves</textEnglish>
+			<textFrench>Groves</textFrench>
+		</text>
+		<text>
+			<code>281</code>
+			<textEnglish>Harbor</textEnglish>
+			<textFrench>Harbor</textFrench>
+		</text>
+		<text>
+			<code>282</code>
+			<textEnglish>Harbors</textEnglish>
+			<textFrench>Harbors</textFrench>
+		</text>
+		<text>
+			<code>283</code>
+			<textEnglish>Haven</textEnglish>
+			<textFrench>Haven</textFrench>
+		</text>
+		<text>
+			<code>284</code>
+			<textEnglish>Heights</textEnglish>
+			<textFrench>Heights</textFrench>
+		</text>
+		<text>
+			<code>285</code>
+			<textEnglish>Highway</textEnglish>
+			<textFrench>Highway</textFrench>
+		</text>
+		<text>
+			<code>286</code>
+			<textEnglish>Hill</textEnglish>
+			<textFrench>Hill</textFrench>
+		</text>
+		<text>
+			<code>287</code>
+			<textEnglish>Hills</textEnglish>
+			<textFrench>Hills</textFrench>
+		</text>
+		<text>
+			<code>288</code>
+			<textEnglish>Hollow</textEnglish>
+			<textFrench>Hollow</textFrench>
+		</text>
+		<text>
+			<code>289</code>
+			<textEnglish>Inlet</textEnglish>
+			<textFrench>Inlet</textFrench>
+		</text>
+		<text>
+			<code>290</code>
+			<textEnglish>Island</textEnglish>
+			<textFrench>Island</textFrench>
+		</text>
+		<text>
+			<code>291</code>
+			<textEnglish>Islands</textEnglish>
+			<textFrench>Islands</textFrench>
+		</text>
+		<text>
+			<code>292</code>
+			<textEnglish>Isle</textEnglish>
+			<textFrench>Isle</textFrench>
+		</text>
+		<text>
+			<code>293</code>
+			<textEnglish>Junction</textEnglish>
+			<textFrench>Junction</textFrench>
+		</text>
+		<text>
+			<code>294</code>
+			<textEnglish>Junctions</textEnglish>
+			<textFrench>Junctions</textFrench>
+		</text>
+		<text>
+			<code>295</code>
+			<textEnglish>Key</textEnglish>
+			<textFrench>Key</textFrench>
+		</text>
+		<text>
+			<code>296</code>
+			<textEnglish>Keys</textEnglish>
+			<textFrench>Keys</textFrench>
+		</text>
+		<text>
+			<code>297</code>
+			<textEnglish>Knoll</textEnglish>
+			<textFrench>Knoll</textFrench>
+		</text>
+		<text>
+			<code>298</code>
+			<textEnglish>Knolls</textEnglish>
+			<textFrench>Knolls</textFrench>
+		</text>
+		<text>
+			<code>299</code>
+			<textEnglish>Lake</textEnglish>
+			<textFrench>Lake</textFrench>
+		</text>
+		<text>
+			<code>300</code>
+			<textEnglish>Lakes</textEnglish>
+			<textFrench>Lakes</textFrench>
+		</text>
+		<text>
+			<code>301</code>
+			<textEnglish>Land</textEnglish>
+			<textFrench>Land</textFrench>
+		</text>
+		<text>
+			<code>302</code>
+			<textEnglish>Landing</textEnglish>
+			<textFrench>Landing</textFrench>
+		</text>
+		<text>
+			<code>303</code>
+			<textEnglish>Lane</textEnglish>
+			<textFrench>Lane</textFrench>
+		</text>
+		<text>
+			<code>304</code>
+			<textEnglish>Light</textEnglish>
+			<textFrench>Light</textFrench>
+		</text>
+		<text>
+			<code>305</code>
+			<textEnglish>Lights</textEnglish>
+			<textFrench>Lights</textFrench>
+		</text>
+		<text>
+			<code>306</code>
+			<textEnglish>Loaf</textEnglish>
+			<textFrench>Loaf</textFrench>
+		</text>
+		<text>
+			<code>307</code>
+			<textEnglish>Lock</textEnglish>
+			<textFrench>Lock</textFrench>
+		</text>
+		<text>
+			<code>308</code>
+			<textEnglish>Locks</textEnglish>
+			<textFrench>Locks</textFrench>
+		</text>
+		<text>
+			<code>309</code>
+			<textEnglish>Lodge</textEnglish>
+			<textFrench>Lodge</textFrench>
+		</text>
+		<text>
+			<code>310</code>
+			<textEnglish>Loop</textEnglish>
+			<textFrench>Loop</textFrench>
+		</text>
+		<text>
+			<code>311</code>
+			<textEnglish>Mall</textEnglish>
+			<textFrench>Mall</textFrench>
+		</text>
+		<text>
+			<code>312</code>
+			<textEnglish>Manor</textEnglish>
+			<textFrench>Manor</textFrench>
+		</text>
+		<text>
+			<code>313</code>
+			<textEnglish>Manors</textEnglish>
+			<textFrench>Manors</textFrench>
+		</text>
+		<text>
+			<code>314</code>
+			<textEnglish>Meadow</textEnglish>
+			<textFrench>Meadow</textFrench>
+		</text>
+		<text>
+			<code>315</code>
+			<textEnglish>Meadows</textEnglish>
+			<textFrench>Meadows</textFrench>
+		</text>
+		<text>
+			<code>316</code>
+			<textEnglish>Mews</textEnglish>
+			<textFrench>Mews</textFrench>
+		</text>
+		<text>
+			<code>317</code>
+			<textEnglish>Mill</textEnglish>
+			<textFrench>Mill</textFrench>
+		</text>
+		<text>
+			<code>318</code>
+			<textEnglish>Mills</textEnglish>
+			<textFrench>Mills</textFrench>
+		</text>
+		<text>
+			<code>319</code>
+			<textEnglish>Mission</textEnglish>
+			<textFrench>Mission</textFrench>
+		</text>
+		<text>
+			<code>320</code>
+			<textEnglish>Motorway</textEnglish>
+			<textFrench>Motorway</textFrench>
+		</text>
+		<text>
+			<code>321</code>
+			<textEnglish>Mount</textEnglish>
+			<textFrench>Mount</textFrench>
+		</text>
+		<text>
+			<code>322</code>
+			<textEnglish>Mountain</textEnglish>
+			<textFrench>Mountain</textFrench>
+		</text>
+		<text>
+			<code>323</code>
+			<textEnglish>Mountains</textEnglish>
+			<textFrench>Mountains</textFrench>
+		</text>
+		<text>
+			<code>324</code>
+			<textEnglish>Neck</textEnglish>
+			<textFrench>Neck</textFrench>
+		</text>
+		<text>
+			<code>325</code>
+			<textEnglish>Orchard</textEnglish>
+			<textFrench>Orchard</textFrench>
+		</text>
+		<text>
+			<code>326</code>
+			<textEnglish>Park</textEnglish>
+			<textFrench>Park</textFrench>
+		</text>
+		<text>
+			<code>327</code>
+			<textEnglish>Parks</textEnglish>
+			<textFrench>Parks</textFrench>
+		</text>
+		<text>
+			<code>328</code>
+			<textEnglish>Parkway</textEnglish>
+			<textFrench>Parkway</textFrench>
+		</text>
+		<text>
+			<code>329</code>
+			<textEnglish>Parkways</textEnglish>
+			<textFrench>Parkways</textFrench>
+		</text>
+		<text>
+			<code>330</code>
+			<textEnglish>Pass</textEnglish>
+			<textFrench>Pass</textFrench>
+		</text>
+		<text>
+			<code>331</code>
+			<textEnglish>Passage</textEnglish>
+			<textFrench>Passage</textFrench>
+		</text>
+		<text>
+			<code>332</code>
+			<textEnglish>Path</textEnglish>
+			<textFrench>Path</textFrench>
+		</text>
+		<text>
+			<code>333</code>
+			<textEnglish>Pike</textEnglish>
+			<textFrench>Pike</textFrench>
+		</text>
+		<text>
+			<code>334</code>
+			<textEnglish>Pine</textEnglish>
+			<textFrench>Pine</textFrench>
+		</text>
+		<text>
+			<code>335</code>
+			<textEnglish>Pines</textEnglish>
+			<textFrench>Pines</textFrench>
+		</text>
+		<text>
+			<code>336</code>
+			<textEnglish>Place</textEnglish>
+			<textFrench>Place</textFrench>
+		</text>
+		<text>
+			<code>337</code>
+			<textEnglish>Plain</textEnglish>
+			<textFrench>Plain</textFrench>
+		</text>
+		<text>
+			<code>338</code>
+			<textEnglish>Plains</textEnglish>
+			<textFrench>Plains</textFrench>
+		</text>
+		<text>
+			<code>339</code>
+			<textEnglish>Plaza</textEnglish>
+			<textFrench>Plaza</textFrench>
+		</text>
+		<text>
+			<code>340</code>
+			<textEnglish>Point</textEnglish>
+			<textFrench>Point</textFrench>
+		</text>
+		<text>
+			<code>341</code>
+			<textEnglish>Points</textEnglish>
+			<textFrench>Points</textFrench>
+		</text>
+		<text>
+			<code>342</code>
+			<textEnglish>Port</textEnglish>
+			<textFrench>Port</textFrench>
+		</text>
+		<text>
+			<code>343</code>
+			<textEnglish>Ports</textEnglish>
+			<textFrench>Ports</textFrench>
+		</text>
+		<text>
+			<code>344</code>
+			<textEnglish>Prairie</textEnglish>
+			<textFrench>Prairie</textFrench>
+		</text>
+		<text>
+			<code>345</code>
+			<textEnglish>Radial</textEnglish>
+			<textFrench>Radial</textFrench>
+		</text>
+		<text>
+			<code>346</code>
+			<textEnglish>Ramp</textEnglish>
+			<textFrench>Ramp</textFrench>
+		</text>
+		<text>
+			<code>347</code>
+			<textEnglish>Ranch</textEnglish>
+			<textFrench>Ranch</textFrench>
+		</text>
+		<text>
+			<code>348</code>
+			<textEnglish>Rapid</textEnglish>
+			<textFrench>Rapid</textFrench>
+		</text>
+		<text>
+			<code>349</code>
+			<textEnglish>Rapids</textEnglish>
+			<textFrench>Rapids</textFrench>
+		</text>
+		<text>
+			<code>350</code>
+			<textEnglish>Rest</textEnglish>
+			<textFrench>Rest</textFrench>
+		</text>
+		<text>
+			<code>351</code>
+			<textEnglish>Ridge</textEnglish>
+			<textFrench>Ridge</textFrench>
+		</text>
+		<text>
+			<code>352</code>
+			<textEnglish>Ridges</textEnglish>
+			<textFrench>Ridges</textFrench>
+		</text>
+		<text>
+			<code>353</code>
+			<textEnglish>River</textEnglish>
+			<textFrench>River</textFrench>
+		</text>
+		<text>
+			<code>354</code>
+			<textEnglish>Road</textEnglish>
+			<textFrench>Road</textFrench>
+		</text>
+		<text>
+			<code>355</code>
+			<textEnglish>Roads</textEnglish>
+			<textFrench>Roads</textFrench>
+		</text>
+		<text>
+			<code>356</code>
+			<textEnglish>Route</textEnglish>
+			<textFrench>Route</textFrench>
+		</text>
+		<text>
+			<code>357</code>
+			<textEnglish>Row</textEnglish>
+			<textFrench>Row</textFrench>
+		</text>
+		<text>
+			<code>358</code>
+			<textEnglish>Rue</textEnglish>
+			<textFrench>Rue</textFrench>
+		</text>
+		<text>
+			<code>359</code>
+			<textEnglish>Run</textEnglish>
+			<textFrench>Run</textFrench>
+		</text>
+		<text>
+			<code>360</code>
+			<textEnglish>Shoal</textEnglish>
+			<textFrench>Shoal</textFrench>
+		</text>
+		<text>
+			<code>361</code>
+			<textEnglish>Shoals</textEnglish>
+			<textFrench>Shoals</textFrench>
+		</text>
+		<text>
+			<code>362</code>
+			<textEnglish>Shore</textEnglish>
+			<textFrench>Shore</textFrench>
+		</text>
+		<text>
+			<code>363</code>
+			<textEnglish>Shores</textEnglish>
+			<textFrench>Shores</textFrench>
+		</text>
+		<text>
+			<code>364</code>
+			<textEnglish>Skyway</textEnglish>
+			<textFrench>Skyway</textFrench>
+		</text>
+		<text>
+			<code>365</code>
+			<textEnglish>Spring</textEnglish>
+			<textFrench>Spring</textFrench>
+		</text>
+		<text>
+			<code>366</code>
+			<textEnglish>Springs</textEnglish>
+			<textFrench>Springs</textFrench>
+		</text>
+		<text>
+			<code>367</code>
+			<textEnglish>Spur</textEnglish>
+			<textFrench>Spur</textFrench>
+		</text>
+		<text>
+			<code>368</code>
+			<textEnglish>Spurs</textEnglish>
+			<textFrench>Spurs</textFrench>
+		</text>
+		<text>
+			<code>369</code>
+			<textEnglish>Square</textEnglish>
+			<textFrench>Square</textFrench>
+		</text>
+		<text>
+			<code>370</code>
+			<textEnglish>Squares</textEnglish>
+			<textFrench>Squares</textFrench>
+		</text>
+		<text>
+			<code>371</code>
+			<textEnglish>Station</textEnglish>
+			<textFrench>Station</textFrench>
+		</text>
+		<text>
+			<code>372</code>
+			<textEnglish>Stravenue</textEnglish>
+			<textFrench>Stravenue</textFrench>
+		</text>
+		<text>
+			<code>373</code>
+			<textEnglish>Stream</textEnglish>
+			<textFrench>Stream</textFrench>
+		</text>
+		<text>
+			<code>374</code>
+			<textEnglish>Street</textEnglish>
+			<textFrench>Street</textFrench>
+		</text>
+		<text>
+			<code>375</code>
+			<textEnglish>Streets</textEnglish>
+			<textFrench>Streets</textFrench>
+		</text>
+		<text>
+			<code>376</code>
+			<textEnglish>Summit</textEnglish>
+			<textFrench>Summit</textFrench>
+		</text>
+		<text>
+			<code>377</code>
+			<textEnglish>Terrace</textEnglish>
+			<textFrench>Terrace</textFrench>
+		</text>
+		<text>
+			<code>378</code>
+			<textEnglish>Throughway</textEnglish>
+			<textFrench>Throughway</textFrench>
+		</text>
+		<text>
+			<code>379</code>
+			<textEnglish>Trace</textEnglish>
+			<textFrench>Trace</textFrench>
+		</text>
+		<text>
+			<code>380</code>
+			<textEnglish>Track</textEnglish>
+			<textFrench>Track</textFrench>
+		</text>
+		<text>
+			<code>381</code>
+			<textEnglish>Trafficway</textEnglish>
+			<textFrench>Trafficway</textFrench>
+		</text>
+		<text>
+			<code>382</code>
+			<textEnglish>Trail</textEnglish>
+			<textFrench>Trail</textFrench>
+		</text>
+		<text>
+			<code>383</code>
+			<textEnglish>Trailer</textEnglish>
+			<textFrench>Trailer</textFrench>
+		</text>
+		<text>
+			<code>384</code>
+			<textEnglish>Tunnel</textEnglish>
+			<textFrench>Tunnel</textFrench>
+		</text>
+		<text>
+			<code>385</code>
+			<textEnglish>Turnpike</textEnglish>
+			<textFrench>Turnpike</textFrench>
+		</text>
+		<text>
+			<code>386</code>
+			<textEnglish>Underpass</textEnglish>
+			<textFrench>Underpass</textFrench>
+		</text>
+		<text>
+			<code>387</code>
+			<textEnglish>Union</textEnglish>
+			<textFrench>Union</textFrench>
+		</text>
+		<text>
+			<code>388</code>
+			<textEnglish>Unions</textEnglish>
+			<textFrench>Unions</textFrench>
+		</text>
+		<text>
+			<code>389</code>
+			<textEnglish>Valley</textEnglish>
+			<textFrench>Valley</textFrench>
+		</text>
+		<text>
+			<code>390</code>
+			<textEnglish>Valleys</textEnglish>
+			<textFrench>Valleys</textFrench>
+		</text>
+		<text>
+			<code>391</code>
+			<textEnglish>Viaduct</textEnglish>
+			<textFrench>Viaduct</textFrench>
+		</text>
+		<text>
+			<code>392</code>
+			<textEnglish>View</textEnglish>
+			<textFrench>View</textFrench>
+		</text>
+		<text>
+			<code>393</code>
+			<textEnglish>Views</textEnglish>
+			<textFrench>Views</textFrench>
+		</text>
+		<text>
+			<code>394</code>
+			<textEnglish>Village</textEnglish>
+			<textFrench>Village</textFrench>
+		</text>
+		<text>
+			<code>395</code>
+			<textEnglish>Villages</textEnglish>
+			<textFrench>Villages</textFrench>
+		</text>
+		<text>
+			<code>396</code>
+			<textEnglish>Ville</textEnglish>
+			<textFrench>Ville</textFrench>
+		</text>
+		<text>
+			<code>397</code>
+			<textEnglish>Vista</textEnglish>
+			<textFrench>Vista</textFrench>
+		</text>
+		<text>
+			<code>398</code>
+			<textEnglish>Walk</textEnglish>
+			<textFrench>Walk</textFrench>
+		</text>
+		<text>
+			<code>399</code>
+			<textEnglish>Walks</textEnglish>
+			<textFrench>Walks</textFrench>
+		</text>
+		<text>
+			<code>400</code>
+			<textEnglish>Wall</textEnglish>
+			<textFrench>Wall</textFrench>
+		</text>
+		<text>
+			<code>401</code>
+			<textEnglish>Way</textEnglish>
+			<textFrench>Way</textFrench>
+		</text>
+		<text>
+			<code>402</code>
+			<textEnglish>Ways</textEnglish>
+			<textFrench>Ways</textFrench>
+		</text>
+		<text>
+			<code>403</code>
+			<textEnglish>Well</textEnglish>
+			<textFrench>Well</textFrench>
+		</text>
+		<text>
+			<code>404</code>
+			<textEnglish>Wells</textEnglish>
+			<textFrench>Wells</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>SUFFIX</menuCodeName>
+		<columnName>
+			<name>suffixDd</name>
+		</columnName>
+		<text>
+			<code>1</code>
+			<textEnglish>Sr.</textEnglish>
+			<textFrench>père</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Jr.</textEnglish>
+			<textFrench>fils</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>TAXPAYOR</menuCodeName>
+		<columnName>
+			<name>taxPayorDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Borrower</textEnglish>
+			<textFrench>Emprunteur</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Lender</textEnglish>
+			<textFrench>Prêteur</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>TERMTYPE</menuCodeName>
+		<columnName>
+			<name>paymentTermDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Closed</textEnglish>
+			<textFrench>Fermée</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Open</textEnglish>
+			<textFrench>Ouvert</textFrench>
+		</text>
+		<text>
+			<code>2</code>
+			<textEnglish>Convertible</textEnglish>
+			<textFrench>Convertible</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>USERTYPE</menuCodeName>
+		<columnName>
+			<name>userTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Unused</textEnglish>
+			<textFrench>Non utilisé</textFrench>
+		</text>
+		<text>
+			<code>50</code>
+			<textEnglish>Support User</textEnglish>
+			<textFrench>Utilisateur de soutien</textFrench>
+		</text>
+		<text>
+			<code>55</code>
+			<textEnglish>Regional Manager</textEnglish>
+			<textFrench>Directeur régional</textFrench>
+		</text>
+		<text>
+			<code>60</code>
+			<textEnglish>Administrator</textEnglish>
+			<textFrench>Administrateur</textFrench>
+		</text>
+		<text>
+			<code>65</code>
+			<textEnglish>Associate</textEnglish>
+			<textFrench>Associé</textFrench>
+		</text>
+		<text>
+			<code>70</code>
+			<textEnglish>Agent</textEnglish>
+			<textFrench>Agent</textFrench>
+		</text>
+		<text>
+			<code>75</code>
+			<textEnglish>Broker(Owner)</textEnglish>
+			<textFrench>Courtier (titulaire)</textFrench>
+		</text>
+		<text>
+			<code>80</code>
+			<textEnglish>Firm Admin</textEnglish>
+			<textFrench>Admin. d&amp;apos;entreprise</textFrench>
+		</text>
+		<text>
+			<code>85</code>
+			<textEnglish>Sys Admin</textEnglish>
+			<textFrench>Admin. sys.</textFrench>
+		</text>
+		<text>
+			<code>90</code>
+			<textEnglish>Passive</textEnglish>
+			<textFrench>Passif</textFrench>
+		</text>
+		<text>
+			<code>95</code>
+			<textEnglish>Assistant</textEnglish>
+			<textFrench>Adjoint</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>WATERTYPE</menuCodeName>
+		<columnName>
+			<name>waterTypeDd</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>Municipal</textEnglish>
+			<textFrench>Municipal</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Well</textEnglish>
+			<textFrench>Puits</textFrench>
+		</text>
+	</all>
+	<all>
+		<menuCodeName>YESNOFLAG</menuCodeName>
+		<columnName>
+			<name>forceDuplicateSubmissionFlag</name>
+		</columnName>
+		<columnName>
+			<name>multiProject</name>
+		</columnName>
+		<columnName>
+			<name>proprietairePlus</name>
+		</columnName>
+		<text>
+			<code>0</code>
+			<textEnglish>No</textEnglish>
+			<textFrench>No</textFrench>
+		</text>
+		<text>
+			<code>1</code>
+			<textEnglish>Yes</textEnglish>
+			<textFrench>Yes</textFrench>
+		</text>
+	</all>
+</menuCode>

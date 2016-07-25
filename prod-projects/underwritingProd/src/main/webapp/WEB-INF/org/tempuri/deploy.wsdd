@@ -1,0 +1,98 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port WSDL service -->
+
+  <service name="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://tempuri.org/"/>
+      <parameter name="wsdlServiceElement" value="MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port"/>
+      <parameter name="schemaQualified" value="http://tempuri.org/,http://mscanada.com,http://schemas.microsoft.com/BizTalk/2003/Any"/>
+      <parameter name="wsdlServicePort" value="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap"/>
+      <parameter name="className" value="org.tempuri.MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoapSkeleton"/>
+      <parameter name="wsdlPortType" value="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>>>clipboard>msgRequest>msgErrors>msgError"
+        type="java:com.mscanada.ClipboardMsgRequestMsgErrorsMsgError"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>clipboard>msgRequest"
+        type="java:com.mscanada.ClipboardMsgRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>clipboard>applicationData"
+        type="java:com.mscanada.ClipboardApplicationData"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://schemas.microsoft.com/BizTalk/2003/Any"
+        qname="ns:>Root"
+        type="java:com.microsoft.schemas.BizTalk._2003.Any.Root"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://tempuri.org/"
+        qname="ns:>ProcessRequestResponse"
+        type="java:org.tempuri.ProcessRequestResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>clipboard>context"
+        type="java:com.mscanada.ClipboardContext"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>>clipboard>msgRequest>msgErrors"
+        type="java:com.mscanada.ClipboardMsgRequestMsgErrors"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>>>clipboard>msgRequest>comment"
+        type="java:com.mscanada.ClipboardMsgRequestComment"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mscanada.com"
+        qname="ns:>clipboard"
+        type="java:com.mscanada.Clipboard"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

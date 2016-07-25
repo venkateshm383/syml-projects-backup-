@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://mscanada.com" xmlns:s2="http://schemas.microsoft.com/BizTalk/2003/Any" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+	<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BizTalk assembly "MSC.IntegrationService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4615c854f35b0036" published web service.</wsdl:documentation>
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+			<s:import namespace="http://mscanada.com"/>
+			<s:import namespace="http://schemas.microsoft.com/BizTalk/2003/Any"/>
+			<s:element name="ProcessRequest">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" ref="s1:clipboard"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ProcessRequestResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" ref="s2:Root"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://mscanada.com">
+			<s:element name="clipboard">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="context">
+							<s:complexType>
+								<s:attribute name="applicationName" type="s:string"/>
+								<s:attribute name="sessionId" type="s:string"/>
+								<s:attribute name="userid" type="s:string"/>
+								<s:attribute name="language" type="s:string"/>
+								<s:attribute name="dateTime" type="s:string"/>
+							</s:complexType>
+						</s:element>
+						<s:element maxOccurs="1" minOccurs="0" name="msgRequest">
+							<s:complexType>
+								<s:sequence>
+									<s:element maxOccurs="1" minOccurs="1" name="comment" nillable="true">
+										<s:complexType>
+											<s:attribute name="commentText" type="s:string"/>
+										</s:complexType>
+									</s:element>
+									<s:element maxOccurs="1" minOccurs="1" name="msgErrors" nillable="true">
+										<s:complexType>
+											<s:sequence>
+												<s:element maxOccurs="1" minOccurs="1" name="msgError" nillable="true">
+													<s:complexType>
+														<s:attribute name="code" type="s:string"/>
+														<s:attribute name="message" type="s:string"/>
+													</s:complexType>
+												</s:element>
+											</s:sequence>
+										</s:complexType>
+									</s:element>
+								</s:sequence>
+								<s:attribute name="requestId" type="s:string"/>
+								<s:attribute name="serviceType" type="s:string"/>
+								<s:attribute name="source" type="s:string"/>
+								<s:attribute name="provider" type="s:string"/>
+								<s:attribute name="recipient" type="s:string"/>
+							</s:complexType>
+						</s:element>
+						<s:element maxOccurs="1" minOccurs="0" name="applicationData">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/BizTalk/2003/Any">
+			<s:element name="Root">
+				<s:complexType mixed="true">
+					<s:sequence>
+						<s:any/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="ProcessRequestSoapIn">
+		<wsdl:part element="tns:ProcessRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="ProcessRequestSoapOut">
+		<wsdl:part element="tns:ProcessRequestResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap">
+		<wsdl:operation name="ProcessRequest">
+			<wsdl:input message="tns:ProcessRequestSoapIn"/>
+			<wsdl:output message="tns:ProcessRequestSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap" type="tns:MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ProcessRequest">
+			<soap:operation soapAction="http://tempuri.org/MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port/ProcessRequest" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port">
+		<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BizTalk assembly "MSC.IntegrationService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4615c854f35b0036" published web service.</wsdl:documentation>
+		<wsdl:port binding="tns:MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap" name="MSC_IntegrationService_MSCISOrchestration_MSCReceive_PortSoap">
+			<soap:address location="https://mscistest.morweb.ca/mscis/MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port.asmx"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

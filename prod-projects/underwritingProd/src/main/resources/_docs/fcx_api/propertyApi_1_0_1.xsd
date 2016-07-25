@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by Dave Krick (D LIMITED PARTNERSHIP) -->
+<!-- Feb 19, 2013 - deploy with Expert 2.20 - removed NEWCONSTRUCTION  code - 1 (Construction)  enumeration -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="FCXGlobalTypeApi_1_0_1.xsd"/>
+	<xs:element name="property" type="PropertyType"/>
+	<xs:complexType name="PropertyType">
+		<xs:sequence>
+			<xs:element name="actualAppraisalValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The actual appraised value of the property as recorded from a valid appraisal source.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-100000000000"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="address" type="Address1Type" minOccurs="0"/>
+			<xs:element name="appraisalDateAct" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date the appraisal was actually executed.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="builderName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of the builder.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dwellingStyleDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the style of the dwelling:(1 story, 2 story)
+Menu Code: DWELLINGSTYLE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>One Storey</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Bi-Level</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Two Storey</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Split Level</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Storey and a Half</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Three Storey</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dwellingTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Refers to the structural characteristics and/or dwelling configuration, that is, whether the dwelling is a single-detached house, an apartment in a high-rise building, a row house, a mobile home, etc.
+Menu Code: DWELLINGTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Semi-Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Duplex - Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Duplex - Semi-Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Row Housing</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Apartment Low Rise</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Apartment High Rise</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7">
+							<xs:annotation>
+								<xs:documentation>Mobile</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="8">
+							<xs:annotation>
+								<xs:documentation>Tri Plex - Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="9">
+							<xs:annotation>
+								<xs:documentation>Tri Plex - Semi-Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="10">
+							<xs:annotation>
+								<xs:documentation>Stacked</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="11">
+							<xs:annotation>
+								<xs:documentation>Modular Home - Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="12">
+							<xs:annotation>
+								<xs:documentation>Modular Home - Semi-Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="13">
+							<xs:annotation>
+								<xs:documentation>Four Plex - Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="14">
+							<xs:annotation>
+								<xs:documentation>Four Plex - Semi-Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="estimatedAppraisalValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Amount estimated as the appraisal value of the property.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-100000000000"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="feesIncludeHeat" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates that heat is included in the maintenance fees of a condo unit.
+Y=Yes, N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="garageSizeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes number of vehicles garage will hold, ie. 1,2,3.
+Menu Code: GARAGESIZE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Single</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Double</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Triple</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>None</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="garageTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates type of gagage, ie. attached or detached.
+Menu Code: GARAGETYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Attached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Detached</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="heatTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the type of heating system in the dwelling.
+Menu Code: HEATTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Electric Baseboard</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Forced Air Gas/Oil/Electric</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Hot Water Heating</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="includetds" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies if the Heat/Taxes/Condo fees for other properties are to be included in TDS.
+Y=Yes. N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rentalIncome" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Rental Income details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="IncomeType">
+							<xs:sequence>
+								<xs:element name="incomeTypeDd" type="incomeTypeRentalDd">
+									<xs:annotation>
+										<xs:documentation>menucode api : Rental Income - 9</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="insulatedWithUffi" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates if Urea-formaldehyde foam insulation (UFFI) was used as insulation in the structure.
+Y=Yes. N=No</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="legalLine1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Legal description of the property (free form entered by user). (Lot)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="legalLine2" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Legal description of the property (free form entered by user). (Block)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="legalLine3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Legal description of the property (free form entered by user). (Concession/Township)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="livingSpace" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Living space/area of the structure, quantified by the value in the Living Space Unit of Measure element.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="8"/>
+						<xs:maxExclusive value="100000000"/>
+						<xs:minExclusive value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="livingSpaceUnitOfMeasurDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Menu Code: LIVINGSPACEUNITOFMEASURE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Sq M</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Sq Ft</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lotSize" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total lot size/area quantified by the value in the Lot Size Unit of Measure element.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="8"/>
+						<xs:maxExclusive value="100000000"/>
+						<xs:minExclusive value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lotSizeUnitOfMeasureDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Menu Code: LOTSIZEUNITOFMEASURE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Sq M</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Sq Ft</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Acres</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Hectares</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mlsListingFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates if the property was listed on MLS.
+Menu Code: MLSLISTINGFLAG</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:enumeration value="N">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Y">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="newConstructionDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Structure is Existing or New.
+Menu Code: NEWCONSTRUCTION</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Existing</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>New</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="numberOfUnits" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of separate units in the structure.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0"/>
+						<xs:maxExclusive value="1000"/>
+						<xs:totalDigits value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="occupancyTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes how the property will be occupied.
+Menu Code: OCCUPANCYTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Owner-Occupied</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Owner-Occupied &amp;amp; Rental</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Rental</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Second Home</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="originalPurchasePrice" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The original purchase price for the property.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-100000000000"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="propertyTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes tenure of property.
+Menu Code: PROPERTYTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>FreeHold</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>LeaseHold</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Condo</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="purchasePrice" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="13"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minExclusive value="-100000000000"/>
+						<xs:maxExclusive value="100000000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="refiOrigPurchaseDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Original purchase date of the property being refinanced.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="sewageTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the type of sewer system in place.
+Menu Code: SEWAGETYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Municipal</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Septic</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Holding Tank</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="structureAge" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Years</xs:documentation>
+					<xs:documentation>Age in years of structure.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="1000"/>
+						<xs:totalDigits value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="taxationYear" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Year that the property tax amount.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="4"/>
+						<xs:maxExclusive value="10000"/>
+						<xs:minExclusive value="1950"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="waterTypeDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the source of water for the property.
+Menu Code: WATERTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Municipal</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Well</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="propertyExpense" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Property Tax must be expressed as an Annual Amount, all other expenses must be Monthly amounts.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="propertyExpenseAmount">
+							<xs:annotation>
+								<xs:documentation>Amount of expense.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="13"/>
+									<xs:fractionDigits value="2"/>
+									<xs:minExclusive value="-100000000000"/>
+									<xs:maxExclusive value="100000000000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="propertyExpenseDescription" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Free form text describing the expense.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="80"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="propertyExpensePeriodDd">
+							<xs:annotation>
+								<xs:documentation>Indicates the period/frequency of the property expense amount.
+Menu Code: PROPERTYEXPENSEPERIOD</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="13"/>
+									<xs:fractionDigits value="0"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="10000000000000"/>
+									<xs:enumeration value="0">
+										<xs:annotation>
+											<xs:documentation>Annual</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="1">
+										<xs:annotation>
+											<xs:documentation>Semi-Annual</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="2">
+										<xs:annotation>
+											<xs:documentation>Quarterly</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="3">
+										<xs:annotation>
+											<xs:documentation>Monthly</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="4">
+										<xs:annotation>
+											<xs:documentation>Semi-Monthly</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="5">
+										<xs:annotation>
+											<xs:documentation>Bi-Weekly</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="6">
+										<xs:annotation>
+											<xs:documentation>Weekly</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="propertyExpenseTypeDd">
+							<xs:annotation>
+								<xs:documentation>Type of property expense.
+Menu code: PROPERTYEXPENSETYPE</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="13"/>
+									<xs:fractionDigits value="0"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="10000000000000"/>
+									<xs:enumeration value="0">
+										<xs:annotation>
+											<xs:documentation>Municipal Taxes</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="1">
+										<xs:annotation>
+											<xs:documentation>Condo Fees</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="2">
+										<xs:annotation>
+											<xs:documentation>Heating Expense</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="3">
+										<xs:annotation>
+											<xs:documentation>Insurance</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="4">
+										<xs:annotation>
+											<xs:documentation>Hydro</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="5">
+										<xs:annotation>
+											<xs:documentation>Management Expenses</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="6">
+										<xs:annotation>
+											<xs:documentation>Repairs</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="7">
+										<xs:annotation>
+											<xs:documentation>Interest Charges</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="8">
+										<xs:annotation>
+											<xs:documentation>General Expenses</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="propertyadditionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,13 @@
+body {
+    background: url(bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -50;
+    margin: 0px;
+}
+
+.supernova {
+    background-color: transparent !important; /* Dead, you supernova! */
+}

@@ -1,0 +1,222 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <soap:Header>
+      <wsa:Action>http://tempuri.org/MSC_IntegrationService_MSCISOrchestration_MSCReceive_Port/ProcessRequest</wsa:Action>
+      <wsa:MessageID>uuid:a83d487e-ba3d-4256-adec-e47992450ff2</wsa:MessageID>
+      <wsa:ReplyTo>
+        <wsa:Address>http://schemas.xmlsoap.org/ws/2004/03/addressing/role/anonymous</wsa:Address>
+      </wsa:ReplyTo>
+      <wsa:To>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</wsa:To>
+      <wsse:Security soap:mustUnderstand="1">
+        <wsu:Timestamp wsu:Id="Timestamp-92cf366c-1461-4276-8ead-80fa4ef167df">
+          <wsu:Created>2010-07-14T17:42:05Z</wsu:Created>
+          <wsu:Expires>2010-07-14T17:47:05Z</wsu:Expires>
+        </wsu:Timestamp>
+        <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-3f243c14-0ae6-419b-934b-94f0f6cf1068">
+          <wsse:Username>soap-level-userid</wsse:Username>
+          <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">XXXXXXXXXXXXXXXXXXXX</wsse:Password>
+          <wsse:Nonce>ZSvhzxcmKYA6KigBlwM7kg==</wsse:Nonce>
+          <wsu:Created>2010-07-14T17:42:05Z</wsu:Created>
+        </wsse:UsernameToken>
+      </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+      <ProcessRequest xmlns="http://tempuri.org/">
+        <clipboard xmlns="http://mscanada.com">
+          <context applicationName="ApplicationName" userid="soap-level-userid" language="en-CA" dateTime="2010-07-14T11:42:04" />
+          <msgRequest requestId="123" serviceType="BrokerDataIngest" source="soap-level-unitid" provider="MorWEBTraining" recipient="MorWEB">
+            <comment xsi:nil="true" />
+            <msgErrors xsi:nil="true" />
+          </msgRequest>
+          <applicationData>
+            <BDIRequest xmlns="http://MSC.IntegrationService.Schemas.MorWEB.BDI.Request.1" createdUserId="broker-userid" createdDateTime="2007-11-06T06:08:14" createdUnitId="UNITID">
+              <CommonData>
+                <AssetList>
+                  <AssetRealEstate key="re1" value="111111" />
+                  <AssetRealEstate key="re2" value="222222" />
+                  <AssetRealEstate key="re3" value="333333" />
+                  <AssetOther key="asset2" addtionalAssetHolders="john" assetType="10" description="desc2" location="loc2" maturityDate="2010-05-09" value="1111.00" />
+                  <AssetOther key="asset3" addtionalAssetHolders="john" assetType="20" description="desc3" location="loc3" maturityDate="2010-05-09" value="2222.00" />
+                  <AssetOther key="asset4" addtionalAssetHolders="john" assetType="30" description="desc4" location="loc4" maturityDate="2010-05-09" value="3333.00" />
+                  <AssetOther key="asset5" addtionalAssetHolders="john" assetType="40" description="desc5" location="loc5" maturityDate="2010-05-09" value="4444.00" />
+                  <AssetOther key="asset6" addtionalAssetHolders="john" assetType="60" description="des6c" location="loc6" maturityDate="2010-05-09" value="5555.00" />
+                  <AssetOther key="asset7" addtionalAssetHolders="john" assetType="99" description="des6c" location="loc7" maturityDate="2010-05-09" value="6666.00" />
+                </AssetList>
+                <LiabilityList>
+                  <LiabilityRealEstate key="exm1" accountNumber="m1111" chargeType="1" closingDate="1999-01-05" insuranceCertificateNumber="c3333" insurancePremium="1000" insuredAmount="200000" lenderName="CIBC" monthlyRepayment="100" mortgageInsurer="10" originalLoanAmount="100000" othersResponsible="true" outstandingBalance="100000" redemptionStatus="1" repaymentType="1" />
+                  <LiabilityRealEstate key="exm2" accountNumber="m2222" chargeType="2" closingDate="1999-03-03" lenderName="CIBC" monthlyRepayment="100" mortgageInsurer="10" originalLoanAmount="100000" othersResponsible="true" outstandingBalance="100000" redemptionStatus="1" repaymentType="2" />
+                  <LiabilityOther accountNumber="m234" additionalHolders="true" additionalHoldersDetails="may" creditCardType="20" creditLimit="25000" dateEnd="2000-01-08" key="liab22" lenderName="cibc" liabilityType="4" monthlyRepayment="250" outstandingBalance="25000" repaymentIndicator="true" />
+                </LiabilityList>
+                <AddressList>
+                  <ApplicationAddressCanada cityTown="f" countryCode="1" postalCode="L1L1L1" provinceCode="10" key="add1">
+                    <PostalAddressPOBox POBoxRRNumber="d" streetDirection="4" streetName="    " streetNumber="2347" streetType="550" unitNumber="" />
+                  </ApplicationAddressCanada>
+                  <ApplicationAddressCanada cityTown="Oakvile" countryCode="1" postalCode="L1L1L1" provinceCode="10" key="add2">
+                    <PostalAddressStreetAddress POBoxRRNumber="  " streetDirection="-1" streetName="Devon" streetNumber="2347" streetType="-1" unitNumber="" />
+                  </ApplicationAddressCanada>
+                  <ApplicationAddressCanada cityTown="Oakvil" countryCode="1" postalCode="L1L1L1" provinceCode="10" key="add3">
+                    <PostalAddressStreetAddress POBoxRRNumber="  " streetDirection="-1" streetName="Devon" streetNumber="2347" streetType="-1" unitNumber="" />
+                  </ApplicationAddressCanada>
+                  <ApplicationAddressUSA cityTown="Buffalo" countryCode="2" key="addusa1" postalCode="14199-1111" provinceCode="560">
+                    <PostalAddressStreetAddress POBoxRRNumber="" streetDirection="-1" streetName="Test Drive" streetNumber="190" unitNumber="" streetType="-1" />
+                  </ApplicationAddressUSA>
+                </AddressList>
+              </CommonData>
+              <CustomerData>
+                <CustomerList>
+                  <CustomerBorrower maritalStatus="3" secondMiddleName="2ndMiddle" middleName="middleName" emailAddress1="email1" emailAddress2="email2" honorific="4" lastName="Borrower1Gus" SIN="999999999" dateBirth="1999-01-08" correspondenceLanguage="1" key="B1" firstName="Frank">
+                    <CustomerTelephoneNumberList>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="false">
+                        <TelephoneNumber areaCode="999" countryCode="1" phoneExtension="1254" phoneNumber="222-1111" />
+                      </CustomerTelephoneNumber>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="false">
+                        <TelephoneNumber areaCode="999" countryCode="1" phoneExtension="1254" phoneNumber="222-1111" />
+                      </CustomerTelephoneNumber>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="false">
+                        <TelephoneNumber areaCode="999" countryCode="1" phoneExtension="1254" phoneNumber="222-1111" />
+                      </CustomerTelephoneNumber>
+                    </CustomerTelephoneNumberList>
+                    <EmploymentList>
+                      <Employment industryType="1" jobTitle="xx" dateStart="1999-08-07" employmentStatus="10" companyName="xx" occupationType="1" employmentType="1">
+                        <AddressCanada cityTown="toronto" countryCode="1" postalCode="m3m2m2" provinceCode="100">
+                          <PostalAddressStreetAddress POBoxRRNumber="" streetDirection="2" streetName="Wiltshire" streetNumber="254" streetType="100" unitNumber="" />
+                        </AddressCanada>
+                        <EarnedIncomeList>
+                          <EarnedIncome earnedIncomeAmount="3.14" paymentFrequency="4" earnedIncomeType="7" />
+                          <EarnedIncome earnedIncomeAmount="999.25" paymentFrequency="2" earnedIncomeType="4" />
+                          <EarnedIncome earnedIncomeAmount="100000.00" paymentFrequency="1" earnedIncomeType="1" />
+                        </EarnedIncomeList>
+                        <ContactTelephoneNumber contactTime="xx" usage="10">
+                          <TelephoneNumber areaCode="416" countryCode="1" phoneExtension="122" phoneNumber="111-2222" />
+                        </ContactTelephoneNumber>
+                      </Employment>
+                    </EmploymentList>
+                    <BankruptcyHistoryList>
+                      <BankruptcyHistory dateDischarged="1999-08-07" debtAmount="3.14" dateDeclared="1999-08-07" otherDetails="xx" monthlyRepayment="3.14" />
+                    </BankruptcyHistoryList>
+                    <UnearnedIncomeList>
+                      <UnearnedIncome unearnedIncomeType="1" paymentFrequency="1" unearnedIncomeAmount="3.14" />
+                    </UnearnedIncomeList>
+                    <CustomerNoteList>
+                      <CustomerNote noteText="B1 Note 1" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="B1 Note 2" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="B1 Note 3" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="B1 Note 4" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="B1 Note 5" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                    </CustomerNoteList>
+                  </CustomerBorrower>
+                  <CustomerGuarantor lastName="Guarantor1" firstName="Mary" key="G1" correspondenceLanguage="1">
+                    <CustomerTelephoneNumberList>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="false">
+                        <TelephoneNumber areaCode="905" countryCode="1" phoneExtension="1254" phoneNumber="222-1111" />
+                      </CustomerTelephoneNumber>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="true">
+                        <TelephoneNumber areaCode="906" countryCode="2" phoneExtension="1255" phoneNumber="236-8715" />
+                      </CustomerTelephoneNumber>
+                      <CustomerTelephoneNumber contactTime="9 to 5" usage="3" preferred="false">
+                        <TelephoneNumber areaCode="907" countryCode="3" phoneExtension="1256" phoneNumber="236-8716" />
+                      </CustomerTelephoneNumber>
+                    </CustomerTelephoneNumberList>
+                    <CustomerNoteList>
+                      <CustomerNote noteText="G2 Note 1" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="G2 Note 2" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                      <CustomerNote noteText="G2 Note 3" noteType="10" creationDateTime="2007-01-05T05:30:00" />
+                    </CustomerNoteList>
+                  </CustomerGuarantor>
+                  <CustomerGuarantor lastName="Guarantor2" firstName="Mary" key="G2" correspondenceLanguage="2">
+                    <EmploymentList>
+                      <Employment industryType="1" jobTitle="Manager" dateStart="1999-08-07" employmentStatus="10" companyName="ABC" dateEnd="2000-08-07" occupationType="1" employmentType="1">
+                        <AddressCanada cityTown="timmis" countryCode="1" postalCode="m3m2m2" provinceCode="100">
+                          <PostalAddressStreetAddress POBoxRRNumber="" streetDirection="2" streetName="Wiltshire" streetNumber="254" streetType="100" unitNumber="" />
+                        </AddressCanada>
+                        <EarnedIncomeList>
+                          <EarnedIncome earnedIncomeAmount="2000" paymentFrequency="12" earnedIncomeType="2" />
+                          <EarnedIncome earnedIncomeAmount="999.25" paymentFrequency="2" earnedIncomeType="4" />
+                          <EarnedIncome earnedIncomeAmount="100000.00" paymentFrequency="1" earnedIncomeType="1" />
+                        </EarnedIncomeList>
+                        <ContactTelephoneNumber contactTime="AM" usage="10">
+                          <TelephoneNumber areaCode="416" countryCode="2" phoneExtension="110" phoneNumber="111-2222" />
+                        </ContactTelephoneNumber>
+                      </Employment>
+                    </EmploymentList>
+                  </CustomerGuarantor>
+                  <CustomerBorrower lastName="Kentucky3" firstName="Mary" key="B2" correspondenceLanguage="2" />
+                  <CustomerBorrower lastName="Kentucky2" firstName="Mary" key="B3" correspondenceLanguage="2" />
+                </CustomerList>
+                <CustomerAddressList>
+                  <CustomerAddressPreviousResidence refkeyAddress="add3" fromDate="2001-01-01" toDate="2003-05-19">
+                    <CustomerReference refkeyCustomer="G2" />
+                    <AddressOccupancyTenant monthlyRentPaid="2566.24" />
+                  </CustomerAddressPreviousResidence>
+                  <CustomerAddressSecondaryResidence refkeyAddress="add1" fromDate="2000-01-01">
+                    <CustomerReference refkeyCustomer="B1" />
+                    <CustomerReference refkeyCustomer="G2" />
+                    <CustomerLiabilityRealEstate refkeyLiability="exm1">
+                      <CustomerReference refkeyCustomer="B1" />
+                    </CustomerLiabilityRealEstate>
+                    <CustomerLiabilityRealEstate refkeyLiability="exm2">
+                      <CustomerReference refkeyCustomer="G2" />
+                    </CustomerLiabilityRealEstate>
+                    <AddressOccupancyOwnerOccupied refkeyAsset="re1" />
+                  </CustomerAddressSecondaryResidence>
+                  <CustomerAddressPrimaryResidence refkeyAddress="addusa1" fromDate="1999-01-06">
+                    <CustomerReference refkeyCustomer="B2" />
+                    <CustomerReference refkeyCustomer="G1" />
+                    <CustomerReference refkeyCustomer="G2" />
+                    <AddressOccupancyRental refkeyAsset="re2">
+                      <RentalDetails annualGrossRentalIncome="120000" />
+                    </AddressOccupancyRental>
+                  </CustomerAddressPrimaryResidence>
+                </CustomerAddressList>
+                <CustomerAssetList>
+                  <CustomerAssetOther refkeyAsset="asset2">
+                    <CustomerReference refkeyCustomer="G2" />
+                  </CustomerAssetOther>
+                  <CustomerAssetOther refkeyAsset="asset3">
+                    <CustomerReference refkeyCustomer="G1" />
+                  </CustomerAssetOther>
+                  <CustomerAssetOther refkeyAsset="asset4">
+                    <CustomerReference refkeyCustomer="G2" />
+                  </CustomerAssetOther>
+                  <CustomerAssetOther refkeyAsset="asset5">
+                    <CustomerReference refkeyCustomer="G1" />
+                  </CustomerAssetOther>
+                </CustomerAssetList>
+                <CustomerLiabilityList>
+                  <CustomerLiabilityOther refkeyLiability="liab22">
+                    <CustomerReference refkeyCustomer="G2" />
+                  </CustomerLiabilityOther>
+                </CustomerLiabilityList>
+              </CustomerData>
+              <MortgageApplication brokerUserId="rbarker" fundingDate="2008-01-15" isPreapproval="true" loanPurposeType="3" purchasePriceEstimatedValue="569100.25">
+                <SubjectPropertyList>
+                  <SubjectProperty annualHeatingAmount="100" buildingConstructionType="20" environmentalHazardIndicator="true" heatingType="2" lotSize="10000" lotSizeUnits="1" MLSListed="true" MLSNumber="mlsnumber" numberOfUnitsRented="1" numberOfUnitsTotal="3" occupancyPurpose="4" parkingType="5" propertyDescriptionType="12" propertySize="5000" propertySizeUnits="1" propertyType="5" propertyUsageType="11" propertyZoningType="5" selfBuildIndicator="true" waterSupplyType="20" waterWasteType="30">
+                    <SubjectPropertyOccupancyPartialOwnerOccupied>
+                      <RentalDetails annualGrossRentalIncome="4555" />
+                    </SubjectPropertyOccupancyPartialOwnerOccupied>
+                    <LegalAddress details="deta" levelNumber="lvl" lotNumber="lt" PIN="pin" planNumber="plan" unitNumber="unit" />
+                    <Condo annualCondoFees="455" />
+                    <PropertyTax annualTaxAmount="41111" />
+                    <PropertyAppraisal appraisedValue="45877" dateAppraised="1999-01-01" />
+                    <SubjectPropertyAddress refkeyAddress="add1" />
+                  </SubjectProperty>
+                </SubjectPropertyList>
+                <ApplicationNoteList>
+                  <ApplicationNote noteDateTime="1999-01-01T05:45:15" noteText="application note 1" noteType="9" />
+                  <ApplicationNote noteDateTime="1999-01-01T05:45:15" noteText="application note 2" noteType="9" />
+                  <ApplicationNote noteDateTime="1999-01-01T05:45:15" noteText="application note 3" noteType="9" />
+                </ApplicationNoteList>
+                <LoanList>
+                  <Loan amortizationMonths="480" chargeType="3" loanAmount="45000.99" termMonths="60" />
+                </LoanList>
+                <DownpaymentList>
+                  <Downpayment amount="25666.45" downpaymentSourceType="3" />
+                  <Downpayment amount="33333.45" downpaymentSourceType="5" />
+                  <Downpayment amount="44444.45" downpaymentSourceType="99" />
+                </DownpaymentList>
+              </MortgageApplication>
+            </BDIRequest>
+          </applicationData>
+        </clipboard>
+      </ProcessRequest>
+    </soap:Body>
+  </soap:Envelope>

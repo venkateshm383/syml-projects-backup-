@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+<!-- 		<property name="hibernate.connection.url">jdbc:postgresql://localhost/underwriting</property> -->
+<!-- 		<property name="hibernate.connection.username">postgres</property> -->
+<!-- 		<property name="hibernate.connection.password">admin</property> -->
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+		<!-- Connection Pooling -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">1000</property>
+		<property name="hibernate.c3p0.max_size">50</property>
+		<property name="hibernate.c3p0.idle_test_period">10000</property>
+		<property name="hibernate.c3p0.acquire_increment">3</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<!-- Misc properties -->
+		<property name="hibernate.generate_statistics">true</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.show_sql">false</property>
+
+		<mapping class="com.syml.domain.Asset" />
+		<mapping class="com.syml.domain.Collection" />
+		<mapping class="com.syml.domain.Income" />
+		<mapping class="com.syml.domain.LatePayment" />
+		<mapping class="com.syml.domain.Lender" />
+		<mapping class="com.syml.domain.Liability" />
+		<mapping class="com.syml.domain.Mortgage" />
+		<mapping class="com.syml.domain.Note" />
+		<mapping class="com.syml.domain.Opportunity" />
+		<mapping class="com.syml.domain.Product" />
+		<mapping class="com.syml.domain.Applicant" />
+
+	</session-factory>
+
+</hibernate-configuration>

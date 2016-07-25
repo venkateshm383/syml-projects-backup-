@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by Dave Krick (D LIMITED PARTNERSHIP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="FCXGlobalTypeApi_1_0_1.xsd"/>
+	<xs:element name="person" type="PersonType"/>
+	<xs:complexType name="PersonType">
+		<xs:complexContent>
+			<xs:extension base="BasePersonType">
+				<xs:sequence>
+					<xs:element name="addressList" type="QualifiedAddressType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BasePersonType">
+		<xs:sequence>
+			<xs:element name="birthDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date of birth of applicant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="emailAddress" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Email address to contact applicant.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="emailNotProvided" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag that indicates that the applicant's email address was not provided.
+Y - not provided
+N - provided</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="languagePreferenceDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Language preference of applicant.
+Menu Code: LANGUAGEPREFERENCE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>English</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>French</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="maritalStatusDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Menu code: MARITALSTATUS</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Single</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Married</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Common Law</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Separated</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation>Divorced</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>Widowed</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7">
+							<xs:annotation>
+								<xs:documentation>Other</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="salutationDd" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Menu Code: SALUTATION</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="2"/>
+									<xs:fractionDigits value="0"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="100"/>
+									<xs:enumeration value="1">
+										<xs:annotation>
+											<xs:documentation>Mr.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="2">
+										<xs:annotation>
+											<xs:documentation>Mrs.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="3">
+										<xs:annotation>
+											<xs:documentation>Ms.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="4">
+										<xs:annotation>
+											<xs:documentation>Dr.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="5">
+										<xs:annotation>
+											<xs:documentation>Rev.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="6">
+										<xs:annotation>
+											<xs:documentation>Miss</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="7">
+										<xs:annotation>
+											<xs:documentation>Judge</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="firstName">
+							<xs:annotation>
+								<xs:documentation>First name of applicant.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="middleInitial" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Middle initial of applicant.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="lastName">
+							<xs:annotation>
+								<xs:documentation>Last name of applicant.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="suffixDd" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Suffix follows a person’s full name and provides additional information about the person. Post-nominal letters indicate that the individual holds a position, educational degree, accreditation, office or honour. The most common social name suffixes are senior and junior.
+Menu Code: SUFFIX</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:totalDigits value="2"/>
+									<xs:fractionDigits value="0"/>
+									<xs:minExclusive value="-1"/>
+									<xs:maxExclusive value="100"/>
+									<xs:enumeration value="1">
+										<xs:annotation>
+											<xs:documentation>Sr.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+									<xs:enumeration value="2">
+										<xs:annotation>
+											<xs:documentation>Jr.</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numberOfDependents" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of dependents of applicant.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:totalDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phone" type="PhoneType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="preferredContactMethodDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Preferred  method of contacting applicant.
+Menu Code: PREFCONTACTMETHOD</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Home Phone</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Cell Phone</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Fax</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>E-mail</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation>Work Phone</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="socialInsuranceNumber" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="solicitationDd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Menu Code: SOLICITATION</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>No</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Yes</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="additionalData" type="AdditionalDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QualifiedAddressType">
+		<xs:sequence>
+			<xs:element name="address" type="Address1Type" minOccurs="0"/>
+			<xs:element name="addressTypeDd">
+				<xs:annotation>
+					<xs:documentation>Describe address type.
+Menu Code: BORROWERADDRESSTYPE</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="2"/>
+						<xs:fractionDigits value="0"/>
+						<xs:minExclusive value="-1"/>
+						<xs:maxExclusive value="100"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Current</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Previous</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Mailing</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

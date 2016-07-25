@@ -1,0 +1,52 @@
+package com.syml.service;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+
+import org.codehaus.jettison.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.syml.bean.algo.UnderwriteAll;
+
+
+
+public class CouchbaseExecutorService extends  Thread{
+	CouchBaseOperation   operation=new  CouchBaseOperation();
+	
+	
+   public CouchbaseExecutorService(List<List<UnderwriteAll>> listOfProductLists) {
+		super();
+		this.listOfProductLists = listOfProductLists;
+	}
+
+public List<List<UnderwriteAll>> listOfProductLists;
+
+@Override
+	public void run() {
+ObjectMapper  mapper=new  ObjectMapper();
+	
+	for (Iterator iterator = listOfProductLists.iterator(); iterator.hasNext();) {
+		List<UnderwriteAll> type = (List<UnderwriteAll>) iterator.next();
+		
+		
+		for (Iterator iterator2 = type.iterator(); iterator2.hasNext();) {
+			UUID  uuid=UUID.randomUUID();
+			UnderwriteAll underwriteAll = (UnderwriteAll) iterator2.next();
+			try{
+			JSONObject  jsonobj=new  JSONObject(mapper.writeValueAsString(underwriteAll));
+			operation.storeDataInCouchBase("uwapps2couchbase"+uuid, jsonobj);
+			
+			
+			}catch (Exception e) {
+e.printStackTrace();			}
+			
+			
+		}
+	}
+	
+	
+	super.run();
+	}
+
+}

@@ -1,0 +1,2913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:r="http://MSC.IntegrationService.Schemas.MorWEB.BDI.Request.1" targetNamespace="http://MSC.IntegrationService.Schemas.MorWEB.BDI.Request.1" version="1.1.1">
+	<xs:element name="BDIRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CommonData"/>
+				<xs:element ref="r:CustomerData"/>
+				<xs:element ref="r:MortgageApplication"/>
+			</xs:sequence>
+			<xs:attribute name="createdDateTime" type="r:typeDateTime" use="required"/>
+			<xs:attribute name="createdUnitId" type="r:typeUnitId" use="required"/>
+			<xs:attribute name="createdUserId" type="r:typeUserId" use="required"/>
+		</xs:complexType>
+		<xs:key name="keyAddress">
+			<xs:selector xpath="r:CommonData/r:AddressList/*"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyAddressCanada">
+			<xs:selector xpath="r:CommonData/r:AddressList/r:ApplicationAddressCanada"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyCustomer">
+			<xs:selector xpath="r:CustomerData/r:CustomerList/*"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyAsset">
+			<xs:selector xpath="r:CommonData/r:AssetList/*"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyAssetRealEstate">
+			<xs:selector xpath="r:CommonData/r:AssetList/r:AssetRealEstate"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyAssetOther">
+			<xs:selector xpath="r:CommonData/r:AssetList/r:AssetOther"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyLiability">
+			<xs:selector xpath="r:CommonData/r:AssetList/*"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyLiabilityRealEstate">
+			<xs:selector xpath="r:CommonData/r:LiabilityList/r:LiabilityRealEstate"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyLiabilityOther">
+			<xs:selector xpath="r:CommonData/r:LiabilityList/r:LiabilityOther"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<xs:key name="keyCreditBureau">
+			<xs:selector xpath="r:CommonData/r:CreditBureauList/r:CreditBureau"/>
+			<xs:field xpath="@key"/>
+		</xs:key>
+		<!--Customer Address must reference an Address-->
+		<xs:keyref name="fkCustomerAddress_Address" refer="r:keyAddress">
+			<xs:selector xpath="r:CustomerData/r:CustomerAddressList/*"/>
+			<xs:field xpath="@refkeyAddress"/>
+		</xs:keyref>
+		<!--All customers associated with address must be from Customer list-->
+		<xs:keyref name="fkCustomerAddress_Customer" refer="r:keyCustomer">
+			<xs:selector xpath="r:CustomerData/r:CustomerAddressList/*/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+		<!--Any address asset must be of type AssetRealEstate-->
+		<xs:keyref name="fkCustomerAddress_Asset" refer="r:keyAssetRealEstate">
+			<xs:selector xpath="r:CustomerData/r:CustomerAddressList/*/*"/>
+			<xs:field xpath="@refkeyAsset"/>
+		</xs:keyref>
+		<!--All address liabilities (existing mortgages) must be of type LiabiilityRealEstate-->
+		<xs:keyref name="fkCustomerAddress_Liability" refer="r:keyLiabilityRealEstate">
+			<xs:selector xpath="r:CustomerData/r:CustomerAddressList/*/r:CustomerLiabilityRealEstate"/>
+			<xs:field xpath="@refkeyLiability"/>
+		</xs:keyref>
+		<!-- Subject property must be canadian address -->
+		<xs:keyref name="fkSubjectProperty_Address" refer="r:keyAddressCanada">
+			<xs:selector xpath="r:MortgageApplication/r:SubjectPropertyList/r:SubjectProperty/r:SubjectPropertyAddress"/>
+			<xs:field xpath="@refkeyAddress"/>
+		</xs:keyref>
+		<!--Other customer assets -->
+		<xs:keyref name="fkCustomerAssetOther_AssetOther" refer="r:keyAssetOther">
+			<xs:selector xpath="r:CustomerData/r:CustomerAssetList/r:CustomerAssetOther"/>
+			<xs:field xpath="@refkeyAsset"/>
+		</xs:keyref>
+		<xs:keyref name="fkCustomerAssetOther_Customer" refer="r:keyCustomer">
+			<xs:selector xpath="r:CustomerData/r:CustomerAssetList/*/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+		<!--Other customer liabilities -->
+		<xs:keyref name="fkCustomerLiabilityOther_LiabilityOther" refer="r:keyLiabilityOther">
+			<xs:selector xpath="r:CustomerData/r:CustomerLiabilityList/r:CustomerLiabilityOther"/>
+			<xs:field xpath="@refkeyLiability"/>
+		</xs:keyref>
+		<xs:keyref name="fkCustomerLiabilityOther_Customer" refer="r:keyCustomer">
+			<xs:selector xpath="r:CustomerData/r:CustomerLiabilityList/*/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+		<!--Other customer Credit Bureau -->
+		<xs:keyref name="fkCustomerCreditBureau_CreditBureau" refer="r:keyCreditBureau">
+			<xs:selector xpath="r:CustomerData/r:CustomerCreditBureauList/r:CustomerCreditBureau"/>
+			<xs:field xpath="@refkeyCreditBureau"/>
+		</xs:keyref>
+		<xs:keyref name="fkCustomerCreditBureau_Customer" refer="r:keyCustomer">
+			<xs:selector xpath="r:CustomerData/r:CustomerCreditBureauList/*/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="AddressCanada" type="r:typeAddressCanada"/>
+	<xs:element name="AddressUSA" type="r:typeAddressUSA"/>
+	<xs:element name="AddressOther" type="r:typeAddressOther"/>
+	<xs:element name="AddressList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:ApplicationAddress" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="uixApplicationAddress">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@cityTown"/>
+			<xs:field xpath="@provinceCode"/>
+			<xs:field xpath="@postalCode"/>
+			<xs:field xpath="@countryCode"/>
+			<xs:field xpath="*/@POBoxRRNumber"/>
+			<xs:field xpath="*/@streetName"/>
+			<xs:field xpath="*/@streetNumber"/>
+			<xs:field xpath="*/@unitNumber"/>
+			<xs:field xpath="*/@streetType"/>
+			<xs:field xpath="*/@streetDirection"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="AddressOccupancy" type="r:typeAddressOccupancy" abstract="true"/>
+	<xs:element name="AddressOccupancyNone" type="r:typeAddressOccupancyNone" substitutionGroup="r:AddressOccupancy"/>
+	<xs:element name="AddressOccupancyOwnerOccupied" type="r:typeAddressOccupancyOwnerOccupied" substitutionGroup="r:AddressOccupancy"/>
+	<xs:element name="AddressOccupancyPartialOwnerOccupied" type="r:typeAddressOccupancyPartialOwnerOccupied" substitutionGroup="r:AddressOccupancy"/>
+	<xs:element name="AddressOccupancyRental" type="r:typeAddressOccupancyRental" substitutionGroup="r:AddressOccupancy"/>
+	<xs:element name="AddressOccupancyTenant" type="r:typeAddressOccupancyTenant" substitutionGroup="r:AddressOccupancy"/>
+	<xs:element name="ApplicationNote">
+		<xs:complexType>
+			<xs:attribute name="noteType" type="r:typeApplicationNoteType"/>
+			<xs:attribute name="noteDateTime" type="r:typeDateTime"/>
+			<xs:attribute name="noteText" type="r:typeStringNonEmpty"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ApplicationNoteList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:ApplicationNote" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ApplicationAddress" type="r:typeApplicationAddress" abstract="true"/>
+	<xs:element name="ApplicationAddressCanada" type="r:typeApplicationAddressCanada" substitutionGroup="r:ApplicationAddress"/>
+	<xs:element name="ApplicationAddressUSA" type="r:typeApplicationAddressUSA" substitutionGroup="r:ApplicationAddress"/>
+	<xs:element name="ApplicationAddressOther" type="r:typeApplicationAddressOther" substitutionGroup="r:ApplicationAddress"/>
+	<xs:element name="AssetList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:Asset" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="uidAssetRealEstate_Address">
+			<xs:selector xpath="r:AssetRealEstate"/>
+			<xs:field xpath="@refkeyAddress"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="Asset" type="r:typeAsset" abstract="true"/>
+	<xs:element name="AssetRealEstate" type="r:typeAssetRealEstate" substitutionGroup="r:Asset"/>
+	<xs:element name="AssetOther" type="r:typeAssetOther" substitutionGroup="r:Asset"/>
+	<xs:element name="CreditBureauList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CreditBureau" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreditBureau" type="r:typeCreditBureau"/>
+	<xs:element name="CreditReport" type="r:typeCreditReport" abstract="true"/>
+	<xs:element name="CreditReportEquifax" type="r:typeCreditReportEquifax" substitutionGroup="r:CreditReport"/>
+	<xs:element name="BankruptcyHistory">
+		<xs:complexType>
+			<xs:attribute name="debtAmount">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999999.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="dateDeclared" type="r:typeDate"/>
+			<xs:attribute name="dateDischarged" type="r:typeDate"/>
+			<xs:attribute name="monthlyRepayment">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999999.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="otherDetails">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BankruptcyHistoryList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:BankruptcyHistory" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CommonData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:AssetList"/>
+				<xs:element ref="r:LiabilityList"/>
+				<xs:element ref="r:AddressList"/>
+				<xs:element ref="r:CreditBureauList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Condo">
+		<xs:complexType>
+			<xs:attribute name="annualCondoFees">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:maxInclusive value="9999999999"/>
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContactTelephoneNumber">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:TelephoneNumber"/>
+			</xs:sequence>
+			<xs:attribute name="usage" type="r:typeContactTelephoneUsageType"/>
+			<xs:attribute name="contactTime">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerList"/>
+				<xs:element ref="r:CustomerAddressList"/>
+				<xs:element ref="r:CustomerAssetList"/>
+				<xs:element ref="r:CustomerLiabilityList"/>
+				<xs:element ref="r:CustomerCreditBureauList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerBorrower"/>
+				<xs:element ref="r:Customer" minOccurs="0" maxOccurs="4"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Customer" type="r:typeCustomer" abstract="true"/>
+	<xs:element name="CustomerBorrower" type="r:typeCustomer" substitutionGroup="r:Customer"/>
+	<xs:element name="CustomerGuarantor" type="r:typeCustomer" substitutionGroup="r:Customer"/>
+	<xs:element name="CustomerAddressList" type="r:typeCustomerAddressList">
+		<!--Address must only be used once-->
+		<xs:unique name="uixCustomerAddressList_Address">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@refkeyAddress"/>
+		</xs:unique>
+		<!--Address Assets must only be used once-->
+		<xs:unique name="uixCustomerAddressList_Asset">
+			<xs:selector xpath="*/*"/>
+			<xs:field xpath="@refkeyAsset"/>
+		</xs:unique>
+		<!--Address liabilities must only be used once-->
+		<xs:unique name="uixCustomerAddressList_Liability">
+			<xs:selector xpath="*/*"/>
+			<xs:field xpath="@refkeyLiability"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="CustomerAddress" type="r:typeCustomerAddress" abstract="true"/>
+	<xs:element name="CustomerAddressPreviousResidence" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyRental"/>
+							<xs:element ref="r:AddressOccupancyTenant"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="required"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressPreviouseResidence_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressPreviousResidence_ExistingMortgage_Customer" refer="r:keyCustomerAddressPreviouseResidence_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAddressPrimaryResidence" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyRental"/>
+							<xs:element ref="r:AddressOccupancyTenant"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="prohibited"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressPrimaryResidence_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressPrimaryResidence_ExistingMortgage_Customer" refer="r:keyCustomerAddressPrimaryResidence_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAddressSecondaryResidence" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyRental"/>
+							<xs:element ref="r:AddressOccupancyTenant"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="prohibited"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressSecondaryResidence_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressSecondaryResidence_ExistingMortgage_Customer" refer="r:keyCustomerAddressSecondaryResidence_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAddressVacationProperty" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyRental"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="prohibited"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressVacationProperty_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressVacationProperty_ExistingMortgage_Customer" refer="r:keyCustomerAddressVacationProperty_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAddressInvestmentProperty" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+							<xs:element ref="r:AddressOccupancyRental"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="prohibited"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressInvestmentProperty_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressInvestmentProperty_ExistingMortgage_Customer" refer="r:keyCustomerAddressInvestmentProperty_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAddressCorrespondence" substitutionGroup="r:CustomerAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="r:typeCustomerAddress">
+					<xs:sequence>
+						<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+						<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+						<xs:choice>
+							<xs:element ref="r:AddressOccupancyNone"/>
+							<xs:element ref="r:AddressOccupancyTenant"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="fromDate" type="r:typeDate" use="required"/>
+					<xs:attribute name="toDate" type="r:typeDate" use="prohibited"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:key name="keyCustomerAddressCorrespondence_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:key>
+		<xs:keyref name="fkCustomerAddressCorrespondence_ExistingMortgage_Customer" refer="r:keyCustomerAddressCorrespondence_Customer">
+			<xs:selector xpath="r:CustomerLiabilityRealEstate/r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="CustomerAssetList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerAssetOther" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+		<!-- Assets must only be referenced once -->
+		<xs:unique name="uixCustomerAsset_Asset">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@refkeyAsset"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="CustomerAssetOther">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerReference"/>
+			</xs:sequence>
+			<xs:attribute name="refkeyAsset" type="r:typeReferenceKey" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerLiabilityList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerLiabilityOther" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+		<!-- Other Liabilities must only be referenced once -->
+		<xs:unique name="uixCustomerLiability_Liability">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@refkeyLiability"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="CustomerLiabilityOther">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerReference"/>
+			</xs:sequence>
+			<xs:attribute name="refkeyLiability" type="r:typeReferenceKey" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerLiabilityRealEstate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerReference"/>
+			</xs:sequence>
+			<xs:attribute name="refkeyLiability" type="r:typeReferenceKey" use="required"/>
+		</xs:complexType>
+		<xs:unique name="uixCustomerLiability_Customer">
+			<xs:selector xpath="r:CustomerReference"/>
+			<xs:field xpath="@refkeyCustomer"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="CustomerCreditBureauList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerCreditBureau" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+		<!-- Credit Bureau must only be referenced once -->
+		<xs:unique name="uixCustomerCreditBureau_CreditBureau">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@refkeyCreditBureau"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="CustomerCreditBureau">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="refkeyCreditBureau" type="r:typeReferenceKey" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerNote">
+		<xs:complexType>
+			<xs:attribute name="noteType" type="r:typeCustomerNoteType"/>
+			<xs:attribute name="creationDateTime" type="r:typeDateTime"/>
+			<xs:attribute name="noteText" type="r:typeStringNonEmpty"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerNoteList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerReference" type="r:typeCustomerReference"/>
+	<xs:element name="CustomerTelephoneNumber">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:TelephoneNumber"/>
+			</xs:sequence>
+			<xs:attribute name="usage" type="r:typeTelephoneUsageType"/>
+			<xs:attribute name="contactTime">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="preferred" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerTelephoneNumberList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:CustomerTelephoneNumber" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DownpaymentList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:Downpayment" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Downpayment">
+		<xs:complexType>
+			<xs:attribute name="downpaymentSourceType" type="r:typeDownpaymentSourceType" use="required"/>
+			<xs:attribute name="amount" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+						<xs:maxInclusive value="9999999.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EarnedIncomeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:EarnedIncome" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EarnedIncome">
+		<xs:complexType>
+			<xs:attribute name="earnedIncomeType" type="r:typeEarnedIncomeType" use="required"/>
+			<xs:attribute name="paymentFrequency" type="r:typePaymentFrequency" use="required"/>
+			<xs:attribute name="earnedIncomeAmount" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+						<xs:totalDigits value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EmploymentList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:Employment" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Employment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0">
+					<xs:element ref="r:AddressCanada"/>
+					<xs:element ref="r:AddressUSA"/>
+					<xs:element ref="r:AddressOther"/>
+				</xs:choice>
+				<xs:element ref="r:EarnedIncomeList" minOccurs="0"/>
+				<xs:element ref="r:ContactTelephoneNumber" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="employmentType" type="r:typeEmploymentType"/>
+			<xs:attribute name="employmentStatus" type="r:typeEmploymentStatus"/>
+			<xs:attribute name="dateStart" type="r:typeDate" use="required"/>
+			<xs:attribute name="dateEnd" type="r:typeDate"/>
+			<xs:attribute name="industryType" type="r:typeEmploymentIndustryType"/>
+			<xs:attribute name="occupationType" type="r:typeEmploymentOccupationType"/>
+			<xs:attribute name="jobTitle">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="companyName">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="45"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Leasehold">
+		<xs:complexType>
+			<xs:attribute name="annualLeaseAmount">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:maxInclusive value="9999999999"/>
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Freehold">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="LegalAddress">
+		<xs:complexType>
+			<xs:attribute name="details">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="PIN">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="lotNumber">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="planNumber">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="unitNumber">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="levelNumber">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LiabilityList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:Liability" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Liability" type="r:typeLiability" abstract="true"/>
+	<xs:element name="LiabilityRealEstate" type="r:typeLiabilityRealEstate" substitutionGroup="r:Liability"/>
+	<xs:element name="LiabilityOther" type="r:typeLiabilityOther" substitutionGroup="r:Liability"/>
+	<xs:element name="Loan">
+		<xs:complexType>
+			<xs:attribute name="loanAmount" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="9999999.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="chargeType" type="r:typeChargeType" use="required"/>
+			<xs:attribute name="termMonths">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Loan term expressed in months</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:positiveInteger"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="amortizationMonths">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Loan amortization expressed in number of months</xs:documentation>
+						<xs:documentation>Use 0 for non-amortizing loans</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:nonNegativeInteger"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LoanList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:Loan" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MortgageApplication">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:SubjectPropertyList" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Currently only 1 subject property can be included for MorWEB applications. If there are multiple securing properties, enter the primary property within the SubjectPropertyList and create one or more Application notes to contain the details of the other properties.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="r:ApplicationNoteList" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Notes to be attached to the Application. Will show within MemoPad on Morweb</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="r:LoanList" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Currently only 1 mortgage loan can be ingested via MorWEB BDI (Broker Data Ingestion).</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="r:DownpaymentList" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="isPreapproval" type="xs:boolean"/>
+			<xs:attribute name="fundingDate" type="r:typeDate"/>
+			<xs:attribute name="loanPurposeType" type="r:typeLoanPurposeType"/>
+			<xs:attribute name="purchasePriceEstimatedValue" type="xs:float"/>
+			<xs:attribute name="brokerUserId" type="r:typeUserId" use="optional"/>
+			<xs:attribute name="agentUserId" type="r:typeUserId" use="optional"/>
+			<xs:attribute name="adminUserId" type="r:typeUserId" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MunicipalAddress" type="r:typeMunicipalAddress" abstract="true"/>
+	<xs:element name="MunicipalAddressCanada" type="r:typeMunicipalAddressCanada" substitutionGroup="r:MunicipalAddress"/>
+	<xs:element name="MunicipalAddressUSA" type="r:typeMunicipalAddressUSA" substitutionGroup="r:MunicipalAddress"/>
+	<xs:element name="MunicipalAddressOther" type="r:typeMunicipalAddressOther" substitutionGroup="r:MunicipalAddress"/>
+	<xs:element name="PostalAddress" type="r:typePostalAddress" abstract="true"/>
+	<xs:element name="PostalAddressStreetAddress" type="r:typePostalAddressStreetAddress" substitutionGroup="r:PostalAddress"/>
+	<xs:element name="PostalAddressPOBox" type="r:typePostalAddressPOBox" substitutionGroup="r:PostalAddress"/>
+	<xs:element name="PropertyAppraisal">
+		<xs:complexType>
+			<xs:attribute name="appraisedValue">
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger">
+						<xs:maxInclusive value="9999999999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="dateAppraised" type="r:typeDate"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PropertyTax">
+		<xs:complexType>
+			<xs:attribute name="annualTaxAmount">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999999999"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RentalDetails">
+		<xs:complexType>
+			<xs:attribute name="annualGrossRentalIncome">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:maxInclusive value="99999999.99"/>
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectProperty">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="r:SubjectPropertyOccupancyOwnerOccupied"/>
+					<xs:element ref="r:SubjectPropertyOccupancyPartialOwnerOccupied"/>
+					<xs:element ref="r:SubjectPropertyOccupancyRental"/>
+				</xs:choice>
+				<xs:element ref="r:LegalAddress" minOccurs="0"/>
+				<xs:choice>
+					<xs:element ref="r:Freehold"/>
+					<xs:element ref="r:Leasehold"/>
+					<xs:element ref="r:Condo"/>
+				</xs:choice>
+				<xs:element ref="r:PropertyTax" minOccurs="0"/>
+				<xs:element ref="r:PropertyAppraisal" minOccurs="0"/>
+				<xs:element ref="r:SubjectPropertyAddress"/>
+			</xs:sequence>
+			<xs:attribute name="occupancyPurpose" type="r:typeSubjectPropertyOccupancyPurpose"/>
+			<xs:attribute name="MLSListed" type="xs:boolean"/>
+			<xs:attribute name="MLSNumber">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="heatingType" type="r:typeHeatingType"/>
+			<xs:attribute name="parkingType" type="r:typeParkingType"/>
+			<xs:attribute name="yearBuilt">
+				<xs:simpleType>
+					<xs:restriction base="xs:gYear">
+						<xs:minInclusive value="0001"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="waterSupplyType" type="r:typeWaterSupplyType"/>
+			<xs:attribute name="waterWasteType" type="r:typeWaterWasteType"/>
+			<xs:attribute name="propertySize">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:maxInclusive value="99999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="propertySizeUnits" type="r:typeAreaMeasurementType"/>
+			<xs:attribute name="lotSize">
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger">
+						<xs:maxInclusive value="99999999999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="lotSizeUnits" type="r:typeAreaMeasurementType"/>
+			<xs:attribute name="environmentalHazardIndicator" type="xs:boolean"/>
+			<xs:attribute name="buildingConstructionType" type="r:typeBuildingConstructionType"/>
+			<xs:attribute name="annualHeatingAmount">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1234567.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="numberOfUnitsTotal">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:maxInclusive value="99999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="numberOfUnitsRented">
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger">
+						<xs:maxInclusive value="99999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="propertyType" type="r:typePropertyTypeType"/>
+			<xs:attribute name="propertyDescriptionType" type="r:typePropertyDescriptionType"/>
+			<xs:attribute name="propertyUsageType" type="r:typePropertyUsageType"/>
+			<xs:attribute name="selfBuildIndicator" type="xs:boolean"/>
+			<xs:attribute name="propertyZoningType" type="r:typePropertyZoningType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectPropertyList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:SubjectProperty" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectPropertyOccupancyOwnerOccupied">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="r:typeAddressOccupancy"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectPropertyOccupancyPartialOwnerOccupied">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="r:typeAddressOccupancy">
+					<xs:sequence>
+						<xs:element ref="r:RentalDetails" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectPropertyOccupancyRental">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="r:typeAddressOccupancy">
+					<xs:sequence>
+						<xs:element ref="r:RentalDetails" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TelephoneNumber">
+		<xs:complexType>
+			<xs:attribute name="countryCode">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="areaCode">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="phoneNumber" use="required">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="phoneExtension">
+				<xs:simpleType>
+					<xs:restriction base="r:typeStringNonEmpty">
+						<xs:maxLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnearnedIncome">
+		<xs:complexType>
+			<xs:attribute name="unearnedIncomeAmount">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999999.99"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="unearnedIncomeType" type="r:typeUnearnedIncomeType" use="required"/>
+			<xs:attribute name="paymentFrequency" type="r:typePaymentFrequency" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnearnedIncomeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="r:UnearnedIncome" minOccurs="0" maxOccurs="99999"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubjectPropertyAddress">
+		<xs:complexType>
+			<xs:attribute name="refkeyAddress" type="r:typeReferenceKey" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="attributesMunicipalAddress">
+		<xs:attribute name="cityTown" type="r:typeCityTown"/>
+		<xs:attribute name="provinceCode" type="r:typeProvinceStateCode"/>
+		<xs:attribute name="postalCode" type="r:typePostalCode"/>
+		<xs:attribute name="countryCode" type="r:typeCountryCode"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attributesMunicipalAddressCanada">
+		<xs:attribute name="cityTown" type="r:typeCityTown" use="required"/>
+		<xs:attribute name="provinceCode" type="r:typeProvinceStateCodeCanada" use="required"/>
+		<xs:attribute name="postalCode" type="r:typePostalCodeCanada" use="required"/>
+		<xs:attribute name="countryCode" type="r:typeCountryCode" use="required" fixed="1"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attributesMunicipalAddressUSA">
+		<xs:attribute name="cityTown" type="r:typeCityTown" use="required"/>
+		<xs:attribute name="provinceCode" type="r:typeProvinceStateCodeUSA" use="required"/>
+		<xs:attribute name="postalCode" type="r:typePostalCodeUSA" use="required"/>
+		<xs:attribute name="countryCode" type="r:typeCountryCode" use="required" fixed="2"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attributesMunicipalAddressOther">
+		<xs:attribute name="cityTown" type="r:typeCityTown" use="required"/>
+		<xs:attribute name="provinceCode" type="r:typeProvinceStateCode" use="required" fixed="99999"/>
+		<xs:attribute name="postalCode" type="r:typePostalCode" use="required"/>
+		<xs:attribute name="countryCode" type="r:typeCountryCode" use="required" fixed="99"/>
+	</xs:attributeGroup>
+	<xs:complexType name="typeAddressOccupancy" abstract="true"/>
+	<xs:complexType name="typeAddressOccupancyNone">
+		<xs:complexContent>
+			<xs:extension base="r:typeAddressOccupancy">
+				<xs:attribute name="monthlyRentPaid" type="xs:decimal" use="required" fixed="0"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressOccupancyOwnerOccupied">
+		<xs:complexContent>
+			<xs:extension base="r:typeAddressOccupancy">
+				<xs:attribute name="refkeyAsset" type="r:typeReferenceKey" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressOccupancyPartialOwnerOccupied">
+		<xs:complexContent>
+			<xs:extension base="r:typeAddressOccupancy">
+				<xs:sequence>
+					<xs:element ref="r:RentalDetails" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="refkeyAsset" type="r:typeReferenceKey" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressOccupancyRental">
+		<xs:complexContent>
+			<xs:extension base="r:typeAddressOccupancy">
+				<xs:sequence>
+					<xs:element ref="r:RentalDetails" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="refkeyAsset" type="r:typeReferenceKey" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressOccupancyTenant">
+		<xs:complexContent>
+			<xs:extension base="r:typeAddressOccupancy">
+				<xs:attribute name="monthlyRentPaid" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddress" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="r:typeMunicipalAddress"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressCanada">
+		<xs:complexContent>
+			<xs:restriction base="r:typeAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressCanada"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressUSA">
+		<xs:complexContent>
+			<xs:restriction base="r:typeAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressUSA"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAddressOther">
+		<xs:complexContent>
+			<xs:restriction base="r:typeAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressOther"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeApplicationAddress">
+		<xs:complexContent>
+			<xs:extension base="r:typeMunicipalAddress">
+				<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeApplicationAddressCanada">
+		<xs:complexContent>
+			<xs:restriction base="r:typeApplicationAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressCanada"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeApplicationAddressUSA">
+		<xs:complexContent>
+			<xs:restriction base="r:typeApplicationAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressUSA"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeApplicationAddressOther">
+		<xs:complexContent>
+			<xs:restriction base="r:typeApplicationAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressOther"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAssetList">
+		<xs:sequence>
+			<xs:element ref="r:Asset" minOccurs="0" maxOccurs="99999"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeAsset" abstract="true">
+		<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+		<xs:attribute name="value" type="r:typeAssetValue" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="typeAssetOther">
+		<xs:complexContent>
+			<xs:extension base="r:typeAsset">
+				<xs:attribute name="assetType" type="r:typeAssetOtherType" use="required"/>
+				<xs:attribute name="location">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="maturityDate" type="r:typeDate"/>
+				<xs:attribute name="addtionalAssetHolders">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="description">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeAssetRealEstate">
+		<xs:complexContent>
+			<xs:extension base="r:typeAsset"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeCreditBureau">
+		<xs:sequence>
+			<xs:element ref="r:CreditReport"/>
+		</xs:sequence>
+		<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+		<xs:attribute name="provider" type="r:typeCreditReportProvider" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="typeCreditReport">
+		<xs:simpleContent>
+			<xs:extension base="r:typeCreditReportExt">
+				<xs:attribute name="reportDate" type="r:typeDate" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="typeCreditReportExt">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="typeCreditReportEquifax">
+		<xs:simpleContent>
+			<xs:extension base="r:typeCreditReport">
+				<xs:attribute name="dataFormat" type="r:typeCreditReportDataFormat"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="typeCustomer">
+		<xs:sequence>
+			<xs:element ref="r:CustomerTelephoneNumberList" minOccurs="0"/>
+			<xs:element ref="r:EmploymentList" minOccurs="0"/>
+			<xs:element ref="r:BankruptcyHistoryList" minOccurs="0"/>
+			<xs:element ref="r:UnearnedIncomeList" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Includes all non-employment income</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:CustomerNoteList" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Notes to be attached to customer. Will show in Contact History within MorWEB</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+		<xs:attribute name="correspondenceLanguage" type="r:typeCorrespondenceLangugageType"/>
+		<xs:attribute name="dateBirth" type="r:typeDate"/>
+		<xs:attribute name="honorific" type="r:typeHonorificType"/>
+		<xs:attribute name="lastName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="40"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="firstName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="30"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="middleName">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="30"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="secondMiddleName">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="30"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="emailAddress1">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="100"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="emailAddress2">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="100"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="SIN">
+			<xs:simpleType>
+				<xs:restriction base="r:typeStringNonEmpty">
+					<xs:maxLength value="9"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="maritalStatus" type="r:typeMaritalStatusType"/>
+		<xs:attribute name="numberOfDependents">
+			<xs:simpleType>
+				<xs:restriction base="xs:nonNegativeInteger">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="999"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="typeCustomerReference">
+		<xs:attribute name="refkeyCustomer" type="r:typeReferenceKey" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="typeCustomerAddressList">
+		<xs:sequence>
+			<xs:element ref="r:CustomerAddress" minOccurs="0" maxOccurs="99999"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeCustomerAddress" abstract="true">
+		<xs:sequence>
+			<xs:element ref="r:CustomerReference" maxOccurs="unbounded"/>
+			<xs:element ref="r:CustomerLiabilityRealEstate" minOccurs="0" maxOccurs="99999"/>
+			<xs:choice>
+				<xs:element ref="r:AddressOccupancyNone"/>
+				<xs:element ref="r:AddressOccupancyOwnerOccupied"/>
+				<xs:element ref="r:AddressOccupancyPartialOwnerOccupied"/>
+				<xs:element ref="r:AddressOccupancyRental"/>
+				<xs:element ref="r:AddressOccupancyTenant"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="refkeyAddress" type="r:typeReferenceKey" use="required"/>
+		<xs:attribute name="fromDate" type="r:typeDate"/>
+		<xs:attribute name="toDate" type="r:typeDate"/>
+	</xs:complexType>
+	<xs:complexType name="typeLiability">
+		<xs:attribute name="key" type="r:typeReferenceKey" use="required"/>
+		<xs:attribute name="fromCreditBureau" type="r:typefromCreditBureau" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="typeLiabilityOther">
+		<xs:complexContent>
+			<xs:extension base="r:typeLiability">
+				<xs:attribute name="dateEnd" type="r:typeDate"/>
+				<xs:attribute name="accountNumber">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="repaymentIndicator">
+					<xs:simpleType>
+						<xs:restriction base="xs:boolean"/>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="monthlyRepayment">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="creditLimit">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="outstandingBalance">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="lenderName" use="required">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="46"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="creditCardType" type="r:typeCreditCardType"/>
+				<xs:attribute name="liabilityType" type="r:typeLiabilityType" use="required"/>
+				<xs:attribute name="additionalHolders">
+					<xs:simpleType>
+						<xs:restriction base="xs:boolean"/>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="additionalHoldersDetails">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeLiabilityRealEstate">
+		<xs:complexContent>
+			<xs:extension base="r:typeLiability">
+				<xs:attribute name="accountNumber">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="othersResponsible" type="xs:boolean"/>
+				<xs:attribute name="othersResponsibleDetails">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="monthlyRepayment" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="originalLoanAmount" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="outstandingBalance" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9999999.99"/>
+							<xs:fractionDigits value="2"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="closingDate" type="r:typeDate"/>
+				<xs:attribute name="lenderName" use="required">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="44"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="chargeType" type="r:typeChargeType" use="required"/>
+				<xs:attribute name="repaymentType" type="r:typeLoanRepaymentType" use="required"/>
+				<xs:attribute name="redemptionStatus" type="r:typeLoanRedemptionStatus" use="required"/>
+				<xs:attribute name="mortgageInsurer" type="r:typeMortgageInsurerType"/>
+				<xs:attribute name="insuredAmount">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:totalDigits value="6"/>
+							<xs:fractionDigits value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="insurancePremium">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+							<xs:totalDigits value="6"/>
+							<xs:fractionDigits value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="insuranceCertificateNumber">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeMunicipalAddress" abstract="true">
+		<xs:choice>
+			<xs:element ref="r:PostalAddress"/>
+		</xs:choice>
+		<xs:attributeGroup ref="r:attributesMunicipalAddress"/>
+	</xs:complexType>
+	<xs:complexType name="typeMunicipalAddressCanada">
+		<xs:complexContent>
+			<xs:restriction base="r:typeMunicipalAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressCanada"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeMunicipalAddressUSA">
+		<xs:complexContent>
+			<xs:restriction base="r:typeMunicipalAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressUSA"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typeMunicipalAddressOther">
+		<xs:complexContent>
+			<xs:restriction base="r:typeMunicipalAddress">
+				<xs:choice>
+					<xs:element ref="r:PostalAddress"/>
+				</xs:choice>
+				<xs:attributeGroup ref="r:attributesMunicipalAddressOther"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typePostalAddress" abstract="true"/>
+	<xs:complexType name="typePostalAddressStreetAddress">
+		<xs:complexContent>
+			<xs:extension base="r:typePostalAddress">
+				<xs:attribute name="unitNumber" use="required">
+					<xs:annotation>
+						<xs:documentation>Apartment, Unit or Suite Number</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetNumber" use="required">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetName" use="required">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetType" type="r:typeStreetTypeCode" use="required"/>
+				<xs:attribute name="streetDirection" type="r:typeStreetDirectionCode" use="required"/>
+				<xs:attribute name="POBoxRRNumber" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="typePostalAddressPOBox">
+		<xs:complexContent>
+			<xs:extension base="r:typePostalAddress">
+				<xs:attribute name="unitNumber" use="required">
+					<xs:annotation>
+						<xs:documentation>Apartment, Unit or Suite Number</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetNumber" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetName" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="streetType" type="r:typeStreetTypeCode" use="required"/>
+				<xs:attribute name="streetDirection" type="r:typeStreetDirectionCode" use="required"/>
+				<xs:attribute name="POBoxRRNumber" use="required">
+					<xs:simpleType>
+						<xs:restriction base="r:typeStringNonEmpty">
+							<xs:maxLength value="40"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="typeApplicationNoteType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Advisor Comment (Internal Note)
+				2	Customer PhoneCall
+				3	Customer Correspondence
+				5	Lender Correspondence
+				6	Appraiser PhoneCall
+				7	Appraiser Correspondence
+				8	Legal Rep: PhoneCall
+				9	Legal Rep: Correspondence
+		</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeAreaMeasurementType">
+		<xs:annotation>
+			<xs:documentation>
+				1 = Square Feet
+				2 = Square Metres
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeAssetOtherType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Bank Account
+				20	Insurance Policy
+				30	RRSP
+				40	Vehicle
+				60	Investments
+				99	Other							
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeAssetValue">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9999999.99"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeBuildingConstructionType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Brick/Stone
+				20	Insulbrick
+				30	Stucco
+				40	Aluminum Siding
+				50	Vinyl Siding
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeChargeType">
+		<xs:annotation>
+			<xs:documentation>
+				1		First Charge
+				2		Second Charge
+				3		Third Charge
+				4		Fourth Charge
+				99	Bridge
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCityTown">
+		<xs:restriction base="r:typeStringNonEmpty">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeContactTelephoneUsageType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Work
+				20	Fax
+				30	Home
+				40	Cell			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCorrespondenceLangugageType">
+		<xs:annotation>
+			<xs:documentation>
+				1	English
+				2	French
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCountryCode">
+		<xs:annotation>
+			<xs:documentation>
+				1		Canada
+				2		US
+				99	Other			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCreditCardType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Visa
+				20	MasterCard
+				30	Amex
+				40	Store Cards
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCustomerNoteType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Change of Details
+				20	Change of Circumstances
+				30	Progress Check
+				40	Complaint
+				50	Response to Marketing
+				60	Query
+				70	Appointment Request
+				80	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="70"/>
+			<xs:enumeration value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeDate">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="1753-01-01"/>
+			<xs:maxInclusive value="9999-12-31"/>
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeDateTime">
+		<xs:restriction base="xs:dateTime">
+			<xs:minInclusive value="1753-01-01T00:00:00"/>
+			<xs:maxInclusive value="9999-12-31T23:59:59"/>
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}T([0-9]{2}:[0-9]{2}:[0-9]{2})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeDownpaymentSourceType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Cash from own Resources
+				2		RRSP
+				3		Borrowed against Liquid Assets
+				4		Gift
+				5		Sale of Other Property
+				8		Government Grant
+				9		Equity
+				10	Sweat Equity
+				99	Other	
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeEmploymentType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Permanent full time
+				2	Permanent part time
+				3	Temporary full time
+				4	Temporary part time
+				5	Permanent - Seasonal
+				6	Temporary - Seasonal
+				7	Not applicable						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeEmploymentStatus">
+		<xs:annotation>
+			<xs:documentation>
+				10	Employed
+				20	Self-Employed
+				30	Commission Sales
+				40	Hourly Wages
+				70	Retired
+				80	Homemaker
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="70"/>
+			<xs:enumeration value="80"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeEmploymentIndustryType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Construction
+				2	Government
+				3	Health
+				4	Education
+				5	HiTech
+				6	Retail Sales
+				7	Leisure/Entertainment
+				8	Banking/Finance
+				9	Transport
+				10	Services
+				11	Manufacturing
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeEmploymentOccupationType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Manager
+				2	Clerical
+				3	Labourer/Tradesperson
+				4	Retired
+				5	Professional
+				6	Self-Employed
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeEarnedIncomeType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Basic Income
+				2	Overtime Income
+				3	Bonus
+				4	Commission
+				5	Interest/Dividends
+				6	Government Pension
+				7	Private Pension
+				99	Other			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeHeatingType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Electric baseboard
+				2	Force Air/Gas/Oil/Electric
+				3	Hot Water
+				4	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeHonorificType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Mr
+				2	Mrs
+				3	Miss
+				4	Ms
+				5	Dr
+				6	Company
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeLiabilityType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Personal Loan
+				2		Secured Loan
+				3		Car Loan
+				4		Lease Agreement
+				6		Credit Card
+				7		Line Of Credit
+				8		Child Support
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeLoanPurposeType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Refinance
+				2		Equity Take Out
+				3		House Purchase
+				4		Transfer
+				5		Increase Transfer
+				13	Port			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeLoanRedemptionStatus">
+		<xs:annotation>
+			<xs:documentation>
+				1	Remaining
+				2	Free and clear
+				3	To be paid
+				4	Paid with proceeds
+				7	To be Ported						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeLoanRepaymentType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Interest Only
+				2		Blended P and I	
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeMaritalStatusType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Single
+				2	Married
+				3	Widowed
+				4	Separated
+				5	Divorced
+				6	Common-Law
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeMortgageInsurerType">
+		<xs:annotation>
+			<xs:documentation>
+				10	CMHC
+				20	Genworth
+				30	AIG
+				40	PMI
+				99	Other					
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeOccupancyCode">
+		<xs:annotation>
+			<xs:documentation>
+			10	Owner Occupied
+			20	Tenant
+			30	Partially Owner Occupied
+			40	Rental Property
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePaymentFrequency">
+		<xs:annotation>
+			<xs:documentation>
+				1	Annually
+				2	Semi-annually
+				4	Quarterly
+				12	Monthly
+				24	Semi-monthly
+				26	Bi-weekly
+				52	Weekly			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="52"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePostalCode">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePostalCodeCanada">
+		<xs:restriction base="r:typePostalCode">
+			<xs:pattern value="[A-Za-z][0-9][A-Za-z]([ ])?[0-9][A-Za-z][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePostalCodeUSA">
+		<xs:restriction base="r:typePostalCode">
+			<xs:pattern value="[0-9]{5}([\-][0-9]{4})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePropertyTenureType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Freehold
+				2	Leasehold
+				3	Condo
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeProvinceStateCode">
+		<xs:annotation>
+			<xs:documentation>
+				10	British Columbia
+				20	Alberta
+				30	Saskatchewan
+				40	Manitoba
+				50	Ontario
+				60	Quebec
+				70	New Brunswick
+				80	Nova Scotia
+				90	Newfoundland and Labrador
+				100	Prince Edward Island
+				110	Yukon
+				120	North West Territories
+				130	Nunavut
+				200	Alabama
+				210	Alaska
+				220	American Samoa
+				230	Arizona
+				240	Arkansas
+				250	California
+				260	Colorado
+				270	Connecticut
+				280	Delaware
+				290	District Of Columbia
+				300	Federated States Of Micronesia
+				310	Florida
+				320	Georgia
+				330	Guam
+				340	Hawaii
+				350	Idaho
+				360	Illinois
+				370	Indiana
+				380	Iowa
+				390	Kansas
+				400	Kentucky
+				410	Louisiana
+				420	Maine
+				430	Marshall Islands
+				440	Maryland
+				450	Massachusetts
+				460	Michigan
+				470	Minnesota
+				480	Mississippi
+				490	Missouri
+				500	Montana
+				510	Nebraska
+				520	Nevada
+				530	New Hampshire
+				540	New Jersey
+				550	New Mexico
+				560	New York
+				570	North carolina
+				580	North Dakota
+				590	Northern Mariana Islands
+				600	Ohio
+				610	Oklahoma
+				620	Oregon
+				630	Palau
+				640	Pennsylvania
+				650	Puerto Rico
+				660	Rhode Island
+				670	South Carolina
+				680	South Dakota
+				690	Tennessee
+				700	Texas
+				710	Utah
+				720	Vermont
+				730	Virgin Islands
+				740	Virginia
+				750	Washington
+				760	West Virginia
+				770	Wisconsin
+				780	Wyoming	
+				99999 Other or None		
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="70"/>
+			<xs:enumeration value="80"/>
+			<xs:enumeration value="90"/>
+			<xs:enumeration value="100"/>
+			<xs:enumeration value="110"/>
+			<xs:enumeration value="120"/>
+			<xs:enumeration value="130"/>
+			<xs:enumeration value="200"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="290"/>
+			<xs:enumeration value="300"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="400"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="430"/>
+			<xs:enumeration value="440"/>
+			<xs:enumeration value="450"/>
+			<xs:enumeration value="460"/>
+			<xs:enumeration value="470"/>
+			<xs:enumeration value="480"/>
+			<xs:enumeration value="490"/>
+			<xs:enumeration value="500"/>
+			<xs:enumeration value="510"/>
+			<xs:enumeration value="520"/>
+			<xs:enumeration value="530"/>
+			<xs:enumeration value="540"/>
+			<xs:enumeration value="550"/>
+			<xs:enumeration value="560"/>
+			<xs:enumeration value="570"/>
+			<xs:enumeration value="580"/>
+			<xs:enumeration value="590"/>
+			<xs:enumeration value="600"/>
+			<xs:enumeration value="610"/>
+			<xs:enumeration value="620"/>
+			<xs:enumeration value="630"/>
+			<xs:enumeration value="640"/>
+			<xs:enumeration value="650"/>
+			<xs:enumeration value="660"/>
+			<xs:enumeration value="670"/>
+			<xs:enumeration value="680"/>
+			<xs:enumeration value="690"/>
+			<xs:enumeration value="700"/>
+			<xs:enumeration value="710"/>
+			<xs:enumeration value="720"/>
+			<xs:enumeration value="730"/>
+			<xs:enumeration value="740"/>
+			<xs:enumeration value="750"/>
+			<xs:enumeration value="760"/>
+			<xs:enumeration value="770"/>
+			<xs:enumeration value="780"/>
+			<xs:enumeration value="99999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeProvinceStateCodeCanada">
+		<xs:annotation>
+			<xs:documentation>
+				10	British Columbia
+				20	Alberta
+				30	Saskatchewan
+				40	Manitoba
+				50	Ontario
+				60	Quebec
+				70	New Brunswick
+				80	Nova Scotia
+				90	Newfoundland and Labrador
+				100	Prince Edward Island
+				110	Yukon
+				120	North West Territories
+				130	Nunavut
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="r:typeProvinceStateCode">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="70"/>
+			<xs:enumeration value="80"/>
+			<xs:enumeration value="90"/>
+			<xs:enumeration value="100"/>
+			<xs:enumeration value="110"/>
+			<xs:enumeration value="120"/>
+			<xs:enumeration value="130"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeProvinceStateCodeUSA">
+		<xs:annotation>
+			<xs:documentation>
+				200	Alabama
+				210	Alaska
+				220	American Samoa
+				230	Arizona
+				240	Arkansas
+				250	California
+				260	Colorado
+				270	Connecticut
+				280	Delaware
+				290	District Of Columbia
+				300	Federated States Of Micronesia
+				310	Florida
+				320	Georgia
+				330	Guam
+				340	Hawaii
+				350	Idaho
+				360	Illinois
+				370	Indiana
+				380	Iowa
+				390	Kansas
+				400	Kentucky
+				410	Louisiana
+				420	Maine
+				430	Marshall Islands
+				440	Maryland
+				450	Massachusetts
+				460	Michigan
+				470	Minnesota
+				480	Mississippi
+				490	Missouri
+				500	Montana
+				510	Nebraska
+				520	Nevada
+				530	New Hampshire
+				540	New Jersey
+				550	New Mexico
+				560	New York
+				570	North carolina
+				580	North Dakota
+				590	Northern Mariana Islands
+				600	Ohio
+				610	Oklahoma
+				620	Oregon
+				630	Palau
+				640	Pennsylvania
+				650	Puerto Rico
+				660	Rhode Island
+				670	South Carolina
+				680	South Dakota
+				690	Tennessee
+				700	Texas
+				710	Utah
+				720	Vermont
+				730	Virgin Islands
+				740	Virginia
+				750	Washington
+				760	West Virginia
+				770	Wisconsin
+				780	Wyoming			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="r:typeProvinceStateCode">
+			<xs:enumeration value="200"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="290"/>
+			<xs:enumeration value="300"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="400"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="430"/>
+			<xs:enumeration value="440"/>
+			<xs:enumeration value="450"/>
+			<xs:enumeration value="460"/>
+			<xs:enumeration value="470"/>
+			<xs:enumeration value="480"/>
+			<xs:enumeration value="490"/>
+			<xs:enumeration value="500"/>
+			<xs:enumeration value="510"/>
+			<xs:enumeration value="520"/>
+			<xs:enumeration value="530"/>
+			<xs:enumeration value="540"/>
+			<xs:enumeration value="550"/>
+			<xs:enumeration value="560"/>
+			<xs:enumeration value="570"/>
+			<xs:enumeration value="580"/>
+			<xs:enumeration value="590"/>
+			<xs:enumeration value="600"/>
+			<xs:enumeration value="610"/>
+			<xs:enumeration value="620"/>
+			<xs:enumeration value="630"/>
+			<xs:enumeration value="640"/>
+			<xs:enumeration value="650"/>
+			<xs:enumeration value="660"/>
+			<xs:enumeration value="670"/>
+			<xs:enumeration value="680"/>
+			<xs:enumeration value="690"/>
+			<xs:enumeration value="700"/>
+			<xs:enumeration value="710"/>
+			<xs:enumeration value="720"/>
+			<xs:enumeration value="730"/>
+			<xs:enumeration value="740"/>
+			<xs:enumeration value="750"/>
+			<xs:enumeration value="760"/>
+			<xs:enumeration value="770"/>
+			<xs:enumeration value="780"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeParkingType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Single Attached Garage
+				2	Single Detached Garage
+				3	Double Attached Garage
+				4	Double Detached Garage
+				5	Triple Attached Garage
+				6	Triple Detached Garage
+				7	None
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePropertyTypeType">
+		<xs:annotation>
+			<xs:documentation>
+				1	One Storey
+				2	Bi-Level
+				3	Two Storey
+				4	Split Level
+				5	One and Half Storey
+				6	Three Storey
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePropertyDescriptionType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Detached
+				2		Semi-detached
+				3		Duplex
+				4		Triplex
+				5		Fourplex
+				6		Apartment
+				7		Townhouse
+				8		Strip
+				9		High Rise
+				11	Row
+				12	Mobile
+				13	Modular Home
+				14	Co-op
+				15	Fiveplex
+				16	Sixplex
+				99	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePropertyUsageType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Single Family
+				5		Multiple with unit
+				6		Apts with Stores
+				7		Retail
+				8		Office Building
+				9		Industrial
+				10	Hotel/Motel
+				11	Recreational
+				12	Land/Farm
+				90	Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="90"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typePropertyZoningType">
+		<xs:annotation>
+			<xs:documentation>
+				1		Major Urban Residential
+				2		Urban Residential
+				3		Rural Residential
+				4		Agricultural
+				5		Agricultural land reserve
+				6		Recreational / Cottage
+				7		Commercial
+				8		Commercial / Residential
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeStreetDirectionCode">
+		<xs:annotation>
+			<xs:documentation>Where an enumerated value is not available, add the required text to the end of the street name.  Where the street type has also been added to street name, please add street direction after the street type.</xs:documentation>
+			<xs:documentation>
+				1	E
+				2	N
+				3	NE
+				4	NW
+				5	S
+				6	SE
+				7	SW
+				8	W	
+				99999 None or Other					
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="-1"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeStreetTypeCode">
+		<xs:annotation>
+			<xs:documentation>Where an enuerated value is not available, add the street type text to the end of the street name</xs:documentation>
+			<xs:documentation>
+				10	Alley
+				20	Autoroute
+				30	Avenue
+				40	Bay
+				50	Beach
+				60	Bend
+				70	Boulevard
+				80	Centre
+				90	Chase
+				100	Circle
+				110	Close
+				120	Concession
+				130	Court
+				140	Cove
+				150	Crescent
+				160	Cul-du-sac
+				170	Corners
+				180	Dale
+				190	Drive
+				200	End
+				210	Esplanada
+				220	Expressway
+				230	Gardens
+				240	Gate
+				250	Glen
+				260	Grove
+				270	Heights
+				280	Hill
+				290	Hollow
+				300	Landing
+				310	Lane
+				320	Mall
+				330	Mews
+				340	Pararade
+				350	Park
+				360	Parkway
+				370	Passage
+				380	Place
+				390	Plaza
+				400	Port
+				410	Promenade
+				420	Quay
+				430	Range
+				440	Ridge
+				450	Road
+				460	Route
+				470	Row
+				480	Square
+				490	Street
+				500	Terrace
+				510	Townline
+				520	Trail
+				530	View
+				540	Vista
+				550	Walk
+				560	Way
+				570	Wharf
+				580	Rue
+				99999 None or Other						
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="-1"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="70"/>
+			<xs:enumeration value="80"/>
+			<xs:enumeration value="90"/>
+			<xs:enumeration value="100"/>
+			<xs:enumeration value="110"/>
+			<xs:enumeration value="120"/>
+			<xs:enumeration value="130"/>
+			<xs:enumeration value="140"/>
+			<xs:enumeration value="150"/>
+			<xs:enumeration value="160"/>
+			<xs:enumeration value="170"/>
+			<xs:enumeration value="180"/>
+			<xs:enumeration value="190"/>
+			<xs:enumeration value="200"/>
+			<xs:enumeration value="210"/>
+			<xs:enumeration value="220"/>
+			<xs:enumeration value="230"/>
+			<xs:enumeration value="240"/>
+			<xs:enumeration value="250"/>
+			<xs:enumeration value="260"/>
+			<xs:enumeration value="270"/>
+			<xs:enumeration value="280"/>
+			<xs:enumeration value="290"/>
+			<xs:enumeration value="300"/>
+			<xs:enumeration value="310"/>
+			<xs:enumeration value="320"/>
+			<xs:enumeration value="330"/>
+			<xs:enumeration value="340"/>
+			<xs:enumeration value="350"/>
+			<xs:enumeration value="360"/>
+			<xs:enumeration value="370"/>
+			<xs:enumeration value="380"/>
+			<xs:enumeration value="390"/>
+			<xs:enumeration value="400"/>
+			<xs:enumeration value="410"/>
+			<xs:enumeration value="420"/>
+			<xs:enumeration value="430"/>
+			<xs:enumeration value="440"/>
+			<xs:enumeration value="450"/>
+			<xs:enumeration value="460"/>
+			<xs:enumeration value="470"/>
+			<xs:enumeration value="480"/>
+			<xs:enumeration value="490"/>
+			<xs:enumeration value="500"/>
+			<xs:enumeration value="510"/>
+			<xs:enumeration value="520"/>
+			<xs:enumeration value="530"/>
+			<xs:enumeration value="540"/>
+			<xs:enumeration value="550"/>
+			<xs:enumeration value="560"/>
+			<xs:enumeration value="570"/>
+			<xs:enumeration value="580"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeStringNonEmpty">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:pattern value="\S[\s\S]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeSubjectPropertyOccupancyPurpose">
+		<xs:annotation>
+			<xs:documentation>
+				1 = Primary Residence
+				4 = Additional Current
+				5 = Recreational
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeTelephoneUsageType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Home
+				2	Work
+				3	Mobile
+				4	Fax
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeUnearnedIncomeType">
+		<xs:annotation>
+			<xs:documentation>
+				1	Pension
+				2	Investments
+				3	Support/Alimony
+				4	Car Allowance
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeUnitId">
+		<xs:restriction base="r:typeStringNonEmpty">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="\S*.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeUserId">
+		<xs:restriction base="r:typeStringNonEmpty">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="\S*.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeWaterSupplyType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Municipal
+				20	Private Well
+				30	Shared Well
+				40	Cistern
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeWaterWasteType">
+		<xs:annotation>
+			<xs:documentation>
+				10	Sewer
+				20	Septic
+				30	Holding Tank
+				99	Other
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeReferenceKey">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="256"/>
+			<xs:pattern value="[\S]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCreditReportProvider">
+		<xs:annotation>
+			<xs:documentation>
+				Equifax
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="Equifax"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeCreditReportDataFormat">
+		<xs:annotation>
+			<xs:documentation>
+				0H
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="0H"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typefromCreditBureau">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+</xs:schema>
