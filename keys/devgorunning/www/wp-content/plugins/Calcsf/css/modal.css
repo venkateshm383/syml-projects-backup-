@@ -1,0 +1,32 @@
+.modal {
+  top: 20%;
+}
+
+@media (min-width: 768px) {
+  .modal-sm {
+    width: 400px;
+    padding-bottom: 1em;
+  }
+}
+
+.modal label {
+  margin-right: 1em;
+}
+
+.modal p {
+  margin-bottom: 15px;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.modal-body input,
+.modal-body select,
+.modal button {
+  font-size: inherit;
+  height: inherit;
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}

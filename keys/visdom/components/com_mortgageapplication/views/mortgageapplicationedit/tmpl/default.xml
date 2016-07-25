@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metadata>
+	<layout title="COM_MORTGAGEAPPLICATION_MORTGAGEAPPLICATIONEDIT_VIEW_DEFAULT_TITLE">
+		<message>COM_MORTGAGEAPPLICATION_MORTGAGEAPPLICATIONEDIT_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<fields
+		name="request"
+		addfieldpath="/administrator/components/com_mortgageapplication/models/fields"
+	>
+		<fieldset name="request">
+			<field
+				name="id"
+				required="true"
+				type="mortgageapplicationzero"
+				label="COM_MORTGAGEAPPLICATION_MORTGAGEAPPLICATIONEDIT_FIELD_NAME_LABEL"
+				description="COM_MORTGAGEAPPLICATION_MORTGAGEAPPLICATIONEDIT_FIELD_NAME_DESC"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

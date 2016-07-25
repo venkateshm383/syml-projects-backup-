@@ -1,0 +1,850 @@
+body{
+background-color: #ffffff;
+font-family: Arial, Helvetica, sans-serif;  
+background-repeat:repeat-x;
+width:100%;      
+color:#6A5D5B;
+}
+
+*{
+padding: 0px;
+margin: 0px;
+}
+.smallbutton{
+display: inline-table;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    height: 62px;
+    margin-bottom: 5px !important;
+    margin-right: 20px !important;
+    width: 116px;}
+
+.smallbuttonlast{
+  display: inline-table;
+  font-size:14px !important;
+  font-weight:bold !important;
+  margin-bottom: 5px !important;
+	width:116px;			
+  height: 62px;
+}
+/* DEFAULT MORTGAGE CSS */
+.secure-mortgage-application h1 		{ display:none; }
+.secure-mortgage-application h2 		{font-weight:bold !important;font-family:Arial;font-size:15px;color:#333;line-height:20px;padding:0;margin:0 !important}
+.secure-mortgage-application h3 		{font-weight:bold !important;font-family:Arial;font-size:15px;color:#333;line-height:20px;padding:0;margin:0 !important}
+.secure-mortgage-application input, select 	{padding:0;border-color:#EEE;border:1px solid #666}
+.secure-mortgage-application input 		{height:18px}
+.secure-mortgage-application strong		{color:#666}
+
+.secure-mortgage-application p			{ color:#363636; margin-bottom:1.25em; line-height:1.4; }
+
+.HorizontalRule {display:none}
+.Errors {color:#C00}
+
+.sub-section-numbers {
+	color: #666;
+	font-family: "Arial";
+	font-size:18px;
+	font-weight:bold;
+	text-align:right;
+	padding:14px 0 0 0;
+}
+.secure-mortgage-application {
+	background:none;
+	margin: 0 auto;
+	width:656px;
+}
+
+.secure-mortgage-application-form {
+	padding:0px;
+	width:656px;
+}
+.tab {
+	width:21px;
+}
+
+.rbutton{
+width: 14px;
+height: 15px; 
+vertical-align: bottom; 
+margin-bottom: 0px;
+margin-left: 20px;
+}
+
+.c{
+	background: #41A7E1;
+    color: #FFF;
+	text-decoration: none !important;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#errMsg
+{
+background:url('../images/wizard/ut-bg.png');
+color:#fff;
+text-align: center;
+margin:0 auto;
+border-top: 1px solid #fff;
+height:28px;
+font-size:13px;
+position:fixed;
+bottom:0;
+z-index:999;
+width:100%;
+border-top-left-radius:15px;
+border-top-right-radius:15px;
+display:block;
+font-weight: bold;
+font-family: arial,&quot;Helvetica&quot;;
+font-color:#fff;
+}
+#errMsg:hover{background:#333;}
+#errMsg p{line-height:25px; font-size:13px; text-align:center; width:95%; float:left;}
+#errMsg a{ text-decoration:underline; color:#FFFF33;}
+.ut-cross{display:block; position:relative; right:15px; float:right;}
+.ut-cross a{font-size:18px !important; font-weight:bold; font-family:&quot;Arial&quot;; color:#FF0000 !important; line-height:30px;}
+
+.rowheight{
+height: 47px;
+}
+
+.disb{
+	background: #F2F2F2;
+    color: #848484 !important;	
+}
+.disbdemo{
+	background: #F2F2F2; 
+    color: #848484 !important;   
+}
+.shadow{
+  -moz-box-shadow:0px 0px 4px #FF0000;
+  -webkit-box-shadow:0px 0px 4px #FF0000;
+  box-shadow:0px 0px 4px #FF0000;
+
+  background:#f9fdc8 !important;
+}
+
+.ifocus{
+  background-image:url('../images/wizard/input.gif') !important;
+   -moz-box-shadow:0px 0px 0px #FF0000;
+  -webkit-box-shadow:0px 0px 0px #FF0000;
+  box-shadow:0px 0px 0px #FF0000;
+}
+
+.ifocustxtarea{
+  background:none repeat scroll 0 0 #FFFFFF !important;;
+   -moz-box-shadow:0px 0px 0px #FF0000;
+  -webkit-box-shadow:0px 0px 0px #FF0000;
+  box-shadow:0px 0px 0px #FF0000;
+}
+
+.specialbutton{
+  display: inline-table;
+  font-size:14px !important;
+  margin-bottom: 5px !important;
+  font-weight:bold !important;
+  margin-right:20px !important;
+  width:187px;
+  height: 62px;
+}
+.specialbuttonlast{
+  display: inline-table;
+  font-size:14px !important;
+  margin-bottom: 5px !important;
+  font-weight:bold !important;
+  width:187px;
+  height: 62px;
+}
+
+.specialbuttonsmall{
+  font-size:14px !important;
+  margin-bottom: 5px !important;
+  font-weight:bold !important;
+  width:80px !important;
+  height: 30px !important;
+  vertical-align: text-top !important;
+}
+
+.specialbuttonbig{
+ height:87px;
+ display:inherit;
+ vertical-align: middle;
+ width: 180px;
+}
+
+.radioerror{
+border:#FE2E2E 2px solid !important;
+}
+.terms{
+background: none repeat scroll 0 0 #F2F2F2; 
+border: 1px solid #CCCCCC;  
+height: 115px; 
+overflow: auto;
+padding: 6px; 
+width: 835px;
+}
+.terms-big{
+background: none repeat scroll 0 0 #F2F2F2; 
+border: 1px solid #CCCCCC;  
+height: 240px; 
+overflow: auto;
+padding: 6px; 
+width: 835px;
+}
+#catlinks .row a { font-size: 0.9em; font-weight: bold; padding: 7px 8px; margin-right: 3px; border: 0px solid #fff;color: #FFF; }
+#catlinks .row a:hover { border: 1px solid #dbdbdb; background: #989537;color: #FFF !important;}
+#catlinks .row a.sel { background: #4479BA; color: #fff !important; border: 1px solid #6470a9; }
+#catlinks .row a.sel:hover { background: #989537; }
+
+/* Changed and invalid api fields */
+.ApiChanged {
+	border-color: #B0CCE0;
+	border-style: solid;
+}
+.ApiInvalid {
+	border-color: red;
+	border-style: solid;
+	color: red !important;
+}
+.hidden {display:none}
+.secure-mortgage-application-form td {font-family:Arial;font-size:11px;width:auto !important}
+/*.secure-mortgage-application-form input {background-color:#FFF}*/
+.submit-button-container {text-align:center}
+
+.ApiInvalid { border: 2px inset red }
+.ApiMissingField { border: 2px inset #C00 }
+.scrolled-to {
+	border-color: #0f0;
+	border-width: 2px;
+	margin: -2px;
+}
+.Hide {display:none}
+
+.Title  {display:none}
+
+.Liabilities, .GeneralAssets, .ExtraIncome	{float:left}
+#Liabilities br, #GeneralAssets br, .ExtraIncomeSection br	{clear:left}
+/* section widths */
+
+.Section 	{width:640px;padding:0 8px}
+.Section td	{padding:0}
+.Top 		{height:16px;background:url('../images/firstfoundation-ca/top.gif')}
+.Middle		{background:url('../images/firstfoundation-ca/middle.gif')}
+.Bottom		{height:16px;background:url('../images/firstfoundation-ca/bottom.gif')}
+
+
+.EmploymentSection h3 {display:none}
+.Client .Top, .Client .Middle, .Client .Bottom {width:640px;padding:0;background:none}
+.Client .Top, .Client .Bottom {display:none}
+
+.Assets .Top, .Assets .Middle, .Assets .Bottom {width:640px;padding:0;background:none}
+.Assets .Top, .Assets .Bottom {display:none}
+.Assets h3 {font-size:12px;padding:12px 0 0 12px;line-height:12px;}
+
+/*
+ .ExtraIncomeSection .Top, .ExtraIncomeSection .Middle, .ExtraIncomeSection .Bottom {width:640px;padding:0;background:none}
+ .ExtraIncomeSection .Top, .ExtraIncomeSection .Bottom {display:none}
+*/
+
+#ExtraIncome0	{display:none}
+#ExtraIncome1	{display:none}
+#ExtraIncome2	{display:none}
+#ExtraIncome3	{display:none}
+#Clients1	{display:none}
+#Clients2	{display:none}
+.CheckBox	{border:0;height:15px;width:15px}
+/* input and select widths */
+
+.type_timespan_months {
+	display:none;
+}
+.type_date {
+	float:left;
+	/*background:url('../images/calendar_background.gif') top left no-repeat;*/
+	/*width:71px*/
+}
+.type_phone_areacode {
+	width:31px;
+	text-align:center;
+	background:url('../images/phone_areacode_background.gif') top left no-repeat;
+	border-style:inset;
+	/*border-right-style:none !important;*/ /*REMOVED FOR NEW DESIGN 2009*/
+	margin-right:0 !important;
+}
+.type_phone_number {
+	/*width:56px;*/
+	border-style:inset;
+	/*border-left-style:none !important;*/ /*REMOVED FOR NEW DESIGN 2009*/
+	margin-left:0 !important;
+}
+
+.type_phone_extension {
+	width:29px;
+	background:url('../images/phone_extension_background.gif') top left no-repeat;
+}
+.type_email {
+	width: 190px;
+	/*font-family: "Arial Narrow"*/
+}
+.watermark { color: #999 ! important; }
+
+
+.type_sin {
+	width:71px
+}
+
+.month {
+	background:url('../images/money_month_background.gif') top left no-repeat;
+	padding-right:38px ! important;
+	width:68px ! important;
+}
+.type_percent {
+	text-align:right;
+	background:url('../images/percent_background.gif') top left no-repeat;
+	padding-right:15px;
+	width:40px;
+}
+.error_msg {
+color:red;font-size: 13px;
+}
+/* / DEFAULT MORTGAGE CSS */
+
+
+#header_blank { background-image:url('../images/wizard/header_blank.jpg'); }
+
+#header, #header_blank {
+	width:981px;
+	height:201px;
+	background-repeat:no-repeat;
+	background-position:top center;
+}
+
+#separator {
+	margin:20px 0px 20px 0px;
+	border:1px solid #cccccc;
+}
+
+.divspacer {
+	height:12px;
+}
+.divdoublespacer {
+	height:25px;
+}
+.divbigspacer {
+	height:35px;
+}
+.question{
+font-size: 18px ! important; 
+font-weight:bold;
+color: #6A5D5B;
+text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.question-small{
+font-size: 14px ! important; 
+font-weight:bold;
+color: #6A5D5B;
+text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#help {
+	margin-top:0px;
+	position:relative;
+	*margin-top:-20px;
+	*margin-right:-12px;
+}
+
+#helpB{
+position:absolute;
+top:240px;
+left:575px;
+width:350px;
+}
+
+.bubble div.top {
+background-image: url('../images/wizard/bubble_top.gif');
+background-repeat: no-repeat;
+height:30px;
+}
+
+.bubble div.middle{
+background-image: url('../images/wizard/bubble_middle.gif');
+background-repeat:repeat-y;
+background-position:top;
+padding-left:25px;
+padding-right:25px;
+padding-bottom:15px;
+}
+
+.bubble div.bottom {
+background-image: url('../images/wizard/bubble_bottom.gif');
+background-repeat: no-repeat;
+height:30px;
+}
+
+.requiredlbl {
+	color:#dd1111;
+}
+
+.bubble p{
+color: #ffffff;
+}
+
+#content{
+padding-top:0px;
+padding-bottom:25px;
+width:850px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.form p{
+color:#6A5D5B;
+font-size:12px;
+}
+
+.form input {
+background:none;
+/*background-image: url('/images/wizard/input.gif');*/
+background-image:url('../images/wizard/input.gif');
+background-repeat: repeat-x;
+border: 1px solid #BCBAB7;
+color: #555555;
+height:20px;
+padding-top:3px;
+padding-left:5px;
+
+}
+
+.txtarea {
+background:none;
+background-image:url('../images/wizard/input.gif');
+background-repeat: repeat-x;
+border: 1px solid #BCBAB7;
+color: #555555;
+padding-top:3px;
+padding-left:5px;
+height:70px;
+width:300px;
+}
+
+
+.type_money {
+	/*text-align:right;*/
+	padding-right:1px !important;
+}
+
+.form select {
+background:none;
+background-image: url('../images/wizard/input.gif');
+background-repeat: repeat-x;
+border: 1px solid #BCBAB7;
+color: #555555;
+height:25px;
+min-width: 150px;
+}
+
+.form select option {
+	padding-right:10px;
+	padding-left:5px;
+}
+
+p{
+font-size: 12px;
+color: #808080;
+}
+
+
+
+.content_headline_top{
+font-size: 35px;
+}
+
+.content_headline_one{
+font-size: 24px;
+}
+
+.content_headline_two{
+font-size: 16px;
+}
+
+.content_headline_three{
+font-size: 16px;
+}
+
+.content_headline_four{
+font-size: 16px;
+}
+
+.content_headline_five{
+font-size: 16px;
+}
+
+.content_headline_six{
+font-size: 16px;
+}
+
+ul{
+padding-left:20px;
+}
+
+li{
+font-size:12px;
+line-height: 1.0;
+color: #6A5D5B;
+padding-top:5px;
+}
+
+input, select{
+border: 1px solid #d1d1d1;
+background-image: url('../images/wizard/input_background.gif');
+background-repeat: repeat-x;
+} 
+
+#error{ 
+color: #d11111;
+border:1px solid #d11111;
+padding:5px;
+}
+
+#error ul, .error ul {
+	padding:5px;
+	margin:0px;
+	list-style:none;
+}
+
+#error li, .error li {
+	color: #d11111;
+	padding:0px;
+	margin:0px;
+}
+
+.error{
+color: #D11111;
+/*font-weight:bold;*/
+font-size:15px;
+}
+
+#slogan { 
+	color:#777777;
+	font-size:26px;
+}
+
+#errMsg1{
+color: #d11111;
+border:1px solid #d11111;
+padding:5px;
+}
+
+#container{
+width: 981px;
+margin-left: auto;
+margin-right: auto;
+background-image:url('../images/wizard/container_back.gif');
+background-repeat:repeat-y;
+background-position:top center;
+}
+
+.main_navigation A:link{
+text-decoration: underline;
+color: #00ff00;
+font-size: 12px;
+}
+
+.main_navigation A:visited{
+text-decoration: underline;
+color: #00ff00;
+font-size: 12px;
+}
+
+.main_navigation A:hover{
+text-decoration: underline;
+color: #00ff00;
+font-size: 12px;
+}
+
+.main_navigation A:active{
+text-decoration: underline;
+color: #00ff00;
+font-size: 12px;
+}
+
+.main_navigation p{
+color:#d1d1d1;
+}
+
+
+#footers {
+	margin-left: 10px;
+    width: 960px;
+}
+
+#footers A:link{
+text-decoration: underline;
+color: #A59174;
+font-size: 12px;
+}
+
+#footers A:visited{
+text-decoration: underline;
+color: #A59174;
+font-size: 12px;
+}
+
+#footers A:hover{
+text-decoration: underline;
+color: #A59174;
+font-size: 12px;
+}
+
+#footers A:active{
+text-decoration: underline;
+color: #A59174;
+font-size: 12px;
+}
+
+#footers p{
+color:#A59174;
+font-size: 12px;
+}
+
+A:link{
+text-decoration: none;
+/*color: #338494;*/
+font-size: 13px;
+}
+
+A:visited{
+text-decoration: none;
+color: #338494;
+font-size: 13px;
+}
+
+A:hover{
+text-decoration: none;
+color: #7fc9d8;
+font-size: 13px;
+}
+
+A:active{
+text-decoration: none;
+color: #338494;
+font-size: 13px;
+}
+
+
+	.meter { 
+			height: 20px;  /* Can be anything */
+			position: relative;
+			
+			background: #D8D8D8;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			padding: 7px;
+			-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+			-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+			box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+		}
+		.meter > span {
+			display: block;
+			height: 100%;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			background-color: rgb(43,194,83);
+			background-image: -webkit-gradient(
+			  linear,
+			  left bottom,
+			  left top,
+			  color-stop(0, rgb(43,194,83)),
+			  color-stop(1, rgb(84,240,84))
+			 );
+			background-image: -moz-linear-gradient(
+			  center bottom,
+			  rgb(43,194,83) 37%,
+			  rgb(84,240,84) 69%
+			 );
+			-webkit-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			position: relative;
+			overflow: hidden;
+		}
+		.meter > span:after, .animate > span > span {
+			content: "";
+			position: absolute;
+			top: 0; left: 0; bottom: 0; right: 0;
+			background-image: 
+			   -webkit-gradient(linear, 0 0, 100% 100%, 
+			      color-stop(.25, rgba(255, 255, 255, .2)), 
+			      color-stop(.25, transparent), color-stop(.5, transparent), 
+			      color-stop(.5, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, transparent), to(transparent)
+			   );
+			background-image: 
+				-moz-linear-gradient(
+				  -45deg, 
+			      rgba(255, 255, 255, .2) 25%, 
+			      transparent 25%, 
+			      transparent 50%, 
+			      rgba(255, 255, 255, .2) 50%, 
+			      rgba(255, 255, 255, .2) 75%, 
+			      transparent 75%, 
+			      transparent
+			   );
+			z-index: 1;
+			-webkit-background-size: 50px 50px;
+			-moz-background-size: 50px 50px;
+			-webkit-animation: move 2s linear infinite;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			overflow: hidden;
+		}
+		
+		.animate > span:after {
+			display: none;
+		}
+		
+		@-webkit-keyframes move {
+		    0% {
+		       background-position: 0 0;
+		    }
+		    100% {
+		       background-position: 50px 50px;
+		    }
+		}
+		
+		.nostripes > span > span, .nostripes > span:after {
+			-webkit-animation: none;
+			background-image: none;
+		}
+		
+
+.clssubmit {
+	-moz-box-shadow:inset 0px 1px 5px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 5px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 5px 0px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) ) !important;
+	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% ) !important;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	background-color:#79bbff !important;
+	-moz-border-radius:6px !important;
+	-webkit-border-radius:6px !important; 
+	border-radius:6px !important;
+	border:1px solid #84bbf3 !important;
+	display:inline-block;
+	color:#ffffff !important;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px !important;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+	height:35px !important;
+}.clssubmit:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) ) !important;
+	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% ) !important;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
+	background-color:#378de5 !important;
+}.clssubmit:active {
+	position:relative;
+	top:1px;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*                                         TOOLTIP STYLES                                        */
+/*-----------------------------------------------------------------------------------------------*/
+
+.ui-tooltip, .arrow:after {
+background: #A5C342;
+border: 2px solid white;
+
+}
+.ui-tooltip {
+padding: 10px 20px;
+color: white;
+border-radius: 10px 10px 10px 10px;
+font-family: Arial,Helvetica,sans-serif;
+box-shadow: 0 0 7px #A5C342;
+font-size: 12px;
+    line-height: 1.2;
+}
+.arrow {
+width: 70px;
+height: 16px;
+overflow: hidden;
+position: absolute;
+left: 50%;
+margin-left: -35px;
+bottom: -16px;
+}
+.arrow.top {
+top: -16px;
+bottom: auto;
+}
+.arrow.left {
+left: 20%;
+}
+.arrow:after {
+content: "";
+position: absolute;
+left: 20px;
+top: -20px;
+width: 25px;
+height: 25px;
+box-shadow: 6px 5px 9px -9px black;
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+tranform: rotate(45deg);
+}
+.arrow.top:after {
+bottom: -20px;
+top: auto;
+}
+
+.welcome-page-text{
+font-size: 14px !important;
+}
+
+.welcome-page-text-margin{
+font-size: 14px !important;
+margin-left:15px;
+}
+#W4CondoTypeundo,#W4BTundo,#W4stylepundo,#W5Heatedundo,#W5WaterPropundo,#W5WastePrpundo,#W5GaragePrpundo,#W5GSizePrpundo,#W5Add_Bul_Propundo,#W6ConsWhoLivingundo,#W6ConsLegalSuiteundo,#W6ConsPayForHeatundo,#W6ConsMortgageTypeundo,#W6ConsDPaymentFromundo,#W6PreADPaymentFromundo,#W6PurcDPaymentFromundo,#W6PImpDPaymentFromundo,#W6PortDPaymentFromundo,#W6ConsTermLengthundo,#W6ConsVariableMortgageundo,#W6ConsFixedTermundo,#W6ConsVariableTermundo,#W6ConsCashbackTermundo,#W6ConsPaymentFrequencyundo,#W6ConsAmortizationForundo,#W6RPlusPaymentScheduleundo,#W6PortPaymentScheduleundo,#W6RefnPaymentScheduleundo,#W6RPlusPropertyTaxesIncludedundo,#W6RefnIncludedAmountundo,#W6PortPropertyTaxesIncludedundo,#W6ConsPriceundo,#W6ConsWarrantyundo,#W6ConsLandAmtundo,#W6Agree1undo,#W6Agree2undo,#W6Agree3undo,#W6Agree4undo,#W6Agree5undo,#W6Agree6undo,#W6Agree7undo,#W7IncomeEarnedundo,#W7HowPaidundo,#W7OverTimePaidundo,#W7FrequentlyPaidundo,#W7HowLongCJobundo,#W7IndustryTypeundo,#W7Consideredundo,#W7ChildSupportundo,#W7OtherIncomeundo,#W7SelfBusClassundo,#W7SelfHowLongCJobundo,#W7SelfIndustryTypeundo,#W7SelfContractEmpundo,#W7SelfChildSupportundo,#W7SelfOtherIncomeundo,#W72SelfSourcesofincomeundo,#W73SelfSourcesofincomeundo,#W7SelfBusClassSecAppundo,#W7SelfHowLongCJobSecAppundo,#W7SelfIndustryTypeSecAppundo,#W7SelfContractEmpSecAppundo,#W7SelfOtherIncomeSecAppundo,#W72SelfBusClassSecAppundo,#W72SelfHowLongCJobSecAppundo,#W72SelfIndustryTypeSecAppundo,#W72SelfContractEmpSecAppundo,#W72SelfOtherIncomeSecAppundo,#W73SelfBusClassSecAppundo,#W73SelfHowLongCJobSecAppundo,#W73SelfIndustryTypeSecAppundo,#W73SelfContractEmpSecAppundo,#W72SelfBusClassundo,#W72SelfHowLongCJobundo,#W72SelfIndustryTypeundo,#W72SelfContractEmpundo,#W72SelfOtherIncomeundo,#W73SelfBusClassundo,#W73SelfHowLongCJobundo,#W73SelfIndustryTypeundo,#W73SelfContractEmpundo,#W72OtherIncomeundo,#W72Sourcesofincomeundo,#W73Sourcesofincomeundo,#W72HowPaidundo,#W72OverTimePaidundo,#W72FrequentlyPaidundo,#W72HowLongCJobundo,#W72IndustryTypeundo,#W72Consideredundo,#W72ChildSupportundo,#W72OtherIncomeundo,#W73HowPaidundo,#W73OverTimePaidundo,#W73FrequentlyPaidundo,#W73HowLongCJobundo,#W73IndustryTypeundo,#W73Consideredundo,#W73ChildSupportundo,#W73OtherIncomeundo,#W7HowPaidSecAppundo,#W7OverTimePaidSecAppundo,#W7FrequentlyPaidSecAppundo,#W7HowLongCJobSecAppundo,#W7HowLongCJobSecAppundo,#W7IndustryTypeSecAppundo,#W7ConsideredSecAppundo,#W7OtherIncomeSecAppundo,#W72HowPaidSecAppundo,#W72OverTimePaidSecAppundo,#W72FrequentlyPaidSecAppundo,#W72HowLongCJobSecAppundo,#W72HowLongCJobSecAppundo,#W72IndustryTypeSecAppundo,#W72ConsideredSecAppundo,#W72OtherIncomeSecAppundo,#W73HowPaidSecAppundo,#W73OverTimePaidSecAppundo,#W73FrequentlyPaidSecAppundo,#W73HowLongCJobSecAppundo,#W73HowLongCJobSecAppundo,#W73IndustryTypeSecAppundo,#W73ConsideredSecAppundo,#W3BaseUndo,#W3Undo1,#W3Goal3Undo1,#W3Goal3Undo2,#W3Goal2Undo1,#W3ConstructionUndo,#W3BuildingUndo,#W3PurchasingUndo,#W8Vehiclesundo,#W8RRSPsundo,#W8NonRSPundo,#W8REstateundo,#W9LiabilitiesOwedundo{
+display:none;
+}

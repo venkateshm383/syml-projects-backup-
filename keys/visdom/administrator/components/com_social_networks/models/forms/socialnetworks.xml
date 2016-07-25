@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_CREATED_BY"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_CREATED_BY"  /> 
+
+       <field name="facebook" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_FACEBOOK"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_FACEBOOK" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="raw"
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+       <field name="twitter" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_TWITTER"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_TWITTER" 
+                
+                
+                 required="true" 
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+       <field name="google_plus" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_GOOGLE_PLUS"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_GOOGLE_PLUS" 
+                
+                
+                 required="true" 
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+       <field name="dribble" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_DRIBBLE"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_DRIBBLE" 
+                
+                
+                 required="true" 
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+       <field name="tutorial9" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_TUTORIAL9"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_TUTORIAL9" 
+                
+                
+                 required="true" 
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+       <field name="rss" type="list"
+                
+            label="COM_SOCIAL_NETWORKS_FORM_LBL_SOCIALNETWORKS_RSS"
+            description="COM_SOCIAL_NETWORKS_FORM_DESC_SOCIALNETWORKS_RSS" 
+                
+                
+                 required="true" 
+            multiple="false">
+                <option value="active">Enabled</option>
+                <option value="inactive">Disabled</option>
+        </field> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>

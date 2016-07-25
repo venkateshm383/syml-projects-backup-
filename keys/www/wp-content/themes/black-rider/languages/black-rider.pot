@@ -1,0 +1,172 @@
+# Copyright (C) 2012 Black Rider
+# This file is distributed under the same license as the WordPress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Black Rider Theme Theme Pro 1.0\n"
+"Report-Msgid-Bugs-To: admin@inkthemes.com"
+"POT-Creation-Date: 2012-01-11 12:47:23+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2011-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Inkthemes\n"
+
+
+#: define_template.php:2
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: define_template.php:3 
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help."
+msgstr ""
+
+#: define_template.php:4 
+msgid "Most Used Categories"
+msgstr ""
+
+#: define_template.php:5 
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: define_template.php:6 
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: define_template.php:7 
+msgid "Nothing Found here"
+msgstr ""
+
+#: define_template.php:8 
+msgid "Sorry, but nothing matched your search criteria. Please try again with some diffrent keyword"
+msgstr ""
+
+#: define_template.php:9 
+msgid "Categories"
+msgstr ""
+
+#: define_template.php:10 
+msgid "Archives"
+msgstr ""
+
+#: define_template.php:11 
+msgid "Blog Archives"
+msgstr ""
+
+#: define_template.php:12 
+msgid "Category Archives: %s"
+msgstr ""
+#: define_template.php:13 
+msgid "Page %s"
+msgstr ""
+
+#: define_template.php:14 
+msgid "Search Results for: %s"
+msgstr ""
+
+#: define_template.php:15 
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: define_template.php:16 
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: define_template.php:17 
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: define_template.php:18 
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: define_template.php:19 
+msgid "Author Archives: %s"
+msgstr ""
+
+#: define_template.php:20 
+msgid "About: %s"
+msgstr ""
+#: define_template.php:21 
+msgid "Home"
+msgstr ""
+#: define_template.php:25 
+msgid "Primary Widget Area"
+msgstr ""
+
+#: define_template.php:26 
+msgid "The primary widget area"
+msgstr ""
+
+
+#: define_template.php:27 
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: define_template.php:28 
+msgid "The secondary widget area"
+msgstr ""
+
+#: define_template.php:29 
+msgid "Home Page Right Feature Widget Area"
+msgstr ""
+
+#: define_template.php:30 
+msgid "The Home Page Right Feature widget area"
+msgstr ""
+
+#: define_template.php:31 
+msgid "First Footer Widget Area"
+msgstr ""
+
+#: define_template.php:32 
+msgid "The first footer widget area"
+msgstr ""
+
+#: define_template.php:33
+msgid "Second Footer Widget Area"
+msgstr ""
+
+#: define_template.php:34 
+msgid "The second footer widget area"
+msgstr ""
+
+#: define_template.php:35
+msgid "Third Footer Widget Area"
+msgstr ""
+
+#: define_template.php:36
+msgid "The third footer widget area"
+msgstr ""
+
+#: define_template.php:37
+msgid "Fourth Footer Widget Area"
+msgstr ""
+
+#: define_template.php:38
+msgid "The fourth footer widget area"
+msgstr ""
+
+#: define_template.php:39
+msgid "&larr; Older Posts"
+msgstr ""
+
+#: define_template.php:40
+msgid "Newer Posts &rarr;"
+msgstr ""
+
+#: define_template.php:41
+msgid "&larr; Previous Post"
+msgstr ""
+
+#: define_template.php:42
+msgid "Next Post &rarr;"
+msgstr ""
+
+#: define_template.php:43
+msgid "Read More"
+msgstr ""
+
+#: define_template.php:44
+msgid "Send Your Message"
+msgstr ""

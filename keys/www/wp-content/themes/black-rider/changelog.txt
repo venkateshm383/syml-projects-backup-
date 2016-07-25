@@ -1,0 +1,59 @@
+== Changelog ==
+
+= Theme Name: Black Rider Theme =
+
+= Version: 1.1.6 =
+1. Theme check issue fixed.
+2. All text domain matched with theme directory.
+3. Language .pot file matched with text domain.
+
+= Version: 1.1.6 =
+1. Basic css error fixed.
+2. Unnecessary css file removed from css folder which is placed by mistake.
+3. Unused function blcr_childtheme_analytics removed.
+4. Default favicon link removed.
+5. Basic tags error fixed in style.css
+
+= Version: 1.1.5 =
+1. Added plugins notification for recommends plugin.
+
+= Version: 1.1.4 =
+1. Fatal error: undefined function inkthemes_posted_in() issue fixed.
+2. CSS displayed in Gallery index view issue fixed.
+
+= Version: 1.1.3 =
+1. Copyright issue fixed.
+2. Removed query post.
+3. Removed front-page.
+4. All php errors removed.
+5. Index page have enabled navigation.
+6. Hardcoded social code removed.
+
+= Version: 1.1.2 =
+1. Theme url link fixed.
+2. Theme are required to declare license and copyright to the effect fixed.
+3. Theme have specified license of all js and images.
+4. Footer text issue fixed.
+5. Analytics/Tracking code is plugin territory issue fixed.
+6. Removed shortcodes.
+7. Screenshot changed.
+8. Theme is support wordpress core feature.
+9. wp_print_scripts issue fixed.
+10.All custom functions are prefixed with theme slug.
+11.Different textdomain issue fixed.
+12.Missing translation issue fixed.
+13.Changed twentyten_attachment_size  filter.
+14.Initial install theme background color issue fixed.
+15.Added option for set custom text color for site body.
+16.Home_url() issue fixed.
+17.Blog feed navigations are the wrong way round issue fixed.
+18.Post Format: Gallery - post displays gallery CSS (which is not the expected behavior) as opposed to thumbnails issue fixed.
+19.Clear float issue fixed.
+20.Select element with long value overflows its container issue fixed.
+
+= Version: 1.1.0 =
+1. captcha add in contact us template.
+2. gallery style improve
+3. lead capture button text add in theme option.
+4. home page contact button style improve.
+5. rtl.css added

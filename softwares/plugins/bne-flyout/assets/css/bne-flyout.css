@@ -1,0 +1,541 @@
+/*
+ *	Main CSS File
+ *
+ * 	@author		Kerry Kline
+ * 	@copyright	Copyright (c) 2015, Kerry Kline
+ * 	@link		http://www.bnecreative.com
+ * 	@package	BNE Flyout
+ *
+ *	@updated	April 20, 2015
+ *
+*/
+
+
+
+/* ===========================================================
+ *	1) General
+ * ======================================================== */
+
+/* Main Flyout Container Wrapper */
+.bne-flyout-wrapper * {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	   		box-sizing: border-box;
+}
+
+/* Lock Scrolling */
+.sidr-animating {
+	overflow-x: hidden !important;
+}
+
+.flyout-lock {
+	overflow: hidden !important;
+	width: auto;
+}
+.flyout-lock body {
+	overflow: hidden !important;
+}
+
+/* Adjust page content when scrollbar is removed */
+html.shownscroll.flyout-margin,
+html.shownscroll.flyout-margin .flyout-trigger.trigger-right {
+	margin-right: 15px;
+}
+
+/* Overlay body content when Flyout is shown */
+.flyout-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    z-index: 999998;
+    background: url('../images/shade.png') repeat; /* IE fallback */
+	background: rgba(0,0,0,.6);
+	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+}
+
+.flyout-overlay.active {
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+/* Hide visible triggers when overlay is open */
+html.flyout-lock .flyout-trigger {
+	opacity: 0;
+}
+
+
+
+
+/* ===========================================================
+ *	2) Trigger
+ * ======================================================== */
+
+/* Location */
+.flyout-trigger {
+	position: fixed;
+	top: 40%; /* default */
+	z-index: 999997;
+	cursor: pointer;
+	-ms-touch-action: none;
+	touch-action: none;
+
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+	   	 -o-transition: opacity .3s ease;
+	   	 	transition: opacity .3s ease;
+
+	/* Windows Chrome fix for jumping buttons */
+	-webkit-backface-visibility: hidden;
+}
+
+.flyout-trigger.trigger-left {
+	left: 0px;
+}
+
+.flyout-trigger.trigger-right {
+	right: 0px;
+}
+
+.flyout-trigger.trigger-top {
+	top: 0px;
+	bottom: auto;
+}
+
+.flyout-trigger.trigger-bottom {
+	top: auto;
+	bottom: 0px;
+}
+
+/* Button */
+.flyout-trigger.trigger-button {
+	padding: 5px 10px;
+	background: #333; /* default */
+	box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* Button Rotation Left */
+.flyout-trigger.trigger-left.trigger-button {
+	-webkit-transform-origin: left top;
+	    -ms-transform-origin: left top;
+			transform-origin: left top;
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	     -o-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
+
+/* Button Rotation Right */
+.flyout-trigger.trigger-right.trigger-button {
+	-webkit-transform-origin: right top;
+	    -ms-transform-origin: right top;
+			transform-origin: right top;
+	-webkit-transform: rotate(90deg);
+	   -moz-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	     -o-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+
+/* Image */
+.flyout-trigger.trigger-image img {
+	width: 100%;
+	/* Set to a max-width so that it doesn't take over the whole page. */
+	max-width: 200px;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+	/* Set to a max-width of 75px so that it doesn't take over the whole page on mobile. */
+	.flyout-trigger.trigger-image img { max-width: 75px; }
+}
+
+/* For top and bottom images, remove the max-width limitation */
+.flyout-trigger.trigger-top img,
+.flyout-trigger.trigger-bottom img {
+	max-width: 100%;
+}
+
+img[class*='flyout-trigger-id-'] {
+	cursor: pointer;
+}
+
+/* ===========================================================
+ *	Flyout Location
+ * ======================================================== */
+
+.bne-flyout-wrapper .sidr {
+	/* Allows iframes and google maps to display correctly while still being "hidden" */
+	display: block;
+
+    position: fixed;
+	z-index: 999999;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+	-webkit-backface-visibility: hidden;
+}
+
+.bne-flyout-wrapper .sidr.right {
+	top: 0;
+	bottom: 0;
+	left: auto;
+	right: -100%; /* default */
+	height: 100%;
+	height: 100vh;
+	width: 300px; /* default */
+	max-width: 100%;
+}
+
+.bne-flyout-wrapper .sidr.left {
+	top: 0;
+	bottom: 0;
+	left: -100%; /* default */
+	right: auto;
+	height: 100%;
+	height: 100vh;
+	width: 300px; /* default */
+	max-width: 100%;
+}
+
+.bne-flyout-wrapper .sidr.top {
+	top: -100%; /* default */
+	bottom: auto;
+	left: 0;
+	right: 0;
+	width: 100%;
+	width: 100vw;
+	height: 300px; /* default */
+	max-height: 100%;
+}
+
+.bne-flyout-wrapper .sidr.bottom {
+	top: auto;
+	bottom: -100%; /* default */
+	left: 0;
+	right: 0;
+	width: 100%;
+	width: 100vw;
+	height: 300px; /* default */
+	max-height: 100%;
+}
+
+
+/* ===========================================================
+ *	Flyout Container
+ * ======================================================== */
+
+.flyout-content {
+    height: 100%;
+	padding: 40px 30px 30px 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #333333; /* default */
+    line-height: 1.4em;
+    color: #fff;
+}
+
+.flyout-content::-webkit-scrollbar {
+ 	display: none;
+}
+
+.bne-flyout-wrapper .sidr.left.flyout-open .flyout-content.push {
+    -webkit-box-shadow: inset -8px 0px 8px -8px rgba(0,0,0,.5);
+       -moz-box-shadow: inset -8px 0px 8px -8px rgba(0,0,0,.5);
+	   		box-shadow: inset -8px 0px 8px -8px rgba(0,0,0,.5);
+}
+
+.bne-flyout-wrapper .sidr.right.flyout-open .flyout-content.push {
+    -webkit-box-shadow: inset 8px 0px 8px -8px rgba(0,0,0,.5);
+       -moz-box-shadow: inset 8px 0px 8px -8px rgba(0,0,0,.5);
+	   		box-shadow: inset 8px 0px 8px -8px rgba(0,0,0,.5);
+}
+
+.bne-flyout-wrapper .sidr.top.flyout-open .flyout-content.push {
+    -webkit-box-shadow: inset 0px -8px 8px -8px rgba(0,0,0,.5);
+       -moz-box-shadow: inset 0px -8px 8px -8px rgba(0,0,0,.5);
+	   		box-shadow: inset 0px -8px 8px -8px rgba(0,0,0,.5);
+}
+
+.bne-flyout-wrapper .sidr.bottom.flyout-open .flyout-content.push {
+    -webkit-box-shadow: inset 0px 8px 8px -8px rgba(0,0,0,.5);
+       -moz-box-shadow: inset 0px 8px 8px -8px rgba(0,0,0,.5);
+	   		box-shadow: inset 0px 8px 8px -8px rgba(0,0,0,.5);
+}
+
+.bne-flyout-wrapper .flyout-open .flyout-content.slide {
+    -webkit-box-shadow: 0 0 8px rgba(0,0,0,.5);
+       -moz-box-shadow: 0 0 8px rgba(0,0,0,.5);
+	   		box-shadow: 0 0 8px rgba(0,0,0,.5);
+}
+
+
+/* Default Typography */
+.flyout-content,
+.flyout-content a,
+.flyout-content h1,
+.flyout-content h2,
+.flyout-content h3,
+.flyout-content h4,
+.flyout-content h5,
+.flyout-content h6 {
+	color: white;
+}
+
+.flyout-content a:hover,
+.flyout-content a:visited {
+	color: inherit;
+}
+
+.flyout-content p {
+	margin-bottom: 15px;
+	line-height: 1.4em;
+}
+
+.flyout-content img {
+	max-width: 100%;
+}
+
+
+
+/* ===========================================================
+ *	Flyout Custom Menu
+ * ======================================================== */
+.flyout-menu {
+	margin-bottom: 20px;
+}
+
+.flyout-menu ul {
+	padding: 0;
+	margin: 0 ;
+	list-style: none ;
+}
+
+.flyout-menu > ul {
+	margin-left: -30px;
+	margin-right: -30px;
+}
+
+.flyout-menu li .fa {
+	margin-right: 5px;
+}
+
+.flyout-menu li a {
+	display: block;
+	padding: 10px 30px;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px rgba(0,0,0,.3);
+	text-transform: uppercase;
+	text-align: left;
+}
+
+/* Sub Menu transition */
+.flyout-menu li ul.sub-menu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: max-height 2s ease;
+       -moz-transition: max-height 2s ease;
+	   	 -o-transition: max-height 2s ease;
+	   	 	transition: max-height 2s ease;
+}
+
+.flyout-menu li.menu-item-has-children:hover > ul.sub-menu {
+   max-height: 1000px;
+}
+
+/* Level 2 */
+.flyout-menu li li a {
+	padding-left: 50px;
+}
+
+/* Level 3 */
+.flyout-menu li li li a {
+	padding-left: 70px;
+}
+
+/* Sub Menu Indicator - Right Chevron */
+.flyout-menu ul li.menu-item-has-children > a:after {
+	content: "\e802";
+	font-family: "bne-flyout-fontello";
+	float: right;
+}
+
+/* Sub Menu Indicator - Down Chevron */
+.flyout-menu ul li.menu-item-has-children:hover > a:after {
+	content: "\e803";
+	font-family: "bne-flyout-fontello";
+	float: right;
+}
+
+
+/* Show Hover and Active State */
+.flyout-menu a:hover,
+.flyout-menu li.current_page_item > a,
+.flyout-menu li.current_page_parent > a,
+.flyout-menu li.current-page-ancestor > a,
+.flyout-menu li.current-menu-ancestor > a,
+.flyout-menu li.current-menu-item > a {
+	background: rgba( 0, 0, 0, 0.3);
+	color: inherit;
+}
+
+
+
+/* ===========================================================
+ *	Flyout Edit / Close Button
+ * ======================================================== */
+
+.flyout-header-buttons {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.flyout-close-button,
+.flyout-edit-button {
+    display: block;
+    float: right;
+	padding: 5px 8px;
+	background: rgba(0,0,0,.3);
+	border-radius: 0px;
+	vertical-align: middle;
+	font-size: 16px;
+	color: white !important;
+	font-weight: normal;
+    cursor: pointer;
+}
+
+.flyout-edit-button {
+	margin-right: 1px;
+}
+
+.bne-flyout-wrapper .sidr.right .flyout-header-buttons {
+	left: 0;
+	right: auto;
+}
+
+.bne-flyout-wrapper .sidr.right .flyout-close-button {
+	float: left;
+	margin-right: 1px;
+}
+
+
+/* ===========================================================
+ *	Form Fields
+ * ======================================================== */
+
+.bne-flyout-wrapper form { margin: 10px; }
+.bne-flyout-wrapper input[type="text"],
+.bne-flyout-wrapper input[type="password"],
+.bne-flyout-wrapper input[type="date"],
+.bne-flyout-wrapper input[type="datetime"],
+.bne-flyout-wrapper input[type="email"],
+.bne-flyout-wrapper input[type="number"],
+.bne-flyout-wrapper input[type="search"],
+.bne-flyout-wrapper input[type="tel"],
+.bne-flyout-wrapper input[type="time"],
+.bne-flyout-wrapper input[type="url"],
+.bne-flyout-wrapper textarea,
+.bne-flyout-wrapper select {
+	width: 100% !important;
+	border: none;
+	background: rgba(0,0,0,0.3);
+	color: white;
+	display: block;
+	clear: both;
+}
+
+.bne-flyout-wrapper input[type="file"] {
+	width: 100% !important;
+}
+
+
+
+
+
+
+/* ===========================================================
+ *	Helper Classes and Miscellaneous
+ * ======================================================== */
+
+/* Responsive visiblity classes */
+.flyout-trigger.hide_on_standard { display: none; }
+
+@media (max-width: 900px) {
+	/* Tablets */
+	.flyout-trigger.hide_on_standard,
+	.flyout-trigger.hide_on_mobile {
+		display: block;
+	}
+	.flyout-trigger.hide_on_tablet {
+		display: none;
+	}
+}
+@media (max-width: 600px) {
+	/* Mobile */
+	.flyout-trigger.hide_on_standard,
+	.flyout-trigger.hide_on_tablet {
+		display: block;
+	}
+	.flyout-trigger.hide_on_mobile {
+		display: none;
+	}
+}
+
+
+
+/* Custom Font Pack */
+@font-face {
+  font-family: "bne-flyout-fontello";
+  src: url('../font/fontello.eot?95905014');
+  src: url('../font/fontello.eot?95905014#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?95905014') format('woff'),
+       url('../font/fontello.ttf?95905014') format('truetype'),
+       url('../font/fontello.svg?95905014#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bne-flyout-wrapper [class^="bne-icon-"]:before,
+.bne-flyout-wrapper [class*=" bne-icon-"]:before {
+  font-family: "bne-flyout-fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: auto;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+}
+
+
+
+.bne-flyout-wrapper .bne-icon-cancel:before { content: '\e800'; }
+.bne-flyout-wrapper .bne-icon-pencil:before { content: '\e801'; }
+.bne-flyout-wrapper .bne-icon-right-dir:before { content: '\e802'; }
+.bne-flyout-wrapper .bne-icon-down-dir:before { content: '\e803'; }
+
+
+/* Clear Floats */
+.bne-flyout-wrapper .clear:before, .bne-flyout-wrapper .clear:after, .bne-flyout-wrapper .clearfix:before, .bne-flyout-wrapper .clearfix:after {display: table;content: "";}
+.bne-flyout-wrapper .clear:after, .bne-flyout-wrapper .clearfix:after {content: "";visibility: hidden;display: block;height: 0;clear: both;}
+
+
+/* Fixes IE10+ scroll bars to not overlay on top of our flyout triggers */
+@-ms-viewport{ width: auto !important; }

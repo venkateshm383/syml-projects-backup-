@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_CREATED_BY"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_CREATED_BY"  /> 
+
+       <field name="database_name" type="text"
+                
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_DATABASE_NAME"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_DATABASE_NAME" 
+                
+                
+                
+            menu_published="0"
+            filter="raw" /> 
+
+       <field name="user_id" type="text" size="40" class="inputbox"
+        
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_USER_ID"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_USER_ID" 
+        
+        
+        
+        filter="safehtml" /> 
+
+       <field name="password" type="text" size="40" class="inputbox"
+        
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_PASSWORD"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_PASSWORD" 
+        
+        
+        
+        filter="safehtml" /> 
+
+       <field name="url" type="text" size="40" class="inputbox"
+        
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_URL"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_URL" 
+        
+         validate="url" 
+        
+        filter="safehtml" /> 
+
+       <field name="email" type="text"
+                
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_EMAIL"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_EMAIL" 
+                
+                
+                 /> 
+
+       <field name="send_mails_to_user" type="radio"
+                
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_SEND_MAILS_TO_USER"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_SEND_MAILS_TO_USER" 
+                
+                
+                >
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+        </field> 
+
+       <field name="text_to_send" type="text"
+                
+            label="COM_OPENERP_FORM_LBL_OPENERPCONFIG_TEXT_TO_SEND"
+            description="COM_OPENERP_FORM_DESC_OPENERPCONFIG_TEXT_TO_SEND" 
+                 default="Thank you for your interest.We will get back to you soon." 
+                
+                 /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>

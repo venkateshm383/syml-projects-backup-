@@ -1,0 +1,76 @@
+.doc-content{
+	width:100%;
+	height:100%;
+}
+.top-content {
+    width: auto;
+    margin: 0 auto;
+	padding: 10px;
+}
+.top-content label {
+margin-right: 2%;
+}
+.top-content-span1 {
+    width: 40%;
+    display: inline-block;
+}
+.top-content-span2 {
+	width:59%;
+    display: inline-block;
+}
+.bottom-content-span1 {
+    width: 65%;
+    height: 90%;
+	display: inline-block;
+}
+.doc-pdf {
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+}
+.doc-pdf embed {
+    width: 100%;
+    height: 600px;    
+}
+.bottom-content-span2 {
+    display: inline-block;
+    width: 30%;
+	vertical-align: top;
+	border:2px solid rgb(153, 0, 255);
+	margin:0 1% 1%;
+	padding:0 1% 1%;
+}
+.bottom-content-span2 .content .blank {
+width: 49%;
+display: inline-block;
+}
+.bottom-content-span2 .content label.title {
+width: 100%;
+font-weight: bold;
+}
+.bottom-content-span2 .content label {
+    display: inline-block;
+    width: 49%;
+	margin-right: 1%;
+    vertical-align: top;
+}
+.bottom-content-span2 .applicant {
+    display: inline-block;
+    width: 24%;
+}
+.bottom-content-span2 .field .applicant input[type="text"] {
+    margin: 2px auto;
+    width: 80%;
+	display: block;
+}
+.bottom-content-span2 .content {
+margin-bottom: 10px;
+}
+.bottom-content-span2 .content button{
+	width:40%;
+	display:inline-block;
+	margin-right:1%;
+}
+.bottom-content-span2 .field {
+padding-bottom: 10px;
+}

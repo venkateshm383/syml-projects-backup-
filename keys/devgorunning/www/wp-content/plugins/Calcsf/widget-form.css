@@ -1,0 +1,161 @@
+.visdom {
+  color: #9f9f9f;
+}
+
+.visdom h1 {
+  color: #00c6e9;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.entry-content .visdom h1,
+.entry-content .visdom h4 {
+  margin-top: 0;
+  margin-bottom: 27px;
+}
+
+.visdom form {
+  padding: 1.2em;
+  background: -webkit-linear-gradient(#f8f8f8, #e0e0e0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#f8f8f8, #e0e0e0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#f8f8f8, #e0e0e0); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#f8f8f8, #e0e0e0); /* Standard syntax */
+  max-width: 250px;
+}
+
+.visdom form p {
+  margin-bottom: 1.2em;
+}
+
+.visdom .input-group-addon {
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+  color: inherit;
+  padding-left: 4px;
+  padding-right: 0;
+}
+
+.visdom input
+.visdom select {
+  color: #9f9f9f;
+  background-color: #fff;
+}
+
+.visdom .input-group .form-control {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.visdom form input,
+.visdom form select {
+  width: 100%;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.visdom .wide {
+  width: 100%;
+}
+
+.visdom select {
+  padding: 0.5278em;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow on iOS inputs */
+}
+
+.visdom select:focus {
+  outline: 0;
+}
+
+.visdom .submit {
+  margin-bottom: 0;
+}
+
+.visdom .button {
+  background-color: #21a6e7;
+  color: #fff;
+}
+
+.visdom .button:hover {
+  background-color: #56c0f1;
+}
+
+.visdom-result {
+  padding: 1.2em;
+  padding-right: 0;
+}
+
+.refinance-result {
+  padding-left: 0;
+}
+
+.visdom-result h4 {
+  margin-top: 0;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.visdom-result ul {
+  line-height: 1.5em;
+  margin-top: 2em;
+}
+
+.visdom-result li {
+  list-style: none;
+  font-size: 12px;
+}
+
+.visdom-result .pie-legend {
+  color: #9f9f9f;
+}
+
+.refinance-result img {
+  position: absolute;
+  top: 0;
+}
+
+#refinance-chart-mask {
+  position: absolute;
+  top: 0;
+}
+
+.legend {
+  padding: 0;
+}
+
+.legend table {
+  font-size: 12px;
+  border: 0;
+}
+
+.legend td {
+  border: 0;
+}
+
+.legend .fa-stack {
+  width: auto;
+}
+
+.entry-content .cashback h4 {
+  margin-top: 25px;
+}
+
+.cashback h1 {
+  color: #00a2c4;
+}
+
+.entry-content .weekly h4 {
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}

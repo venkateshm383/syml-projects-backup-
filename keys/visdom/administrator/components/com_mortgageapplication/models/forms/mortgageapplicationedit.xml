@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_mortgageapplication/models/rules"
+	addfieldpath="/administrator/components/com_mortgageapplication/models/fields"
+>
+	<fieldset name="details">
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			class="inputbox validate-name"
+			default=""
+			description=""
+			label="Name"
+			name="name"
+			required="true"
+			size="40"
+			type="text"
+			validate="name"
+		/>
+		<field
+			class="inputbox validate-username"
+			default=""
+			description=""
+			label="Username"
+			name="username"
+			required="true"
+			size="40"
+			type="text"
+			validate="username"
+		/>
+		<field
+			class="inputbox validate-password"
+			default=""
+			description=""
+			label="Password"
+			name="password"
+			required="true"
+			size="40"
+			type="text"
+			validate="password"
+		/>
+		<field
+			default=""
+			description=""
+			label="Created_date"
+			name="createddate"
+			required="true"
+			format="%Y-%m-%d"
+			type="calendar"
+			validate="createddate"
+		/>
+		<field
+			default=""
+			description=""
+			label="Updated_date"
+			name="updateddate"
+			required="true"
+			format="%Y-%m-%d"
+			type="calendar"
+			validate="updateddate"
+		/>
+		<field
+			default="enabled"
+			description=""
+			label="Status"
+			name="status"
+			required="true"
+			type="list"
+			validate="status"
+		>
+			<option
+				value="disabled">Disabled</option>
+			<option
+				value="enabled">Enabled</option>
+		</field>
+	</fieldset>
+</form>
