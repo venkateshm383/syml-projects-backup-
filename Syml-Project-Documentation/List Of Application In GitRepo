@@ -1,0 +1,61 @@
+Dev-Applications
+
+
+1) formsPlayApp (new app under devolpment)
+2) proposalRefinance(new app under devolpment)
+3) proposalPurchase (new app under devolpment)
+4)surveysDev (using for demoPurpose)
+5)demobdoApp (using for demoPurpose)
+6)documentanalyzerAppDev (using for demo Purpose)
+7)crmsynctocouchbaseAppDev
+8)taskcreationAppDev
+9)stageMailAppDev 
+10)stageMailAppDev-V1(demopurpose )
+11)visdomVedioViewerAppDev (using for demoPurpose)
+12)docViewerApp (not using)
+13)formsappDev (after new mortgageapp we have to  remove)
+14)automatedCreditAppDev (not using)
+15)formsAppDev-V1(demo purpose after new mortagage we have To remove)
+16)dataEntry (Project devolpment stopped partialy completed  )
+17)filogix-ws-gateway
+18)UnderWrittingProposal2 (not Needed )
+19)UnderWritting2 
+20)UnifiedDealView (partily devolped and stopped)
+21)NewUnderwrtingForVaadin (partily devolped and stopped)
+22)cmrsync(notNeeded)
+23)submitReferrFormBookmark(notNeeded)
+24)hello (notNeeded)
+25) dockerTest(not needed )
+26)datafromTodoistDeV(Not Needed)
+27)elsticLogApp
+
+
+
+
+Production Application 
+
+1)formsapp(this application will be removed when new mortageapplication is deployed)
+2)taskcreationapp
+3)dataformTodoist
+4) documentanalyzer 
+5) automatedcreditappProd
+6)docviewer
+7)stagemailapp
+8)surveys
+9)visdomvideoViewerApp
+10)syncmailApp
+11)proposal-prod
+12)formsplayappProduction
+13)ringcentral 
+14)felogix-prod
+15)UnderWritinAppProd
+
+
+
+
+
+
+
+
+
+
