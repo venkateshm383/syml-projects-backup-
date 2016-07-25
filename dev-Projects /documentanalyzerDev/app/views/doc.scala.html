@@ -1,0 +1,518 @@
+ @(message:String,opporunity:List[OpportunityList],applicant:List[String],coapplicant:List[String],property:List[String],down:List[String],mislinous:List[String],splitapplicantDocuments:List[ReceivedDocuments],splitcoapplicantDocuments:List[ReceivedDocuments],splitpropertyDocuments:List[ReceivedDocuments],splitdownpaymentDocuments:List[ReceivedDocuments],splitdMisleniousDocuments:List[ReceivedDocuments],ID:String,downlaod:Integer,docs:List[String])
+
+<html>
+<head>
+
+<title>Master Doc</title>
+<link type="text/css" rel="stylesheet" href="background.css" />
+<link type="text/css" rel="stylesheet" href="forms.css" />
+<link type="text/css" rel="stylesheet" href="mortgage.css" />
+<style type="text/css">
+body {
+	background: url(/assets/images/bg.jpg) no-repeat center center fixed;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script
+	src="https://oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
+
+
+</head>
+<body>
+	<div style="padding-bottom: 20px; margin-top: 20px; padding-left: 5%">
+		<img alt="Visdom Logo" height="90" width="260"
+			src="https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png" />
+
+
+	</div>
+
+
+
+
+
+
+
+	<div style="padding-left: 10%">
+
+		<form action="searchMaster" method="post">
+
+			<input type="text" list="opportunity" name="opportunity"
+				style="height: 35px; width: 550px" value="@message" required>
+
+
+			<datalist id="opportunity">
+				@for(user <- opporunity){
+				<option value="@user.getOpportunityName">}
+			</datalist>
+			<input style="width: 200px" type="submit"
+				class="btn btn-primary .btn-lg" value="Search">
+		</form>
+	</div>
+	
+	<div style="padding-left: 10%">
+	<form action="deleteDocList" method="post">
+	
+	<select  name="documenttype" placeholder="documenttype" style="width: 550px;height: 35px" required>
+
+ @for(doc <- docs){
+<option value="@doc">@doc</option>
+
+}
+
+</select>
+<input type="hidden"  name="opportunity"
+			 value="@message" >
+			 
+			 
+<input type="submit"  style="width: 200px" class="btn btn-primary .btn-lg" onclick="return confirm('Are you sure you want to delete?');" value="Delete">
+</form>
+	
+	
+	</div>
+	
+	<form id="maskForm" action="addextradocument" method="post">
+		<div style="padding-left: 51%">
+		
+	
+			<input type="hidden" readonly="readonly" name="opportunity"
+				style="height: 35px; width: 400px" value="@message" required>
+			&nbsp &nbsp <input style="width: 100px" type="submit"
+				class="btn btn-primary .btn-sm" value="Save">
+				
+		<a href="/mail?opportunity=@message">	<button type="button" class="btn btn-primary  .btn-sm">Reminder
+				Email</button></a>
+@if(downlaod==1){
+<a href="/download?Id=@ID">	<button type="button" class="btn btn-primary  .btn-sm">Download</button></a>
+		
+		}else{
+		
+		<a href="/download?Id=@ID">	<button type="button" class="btn btn-primary  .btn-sm" disabled>Download</button></a>
+		
+		
+		}
+		</div>
+		<br>
+
+
+
+		<div style="padding-left: 10%">
+
+			@for(user <- applicant){ 
+
+			<table id="addedRows" rules="rows" class="table table-hover"
+															style="width: 90%;background-color: white">
+				<caption style="font-size: 35;color: black;">@user
+				Documents</caption>
+				
+				<tr>
+					<th>Documents
+							Required</th>
+					<th >Documents
+							Received</th>
+					<th>Date</th>
+					<th >Original
+							Documents</th>
+				</tr>
+
+
+
+				@for(splitdocs <- splitapplicantDocuments){
+				<tr>
+					@if(splitdocs.getRecived==0){
+					<td ><font color="red" size="2">@splitdocs.getDocuementName</font></td>
+						<td >-</td>
+					}else{
+					<td ><font size="2">@splitdocs.getDocuementName</font></td>
+									
+										<td ><a href="@splitdocs.getSplitedLink" target="blank"><font size="2">@splitdocs.getRecivedDocuments</font></a></td>
+
+					}
+
+
+
+					<td><font size="2">@splitdocs.getSplitedDate</font></td>
+
+
+
+					@if(splitdocs.getRecived==1){
+					<td><font size="2"><a
+						href="@splitdocs.getLink" target="_blank">Original</a> <font size="2">&nbsp&nbsp<a
+						href="/deletesplitdoc?docid=@splitdocs.getSplitedDocId&opportunity=@message" onclick="return confirm('Are you sure you want to delete?');"><span class="glyphicon glyphicon-trash"></span></a> </font>
+			}else{
+			<td>-</td>
+			
+			}			</tr>
+				}
+
+			</table>
+
+			<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRows(this.form);">Add
+				More</a> }
+
+
+		</div>
+		<br> <br> <br>
+		<div style="padding-left: 10%">
+			@for(couser <- coapplicant){ 
+
+
+
+			<table id="addedRows2" rules="rows" class="table table-hover"
+			style="width: 90%;background-color: white">
+				<caption style="font-size: 35;color: black;">@couser Documents</caption>
+				<tr>
+					<th>Documents
+							Required</th>
+					<th >Documents
+							Received</th>
+					<th>Date</th>
+					<th >Original
+							Documents</th>
+				</tr>
+
+
+				@for(splitdocs <- splitcoapplicantDocuments){
+				<tr>
+					@if(splitdocs.getRecived==0){
+					<td ><font color="red" size="2">@splitdocs.getDocuementName</font></td>
+						<td >-</td>
+					}else{
+					<td ><font size="2">@splitdocs.getDocuementName</font></td>
+									
+										<td ><a href="@splitdocs.getSplitedLink" target="blank"><font size="2">@splitdocs.getRecivedDocuments</font></a></td>
+
+					}
+					<td><font size="2">@splitdocs.getSplitedDate</font></td>
+
+
+
+					
+					@if(splitdocs.getRecived==1){
+					<td><font size="2"><a
+						href="@splitdocs.getLink" target="_blank">Original</a> <font size="2">&nbsp&nbsp<a
+						href="/deletesplitdoc?docid=@splitdocs.getSplitedDocId&opportunity=@message" onclick="return confirm('Are you sure you want to delete?');" ><span class="glyphicon glyphicon-trash"></span></a> </font>
+			}else{
+			<td>-</td>
+			
+			}			</tr>
+				}
+
+			</table>
+
+
+
+			<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRows2(this.form);">Add
+				More</a> 
+				
+				}
+
+		</div>
+		@for(couser <- coapplicant){ <br>
+		<br> <br> }
+		<div style="padding-left: 10%">
+			@for(couser <- property){
+
+
+
+			<table id="addedRows3" rules="rows" class="table table-hover"
+				style="width: 90%;background-color: white">
+				<caption style="font-size: 35;color: black;">@couser </caption>
+		
+				<tr>
+					<th>Documents
+							Required</th>
+					<th >Documents
+							Received</th>
+					<th>Date</th>
+					<th >Original
+							Documents</th>
+				</tr>
+
+
+				@for(splitdocs <- splitpropertyDocuments){
+				<tr>
+					
+					
+				@if(splitdocs.getRecived==0){
+					<td ><font color="red" size="2">@splitdocs.getDocuementName</font></td>
+						<td >-</td>
+					}else{
+					<td ><font size="2">@splitdocs.getDocuementName</font></td>
+									
+										<td ><a href="@splitdocs.getSplitedLink" target="blank"><font size="2">@splitdocs.getRecivedDocuments</font></a></td>
+
+					}
+					<td><font size="2">@splitdocs.getSplitedDate</font></td>
+
+
+
+				
+					@if(splitdocs.getRecived==1){
+					<td><font size="2"><a
+						href="@splitdocs.getLink" target="_blank">Original</a> <font size="2">&nbsp&nbsp<a
+						href="/deletesplitdoc?docid=@splitdocs.getSplitedDocId&opportunity=@message" onclick="return confirm('Are you sure you want to delete?');" > <span class="glyphicon glyphicon-trash"></span></a> </font>
+			}else{
+			<td>-</td>
+			
+			}				</tr>
+				}
+
+			</table>
+
+
+
+
+			<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRows3(this.form);">Add
+				More</a> 
+				
+				
+				}
+
+		</div>
+		<br> <br> 
+		<div style="padding-left: 10%">
+			@for(couser <- down){ 
+
+
+
+
+			<table id="addedRows4" rules="rows" class="table table-hover"
+				style="width: 90%;background-color: white">
+				<caption style="font-size: 35;color: black;">@couser </caption>
+	<tr>
+					<th>Documents
+							Required</th>
+					<th >Documents
+							Received</th>
+					<th>Date</th>
+					<th >Original
+							Documents</th>
+				</tr>
+
+
+				@for(splitdocs <- splitdownpaymentDocuments){
+				<tr>
+					
+					@if(splitdocs.getRecived==0){
+					<td ><font color="red" size="2">@splitdocs.getDocuementName</font></td>
+						<td >-</td>
+					}else{
+					<td ><font size="2">@splitdocs.getDocuementName</font></td>
+									
+										<td ><a href="@splitdocs.getSplitedLink" target="blank"><font size="2">@splitdocs.getRecivedDocuments</font></a></td>
+
+					}
+					
+						<td><font size="2">@splitdocs.getSplitedDate</font></td>
+
+
+	
+					@if(splitdocs.getRecived==1){
+					<td><font size="2"><a
+						href="@splitdocs.getLink" target="_blank">Original</a> <font size="2">&nbsp&nbsp<a
+						href="/deletesplitdoc?docid=@splitdocs.getSplitedDocId&opportunity=@message" onclick="return confirm('Are you sure you want to delete?');" ><span class="glyphicon glyphicon-trash"></span></a> </font>
+			}else{
+			<td>-</td>
+			
+			}		
+				</tr>
+				}
+
+			</table>
+
+
+			<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRows4(this.form);">Add
+				More</a> 
+				
+				
+				}
+
+
+		</div>
+		<br> <br> 
+		<div style="padding-left: 10%">
+			@for(couser <- mislinous){ 
+
+
+			<table id="addedRows5" rules="rows" class="table table-hover"
+				style="width: 90%;background-color: white">
+				<caption style="font-size: 35;color: black;">@couser </caption>
+				<tr>
+					<th>Documents
+							Required</th>
+					<th >Documents
+							Received</th>
+					<th>Date</th>
+					<th >Original
+							Documents</th>
+				</tr>
+
+
+				@for(splitdocs <- splitdMisleniousDocuments){
+				<tr>
+					
+					
+					@if(splitdocs.getRecived==0){
+					<td ><font color="red" size="2">@splitdocs.getDocuementName</font></td>
+						<td >-</td>
+					}else{
+					<td ><font size="2">@splitdocs.getDocuementName</font></td>
+									
+										<td ><a href="@splitdocs.getSplitedLink" target="blank"><font size="2">@splitdocs.getRecivedDocuments</font></a></td>
+
+					}
+					
+					<td><font size="2">@splitdocs.getSplitedDate</font></td>
+
+
+
+					@if(splitdocs.getRecived==1){
+					<td><font size="2"><a
+						href="@splitdocs.getLink" target="_blank">Original</a> <font size="2">&nbsp&nbsp<a
+						href="/deletesplitdoc?docid=@splitdocs.getSplitedDocId&opportunity=@message" onclick="return confirm('Are you sure you want to delete?');" ><span class="glyphicon glyphicon-trash"></span></a> </font>
+			}else{
+			<td>-</td>
+			
+			}			</tr>
+				}
+
+			</table>
+
+
+
+
+			<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRows5(this.form);">Add
+				More</a>
+				 }
+		</div>
+		<br> 
+
+
+
+
+
+
+
+
+
+		<br> <br>
+		
+
+
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			function addMoreRows(frm) {
+				var rowCount = 1;
+				rowCount++;
+
+				var recRow = '<p id="rowCount'+rowCount+'"><input name="applicant" type="text" size="43%" required> <a href="javascript:void(0);" onclick="removeRow('
+						+ rowCount + ');">Delete</a></p>';
+				jQuery('#addedRows').append(recRow);
+			}
+
+			function removeRow(removeNum) {
+				jQuery('#rowCount' + removeNum).remove();
+			}
+		</script>
+
+		<script type="text/javascript">
+			var rowCountt = 1;
+			function addMoreRows2(frm) {
+				rowCountt++;
+				var recRow = '<p id="rowCount'+rowCountt+'"><input name="coapplicant" type="text" size="43%" required> <a href="javascript:void(0);" onclick="removeRow2('
+						+ rowCountt + ');">Delete</a></p>';
+				jQuery('#addedRows2').append(recRow);
+			}
+
+			function removeRow2(removeNum) {
+				jQuery('#rowCount' + removeNum).remove();
+			}
+		</script>
+
+		<script type="text/javascript">
+			var rowCounttt = 1;
+			function addMoreRows3(frm) {
+				rowCounttt++;
+
+				var recRow = '<p id="rowCount'+rowCounttt+'"><input name="property" type="text" size="43%" required> <a href="javascript:void(0);" onclick="removeRow3('
+						+ rowCounttt + ');">Delete</a></p>';
+				jQuery('#addedRows3').append(recRow);
+			}
+
+			function removeRow3(removeNum) {
+
+				jQuery('#rowCount' + removeNum).remove();
+			}
+		</script>
+
+
+		<script type="text/javascript">
+			var rowCountttt = 1;
+			function addMoreRows4(frm) {
+				rowCountttt++;
+				var recRow = '<p id="rowCount'+rowCountttt+'"><input name="downpayment" type="text" size="43%" required> <a href="javascript:void(0);" onclick="removeRow4('
+						+ rowCountttt + ');">Delete</a></p>';
+				jQuery('#addedRows4').append(recRow);
+			}
+
+			function removeRow4(removeNum) {
+				jQuery('#rowCount' + removeNum).remove();
+			}
+		</script>
+
+
+		<script type="text/javascript">
+			var rowCounttttt = 1;
+			function addMoreRows5(frm) {
+				rowCounttttt++;
+
+				var recRow = '<p id="rowCount'+rowCounttttt+'"><input name="mislinuos" type="text" size="43%" required> <a href="javascript:void(0);" onclick="removeRow5('
+						+ rowCounttttt + ');">Delete</a></p>';
+				jQuery('#addedRows5').append(recRow);
+
+			}
+
+			function removeRow5(removeNum) {
+				jQuery('#rowCount' + removeNum).remove();
+			}
+		</script>
+		
+		<script>
+    function deleletconfig() {
+        var del=confirm("Are you sure you want to delete this record?");
+        alert(del);
+        if (del==true){
+        	document.location.href = newHREF
+            alert ("record deleted")
+        } else {
+            alert("Record Not Deleted")
+        }
+    }
+</script>
+	</form>
+
+</body>
+</html>
+
+
+
+
+
+
+

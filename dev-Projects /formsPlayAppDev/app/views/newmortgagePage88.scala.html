@@ -1,0 +1,1122 @@
+@(additionalApplicant:String,employeeIncome:EmployeIncomeTypeParam, selfEmployeeIncome:SelfEmployeIncomeTypeParam, pensionIncType:PensionIncomeTypeParam, investmentIncType:InvestmentsIncomeTypeParam, maternityIncType:MaternityIncomeTypeParam,vehicleIncType:VehicleAllowIncomeTypeParam,livingIncType:LivingAllowIncomeTypeParam, commissionIncType:CommissionIncomeTypeParam, bonusIncType:BonusIncomeTypeParam, otherIncType:OtherIncomeTypeParam,applicantName:String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">  
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+<script src="@routes.Assets.at("_resources/jquery.geocomplete.js")"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+<style type="text/css">
+
+	
+</style>
+<script type="text/javascript">
+	function tableCreate() {
+		var body = document.body, tbl = document.createElement('table');
+		tbl.style.width = '100px';
+		tbl.style.border = '1px solid black';
+
+		for (var i = 0; i < 3; i++) {
+			var tr = tbl.insertRow();
+			for (var j = 0; j < 2; j++) {
+				if (i == 2 && j == 2) {
+					break;
+				} else {
+					var td = tr.insertCell();
+					td.appendChild(document.createTextNode('Cell'));
+					td.style.border = '1px solid black';
+					if (i == 1 && j == 1) {
+						td.setAttribute('rowSpan', '2');
+					}
+				}
+			}
+		}
+		body.appendChild(tbl);
+	}
+</script>
+<script>
+function createTable(){
+	 alert("comgin");
+	mytable = $('<table></table>').attr({ id: "basicTable" });
+	var rows = 3;
+	var cols = 4;
+	var tr = [];
+	for (var i = 0; i < rows; i++) {
+		var row = $('<tr></tr>').attr({ class: ["class1", "class2", "class3"].join(' ') }).appendTo(mytable);
+		for (var j = 0; j < cols; j++) {
+			$('<td></td>').text("text1").appendTo(row); 
+		}
+		 		 
+	}
+	alert("lkjhgfdghjkl;");
+	console.log("TTTTT:"+mytable.html());
+	mytable.appendTo("#box");	       
+  
+}
+</script>
+
+<script language="JavaScript">
+	window.onbeforeunload = function() {
+		return "Are you sure?";
+	};
+
+	$(document).ready(function() {
+		$('form').submit(function() {
+			window.onbeforeunload = null;
+		});
+	});
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+    	SelectElement();
+    };
+    function SelectElement() {
+    	
+    	var empStartMon11  = document.forms["myForm"]["empStartMon1"].value;  
+        document.forms["myForm"]["empStartMonth"].value = empStartMon11;
+        var empStartMon511  = document.forms["myForm"]["empStartMon51"].value;  
+        document.forms["myForm"]["empStartMonth2"].value = empStartMon511;
+        var empStartMon512  = document.forms["myForm"]["empStartMon52"].value;  
+        document.forms["myForm"]["empStartMonth3"].value = empStartMon512;
+		
+        var selfStartMon11  = document.forms["myForm"]["selfStartMon1"].value;
+        
+        document.forms["myForm"]["selfStartMon"].value = selfStartMon11;
+        var selfStartMon311  = document.forms["myForm"]["selfStartMon212"].value;
+        
+        document.forms["myForm"]["selfStartMon2"].value = selfStartMon311;
+		var selfStartMon311  = document.forms["myForm"]["selfStartMon213"].value;
+		
+        document.forms["myForm"]["selfStartMon3"].value = selfStartMon311;
+        
+        var pensionStartMon1  = document.forms["myForm"]["pensionStartMon"].value;  
+        document.forms["myForm"]["pensionMY1"].value = pensionStartMon1;
+        
+        var investStartMon1  = document.forms["myForm"]["investStartMon"].value;  
+        document.forms["myForm"]["investmentsMY1"].value = investStartMon1;
+
+        var maternityStartMon1  = document.forms["myForm"]["maternityStartMon"].value;  
+        document.forms["myForm"]["maternityMY1"].value = maternityStartMon1;
+
+
+        var vehicleStartMon1  = document.forms["myForm"]["vehicleStartMon"].value;  
+        document.forms["myForm"]["vehicleAllowMY1"].value = vehicleStartMon1;
+
+
+        var livingStartMon1  = document.forms["myForm"]["livingStartMon"].value;  
+        document.forms["myForm"]["livingAllowMY1"].value = livingStartMon1;
+
+
+        var commissionStartMon1  = document.forms["myForm"]["commissionStartMon"].value;  
+        document.forms["myForm"]["commissionMY1"].value = commissionStartMon1;
+
+        var bonusStartMon1  = document.forms["myForm"]["bonusStartMon"].value;  
+        document.forms["myForm"]["bonusMY1"].value = bonusStartMon1;
+
+        var otherStartMon1  = document.forms["myForm"]["otherStartMon"].value;  
+        document.forms["myForm"]["otherMY1"].value = otherStartMon1;
+    }
+    </script>
+
+<script type="text/javascript">
+	function validateForm(){
+		
+		var employee = document.forms["myForm"]["employee"].value;
+		var selfEmployed = document.forms["myForm"]["selfEmployed"].value;
+		var pension = document.forms["myForm"]["pension"].value;
+		var investments = document.forms["myForm"]["investments"].value;
+		var maternity = document.forms["myForm"]["maternity"].value;
+		var vehicleAllow = document.forms["myForm"]["vehicleAllow"].value;
+		var livingAllow = document.forms["myForm"]["livingAllow"].value;
+		var commission = document.forms["myForm"]["commission"].value;
+		var bonus = document.forms["myForm"]["bonus"].value;
+		var other = document.forms["myForm"]["other"].value;
+		var retVal=true;
+		
+		if(employee == "false" && selfEmployed ==  "false" && pension == "false" && investments == "false" && maternity == "false" && vehicleAllow == "false" && livingAllow == "false" && commission == "false" && bonus == "false" && other == "false"){
+    	    document.getElementById('input_204').innerHTML="<span style='color:red'>*This field is Required.</span>";
+        	return false;
+			}else{
+			document.getElementById("input_204").innerHTML="";
+			}
+		
+		if(employee == "true"){
+			var empBusinessName = document.forms["myForm"]["empBusinessName"].value;
+			if(!empBusinessName){
+				 document.getElementById('input_1102').innerHTML="<span style='color:red'>*This field is Required.</span>";
+		        	return false;
+			}else{
+			document.getElementById("input_1102").innerHTML="";
+			}
+			
+			var empStartMonth = document.forms["myForm"]["empStartMonth"].value;
+			if(!empStartMonth){
+				 document.getElementById('input_1103').innerHTML="<span style='color:red'>*This field is Required.</span>";
+		        	return false;
+			}else{
+			document.getElementById("input_1103").innerHTML="";
+			}
+			
+			var empPosition = document.forms["myForm"]["empPosition"].value;
+			if(!empPosition){
+				 document.getElementById('input_1104').innerHTML="<span style='color:red'>*This field is Required.</span>";
+		        	return false;
+			}else{
+			document.getElementById("input_1104").innerHTML="";
+			}
+		}
+		
+		if (selfEmployed == "true") {
+			var selfBusinessName = document.forms["myForm"]["selfBusinessName"].value;
+			if (!selfBusinessName) {
+				document.getElementById('input_1118').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1118").innerHTML = "";
+			}
+
+			var selfStartMon = document.forms["myForm"]["selfStartMon"].value;
+			if (!selfStartMon) {
+				document.getElementById('input_1119').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1119").innerHTML = "";
+			}
+			
+			var selfPosition = document.forms["myForm"]["selfPosition"].value;
+			if (!selfPosition) {
+				document.getElementById('input_1120').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1120").innerHTML = "";
+			}
+			
+		}
+
+		var totalMonths = document.forms["myForm"]["totalMonths"].value;
+		if(totalMonths<36 && employee == "true"){
+			var empBusinessName2 = document.forms["myForm"]["empBusinessName2"].value;
+			if(!empBusinessName2){
+				 document.getElementById('input_1106').innerHTML="<span style='color:red'>*This field is Required.</span>";
+				     return false;
+			}else{
+			document.getElementById("input_1106").innerHTML="";
+			}
+			var empStartMonth2 = document.forms["myForm"]["empStartMonth2"].value;
+			if(!empStartMonth2){
+			document.getElementById('input_1107').innerHTML="<span style='color:red'>*This field is Required.</span>";
+			return false;
+			}else{
+			document.getElementById("input_1107").innerHTML="";
+			}
+			   
+			var empPosition2 = document.forms["myForm"]["empPosition2"].value;
+			if(!empPosition2){
+			document.getElementById('input_1108').innerHTML="<span style='color:red'>*This field is Required.</span>";
+			return false;
+			}else{
+			document.getElementById("input_1108").innerHTML="";
+			}
+			
+			var totalMonths2 = document.forms["myForm"]["totalMonths2"].value;
+			if(totalMonths2<36){
+				var empBusinessName3 = document.forms["myForm"]["empBusinessName3"].value;
+				if(!empBusinessName3){
+				document.getElementById('input_1110').innerHTML="<span style='color:red'>*This field is Required.</span>";
+				return false;
+				}else{
+				document.getElementById("input_1110").innerHTML="";
+				}
+				    	
+				var empStartMonth3 = document.forms["myForm"]["empStartMonth3"].value;
+				if (!empStartMonth3) {
+				document.getElementById('input_1111').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+				} else {
+				document.getElementById("input_1111").innerHTML = "";
+				}
+				
+				var empPosition3 = document.forms["myForm"]["empPosition3"].value;
+				if (!empPosition3) {
+				document.getElementById('input_1112').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+				} else {
+				document.getElementById("input_1112").innerHTML = "";
+				}						
+			}
+		}
+		
+		
+		var monthsum1 = document.forms["myForm"]["monthsum1"].value;
+		if(monthsum1<36 && selfEmployed == "true"){
+			var selfBusinessName2 = document.forms["myForm"]["selfBusinessName2"].value;
+			if (!selfBusinessName2) {
+				document.getElementById('input_1122').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1122").innerHTML = "";
+			}
+
+			var selfStartMon2 = document.forms["myForm"]["selfStartMon2"].value;
+			if (!selfStartMon2) {
+				document.getElementById('input_1123').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1123").innerHTML = "";
+			}
+
+			var selfPosition2 = document.forms["myForm"]["selfPosition2"].value;
+			if (!selfPosition2) {
+				document.getElementById('input_1124').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+				return false;
+			} else {
+				document.getElementById("input_1124").innerHTML = "";
+			}
+			var selfTotal2 = document.forms["myForm"]["selfemployemonthsumTotal2"].value;
+			if(selfTotal2<36){
+				var selfBusinessName3 = document.forms["myForm"]["selfBusinessName3"].value;
+				if (!selfBusinessName3) {
+					document.getElementById('input_1126').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+					return false;
+				} else {
+					document.getElementById("input_1126").innerHTML = "";
+				}
+
+				var selfStartMon3 = document.forms["myForm"]["selfStartMon3"].value;
+				if (!selfStartMon3) {
+					document.getElementById('input_1127').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+					return false;
+				} else {
+					document.getElementById("input_1127").innerHTML = "";
+				}
+
+				var selfPosition3 = document.forms["myForm"]["selfPosition3"].value;
+				if (!selfPosition3) {
+					document.getElementById('input_1128').innerHTML = "<span style='color:red'>*This field is Required.</span>";
+					return false;
+				} else {
+					document.getElementById("input_1128").innerHTML = "";
+				}				
+				
+			}
+		}
+		
+		return true;
+	}
+</script>
+
+    <script>
+      $(function(){
+        $("#geocomplete").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete").trigger("geocode");
+        });
+      });
+    </script>
+     <script>
+      $(function(){
+        $("#geocomplete1").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete1").trigger("geocode");
+        });
+      });
+      
+	</script>
+	
+	
+
+</head>
+<body>
+<br>
+<br>
+<div style="width: 97%">
+		<form name="myForm" action="mortgagePage8" method="POST" onsubmit="return validateForm()">
+		<input type="hidden" value="uniid" name="uniid">
+		<div class="row"></div>
+		<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-7 container-bg text-color-blue">
+			
+		<div align="left" style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+			<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")" />
+		</div>
+		<div style="padding-top: 30px"></div>
+		<div data-ng-app="demoApp"  style="margin-left: 5%">
+		<div id="divID" ng-controller="DemoController" ng-init="isDisabled = false">
+		
+		<label class="labelfont">@applicantName</label><br><br>
+		<label class="labelfont"> Are you an employee with a company which deducts your income tax?<span style="color: red; font-size: 3">*</span></label><br>
+
+							
+								<div class="col-xs-6 col-sm-5 btn-group"
+									style="width: 100%; padding-left: 0%;">
+									<label style="width: 20%;" class="btn btn-primary labelfont"
+										btn-radio="'yes'" ng-change="change()" ng-model="checkEmployee.areUemploye">
+										Yes </label> <label
+										style="width: 20%; border-radius: 0px 5px 5px 0px;"
+										class="btn btn-primary labelfont" btn-radio="'no'"
+										ng-change="change()" ng-model="checkEmployee.areUemploye"> No </label> <br>
+									<br>
+									<div id="input_4107" style="position: absolute;"></div>
+								</div>
+								<input type="hidden" name="areYouEmploye"
+									value="{{checkEmployee.areUemploye}}" ng-required>
+							<br>
+							
+							{{ employetotal1}} {{slfemployetotal1}}
+							
+					employeCount==={{employeCount}}
+<br>
+							<div ng-if="checkEmployee.areUemploye == 'yes'">
+								<table id="addedRows">
+								<tr>
+								<th width="17%"><b>Type of Income:</b></th>
+								<th width="43%"><b>Business:</b></th>
+								<th width="15%"><b>Start Month:</b></th>
+								<th width="25%"><b>Position:</b></th></tr>
+									<tr>
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" name="empBusinessName"
+											placeholder="E.g. Business Name" style="width: 100%;"
+											class="form-control" value=""></td>
+										<td width="15%"><input type="text" id="datepicker0"
+											name="empStartMonth" placeholder="mm/dd/yyyy"
+											ng-model="empFirstMonYear" ng-selected = "employe1(this)"
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" class="form-control"
+											style="width: 100%;" value=""></td>
+									</tr>
+									
+									<tr ng-if="employeCount>=1">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" name="empBusinessName"
+											placeholder="E.g. Business Name" style="width: 100%;"
+											class="form-control" value=""></td>
+										<td width="15%"><input type="text" id="datepicker1"
+											name="empStartMonth" placeholder="mm/dd/yyyy"
+											ng-model="empFirstMonYear" ng-selected = "employe1(this)"
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" class="form-control"
+											style="width: 100%;" value=""></td>
+									</tr>
+									
+								<tr ng-if="employeCount==2">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" name="empBusinessName"
+											placeholder="E.g. Business Name" style="width: 100%;"
+											class="form-control" value=""></td>
+										<td width="15%"><input type="text" id="datepicker2"
+											name="empStartMonth" placeholder="mm/dd/yyyy"
+											ng-model="empFirstMonYear" ng-selected = "employe1(this)"
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" class="form-control"
+											style="width: 100%;" value=""></td>
+									</tr>
+							  						
+								</table>
+								<a style="padding-left: 4%; font-size: 20; color: black"
+				href="#" ng-click="addemployee()"> Add  Additional  Job</a>
+							
+							</div>
+
+<br>
+
+  
+      
+
+							<label class="labelfont"> Do you own a business where you pay your own taxes?<span style="color: red; font-size: 3">*</span></label><br>							
+								<div class="col-xs-6 col-sm-5 btn-group"
+									style="width: 100%; padding-left: 0%;">
+									<label style="width: 20%;" class="btn btn-primary labelfont"
+										btn-radio="'yes'" ng-change="change()" ng-model="checkSelfEmployee.areUSelfEmploye">
+										Yes </label> <label
+										style="width: 20%; border-radius: 0px 5px 5px 0px;"
+										class="btn btn-primary labelfont" btn-radio="'no'"
+										ng-change="change()" ng-model="checkSelfEmployee.areUSelfEmploye"> No </label> <br>
+									<br>
+									<div id="input_4107" style="position: absolute;"></div>
+								</div>
+								<input type="hidden" name="areYouEmploye"
+									value="{{checkSelfEmployee.areUSelfEmploye}}" ng-required>
+							<br>
+							<!-- For Self-Employed -->
+							<div ng-if="checkSelfEmployee.areUSelfEmploye == 'yes'">
+							<br>
+								<table id="addedRowsSelf">
+											<tr>
+								<th width="17%"><b>Type of Income:</b></th>
+								<th width="43%"><b>Business:</b></th>
+								<th width="15%"><b>Start Month:</b></th>
+								<th width="25%"><b>Position:</b></th></tr>
+									<tr>
+										<td width="17%"><input type="text" name="selfIncomeTypes"
+											placeholder="E.g. Self-Employed" style="width: 100%;"
+											class="form-control" value="Self Employed"
+											readonly="readonly"></td>
+										<td width="43%"><input type="text"
+											name="selfBusinessName" placeholder="E.g. Business Name"
+											style="width: 100%;" class="form-control" value="@selfEmployeeIncome.getBusiness21"></td>
+										<td width="15%"><input type="text" id="datepicker3"
+											name="selfStartMon" placeholder="mm/dd/yyyy"
+											ng-model="slfempFirstMonYear" ng-selected="employe1(this)"
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"></td>
+										<td width="25%"><input type="text" name="selfPosition"
+											placeholder="E.g. Manager" class="form-control" value="@selfEmployeeIncome.getCurrentPosition21">
+										</td>
+									</tr>
+												</table>
+												<a style="padding-left: 4%; font-size: 20; color: black"
+				href="javascript:void(0);" onclick="addMoreRowsForSelfEmp(this.form);">Add Additional Job</a> 
+						
+							</div>
+							
+						
+							<!-- History of Employed -->
+							<div ng-show=" employetotal1 + selfemployetotal1  < 36 && (checkEmployee.areUemploye == 'yes' || checkSelfEmployee.areUSelfEmploye == 'yes')">
+							<h4 style="padding-left: 0%;"><Strong>Work History </Strong></h4>
+							<hr style="width: 96%; border-color: #006699; margin-top: 0%; margin-bottom: 0%;" />
+							<label class="labelfont">In most cases lenders require three years of employment history and more options will be available for those with longer employment histories. They do realize that there are exceptions however. Some of these might be if you are a home maker, have part time or seasonal work, student, on maternity leave, have a disability etc. </label>
+							
+							<table>
+							<tr>
+							  		<td width="17%"><input type="text" name="empIncomeTypes2"
+												placeholder="E.g. Employer" style="width: 100%;"
+												class="form-control" value="Employed" readonly="readonly">
+												</td>
+							  		<td width="43%"><input type="text" name="empBusinessName2"
+												placeholder="E.g. Business Name" style="width: 100%;"
+												class="form-control" value="@employeeIncome.getBusiness11">
+												</td>
+							  		<td width="15%"><input type="text" name="empStartMonth6"
+												placeholder="mm/dd/yyyy" id="datepicker6" ng-model="empSecMonYear"
+												ng-selected = "employe1(this)" style="width: 100%; position: relative; z-index: 100000;"
+												class="form-control">
+												</td>
+							  		<td width="25%"><input type="text" name="empPosition2"
+												placeholder="E.g. Manager" style="width: 100%;"
+												class="form-control" value="">
+											    </td>
+							  	</tr>
+							  
+							  </table>
+							  <input type="hidden" name="monthsum11" ng-model="employetotal2" value="{{employetotal2-employetotal1}}">	
+							  <input type="hidden" name="totalMonths2" ng-model="employetotal2" value="{{employetotal2}}">
+									<div ng-show="employetotal1 + selfemployetotal1 + historyTotal <36 &&  (checkEmployee.areUemploye == 'yes' || checkSelfEmployee.areUSelfEmploye == 'yes') ">
+										<br>
+										<table>
+											<tr>
+												<td width="17%"><input type="text" name="empIncomeTypes3"
+												placeholder="E.g. Employer" style="width: 100%;"
+												class="form-control" value="Employed" readonly="readonly">
+											</td>
+												<td width="43%"><input type="text" name="empBusinessName3"
+												placeholder="E.g. Business Name" style="width: 100%;"
+												class="form-control" value="">
+												</td>
+												<td width="15%"><input type="text" name="empStartMonth7" id="datepicker7"
+												placeholder="mm/dd/yyyy" ng-model="empThirdMonYear"
+												ng-selected="employe1(this)" style="width: 100%; position: relative; z-index: 100000;"
+												class="form-control">
+											</td>
+												<td width="25%"><input type="text" name="empPosition3"
+												placeholder="E.g. Manager" style="width: 100%;"
+												class="form-control" value="">
+												</td>
+											</tr>
+											
+										</table>
+										<input type="hidden" name="monthsum33" ng-model="employetotal2" value="{{employetotal3-employetotal2}}">
+										<input type="hidden" name="totalMonths3" ng-model="employetotal3" value="{{employetotal3}}">
+					</div>
+					
+					
+					</div>
+							
+							
+						
+							<!-- History of Self-Employed -->
+							<div ng-show="43<36 && checkSelfEmployee.areUSelfEmploye != 'yes'">
+					  		<h4 style="padding-left: 0%;"><Strong>Work History Self-Employed</Strong></h4>
+							<hr style="width: 96%; border-color: #006699; margin-top: 0%; margin-bottom: 0%;" />
+							<label class="labelfont">In most cases lenders require three years of employment history and more options will be available for those with longer employment histories. They do realize that there are exceptions however. Some of these might be if you are a home maker, have part time or seasonal work, student, on maternity leave, have a disability etc. </label>
+					  		<table>
+					  			<tr>
+					  				<td width="17%"><input type="text" name="selfIncomeTypes2" placeholder="E.g. Self-Employed" style="width: 100%;" class="form-control" value="Self Employed" readonly="readonly">
+									     			</td>
+					  				<td width="43%"><input type="text" name="selfBusinessName2" placeholder="E.g. Business Name" style="width: 100%;" class="form-control" value="@selfEmployeeIncome.getBusiness22">
+      												</td>
+					  				<td width="15%"><input type="text" id="datepicker4" name="selfStartMon2" placeholder="mm/dd/yyyy" ng-model="slfsecMonYears" ng-selected="employe2(this)" style="width: 100%; position: relative; z-index: 100000;" class="form-control">
+									     			</td>
+					  				<td width="25%"><input type="text" name="selfPosition2"  placeholder="E.g. Manager" style="width: 100%;" class="form-control" value="@selfEmployeeIncome.getPosition22">
+      										</td>
+					  			</tr>
+					  			<tr>
+					  				<td><div id="input_1121"></div></td>
+					  				<td><div id="input_1122"></div></td>
+					  				<td><div id="input_1123"></div></td>
+					  				<td><div id="input_1124"></div></td>
+					  			</tr>
+					  		</table>
+					  		<input type="hidden" name="selfemployemonthssum2" value="{{slfemployetotal2-slfemployetotal1}}">
+					  		<input type="hidden" name="selfemployemonthsumTotal2" value="{{slfemployetotal2}}">
+							<div ng-show="slfemployetotal2 < 36">
+								<br>
+								<table>
+									<tr>
+										<td width="17%"><input type="text" name="selfIncomeTypes3" placeholder="E.g. Self-Employed" style="width: 100%;" class="form-control" value="Self Employed" readonly="readonly">
+									     				</td>
+										<td width="43%"><input type="text" name="selfBusinessName3" placeholder="E.g. Business Name" style="width: 100%;" class="form-control" value="@selfEmployeeIncome.getBusiness23">
+      													</td>
+										<td width="15%"><input type="text" id="datepicker5" name="selfStartMon3" placeholder="mm/dd/yyyy" ng-model="slfthirdMonYear" ng-selected="employe2(this)" style="width: 100%; position: relative; z-index: 100000;" class="form-control">
+									     				</td>
+										<td width="25%"><input type="text" name="selfPosition3"  placeholder="E.g. Manager" style="width: 100%;" class="form-control" value="@selfEmployeeIncome.getPosition23">
+      													</td>
+									</tr>
+									<tr>
+									<td><div id="input_1125"></div></td>
+									<td><div id="input_1126"></div></td>
+									<td><div id="input_1127"></div></td>
+									<td><div id="input_1128"></div></td>
+								</tr>
+								</table>
+								<input type="hidden" name="selfemployemonthssum3" value="{{slfemployetotal3-slfemployetotal2}}">
+					  			<input type="hidden" name="selfemployemonthsumTotal3" value="{{slfemployetotal3}}">
+							</div>
+						</div>
+			      <br>
+			       <br> <br>
+			      <div class="row" style="width: 100%;">
+								<div class="col-sm-6"
+									style="float: left; padding-left: 2%; width: 50%;">
+									<a href="mortgageBackPage7" class="btn btn-primary"
+										role="button" style="width: 50%;">Back</a>
+								</div>
+							<div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 50%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+					<br>
+						 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+						  <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
+						  <!-- <script type="text/javascript" src="jquery-ui.js" ></script> -->
+						  <script src="@routes.Assets.at("_resources/jquery-ui.js")" type="text/javascript"></script>
+						  <link rel="stylesheet" href="/resources/demos/style.css">
+						  <!-- <p>Date: <input type="text" id="datepicker7"></p> -->
+						  <!-- <p>Date: <input type="text" id="datepicker6"></p> --> 
+						  
+			</div>
+						<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; background-color: #6AA84F;">
+						    <label>70%</label>
+						    </div>
+						  </div>
+						</div>
+					 </div>
+				</div>
+				</div>
+				<br>
+				
+			</form>
+			</div>
+
+<script type="text/javascript">
+    $(function() {
+        $.mask.definitions['~'] = "[+-]";
+
+        $("#phonedatata").mask("999-999-9999");
+    });
+	
+</script>
+
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/Are you Self-Employed?js?sensor=false&amp;libraries=places"></script>
+ 
+    <script src="jquery.geocomplete.js"></script>
+    
+   <script type="text/javascript">
+    var app = angular.module("demoApp", ['ui.bootstrap']);
+    app.controller('DemoController', function ($scope) {
+        init();
+        $scope.monthsTotal=0;
+        $scope.employetotal1=0;
+      	$scope.selfemployetotal1=0;
+    	$scope.historyTotal=0;
+        var totalMonths=0;
+        function init() {
+        	$scope.employeCount=0;
+            $scope.newItemType = '';
+            $scope.company="";
+            
+            $scope.change = function () {
+                console.log($scope.newItemType)
+            };
+        }
+
+        $scope.addemployee=function ($scope) {
+        	alert("Employe Count "+	$scope.employeCount);
+         	$scope.employeCount=$scope.employeCount+1;
+         	
+         	alert($scope.employeCount);
+         	
+           }
+        
+        
+        $scope.employe1 = function ($scope) {
+        	
+        	
+        	$( "#datepicker0" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.empFirstMonYear = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        
+        	$( "#datepicker1" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.emp1monYear = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });	
+        	   
+        	$( "#datepicker2" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.emp2monYear = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+       
+
+    if($scope.checkEmployee.areUemploye == 'yes'){
+     
+        var one= $scope.empFirstMonYear;
+        var date =one.split("/");
+        var oneDate=date[0]+"/1/"+date[2];
+        var total=0;
+           
+       	var today = new Date();
+		var datevDate=new Date(oneDate);
+		
+		var one_day=1000*60*60*24;
+		var date1ms=today.getTime();
+		var date2ms=datevDate.getTime();
+		
+		var totmili=date1ms-date2ms;
+		var totalDays=Math.round(totmili/one_day);
+		var totalMonths=Math.abs((totmili/one_day)/30);
+		
+    	total=Math.floor(totalMonths); 
+ 		$scope.employetotal1 = total;
+ 		totalMonths=total;
+           if(total <36){
+                one= $scope.emp1monYear;
+                date =one.split("/");
+                oneDate=date[0]+"/1/"+date[2];
+        	   datevDate=new Date(oneDate);
+        	   
+  			      	   
+       		 one_day=1000*60*60*24;
+       		 date1ms=date2ms;
+       		 date2ms=datevDate.getTime();
+       		
+       		 totmili=date1ms-date2ms;
+       		 
+       			 if(isNaN(totmili) == false){
+       		 totalDays=Math.round(totmili/one_day);
+
+       		 totalMonths=Math.abs((totmili/one_day)/30);
+
+
+
+     		total=total+Math.floor(totalMonths); 
+
+     		$scope.employetotal2=total;
+     		totalMonths=total;
+
+     		 if(total<36){
+				    			 
+     			  one= $scope.emp2monYear;
+                  date =one.split("/");
+                  oneDate=date[0]+"/1/"+date[2];
+          	   datevDate=new Date(oneDate);
+            		
+           		 one_day=1000*60*60*24;
+           		 date1ms=date2ms;
+           		 date2ms=datevDate.getTime();
+           		
+           		 totmili=date1ms-date2ms;
+           		if(isNaN(totmili) == false){
+
+           		 totalDays=Math.round(totmili/one_day);
+           		 totalMonths=Math.abs((totmili/one_day)/30);
+          		total=Math.floor(total)+Math.floor(totalMonths); 
+					
+         		$scope.employetotal3 = total;
+         		$scope.employetotal1=total;
+         		totalMonths=total;
+
+           		}
+             }
+        	 }
+           }
+    }else{
+    	
+    	$scope.employetotal1=0;
+ 		totalMonths=0;
+
+    }
+       
+        
+        };
+ 	   
+
+    $scope.employe2 = function ($scope) {
+        	
+        	        
+        	$( "#datepicker3" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.slfempFirstMonYear = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+        	$( "#datepicker4" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.slf4MonYears = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+        	$( "#datepicker5" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.slf5MonYears = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+        	
+        	
+        	
+        	$( "#datepicker6" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.historyEmployeOne = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+        	$( "#datepicker7" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                onSelect: function (date) {
+                    $scope.historyEmployeeTwo = date;
+               
+                     $scope.$apply(function($scope){
+                         // Change binded variable
+                         $scope.assign($scope, date);
+                     });
+                     
+                }
+               
+              });
+        	
+        
+        	$scope.selfemployetotal1=0;
+        	if($scope.checkSelfEmployee.areUSelfEmploye== 'yes'){
+        	
+            var one= $scope.slfempFirstMonYear;
+            var date =one.split("/");
+            var oneDate=date[0]+"/1/"+date[2];
+            var total=0;
+               
+           	var today = new Date();
+    		var datevDate=new Date(oneDate);
+    		
+    		var one_day=1000*60*60*24;
+    		var date1ms=today.getTime();
+    		var date2ms=datevDate.getTime();
+    		
+    		var totmili=date1ms-date2ms;
+    		var totalDays=Math.round(totmili/one_day);
+    		var totalMonths=Math.abs((totmili/one_day)/30);
+    		
+        	total=Math.floor(totalMonths);
+        	
+     		$scope.slfemployetotal1 = total;
+     		$scope.selfemployetotal1=total;
+
+               if(total <36){
+                    one= $scope.slfsecMonYears;
+                    date =one.split("/");
+                    oneDate=date[0]+"/1/"+date[2];
+            	   datevDate=new Date(oneDate);
+      			      	   
+           		 one_day=1000*60*60*24;
+           		 date1ms=date2ms;
+           		
+           		 date2ms=datevDate.getTime();
+           		 
+           		 totmili=date1ms-date2ms;
+           		 
+           		if(isNaN(totmili) == false){
+           		 totalDays=Math.round(totmili/one_day);
+
+           		 totalMonths=Math.abs((totmili/one_day)/30);
+
+         		total=total+Math.floor(totalMonths); 
+
+         		$scope.slfemployetotal2 = total;
+         		$scope.selfemployetotal1=total;
+
+         		
+         		 if(total<36){
+         		
+         			  one= $scope.slfthirdMonYear;
+                      date =one.split("/");
+                      oneDate=date[0]+"/1/"+date[2];
+              	   	  datevDate=new Date(oneDate);
+                		
+               		 one_day=1000*60*60*24;
+               		 date1ms=date2ms;
+               		 date2ms=datevDate.getTime();
+               		
+               		 totmili=date1ms-date2ms;
+               		if(isNaN(totmili) == false){
+
+               		 totalDays=Math.round(totmili/one_day);pensiontotal1
+               		 totalMonths=Math.abs((totmili/one_day)/30);
+              		total=Math.floor(total)+Math.floor(totalMonths); 
+
+             		$scope.slfemployetotal3 = total;
+             		$scope.selfemployetotal1=total;
+
+
+               	  }
+                 }
+               }
+              }
+
+        	}else{
+        		$scope.slfemployetotal1=0;
+        		$scope.slfemployetotal3 =0;
+        		$scope.slfemployetotal2=0;
+
+        	}
+        	
+          if($scope.employetotal1 + $scope.selfemployetotal1 <36 && ($scope.checkSelfEmployee.areUSelfEmploye== 'yes' || $scope.checkEmployee.areUemploye == 'yes')){
+        	var one= $scope.historyEmployeOne;
+            var date =one.split("/");
+            var oneDate=date[0]+"/1/"+date[2];
+            var total=0;
+               
+           	var today = new Date();
+    		var datevDate=new Date(oneDate);
+    		
+    		var one_day=1000*60*60*24;
+    		var date1ms=today.getTime();
+    		var date2ms=datevDate.getTime();
+    		
+    		var totmili=date1ms-date2ms;
+    		var totalDays=Math.round(totmili/one_day);
+    		var totalMonths=Math.abs((totmili/one_day)/30);
+    		
+        	total=Math.floor(totalMonths);
+        	
+        	$scope.historyTotal = total;
+     		
+     	      if(total <36){
+                  one= $scope.historyEmployeTwo;
+                  date =one.split("/");
+                  oneDate=date[0]+"/1/"+date[2];
+          	   datevDate=new Date(oneDate);
+    			      	   
+         		 one_day=1000*60*60*24;
+         		 date1ms=date2ms;
+         		
+         		 date2ms=datevDate.getTime();
+         		 
+         		 totmili=date1ms-date2ms;
+         		 
+         		if(isNaN(totmili) == false){
+         		 totalDays=Math.round(totmili/one_day);
+
+         		 totalMonths=Math.abs((totmili/one_day)/30);
+
+       		total=total+Math.floor(totalMonths); 
+
+       		$scope.historyTotal= total;
+         		}
+        	
+          }else{
+        	  historyTotal=0;
+        	  }
+          }
+            };
+        
+         
+           
+ 		
+    });
+   
+    </script>
+    
+    <script type="text/javascript">
+   
+	
+			function addMoreRows(frm) {
+				var rowCount=document.getElementById("addedRows").rows.length;
+				rowCount=rowCount-2;
+				if(rowCount<3){
+				
+				
+				var recRow = '<tr id="rowCount'+rowCount+'"  >	<td><input type="text" name="empIncomeTypes"	placeholder="E.g. Employer" class="form-control"value="Employed" style="float:left;width: 100%;" readonly="readonly"></td>'
+				+'<td width="17%"><input type="text"  name="empBusinessName"placeholder="E.g. Business Name" style="float:left;width: 100%;"class="form-control" value="" ></td>'
+				+'<td width="15%"><input type="text" id="datepicker'+rowCount+'" name="empStartMonth" placeholder="mm/dd/yyyy"ng-model="emp'+rowCount+'monYear" ng-selected = "employe1(this)"style="width: 100%; position: relative; z-index: 100000;"class="form-control"></td>'
+				+'<td width="25%"><input type="text" name="empPosition"placeholder="E.g. Manager" class="form-control" style="width: 100%;" value=""></td>'
+				+'<td><a href="javascript:void(0);" onclick="removeRow('
+						+ rowCount + ');">Delete</a></td></tr>';
+				jQuery('#addedRows').append(recRow);
+			}
+			}
+
+			function removeRow(removeNum) {
+				jQuery('#rowCount' + removeNum).remove();
+				angular.element(document.getElementById('divID')).scope().employe1();
+
+			}
+		</script>
+		
+		<script type="text/javascript">
+			function addMoreRowsForSelfEmp(frm) {
+				var rowCount1=document.getElementById("addedRowsSelf").rows.length;
+		
+			rowCount1=rowCount1+2;
+
+				if(rowCount1<6){
+
+				var recRow = '<tr id="rowCountSelf'+rowCount1+'"  >	<td width="17%"><input type="text" name="selfIncomeTypes"placeholder="E.g. Self-Employed" style="width: 100%;"class="form-control" value="Self Employed"readonly="readonly"></td>'
+				+'<td width="43%"><input type="text" name="selfBusinessName" placeholder="E.g. Business Name" style="width: 100%;" class="form-control" value=""></td>'
+				+'<td width="15%"><input type="text"  id="datepicker'+rowCount1+'"	name="selfStartMon" placeholder="mm/dd/yyyy" ng-model="slf'+rowCount1+'MonYears" ng-selected="employe1(this)" style="width: 100%; position: relative; z-index: 100000;" class="form-control"></td>'
+				+'	<td width="25%"><input type="text" name="selfPosition" placeholder="E.g. Manager" class="form-control" value="@selfEmployeeIncome.getCurrentPosition21"></td>'
+				+'<td><a href="javascript:void(0);" ng-click="employe2();" onclick="removeRowForSelfEmp('
+						+ rowCount1 + ');">Delete</a></td></tr>';
+				jQuery('#addedRowsSelf').append(recRow);
+				}
+			}
+
+			function removeRowForSelfEmp(removeNum) {
+				jQuery('#rowCountSelf' + removeNum).remove();
+			}
+		</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+2015-12-02 19:05:36,884 - [INFO] - from play in pool-4-thread-1 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-12-02 19:06:13,717 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-02 19:06:14,812 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+jsondata =------------------------------------{"id":439}
+
+2015-12-02 19:06:14,819 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+Opp_id  is439
+
+2015-12-02 19:06:14,820 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+calling credit  stage  Methods
+
+2015-12-02 19:06:14,824 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+inside method credit stage change
+
+2015-12-02 19:06:14,828 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+stg---null---null----null
+
+2015-12-02 19:06:14,829 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+
+
+2015-12-02 19:06:20,767 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+connection sucessful to the lead module com.debortoliwines.openerp.api.ObjectAdapter@403d53dd
+
+2015-12-02 19:06:22,993 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+Stage  chnages  To  Credit sucessfull  com.debortoliwines.openerp.api.Row@3fc48f45
+
+2015-12-02 19:06:22,993 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+stage  Chnages  To  Credit
+
+2015-12-02 19:07:22,995 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+stg---null---null----null
+
+2015-12-02 19:07:22,999 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+
+
+2015-12-02 19:07:27,422 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+searching opporunit with this id 439
+
+2015-12-02 19:07:29,631 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+Applicant founds size 1
+
+2015-12-02 19:07:29,632 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+--------------applicant id--------551
+
+2015-12-02 19:07:30,512 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+Applicant beacon value  760
+
+2015-12-02 19:07:30,513 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+single applicant exsist
+
+2015-12-02 19:07:30,513 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+single applicant exsist beacan value is greater than zero
+
+2015-12-02 19:07:30,513 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+beacon data exisist
+
+2015-12-02 19:07:30,517 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+after  automated app calling taskcreation pp{"id":439}
+
+2015-12-02 19:07:30,518 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+end of the automated appp{"id":439}
+
+2015-12-02 19:07:40,104 - [DEBUG] - from application in Thread-7 
+Output from Server .... 
+
+
+2015-12-02 19:07:40,107 - [DEBUG] - from application in Thread-7 
+Output from Server ....+ sucesss
+
+2015-12-02 19:09:54,382 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+jsondata =------------------------------------{"id":439}
+
+2015-12-02 19:09:54,382 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Opp_id  is439
+
+2015-12-02 19:09:54,383 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+calling credit  stage  Methods
+
+2015-12-02 19:09:54,383 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+inside method credit stage change
+
+2015-12-02 19:09:54,384 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+stg---null---null----null
+
+2015-12-02 19:09:54,384 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+
+
+2015-12-02 19:09:58,613 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+connection sucessful to the lead module com.debortoliwines.openerp.api.ObjectAdapter@7a88b727
+
+2015-12-02 19:10:00,018 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Stage  chnages  To  Credit sucessfull  com.debortoliwines.openerp.api.Row@3c78e593
+
+2015-12-02 19:10:00,019 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+stage  Chnages  To  Credit
+
+2015-12-02 19:11:00,020 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+stg---null---null----null
+
+2015-12-02 19:11:00,020 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+
+
+2015-12-02 19:11:04,985 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+searching opporunit with this id 439
+
+2015-12-02 19:11:07,240 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Applicant founds size 1
+
+2015-12-02 19:11:07,240 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+--------------applicant id--------551
+
+2015-12-02 19:11:08,138 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Applicant beacon value  0
+
+2015-12-02 19:11:08,138 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+single applicant exsist
+
+2015-12-02 19:11:08,138 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+single applicant exsist beacan value is less than zero
+
+2015-12-02 19:11:12,022 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+after  automated app calling taskcreation pp{"id":439}
+
+2015-12-02 19:11:12,023 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+end of the automated appp{"id":439}
+
+2015-12-02 19:11:28,753 - [DEBUG] - from application in Thread-15 
+Output from Server .... 
+
+
+2015-12-02 19:11:28,754 - [DEBUG] - from application in Thread-15 
+Output from Server ....+ sucesss
+

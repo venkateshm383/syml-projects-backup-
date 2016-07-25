@@ -1,0 +1,258 @@
+@(addresses:ApplicantAddressParameter7,newcanda:String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+<script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage7a.js")"></script>
+<script src="@routes.Assets.at("_resources/jquery.geocomplete.js")"></script>
+<style type="text/css">
+	.verticalLine {
+	height: 320px;
+    border-left: medium groove #336699;
+	}
+	.inline{
+	display: inline;
+	}
+</style>
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>  
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+</head>
+<body>
+<br>
+<br>
+<div style="width: 97%;">
+			 <form name="myForm" action="mortgagePage7a" method="POST" onsubmit="return validateForm()">  
+				<!-- <form name="myForm" action="#" method="POST" onsubmit="return validateForm()">  -->
+		<input type="hidden" value="uniid" name="uniid">
+		<input type="hidden" value="@addresses.getApplicantMovedIn1" name="movedIn12">
+		<input type="hidden" value="@addresses.getApplicantMovedIn2" name="movedIn13">
+		<input type="hidden" value="@addresses.getApplicantMovedIn3" name="movedIn14">
+		<input type="hidden" value="@addresses.getApplicantMovedIn4" name="movedIn15">
+		<input type="hidden" value="@addresses.getApplicantMovedIn5" name="movedIn16">
+		<input type="hidden" value="@addresses.getApplicantMovedIn6" name="movedIn17">
+		
+		
+		
+		<input type="hidden" value="@addresses.getApplicantTotalcurrentMonths" name="totalMonth131" >
+		<input type="hidden" value="@addresses.getApplicantTotalpriorcurrentmonths1" name="totalMonth132" >
+		<input type="hidden" value="@addresses.getApplicantTotalpriorcurrentmonths2" name="totalMonth133" >
+		
+		<input type="hidden" value="@addresses.getApplicantTotalpriorcurrentmonths3" name="totalMonth134" >
+		<input type="hidden" value="@addresses.getApplicantTotalpriorcurrentmonths4" name="totalMonth135" >
+		<input type="hidden" value="@addresses.getApplicantTotalpriorcurrentmonths5" name="totalMonth136" >
+		
+			<input type="hidden" value="@newcanda" name="newCanadaCheck" >
+		
+		
+		
+		<div class="row"></div>
+		<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8 container-bg text-color-blue">
+			
+		<div align="left" style="padding-bottom: 1px; margin-top: 20px; padding-left: 1%">
+			<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")" />
+		</div>
+		
+		<div align="left"
+			style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+			<label class="labelfont"> <font size="6">Address </font> </label>
+		</div>
+		<div style="padding-top: 30px"></div>
+		<div data-ng-app="demoApp"  style="margin-left: 4%">
+		<div ng-controller="DemoController" ng-init="isDisabled = false" >
+				
+					<!-- <label class="labelfont" >@addresses.getApplicantName</label> --><br><br>
+					<div class="row">
+					<div class="col-sm-7"><label class="labelfont">What is your current address?<span style="color: red; font-size: 3">*</span></label></div>
+					<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+					</div>
+					
+			<div class="row">
+					  <div class="col-sm-7">
+					  	<div class="map_canvas"></div>
+							<input type="text" id="geocomplete" placeholder="Enter Location" class="form-control" name="currentAddress1" value="@addresses.getApplicantCurrentAddress">
+								<div id="input_2001" style="position: absolute;"> </div>
+					  </div>
+					  <div class="col-sm-3" style="padding-left: 0%;"><input type="text" name="movedIn1" ng-model="movedIn1" id = "datepicker" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly" value="">
+						<div id="input_2002" style="position: absolute;"> </div>
+					</div>
+			</div><br><br>
+				<input type="hidden" name="currentaddressmonthsum" value="{{applicantTotal1}}">
+				<input type="hidden" name="totalcurrentmonths" value="{{applicantTotal1}}">
+				
+				<input type="hidden" name="canadacheckinform" value="{{newCanadaForCheck}}">
+				
+			<div ng-show="applicantTotal1<36 && newCanadaForCheck=='no'">
+				<br>
+				   <div class="row">
+					<div class="col-sm-7"><label class="labelfont">Please provide your prior address.Lenders Require A Minimum Of 3 Years Of Address History?<span style="color: red; font-size: 3">*</span></label></div>
+					<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+					</div>
+				
+					<div class="row">
+					  <div class="col-sm-7"><div class="map_canvas"></div>
+							<input type="text" id="geocomplete1" placeholder="Enter Location" class="form-control" name="currentAddress2" value="@addresses.getApplicantPriorAddress1">
+							<div id="input_2003" style="position: absolute;"> </div>
+					  </div>
+					  <div class="col-sm-3" style="padding-left: 0%;"><input type="text"  name="movedIn2" ng-model="movedIn2" id = "datepicker1" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly">
+							<div id="input_2004" style="position: absolute;"> </div>
+					  </div>
+					  </div>
+					 	 <input type="hidden" name="priormonthsum1" value="{{applicantTotal2-applicantTotal1}}">
+						<input type="hidden" name="totalpriormonths1" value="{{applicantTotal2}}">
+					  <div ng-show="applicantTotal2<36">
+					  	<br>
+					  	<div class="row">
+							<div class="col-sm-7"><label class="labelfont">Previous address?<span style="color: red; font-size: 3">*</span></label></div>
+							<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+						</div>
+					  		<div class="row">
+							  <div class="col-sm-7"><div class="map_canvas"></div>
+								<input type="text" id="geocomplete2" placeholder="Enter Location" class="form-control" name="currentAddress3" value="@addresses.getApplicantPriorAddress2">
+									<div id="input_2005"> </div>
+								</div>
+							  <div class="col-sm-3" style="padding-left: 0%;"><input type="text"  name="movedIn3" ng-model="movedIn3" id = "datepicker2" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly">
+								<div id="input_2006" style="position: absolute;"> </div>
+							  </div>
+							  </div>
+							
+							  <input type="hidden" name="priormonthsum2" value="{{applicantTotal3-applicantTotal2}}">
+							 <input type="hidden" name="totalpriormonths2" value="{{applicantTotal3}}">
+							 
+							 <!-- from major  changes here  -->
+							
+							 
+							 
+							 
+							 <div ng-show="applicantTotal3<36">
+					  	<br>
+					  	<div class="row">
+							<div class="col-sm-7"><label class="labelfont">Previous address?<span style="color: red; font-size: 3">*</span></label></div>
+							<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+						</div><br>
+					  		<div class="row">
+							  <div class="col-sm-7"><div class="map_canvas"></div>
+								<input type="text" id="geocomplete3" placeholder="Enter Location" class="form-control" name="currentAddress4" value="@addresses.getApplicantPriorAddress3">
+									<div id="input_2007"> </div>
+								</div>
+							  <div class="col-sm-3" style="padding-left: 0%;"><input type="text"  name="movedIn4" ng-model="movedIn4" id = "datepicker3" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly">
+								<div id="input_2008" style="position: absolute;"> </div>
+							  </div>
+							  </div>
+							
+							  <input type="hidden" name="priormonthsum3" value="{{applicantTotal4-applicantTotal3}}">
+							 <input type="hidden" name="totalpriormonths3" value="{{applicantTotal4}}"> 
+							 
+							 <div ng-show="applicantTotal4<36">
+							 
+							 <br>
+					  	<div class="row">
+							<div class="col-sm-7"><label class="labelfont">Previous address?<span style="color: red; font-size: 3">*</span></label></div>
+							<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+						</div>
+					  		<div class="row">
+							  <div class="col-sm-7"><div class="map_canvas"></div>
+								<input type="text" id="geocomplete4" placeholder="Enter Location" class="form-control" name="currentAddress5" value="@addresses.getApplicantPriorAddress4">
+									<div id="input_2009"> </div>
+								</div>
+							  <div class="col-sm-3" style="padding-left: 0%;"><input type="text"  name="movedIn5" ng-model="movedIn5" id = "datepicker4" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly">
+								<div id="input_2010" style="position: absolute;"> </div>
+							  </div>
+							  </div>
+							  <br>
+							
+							  <input type="hidden" name="priormonthsum4" value="{{applicantTotal5-applicantTotal4}}">
+							 <input type="hidden" name="totalpriormonths4" value="{{applicantTotal5}}">
+							  <div ng-show="applicantTotal5<36">
+							 
+							  	 <br>
+					  	<div class="row">
+							<div class="col-sm-7"><label class="labelfont">Previous address?<span style="color: red; font-size: 3">*</span></label></div>
+							<div class="col-sm-3" style="padding-left: 0%;"><label class="labelfont">Moved In?<span style="color: red; font-size: 3">*</span></label></div>
+						</div>
+					  		<div class="row">
+							  <div class="col-sm-7"><div class="map_canvas"></div>
+								<input type="text" id="geocomplete5" placeholder="Enter Location" class="form-control" name="currentAddress6" value="@addresses.getApplicantPriorAddress5">
+									<div id="input_2011"> </div>
+								</div>
+							  <div class="col-sm-3" style="padding-left: 0%;"><input type="text"  name="movedIn6" ng-model="movedIn6" id = "datepicker5" placeholder="mm/dd/yyyy" class="form-control" ng-selected="calculateDate(this)" readonly="readonly">
+								<div id="input_2012" style="position: absolute;"> </div>
+							  </div>
+							  </div>
+							  
+							  <br>
+							
+							   <input type="hidden" name="priormonthsum5" value="{{applicantTotal6-applicantTotal5}}">
+							 <input type="hidden" name="totalpriormonths5" value="{{applicantTotal6}}"> 
+							 
+							  </div>
+							  
+							
+							 </div>
+					  </div>
+					  
+							 
+							 
+					  </div>
+			</div>
+			 
+			 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+			  <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
+			  <script type="text/javascript" src="jquery-ui.js" ></script>
+			  <script src="@routes.Assets.at("_resources/jquery-ui.js")" type="text/javascript"></script>
+			  <link rel="stylesheet" href="/resources/demos/style.css">
+				</div>
+				</div>
+	        <br>
+	        		<div class="row" style="width: 100%;">
+					  <div class="col-sm-6" style="float: left; padding-left:2%; width: 50%;">
+					  		<a href="mortgageBackPage6b" class="btn btn-primary"
+										role="button" style="width: 50%;">Back</a>
+					  </div>
+					  <div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 50%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+				
+						<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%; background-color: #6AA84F;">
+						    <label>60% complete</label>
+						    </div>
+						  </div>
+						</div>
+					 </div>
+				</div>
+				
+				<br>
+				<br>
+</form>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="jquery.geocomplete.js"></script>
+
+</body>
+</html>
+ 

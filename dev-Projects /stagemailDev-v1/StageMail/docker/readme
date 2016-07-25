@@ -1,0 +1,7 @@
+Please pass the follwing Environment Variables to the docker on run
+COUCHBASE_HOST_1
+COUCHBASE_HOST_2
+COUCHBASE_BUCKET_NAME
+COUCHBASE_BUCKET_PASSWORD
+
+The play application will listen to port 9000

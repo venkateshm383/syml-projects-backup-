@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+POST   /val   						 controllers.Application.getDocument()
+
+
+
+POST   /add   						 controllers.Application.splitDocument()
+
+GET /getId                            controllers.Application.getOriginalDocID()
+
+GET /getdoc                          controllers.Application.masterDoc()
+POST /delete      controllers.Application.deleteSplitDocument()
+
+POST /data 			controllers.Application.data()
+
+POST /addextradocument                 controllers.Application.addExtraDocuements()  
+
+POST /search                        controllers.Application.searchOpporunity()
+
+
+POST /searchMaster                       controllers.Application.searchOpprunityMasterDoc()
+
+GET /mail                     controllers.Application.sendMail()
+
+
+GET /deletesplitdoc            controllers.Application.deleteSplitdoc() 
+
+POST /deleteDocList           controllers.Application.deleteDocList() 
+
+GET  /download              controllers.Application.download()

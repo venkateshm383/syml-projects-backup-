@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.verticalLine {
+	height: 357px;
+	border-left: medium groove #336699;
+}
+
+.inline {
+	display: inline;
+}

@@ -1,0 +1,184 @@
+@(additionalApplicants: String,incomedown1:String,largerfamily1:String,buyingnewvechile1:String,Planninglifestyle1:String,financialrisk1:String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js
+"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+   <script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+    
+     <script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage5a.js")"></script>
+
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+ <link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>  
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+</head>
+<body>
+<br>
+<br>
+
+<div style="width: 95%;">
+
+		<form name="myForm" action="mortgagePage5a" method="POST" onsubmit="return validateForm()">
+		<input type="hidden" value="@additionalApplicants" name="additionalApplicants">
+		<input type="hidden" value="@incomedown1" name="incomedown1">
+		<input type="hidden" value="@largerfamily1" name="largerfamily1">
+		<input type="hidden" value="@buyingnewvechile1" name="buyingnewvechile1">
+		<input type="hidden" value="@Planninglifestyle1" name="Planninglifestyle1">
+		<input type="hidden" value="@financialrisk1" name="financialrisk1">
+		
+		<div class="row"></div>
+		<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-7 container-bg text-color-blue">
+			
+		<div align="left" style="padding-bottom: 0%; margin-top: 20px; padding-left: 3%">
+			<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")" />
+		</div>
+		<div align="left"
+						style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+						<label class="labelfont"> <font size="6">Suitability Questions </font> </label>
+					</div>
+		<div style="padding-top: 30px"></div>
+		<div data-ng-app="demoApp"  style="margin-left: 5%">
+		<label class="labelfont">The following questions will help us understand and determine which is the best mortgage for you</label>
+		<br><br>
+		<div ng-controller="DemoController" ng-init="isDisabled = false">
+			<div style="width: 100%;">
+			
+			<label class="labelfont">If my income went down by a few hundred dollars a month, I would start to really worry about my bills.<span style="color: red; font-size: 3">*</span></label><br>
+			<div class="btn-group block" style="width: 100%;">
+          			
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'Yes'"
+                      ng-change="change()"  ng-model="newItemType6"> Yes
+                                
+              </label>              
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'No'"
+                       ng-change="change()"  ng-model="newItemType6"> No
+		      </label>
+              <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" btn-radio="'Maybe'"
+                      ng-change="change()"  ng-model="newItemType6"> Maybe
+              </label>
+            </div>
+            <div id="widget_uniidsettings_60" style="position: absolute;"> </div>
+            <input type="hidden" name="mybills" value="{{newItemType6}}" ></input>
+            </div>
+            <br>
+            
+			<label class="labelfont">I might have a larger family sometime over the next 5 years.<span style="color: red; font-size: 3">*</span></label><br>
+			<div class="btn-group" style="width: 100%;">
+          			
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'Yes'"
+                      ng-change="change()"  ng-model="newItemType7"> Yes
+                                
+              </label>              
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'No'"
+                       ng-change="change()"  ng-model="newItemType7"> No
+		      </label>
+              <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" btn-radio="'Maybe'"
+                      ng-change="change()"  ng-model="newItemType7"> Maybe
+              </label>
+              
+            </div>
+            <div id="widget_settings_61" style="position: absolute;"> </div>
+            <input type="hidden" name="largerFamily" value="{{newItemType7}}" ></input>
+			<br>            <br>
+			
+			<label class="labelfont">I am considering buying a new vehicle in the next 6-12 months.<span style="color: red; font-size: 3">*</span></label><br>
+			<div class="btn-group" style="width: 100%">
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'Yes'"
+                      ng-change="change()"  ng-model="newItemType8"> Yes
+                                
+              </label>             
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'No'"
+                       ng-change="change()"  ng-model="newItemType8"> No
+		      </label>
+              <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" btn-radio="'Maybe'"
+                      ng-change="change()"  ng-model="newItemType8"> Maybe
+              </label>
+            </div>
+            <div id="widget_settings_62" style="position: absolute;"></div>
+            <input type="hidden" name="buyNewVehicle" value="{{newItemType8}}" ></input>
+			            <br>
+			            <br>
+			
+			<label class="labelfont">In the next 2-5 years, I am planning on significantly changing my recreation lifestyle and I might require much more storage at home.<span style="color: red; font-size: 3">*</span></label><br>
+			<div class="btn-group" style="width: 100%;">
+          			
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'Yes'"
+                      ng-change="change()"  ng-model="newItemType9"> Yes
+                                
+              </label>              
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'No'"
+                       ng-change="change()"  ng-model="newItemType9"> No
+		      </label>
+              <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" btn-radio="'Maybe'"
+                      ng-change="change()"  ng-model="newItemType9"> Maybe
+              </label>
+              
+            </div>
+            <div id="widget_settings_63" style="position: absolute;"> </div>
+                        <input type="hidden" name="recreatStoreHome" value="{{newItemType9}}" ></input>
+	            <br>
+	            <br>
+	
+			<label class="labelfont">I consider myself to be a financial risk taker.<span style="color: red; font-size: 3">*</span></label><br>
+			<div class="btn-group" style="width: 100%;">
+          			
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'Yes'"
+                      ng-change="change()"  ng-model="newItemType10"> Yes
+                                
+              </label>              
+              <label style="width: 20%;" class="btn btn-primary" btn-radio="'No'"
+                       ng-change="change()"  ng-model="newItemType10"> No
+		      </label>
+              <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" btn-radio="'Maybe'"
+                      ng-change="change()"  ng-model="newItemType10"> Maybe
+              </label>
+            </div>
+             <div id="widget_settings_64" style="position: absolute;"> </div>
+            <input type="hidden" name="riskTaker" value="{{newItemType10}}" ></input>
+        </div>
+	<br>	        		<div class="row" style="width: 100%;">
+					  <div class="col-sm-6" style="float: left; padding-left:2%; width: 50%;">
+					  		<a href="mortgageBackPage4" class="btn btn-primary" role="button" style=" width: 50%;">Back</a>
+					  </div>
+					  <div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 50%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+				</div>
+					<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color: #6AA84F;">
+						    <label>40% complete</label>
+						    </div>
+						  </div>
+						</div>
+						
+					 </div>
+				</div>
+				
+				<br>
+</form>
+</div>
+</body>
+</html>

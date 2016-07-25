@@ -1,0 +1,1170 @@
+@(role: String,additionalApplicant:String,referralId:Integer,applicantName:String,coApplicantName:String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <script src="@routes.Assets.at("_resources/angular.min.js")"></script>
+<script	src="@routes.Assets.at("_resources/ui-bootstrap-tpls.min.js")"></script> 
+
+ <script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+
+    
+
+
+<script src="@routes.Assets.at("_resources/app.js")"></script>
+<script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+
+
+<link rel="stylesheet" href="@routes.Assets.at("_resources/signature-pad.css")">
+ 
+<style>
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+#sig-dataUrl {
+	height:0%;
+	width: 100%;
+}
+
+#sig-canvas {
+	border: 2px dotted Black;
+	border-radius: 10px;
+	cursor: cross_hair;
+	background: white_ho_tide_ho;
+	color: black;
+}
+
+#sig-canvas1 {
+	
+	border: 3px dotted Black;
+	
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+#sig-canvas2 {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+/*for bigger checkbox*/
+*,*:after,*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.switch {
+  position: relative;
+}
+
+.switch label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.switch input {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* DEMO 3 */
+
+.switch.demo3 {
+  width: 180px;
+  height: 50px;
+}
+
+.switch.demo3 label {
+  display: block;
+  width: 25%;
+  height: 70%;
+  background: #ffffff;
+}
+
+.switch.demo3 label:after {
+  content: "";
+  position: absolute;
+  top: -8px; right: -8px; bottom: -8px; left: -8px;
+}
+
+.switch.demo3 label:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18px; right: -18px; bottom: -18px; left: -18px;
+}
+
+
+.switch.demo3 input:checked ~ label i:before {
+   content: url("@routes.Assets.at("_resources/tick1.png")"); 
+  color: #000000;
+}
+</style>
+<style type="text/css">
+
+
+
+ #overlay{ 
+	display: none;
+	position: fixed;
+	background: threedhighlight;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+
+} 
+
+#loading{ 
+	padding: 10px 10px 10px 60px; 
+		position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color:threedhighlight;
+    opacity: 0.6;
+    filter: alpha(opacity=60); 
+}
+
+</style> 
+<style>
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#sig-canvas {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+#sig-dataUrl {
+	width: 100%;
+}
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.big-checkbox {
+	padding: 18px;
+}
+
+.big-checkbox:checked:after {
+	font-size: 28px;
+	left: 6px;
+}
+
+.btn {
+	border: 0 none;
+	font-weight: bold;
+}
+
+.btn-primary:active,.btn-primary.active {
+	background: #003f80;
+	color: #ffffff;
+	box-shadow: none;
+}
+</style>
+<style type="text/css">
+.blocks .btn-primary {
+	padding: 9px 6px;
+	margin: 2px 2px;
+	border-radius: 0;
+}
+
+/*for bigger checkbox*/
+*,*:after,*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.switch {
+  position: relative;
+}
+
+.switch label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.switch input {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* DEMO 3 */
+
+.switch.demo3 {
+  width: 125px;
+  height: 30px;
+}
+
+.switch.demo3 label {
+  display: block;
+  width: 40%;
+  height: 70%;
+  background: #ffffff;
+}
+
+.switch.demo3 label:after {
+  content: "";
+  position: absolute;
+  top: -8px; right: -8px; bottom: -8px; left: -8px;
+}
+
+.switch.demo3 label:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18px; right: -18px; bottom: -18px; left: -18px;
+}
+
+
+.switch.demo3 input:checked ~ label i:before {
+   content: url("@routes.Assets.at("_resources/tick.gif")"); 
+  color: #000000;
+  
+  height: 10%;
+  width: 10%;
+}
+</style>
+
+
+    
+
+</head>
+<body>
+
+  <div id="loading" style="display: none" align="center" >
+ 
+  
+     <img src="@routes.Assets.at("/images/preloader-image.gif")" alt="" />
+  
+  </div>  
+
+	<div style="padding-bottom: 20px; margin-top: 20px; padding-left: 45%">
+		<img alt="Visdom Logo" height="90" width="260"
+			src="@routes.Assets.at("_resources/visdom-logo.png")" />
+
+	</div>
+		<form name="myForm" action="referral2" method="POST" onsubmit="return validateForm()">
+		
+		<input type="hidden" name="coapplicant">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-7 container-bg text-color-blue">
+					<div style="padding-top: 50px"></div>
+					
+					
+					<input type="text" name="role" value="@role">
+					<input type="text" name="role" value="@additionalApplicant">
+					
+					<div data-ng-app="demoApp" ng-init="role='@role';role12='@additionalApplicant'"
+						style="margin-left: 5%">
+					
+						<div ng-controller="DemoController" ng-init="newItemType=false">
+						<input type="hidden" name="referrelID" value="@referralId">
+						<input type="hidden" name="role" value="@role">
+						<input type="hidden" name="rule12" value="0">
+
+							<br>
+							<a data-toggle="collapse" href="#other" style="text-decoration: none">
+							    <h3><span class="pull-left glyphicon glyphicon-plus gi-5x"></span>  &nbsp;<font size="4px"> Click to expand Terms and Conditions</font></h3>
+							  </a>
+							<!-- 	<div id="livingroom-10" class="panel-collapse collapse"
+																style="height: 0px;"> -->
+							<div id="other" class="collapse">
+
+
+									<!-- <div ng-show="newItemType"> -->
+
+									<div class="WordSection1">
+									<p><b><span style="text-decoration:underline;">Consent:</span></b><br /> The undersigned applicant(s) agree and covenant with Visdom Mortgages          Solutions (Visdom) in the following manner:</p>
+									<ol>
+						              <li>
+						                You acknowledge and affirm that the information you have given in the mortgage application or any other service offered is true and complete and that you have not withheld or misrepresented any information. The information provided by you will be relied upon to be accurate in order for the lenders or any other persons we may submit to on your behalf to determine credit worthiness.
+						              </li>
+						              <li>
+						                You give consent and authorization to collect and use personal information for the following purposes:
+						                <ul type="disc">
+						                  <li>
+						                    to determine the suitability of the products and services for you
+						                  </li>
+						                  <li>
+						                    to determine your eligibility of the various products and services
+						                  </li>
+						                  <li>
+						                    to establish, manage and offer products and services that need your needs
+						                  </li>
+						                  <li>
+						                    to provide on-going service(s)
+						                  </li>
+						                  <li>
+						                    to meet our legal and regulatory requirements
+						                  </li>
+						                </ul>
+						              </li>
+						              <li>
+						                You will be responsible for any and all fees related to property appraisal, legal, registration fee and other costs or expenses incurred by you in connection with this transaction
+						              </li>
+						              <li>
+						                You authorize Visdom to disclose to any lender, credit bureau, insurer, insurance agent, financial advisor, or any other personal involved in a transaction such as personal and financial information concerning you as we consider appropriate. You also authorize any person whom we contact in this regard to provide such information to us.
+						              </li>
+						              <li>
+						                We will ask you for your Social Insurance Number to use in verifying and reporting credit information to credit bureaus and credit reporting agencies. You may refuse to consent to its use or disclosure for these purposes.
+						              </li>
+						              <li>
+						              I/we acknowledge that Visdom will continue to use the personal information provided to keep me/we abreast of timely information regarding new products and changes in mortgage offerings that could benefit me/us, family or friends. And from time to time will share this information when relevant with my original referrer or nominee.
+						              </li>
+						            </ol>
+						            <p><b><span style="text-decoration:underline;">Relationship and Compensation Disclosure:</span></b><br /> To better assist our borrowers in understanding the relationship and         compensation with Mortgage Brokerages, we have outlined the following         information for your review.</p>
+						            <p>For a variety of reasons, a mortgage professional may not always be         able to obtain the lowest rate or best terms in the marketplace for a         particular borrower. It can be dependent upon the terms of the purchase         contract, type of property, property value, borrowers employment status,         borrowers financial position, and credit history are examples of some         factors that may affect rates or terms.</p>
+						            <p>The mortgage brokerage and its representative's role and obligations         to the borrower and the lender will vary depending on the nature of the         service relationship between the mortgage brokerage as well as the lender         or borrower. This is not intended to be an all inclusive list however in         general terms it best describes the mortgage brokerage's role and         resulting obligations to you. You are strongly encouraged to discuss         this document with your mortgage brokerage representative and ask any         questions you may have.</p>
+						            <p>A mortgage broker can be described as the mastermind between a borrower         and a lender with the goal of originating a mortgage loan. Typically,         a mortgage broker draws from a pool of various lenders to find the right         match; however, it is important to know that some mortgage brokers only         do business with one lender.</p>
+						            <p>We, as a Mortgage Brokerage, will act as an INTERMEDIARY between the         borrower and the lender(s) who have authorized us to offer their mortgage         products to borrowers who are seeking a mortgage. Some of our duties to         the borrower are to be honest, exercise reasonable care and skill, gather         your intended property and financial information to determine the lending         options available to you, disclose and explain appropriate options for         your consideration, completed and submit documentation to the lender,         and keep you informed of the progress of your application.  Some of our         duties to the lender are to be honest, exercise reasonable care and skill,         complete and submit documentation to the lender, disclose what steps were         taken to verify information and documentation as part of the application         process, and keep the lender informed of the progress of the application.         The products this brokerage will offer will be from Multiple Lenders.</p>
+						            <p>The brokerage and its brokers will be compensated for this mortgage         transaction by way of commission/income or fee paid directly by the lender         and, as well,  may also receive monies or non-monetary benefits from the         lender which can include additional commission of income based on volume         of business with a particular lender.</p>
+						            <p>As outlined above, there is a variety of options in obtaining a         mortgage, however if,  for some reason the brokerage must charge you         a fee to arrange your mortgage there may be no refund. When obtaining         a mortgage there can be additional fees that you might be required to         pay such as: property appraisal, default mortgage insurance, title         insurance, legal fees, etc.</p>
+						            <p>The brokerage will be paying a referral fee when this mortgage is placed.</p>
+															
+								</div>
+								</div>
+							
+						</div>
+
+						<br> <label class="form-label form-label-top" id="label_35"
+							for="input_35"> Are you using a device with a touch
+							screen currently? </label><font color="red">*</font> <br>
+							<br>
+							<div class="btn-group">
+								<label style="width: 180px" class="btn btn-primary"
+									btn-radio="'yes'" ng-change="change()" ng-model="company">
+									Yes </label> <label style="width: 180px" class="btn btn-primary"
+									btn-radio="'no'" ng-change="change()" ng-model="company">
+									No </label> <br> <br>
+
+
+							</div> 
+							<div id="touchScreen1">
+							</div>
+							<input type="hidden" id="role" name="touchScreen"
+							value="{{company}}">
+							<input type="hidden" id="role12" name="touch_Screen"
+                            value="{{role12}}">
+							 <br><br>
+							 <!-- <label	class="form-label form-label-right" id="label_41" for="input_41">
+							I agree to the terms and conditions<font color="red">*</font>
+							</label> <input type="checkbox" name="agreeCUT" style="height: 30%;" size="20" required> <br>
+							<div id="agree1"></div> -->
+						<div class="row">
+							<div class="col-sm-5">
+								<label>I agree to the terms and conditions<font
+									color="red">*</font></label>
+							</div>
+						<div class="col-sm-4" style="padding-left: 0%;">
+							<div class="switch demo3 col-sm-4">
+	                    	 <input type="checkbox" name="agree" >
+	                   	 	<label style="border-style:inset;border-color: black;height: 85%;width: 30%"><i ></i></label>
+ 	               	 		</div>	
+						</div>
+						</div>
+						<div id="agree1"></div>
+					<br>
+							<br>
+						
+								
+								<div ng-show="company == 'yes'">
+								
+								<label class="form-label form-label-left form-label-auto"
+									id="label_444" for="input_445">@applicantName 's Signature </label>
+								<div class="row">
+									<div class="col-md-12">
+										
+										
+										
+											<canvas id="sig-canvas1" width="350" height="160">  </canvas>
+								<canvas id="blank"  width="350" height="160" style='display:none'></canvas>
+					
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+
+										<label class="btn btn-default" id="sig-clearBtn1">
+											Clear Signature</label>
+									</div>
+								</div>
+								
+								<div id="sign1"></div>
+								<br />
+								</div>
+								
+								<div    ng-show="company == 'yes' && role12=='yes' ">
+								<div class="row">
+									<div class="col-md-12">
+										<textarea style="display: none;" id="sig-dataUrl1"
+											class="form-control" rows="5" name="sign1">
+											</textarea>
+									</div>
+								</div>
+								
+								
+								<label class="form-label form-label-left form-label-auto"
+									id="label_446" for="input_446"> @coApplicantName 's Signature </label>
+								<div class="row">
+									<div class="col-md-12">
+										<canvas id="sig-canvas2" width="350" height="160">  </canvas>
+								<canvas id="blank2"  width="350" height="160" style='display:none'></canvas>
+					
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label class="btn btn-default" id="sig-clearBtn2">
+											Clear Signature</label>
+									</div>
+									
+								</div>
+							
+								
+								<div id="sign2"></div>
+								<br />
+								<div class="row">
+									<div class="col-md-12">
+										<textarea style="display: none;" id="sig-dataUrl2"
+											class="form-control" rows="5" name="sign2">
+											</textarea>
+									</div>
+								</div>
+                           
+							</div>
+							<div id="sign4"></div>
+								<div ng-if="company == 'no' && role12=='no'">
+									<label>
+									<Strong>@applicantName</Strong><br>
+									<Strong> My typed name below
+											serves as my electronic signature for the above agreement. </Strong> <span
+										style="color: red; font-size: 3">*</span> </label> <input type="text"
+										name="typedName1" class="form-control" >
+										
+								</div>
+								<div id="typedName1"></div>
+
+						<div ng-if="company == 'no' && role12=='yes'">
+
+							<label> <strong>@applicantName</strong><br> <Strong>
+									My typed name below serves as my electronic signature for the
+									above agreement. </Strong> <span style="color: red; font-size: 3">*</span>
+							</label> <input type="text" name="typedName1" class="form-control">
+							<div id="div_typedName1"></div>
+
+							<label> <Strong>@coApplicantName</Strong><br> <Strong>
+									My typed name below serves as my electronic signature for the
+									above agreement. </Strong> <span style="color: red; font-size: 3">*</span>
+							</label> <input type="text" name="typedName2" class="form-control">
+							<div id="div_typedName2"></div>
+						</div>
+
+						<br> <br>
+
+						
+						<div class="row" style="width: 100%;">
+							<div class="col-sm-6"
+								style="float: left; padding-left: 2%; width: 45%;">
+								<a href="mortgageBackPage11" class="btn btn-primary"
+									role="button" style="width: 50%;">Back</a>
+							</div>
+							<div class="col-sm-6" align="right"
+								style="float: right; padding-right: 5%; width: 45%;">
+								<input type="submit" class="btn btn-primary "
+									value="Next" style="width: 50%;"  id="sig-submitBtn">
+								<div align="right" id="submiterror">
+									<font color="red"></font>
+								</div>
+							</div>
+						</div> 
+						<div>
+						<input type="submit" class="btn btn-primary "
+									value="submit" style="width: 50%;" onclick="call();">
+						
+						</div>
+
+
+						<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:99%; background-color: #6AA84F;">
+						    <label>99% complete</label>
+						    </div>
+						  </div>
+						</div>
+
+								<div style="padding-bottom: 50px;"></div>
+							</div>
+							<div class="col-sm-3"></div>
+					</div>
+				</div>
+</form>
+
+			
+	
+				<script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+				<script src="@routes.Assets.at("_resources/app.js")"></script>
+
+				<script>
+					$(document).ready(function() {
+						$('[data-toggle="tooltip"]').tooltip();
+					});
+				</script>
+
+
+				<script type="text/javascript">
+					var app = angular.module("demoApp", [ 'ui.bootstrap' ]);
+
+					app.controller('DemoController', function($scope) {
+						init();
+						function init() {
+							console.log("init mehthod calledw");
+							$scope.newItemType = '';
+							$scope.company = "";
+							$scope.change = function() {
+								console.log($scope.newItemType)
+							};
+						}
+					});
+				</script>
+ <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script
+		src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+				<script>
+					(function() {
+
+						// Get a regular interval for drawing to the screen
+						window.requestAnimFrame = (function(callback) {
+							return window.requestAnimationFrame
+									|| window.webkitRequestAnimationFrame
+									|| window.mozRequestAnimationFrame
+									|| window.oRequestAnimationFrame
+									|| window.msRequestAnimaitonFrame
+									|| function(callback) {
+										window.setTimeout(callback, 1000 / 60);
+									};
+						})();
+
+						// Set up the canvas
+						var canvas = document.getElementById("sig-canvas");
+						var ctx = canvas.getContext("2d");
+						ctx.strokeStyle = "#222222";
+						ctx.lineWith = 2;
+
+						// Set up the UI
+						var sigText = document.getElementById("sig-dataUrl");
+						var sigImage = document.getElementById("sig-image");
+						var clearBtn = document.getElementById("sig-clearBtn");
+						var submitBtn = document
+								.getElementById("sig-submitBtn");
+						clearBtn
+								.addEventListener(
+										"click",
+										function(e) {
+											clearCanvas();
+											sigText.innerHTML = "Data URL for your signature will go here!";
+											sigImage.setAttribute("src", "");
+										}, false);
+						submitBtn.addEventListener("click", function(e) {
+							var dataUrl = canvas.toDataURL();
+							sigText.innerHTML = dataUrl;
+							sigImage.setAttribute("src", dataUrl);
+						}, false);
+
+						// Set up mouse events for drawing
+						var drawing = false;
+						var mousePos = {
+							x : 0,
+							y : 0
+						};
+						var lastPos = mousePos;
+						canvas.addEventListener("mousedown", function(e) {
+							drawing = true;
+							lastPos = getMousePos(canvas, e);
+						}, false);
+						canvas.addEventListener("mouseup", function(e) {
+							drawing = false;
+						}, false);
+						canvas.addEventListener("mousemove", function(e) {
+							mousePos = getMousePos(canvas, e);
+						}, false);
+
+						// Set up touch events for mobile, etc
+						canvas.addEventListener("touchstart", function(e) {
+							mousePos = getTouchPos(canvas, e);
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousedown", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchend", function(e) {
+							var mouseEvent = new MouseEvent("mouseup", {});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchmove", function(e) {
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousemove", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+
+						// Prevent scrolling when touching the canvas
+						document.body.addEventListener("touchstart",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+						document.body.addEventListener("touchend", function(e) {
+							if (e.target == canvas) {
+								e.preventDefault();
+							}
+						}, false);
+						document.body.addEventListener("touchmove",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+
+						// Get the position of the mouse relative to the canvas
+						function getMousePos(canvasDom, mouseEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : mouseEvent.clientX - rect.left,
+								y : mouseEvent.clientY - rect.top
+							};
+						}
+
+						// Get the position of a touch relative to the canvas
+						function getTouchPos(canvasDom, touchEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : touchEvent.touches[0].clientX - rect.left,
+								y : touchEvent.touches[0].clientY - rect.top
+							};
+						}
+
+						// Draw to the canvas
+						function renderCanvas() {
+							if (drawing) {
+								ctx.moveTo(lastPos.x, lastPos.y);
+								ctx.lineTo(mousePos.x, mousePos.y);
+								ctx.stroke();
+								lastPos = mousePos;
+							}
+						}
+
+						// Clear the canvas
+						function clearCanvas() {
+							canvas.width = canvas.width;
+						}
+
+						// Allow for animation
+						(function drawLoop() {
+							requestAnimFrame(drawLoop);
+							renderCanvas();
+						})();
+
+					})();
+				</script>
+				
+				<script>
+					(function() {
+
+						// Get a regular interval for drawing to the screen
+						window.requestAnimFrame = (function(callback) {
+							return window.requestAnimationFrame
+									|| window.webkitRequestAnimationFrame
+									|| window.mozRequestAnimationFrame
+									|| window.oRequestAnimationFrame
+									|| window.msRequestAnimaitonFrame
+									|| function(callback) {
+										window.setTimeout(callback, 1000 / 60);
+									};
+						})();
+
+						// Set up the canvas
+						var canvas = document.getElementById("sig-canvas1");
+						var ctx = canvas.getContext("2d");
+						ctx.strokeStyle = "#222222";
+						ctx.lineWith = 2;
+
+						// Set up the UI
+						var sigText = document.getElementById("sig-dataUrl1");
+						var sigImage = document.getElementById("sig-image1");
+						var clearBtn = document.getElementById("sig-clearBtn1");
+						var submitBtn = document
+								.getElementById("sig-submitBtn");
+						clearBtn
+								.addEventListener(
+										"click",
+										function(e) {
+											clearCanvas();
+											sigText.innerHTML = "Data URL for your signature will go here!";
+											sigImage.setAttribute("src", "");
+										}, false);
+						submitBtn.addEventListener("click", function(e) {
+							var dataUrl = canvas.toDataURL();
+							sigText.innerHTML = dataUrl;
+							sigImage.setAttribute("src", dataUrl);
+						}, false);
+
+						// Set up mouse events for drawing
+						var drawing = false;
+						var mousePos = {
+							x : 0,
+							y : 0
+						};
+						var lastPos = mousePos;
+						canvas.addEventListener("mousedown", function(e) {
+							drawing = true;
+							lastPos = getMousePos(canvas, e);
+						}, false);
+						canvas.addEventListener("mouseup", function(e) {
+							drawing = false;
+						}, false);
+						canvas.addEventListener("mousemove", function(e) {
+							mousePos = getMousePos(canvas, e);
+						}, false);
+
+						// Set up touch events for mobile, etc
+						canvas.addEventListener("touchstart", function(e) {
+							mousePos = getTouchPos(canvas, e);
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousedown", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchend", function(e) {
+							var mouseEvent = new MouseEvent("mouseup", {});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchmove", function(e) {
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousemove", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+
+						// Prevent scrolling when touching the canvas
+						document.body.addEventListener("touchstart",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+						document.body.addEventListener("touchend", function(e) {
+							if (e.target == canvas) {
+								e.preventDefault();
+							}
+						}, false);
+						document.body.addEventListener("touchmove",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+
+						// Get the position of the mouse relative to the canvas
+						function getMousePos(canvasDom, mouseEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : mouseEvent.clientX - rect.left,
+								y : mouseEvent.clientY - rect.top
+							};
+						}
+
+						// Get the position of a touch relative to the canvas
+						function getTouchPos(canvasDom, touchEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : touchEvent.touches[0].clientX - rect.left,
+								y : touchEvent.touches[0].clientY - rect.top
+							};
+						}
+
+						// Draw to the canvas
+						function renderCanvas() {
+							if (drawing) {
+								ctx.moveTo(lastPos.x, lastPos.y);
+								ctx.lineTo(mousePos.x, mousePos.y);
+								ctx.stroke();
+								lastPos = mousePos;
+							}
+						}
+
+						// Clear the canvas
+						function clearCanvas() {
+							canvas.width = canvas.width;
+						}
+
+						// Allow for animation
+						(function drawLoop() {
+							requestAnimFrame(drawLoop);
+							renderCanvas();
+						})();
+
+					})();
+				</script>
+				
+				
+				<script>
+					(function() {
+
+						// Get a regular interval for drawing to the screen
+						window.requestAnimFrame = (function(callback) {
+							return window.requestAnimationFrame
+									|| window.webkitRequestAnimationFrame
+									|| window.mozRequestAnimationFrame
+									|| window.oRequestAnimationFrame
+									|| window.msRequestAnimaitonFrame
+									|| function(callback) {
+										window.setTimeout(callback, 1000 / 60);
+									};
+						})();
+
+						// Set up the canvas
+						var canvas = document.getElementById("sig-canvas2");
+						var ctx = canvas.getContext("2d");
+						ctx.strokeStyle = "#222222";
+						ctx.lineWith = 2;
+
+						// Set up the UI
+						var sigText = document.getElementById("sig-dataUrl2");
+						var sigImage = document.getElementById("sig-image");
+						var clearBtn = document.getElementById("sig-clearBtn2");
+						var submitBtn = document
+								.getElementById("sig-submitBtn");
+						clearBtn
+								.addEventListener(
+										"click",
+										function(e) {
+											clearCanvas();
+											sigText.innerHTML = "Data URL for your signature will go here!";
+											sigImage.setAttribute("src", "");
+										}, false);
+						submitBtn.addEventListener("click", function(e) {
+							var dataUrl = canvas.toDataURL();
+							sigText.innerHTML = dataUrl;
+							sigImage.setAttribute("src", dataUrl);
+						}, false);
+
+						// Set up mouse events for drawing
+						var drawing = false;
+						var mousePos = {
+							x : 0,
+							y : 0
+						};
+						var lastPos = mousePos;
+						canvas.addEventListener("mousedown", function(e) {
+							drawing = true;
+							lastPos = getMousePos(canvas, e);
+						}, false);
+						canvas.addEventListener("mouseup", function(e) {
+							drawing = false;
+						}, false);
+						canvas.addEventListener("mousemove", function(e) {
+							mousePos = getMousePos(canvas, e);
+						}, false);
+
+						// Set up touch events for mobile, etc
+						canvas.addEventListener("touchstart", function(e) {
+							mousePos = getTouchPos(canvas, e);
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousedown", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchend", function(e) {
+							var mouseEvent = new MouseEvent("mouseup", {});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+						canvas.addEventListener("touchmove", function(e) {
+							var touch = e.touches[0];
+							var mouseEvent = new MouseEvent("mousemove", {
+								clientX : touch.clientX,
+								clientY : touch.clientY
+							});
+							canvas.dispatchEvent(mouseEvent);
+						}, false);
+
+						// Prevent scrolling when touching the canvas
+						document.body.addEventListener("touchstart",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+						document.body.addEventListener("touchend", function(e) {
+							if (e.target == canvas) {
+								e.preventDefault();
+							}
+						}, false);
+						document.body.addEventListener("touchmove",
+								function(e) {
+									if (e.target == canvas) {
+										e.preventDefault();
+									}
+								}, false);
+
+						// Get the position of the mouse relative to the canvas
+						function getMousePos(canvasDom, mouseEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : mouseEvent.clientX - rect.left,
+								y : mouseEvent.clientY - rect.top
+							};
+						}
+
+						// Get the position of a touch relative to the canvas
+						function getTouchPos(canvasDom, touchEvent) {
+							var rect = canvasDom.getBoundingClientRect();
+							return {
+								x : touchEvent.touches[0].clientX - rect.left,
+								y : touchEvent.touches[0].clientY - rect.top
+							};
+						}
+
+						// Draw to the canvas
+						function renderCanvas() {
+							if (drawing) {
+								ctx.moveTo(lastPos.x, lastPos.y);
+								ctx.lineTo(mousePos.x, mousePos.y);
+								ctx.stroke();
+								lastPos = mousePos;
+							}
+						}
+
+						// Clear the canvas
+						function clearCanvas() {
+							canvas.width = canvas.width;
+						}
+
+						// Allow for animation
+						(function drawLoop() {
+							requestAnimFrame(drawLoop);
+							renderCanvas();
+						})();
+
+					})();
+				</script>
+				
+				
+				<script type="text/javascript">
+				function validateForm() {
+					try{
+						var value= true;
+					 var fname=document.forms["myForm"]["touchScreen"].value;
+					
+					
+				 	
+				 	
+					 var fname=document.forms["myForm"]["touchScreen"].value;
+					 var f_name=document.forms["myForm"]["touch_Screen"].value;
+					console.log(fname +"++++ "+f_name);
+				
+						if(!fname){
+							document.getElementById("touchScreen1").innerHTML="<p style=\"color:red\">Please Select which Device Using </p>";
+							document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+
+							value= false;
+						}else{
+					    	document.getElementById("touchScreen1").innerHTML="";
+
+						} 
+					
+						var lname = document.forms["myForm"]["agree"].checked;
+						if (!lname) {
+							
+							document.getElementById("agree1").innerHTML = "<p style=\"color:red\">Please agree the condtion</p>";
+							document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+							value= false;
+						} else {
+
+							document.getElementById("agree1").innerHTML = "";
+
+						}
+						
+
+					
+						
+
+						if (f_name == 'no') {
+							console.log("inside f_name");
+							if(fname=='no'){
+								console.log("inside fname");
+							var typedName1 = document.forms["myForm"]["typedName1"].value;
+							//var typedName2 = document.forms["myForm"]["typedName2"].value;
+							if(!typedName1){
+							
+							document.getElementById("typedName1").innerHTML = "<p style=\"color:red\">Please enter the name</p>";
+							document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+							value= false;
+							}
+
+							
+						else {
+							document.getElementById("typedName1").innerHTML = "";
+
+						}
+						}else if(fname=='yes'){
+							var sign = document.forms["myForm"]["sign1"].value;
+							var conva=document.getElementById("blank").toDataURL();
+
+							
+							
+							if(sign==conva){
+								document.getElementById("sign1").innerHTML = "<p style=\"color:red\">Please write elctonic sign</p>";
+								document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+
+								value= false;
+							}else {
+								document.getElementById("sign1").innerHTML = "";
+
+							}
+							
+							
+						}
+							
+						
+						}
+						
+						 if(f_name == 'yes'){
+							
+							if(fname=='no'){
+							console.log("inside the f_name yes");
+							
+							var typedName1 = document.forms["myForm"]["typedName1"].value;
+							var typedName2 = document.forms["myForm"]["typedName2"].value;
+							console.log(""+typedName1+" 2nd "+typedName2);
+							if(!typedName1 && !typedName2){
+								document.getElementById("div_typedName1").innerHTML = "<p style=\"color:red\">Please enter the name</p>";
+								document.getElementById("div_typedName2").innerHTML = "<p style=\"color:red\">Please enter the name</p>";
+								document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+								value=false;
+							}else{
+								document.getElementById("div_typedName1").innerHTML = "";
+								document.getElementById("div_typedName2").innerHTML = "";
+							}
+							}
+							else if(fname=='yes'){
+								console.log("fname in yes yes");
+								var sign3 = document.forms["myForm"]["sign2"].value;
+								var conva2=document.getElementById("blank2").toDataURL();
+								console.log("sing3"+sign3+"conva3 +"+conva2);
+								if(sign3==conva2){
+									console.log("inside sing3 conva2");
+									document.getElementById("sign1").innerHTML = "<p style=\"color:red\">Please write elctonic sign</p>";
+									document.getElementById("sign2").innerHTML = "<p style=\"color:red\">Please write elctonic sign</p>";
+									document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+									value= false;
+								}else {
+									document.getElementById("sign1").innerHTML = "";
+									document.getElementById("sign2").innerHTML = "";
+
+								}
+							}
+							
+						}
+						
+
+						
+						console.log("The value is return "+value);
+						alert(value);
+						 if(value){
+							alert("alert 2"+value);
+						console.log("inside console value true");
+							 $('#loading').show();
+						}  
+	return value;
+					
+					}catch(err){}	}
+			
+				</script>
+</body>
+</html>
+

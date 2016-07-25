@@ -1,0 +1,40 @@
+﻿{
+    "applicationID": "192",
+    "applicants": [
+        {
+            "firstName": "Tony",
+            "lastName": "Catonio",
+            "email": "plastertone@shaw.ca",
+            "documents": [
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Catherine",
+            "lastName": "Bulbeck",
+            "email": "cbulbeck@hotmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Mortgage Statement  (<Address>, <City>)",
+        "Property Tax Assessment  (<Address>, <City>)",
+        "Offer to Purchase  (<Address>, <City>)",
+        "Floor plans/Specs"
+    ],
+    "downpaymentDocuments": [
+        "Offer to Sale of Existing (when applicable)",
+        "Sale MLS Listing (if sold)",
+        "90 Days history bank statements",
+        "90 Days history RRSP",
+        "90 Days history Investment"
+    ]
+}

@@ -1,0 +1,1329 @@
+@(howManyProperty:
+String,applicantName:String,coApplicantName:String,propertyList:List[Property]
+)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script
+	src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js
+"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+<script src="@routes.Assets.at("_resources/jquery.geocomplete.js")"></script>
+<script src="jquery.geocomplete.js"></script>
+<script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage11Properties.js")"></script>
+<style type="text/css">
+.verticalLine {
+	height: 300px;
+	border-left: medium groove #336699;
+}
+
+.inline {
+	display: inline;
+}
+
+/*for bigger checkbox*/
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.switch {
+	position: relative;
+}
+
+.switch input {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+/* DEMO 3 */
+.switch.demo3 {
+	width: 50px;
+	height: 30px;
+}
+
+.switch.demo3 label {
+	display: block;
+	width: 90%;
+	height: 100%;
+	background: #ffffff;
+	/* for button like look of checkbox */
+	/* background: black; */
+	/* For browsers that do not support gradients */
+	/* background: -webkit-radial-gradient(red, yellow, green); */
+	/* Safari 5.1 to 6.0 */
+	/* background: -o-radial-gradient(red, yellow, green); */
+	/* For Opera 11.6 to 12.0 */
+	/* background: -moz-radial-gradient(red, yellow, green); */
+	/* For Firefox 3.6 to 15 */
+	/* background: radial-gradient(#666699, #f2f2f2, #669999); */
+	/* Standard syntax (must be last) */
+	/*  box-shadow:
+      inset 0 3px 8px 1px rgba(0,0,0,0.2),
+      0 1px 0 rgba(255,255,255,0.5); */
+}
+
+.switch.demo3 label:after {
+	content: "";
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	bottom: 0px;
+	left: -8px;
+}
+
+.switch.demo3 label:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: -18px;
+	right: -18px;
+	bottom: -18px;
+	left: -18px;
+	s
+}
+
+.switch.demo3 input:checked ~ label i:before {
+	content: url("@routes.Assets.at(" _resources/tick1.png ")");
+	/* content: url("@routes.Assets.at("_resources/tick2.gif")"); */
+	color: #ffffff;
+}
+</style>
+
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+</head>
+<body>
+	<br>
+	<br>
+	<div style="width: 97%">
+
+		<form name="myForm" action="mortgagePage11" method="POST"
+			onsubmit="return validateForm()">
+			<input type="hidden" value="@howManyProperty"
+				name="howManyProperties123"> <input type="hidden"
+				value="@applicantName" name="applicantName33"> <input
+				type="hidden" value="@coApplicantName" name="coApplicantName33">
+
+
+			<input type="hidden" value="uniid" name="uniid">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8 container-bg text-color-blue">
+
+					<div align="left" style="padding-bottom: 1px; margin-top: 20px; padding-left: 1%">
+			<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")" />
+		</div>
+					<div style="padding-top: 50px"></div>
+					<div data-ng-app="demoApp" style="margin-left: 4%">
+						<div ng-controller="DemoController"
+							ng-init="isDisabled = false;listLength=@propertyList.length">
+
+							<div class="form-group">
+								<label> <font size="6">Properties </font></label>
+
+							</div>
+							<div id="cid_174" class="form-input-wide">
+								<div id="text_174" class="form-html">
+									<p>Lenders require information about additional properties
+										to verify (e.g. Rental Properties) your application. In the
+										Event you own additional properties (beyond the one you are
+										seeking to finance in this application) please list them
+										below.</p>
+
+								</div>
+							</div>
+							<br> <label class="labelfont">How many properties do
+								you own?<span style="color: red; font-size: 3">*</span>
+							</label><br>
+							<div class="btn-group" style="width: 100%;">
+								<label style="width: 20%; border-style: groove;"
+									class="btn btn-primary " btn-radio="'one'" ng-change="change()"
+									ng-model="noOfProperty"> One </label> <label
+									style="width: 20%; border-style: groove;"
+									class="btn btn-primary full " btn-radio="'two'"
+									ng-change="change()" ng-model="noOfProperty"> Two </label><label
+									style="width: 20%; border-radius: 0px 5px 5px 0px; border-style: groove;"
+									class="btn btn-primary " btn-radio="'three'"
+									ng-change="change()" ng-model="noOfProperty"> Three </label><br>
+								<br>
+								<label
+									style="width: 20%; border-style: groove; border-radius: 5px 0px 0px 5px;"
+									class="btn btn-primary " btn-radio="'four'"
+									ng-change="change()" ng-model="noOfProperty"> Four </label> <label
+									style="width: 20%; border-style: groove;"
+									class="btn btn-primary " btn-radio="'more'"
+									ng-change="change()" ng-model="noOfProperty"> More </label> <label
+									style="width: 20%; border-style: groove; border-radius: 0px 5px 5px 0px;"
+									class="btn btn-primary " btn-radio="'none'"
+									ng-change="change()" ng-model="noOfProperty"> None </label>
+							</div>
+							<div id="role1"></div>
+							<input type="hidden" id="role" name="howManyProperties"
+								value="{{noOfProperty}}" ng-required> <br>
+
+							<div ng-show="noOfProperty == 'one'" class="form-input-wide">
+
+								<table class="s" id="tb"
+									style="border-spacing: 0; border-collapse: collapse;">
+									<tr class="tr-header">
+										<th colspan="2" width="30%">Address</th>
+										<th width="14%">Appx Value</th>
+										<th width="14%">Mortgage</th>
+										<th width="12%">Rent/Mo</th>
+										<th width="12%">Condo Fees/Mo</th>
+										<th width="14%">Ownership</th>
+										<th width="4%">Selling</th>
+									<tr ng-if="listLength!=1 ">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete0"
+													placeholder="Enter Location" class="form-control"
+													name="address0" style="width: 100%" value="">
+												<div id="input_200211" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue1"
+											placeholder="500,000" class="form-control" value=""
+											onkeypress="return isNumber(event)">
+											<div id="input_200212" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage1" placeholder="500,000" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_200_212" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo1" placeholder="2,300" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_200_213" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees1" placeholder="500" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_200_214" style="position: absolute;"></div></td>
+										</td>
+										<td><select name="ownership1" class="form-control">
+												<option value="">Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_200213" style="position: absolute;"></div></td>
+										<td><center>
+												<input type="checkbox" name="agree1" value="on">
+											</center></td>
+									</tr>
+
+									<tr ng-if="listLength==1 ">
+										@for(list <-propertyList){
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete0"
+													placeholder="Enter Location" class="form-control"
+													name="address0" style="width: 100%" value="@list.getName">
+												<div id="input_200211" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue1"
+											placeholder="500,000" class="form-control"
+											value="@list.getValue" onkeypress="return isNumber(event)">
+											<div id="input_200212" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage1" placeholder="500,000" class="form-control"
+											value="@list.getMortgageValue"
+											onkeypress="return isNumber(event)">
+											<div id="input_200_212" style="position: absolute;"></div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo1" placeholder="2,300" class="form-control"
+											value="@list.getMonthlyRent"
+											onkeypress="return isNumber(event)">
+											<div id="input_200_213" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees1" placeholder="500" class="form-control"
+											value="@list.getMoCondoFees"
+											onkeypress="return isNumber(event)">
+											<div id="input_200_214" style="position: absolute;"></div></td>
+										<td><select name="ownership1" class="form-control">
+												<option value="" selected>Please Select</option>
+												@if(list.getOwnwerShip==applicantName){
+
+												<option value="@applicantName" selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option> }
+
+												@if(list.getOwnwerShip==coApplicantName){
+
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option> }
+
+
+												@if(list.getOwnwerShip=="Joint"){
+
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint" selected>Joint</option> }
+
+
+										</select>
+											<div id="input_200213" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agree1" value="on"
+													ng-checked="@list.getSelling">
+											</center>
+										</td> }
+									</tr>
+									<input type="hidden" value="" name="ownership12">
+								</table>
+							</div>
+
+							<div ng-show="noOfProperty == 'two'" class="form-input-wide">
+								<table class="s" id="tb"
+									style="border-collapse: separate; border-spacing: 0 23px;">
+									<tr class="tr-header">
+										<th colspan="2" width="30%">Address</th>
+										<th width="14%">Appx Value</th>
+										<th width="14%">Mortgage</th>
+										<th width="12%">Rent/Mo</th>
+										<th width="12%">Condo Fees/Mo</th>
+										<th width="14%">Ownership</th>
+										<th width="4%">Selling</th>
+									<tr ng-if="listLength!=2">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete71"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress21" style="width: 100%" value="">
+												<div id="input_2A1" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue21"
+											placeholder="500,000" class="form-control" value=""
+											onkeypress="return isNumber(event)">
+											<div id="input_2B1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage21" placeholder="500,000" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_2C1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo21" placeholder="2,300" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_2D1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees21" placeholder="500" class="form-control"
+											value="" onkeypress="return isNumber(event)">
+											<div id="input_2E1" style="position: absolute;"></div></td>
+										<td><select name="ownership21" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_2F1" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeTwo1" value="on">
+											</center>
+
+										</td>
+									</tr>
+
+									<tr ng-if="listLength!=2">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete72"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress22" style="width: 100%">
+												<div id="input_2A2" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue22"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_2B2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage22" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_2C2" style="position: absolute;"></div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo22" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_2D2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees22" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+
+											<div id="input_2E2" style="position: absolute;"></div></td>
+										<td><select name="ownership22" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_2F2" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeTwo2" value="on">
+												<label><i></i></label>
+											</center>
+										</td>
+									</tr>
+
+									@if(propertyList.length==2){ @for((list,index)
+									<-propertyList.zipWithIndex){
+									<tr ng-init="sellingValue=@list.getSelling;">
+										<td colspan="2"><div style="padding-left: 0%;">
+
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete7@{index+1}"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress2@{index+1}" style="width: 100%"
+													value="@list.getName">
+												<div id="input_2A@{index+1}" style="position: absolute;">
+												</div></td>
+										<td><input type="text" name="appxValue2@{index+1}"
+											placeholder="500,000" class="form-control"
+											value="@list.getValue" onkeypress="return isNumber(event)">
+											<div id="input_2B@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage2@{index+1}" placeholder="500,000"
+											class="form-control" value="@list.getMortgageValue"
+											onkeypress="return isNumber(event)">
+											<div id="input_2C@{index+1}" style="position: absolute;">
+											</div></td>
+
+										<td><input type="number" data-type="input-number"
+											name="rentMo2@{index+1}" placeholder="2,300"
+											class="form-control" value="@list.getMonthlyRent"
+											onkeypress="return isNumber(event)">
+											<div id="input_2D@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees2@{index+1}" placeholder="500"
+											class="form-control" value="@list.getMoCondoFees"
+											onkeypress="return isNumber(event)">
+
+											<div id="input_2E@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><select name="ownership2@{index+1}"
+											class="form-control">
+
+
+												@if(list.getOwnwerShip==applicantName){
+												<option value="@applicantName" selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option> }
+
+												@if(list.getOwnwerShip==coApplicantName){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option> }
+
+
+
+												@if(list.getOwnwerShip=="Joint"){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option> }
+
+										</select>
+										<div id="input_2F@{index+1}" style="position: absolute;">
+											</div></td>
+										<td>
+											<div>
+												<center>
+													<input type="checkbox" name="agreeTwo@{index+1}" value="on"
+														ng-checked="@list.getSelling">
+												</center>
+											</div>
+										</td>
+									</tr>
+									} }
+								</table>
+							</div>
+
+							<div ng-show="noOfProperty == 'three'" class="form-input-wide"
+								ng-init="listSize3=1">
+								<table class="s" id="tb"
+									style="border-collapse: separate; border-spacing: 0 5px;">
+									<tr class="tr-header">
+										<th colspan="2" width="30%">Address</th>
+										<th width="14%">Appx Value</th>
+										<th width="14%">Mortgage</th>
+										<th width="12%">Rent/Mo</th>
+										<th width="12%">Condo Fees/Mo</th>
+										<th width="14%">Ownership</th>
+										<th width="4%">Selling</th>
+									<tr ng-if="listLength!=3">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete2"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress31" style="width: 100%">
+												<div id="input_3A1" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue31"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3B1" style="position: absolute;"
+												onkeypress="return isNumber(event)"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage31" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3C1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo31" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3D1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees31" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3E1" style="position: absolute;"></div></td>
+										<td><select name="ownership31" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_3F1" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeThree1" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength!=3">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete3"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress32" style="width: 100%">
+												<div id="input_3A2" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue32"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3B2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage32" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3C2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo32" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3D2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees32" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3E2" style="position: absolute;"></div></td>
+										<td><select name="ownership32" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_3F2" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeThree2" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength!=3">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete4"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress33" style="width: 100%">
+												<div id="input_3A3" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue33"
+											placeholder="500,000" class="form-control">
+											<div id="input_3B3" style="position: absolute;"
+												onkeypress="return isNumber(event)"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage33" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3C3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo33" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3D3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees33" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_3E3" style="position: absolute;"></div></td>
+										<td><select name="ownership33" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_3F3" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeThree3" value="on">
+											</center>
+										</td>
+									</tr>
+									@if(propertyList.length==3){ @for((list,index)
+									<-propertyList.zipWithIndex){
+
+									<tr ng-init="sellingValue=@list.getSelling;">
+
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete@{index+2}"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress3@{index+1}" style="width: 100%"
+													value="@list.getName">
+												<div id="input_3A@{index+1}" style="position: absolute;">
+												</div>
+
+											</div></td>
+										<td><input type="text" name="appxValue3@{index+1}"
+											placeholder="500,000" class="form-control"
+											value="@list.getValue" onkeypress="return isNumber(event)">
+											<div id="input_3B@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage3@{index+1}" placeholder="500,000"
+											class="form-control" value="@list.getMortgageValue"
+											onkeypress="return isNumber(event)">
+											<div id="input_3C@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo3@{index+1}" placeholder="2,300"
+											class="form-control" value="@list.getMonthlyRent"
+											onkeypress="return isNumber(event)">
+											<div id="input_3D@{index+1}" style="position: absolute;">
+											</div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees3@{index+1}" placeholder="500"
+											class="form-control" value="@list.getMoCondoFees"
+											onkeypress="return isNumber(event)">
+											<div id="input_3E@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><select name="ownership3@{index+1}"
+											class="form-control">
+
+
+												@if(list.getOwnwerShip==applicantName){
+												<option value="@applicantName" Selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option> }
+
+												@if(list.getOwnwerShip==coApplicantName){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName" Selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option> }
+
+
+												@if(list.getOwnwerShip=="Joint"){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option> }
+
+
+
+										</select>
+											<div id="input_3F@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><center>
+												<input type="checkbox" name="agreeThree@{index+1}"
+													value="on" ng-checked="@list.getSelling">
+											</center></td>
+									</tr>
+									} }
+								</table>
+							</div>
+
+							<div ng-show="noOfProperty == 'four'" class="form-input-wide">
+
+								<table class="s"
+									style="border-collapse: separate; border-spacing: 0 5px;"
+									id="POITable">
+									<tr class="tr-header">
+										<th colspan="2" width="30%">Address</th>
+										<th width="14%">Appx Value</th>
+										<th width="14%">Mortgage</th>
+										<th width="12%">Rent/Mo</th>
+										<th width="12%">Condo Fees/Mo</th>
+										<th width="14%">Ownership</th>
+										<th width="4%">Selling</th>
+									<tr ng-if="listLength!=4">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete41"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress41" style="width: 100%">
+												<div id="input_4A1" style="position: absolute;"></div>
+											</div></td>
+										<td><input type="text" name="appxValue41"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4B1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage41" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4C1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo41" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4D1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees41" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4E1" style="position: absolute;"></div></td>
+										<td><select name="ownership41" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_4F1" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFour1" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength!=4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete42" placeholder="Enter Location"
+											class="form-control" name="currentAddress42"
+											style="width: 100%">
+											<div id="input_4A2" style="position: absolute;"></div></td>
+										<td><input type="text" name="appxValue42"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4B2" style="position: absolute;"></div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage42" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4C2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo42" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4D2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees42" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4E2" style="position: absolute;"></div></td>
+										<td><select name="ownership42" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_4F2" style="position: absolute;"></div></td>
+										</td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFour2" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength!=4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete43" placeholder="Enter Location"
+											class="form-control" name="currentAddress43"
+											style="width: 100%">
+											<div id="input_4A3" style="position: absolute;"></div></td>
+										<td><input type="text" name="appxValue43"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4B3" style="position: absolute;"></div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage43" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4C3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo43" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4D3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees43" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4E3" style="position: absolute;"></div></td>
+										<td><select name="ownership43" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_4F3" style="position: absolute;"></div></td>
+										</td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFour3" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength!=4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete44" placeholder="Enter Location"
+											class="form-control" name="currentAddress44"
+											style="width: 100%">
+											<div id="input_4A4" style="position: absolute;"></div></td>
+										<td><input type="text" name="appxValue44"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4B4" style="position: absolute;"></div></td>
+										</td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage44" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4C4" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo44" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4D4" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees44" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_4E4" style="position: absolute;"></div></td>
+										<td><select name="ownership44" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+											<div id="input_4F4" style="position: absolute;"></div></td>
+										</td>
+										<td><center>
+												<input type="checkbox" name="agreeFour4" value="on">
+											</center></td>
+									</tr>
+
+									@if(propertyList.length==4){ @for((list,index)
+									<-propertyList.zipWithIndex){
+
+									<tr ng-init="sellingValue=@list.getSelling;">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete4@{index+1}"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress4@{index+1}" style="width: 100%"
+													value="@list.getName">
+												<div id="input_4A@{index+1}" style="position: absolute;">
+												</div>
+											</div></td>
+										<td><input type="text" name="appxValue4@{index+1}"
+											placeholder="500,000" class="form-control"
+											value="@list.getValue" onkeypress="return isNumber(event)">
+											<div id="input_4B@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage4@{index+1}" placeholder="500,000"
+											class="form-control" value="@list.getMortgageValue"
+											onkeypress="return isNumber(event)">
+											<div id="input_4C@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo4@{index+1}" placeholder="2,300"
+											class="form-control" value="@list.getMonthlyRent"
+											onkeypress="return isNumber(event)">
+											<div id="input_4D@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees4@{index+1}" placeholder="500"
+											class="form-control" value="@list.getMoCondoFees"
+											onkeypress="return isNumber(event)">
+											<div id="input_4E@{index+1}" style="position: absolute;">
+											</div></td>
+										<td><select name="ownership4@{index+1}"
+											class="form-control">
+
+												@if(list.getOwnwerShip==applicantName){
+												<option value="@applicantName" selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option> }
+												@if(list.getOwnwerShip==coApplicantName){
+												<option value="@applicantName" selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint">Joint</option> }
+												@if(list.getOwnwerShip=="Joint"){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint" selected>Joint</option> }
+
+
+
+
+
+
+										</select>
+											<div id="input_4F@{index+1}" style="position: absolute;">
+											</div></td>
+										<td>
+											<center>
+												<input ng-checked="@list.getSelling" type="checkbox"
+													name="agreeFour@{index+1}" value="on" checked="checked">
+											</center>
+										</td>
+									</tr>
+									} }
+								</table>
+							</div>
+							<div ng-show="noOfProperty == 'more'">
+								<br>
+								<table class="s"
+									style="border-collapse: separate; border-spacing: 0 5px;"
+									id="POITable">
+									<tr class="tr-header">
+										<th colspan="2" width="30%">Address</th>
+										<th width="14%">Appx Value</th>
+										<th width="14%">Mortgage</th>
+										<th width="12%">Rent/Mo</th>
+										<th width="12%">Condo Fees/Mo</th>
+										<th width="14%">Ownership</th>
+										<th width="4%">Selling</th>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete51"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress51" style="width: 100%">
+												<div id="input_5A1" style="position: absolute;">
+												</div>
+											</div></td>
+										<td><input type="text" name="appxValue51"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage51" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo51" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D1" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees51" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E1" style="position: absolute;"></div></td>
+										<td><select name="ownership51" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F1" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive1" value="on">
+											</center>
+										</td>
+
+									</tr>
+
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete52" placeholder="Enter Location"
+											class="form-control" name="currentAddress52"
+											style="width: 100%">
+											<div id="input_5A2" style="position: absolute;"></div>
+											</td>
+										<td><input type="text" name="appxValue52"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage52" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo52" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D2" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees52" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E2" style="position: absolute;"></div></td>
+										<td><select name="ownership52" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F2" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive2" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete53" placeholder="Enter Location"
+											class="form-control" name="currentAddress53"
+											style="width: 100%">
+											<div id="input_5A3" style="position: absolute;"></div></td>
+											
+										<td><input type="text" name="appxValue53"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage53" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo53" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D3" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees53" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E3" style="position: absolute;"></div></td>
+										<td><select name="ownership53" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F3" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive3" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete54" placeholder="Enter Location"
+											class="form-control" name="currentAddress54"
+											style="width: 100%">
+											<div id="input_5A4" style="position: absolute;"></div>
+											</td>
+										<td><input type="text" name="appxValue54"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B4" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage54" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C4" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo54" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D4" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees54" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E4" style="position: absolute;"></div></td>
+										<td><select name="ownership54" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F4" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive4" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete55" placeholder="Enter Location"
+											class="form-control" name="currentAddress55"
+											style="width: 100%">
+											<div id="input_5A5" style="position: absolute;"></div>
+											</td>
+										<td><input type="text" name="appxValue55"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B5" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage55" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C5" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo55" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D5" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees55" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E5" style="position: absolute;"></div></td>
+										<td><select name="ownership55" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F5" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive5" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete56" placeholder="Enter Location"
+											class="form-control" name="currentAddress56"
+											style="width: 100%">
+											<div id="input_5A6" style="position: absolute;"></div>
+											</td>
+										<td><input type="text" name="appxValue56"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B6" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage56" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C6" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo56" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D6" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees56" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E6" style="position: absolute;"></div></td>
+										<td><select name="ownership56" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select><div id="input_5F6" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive6" value="on">
+											</center>
+										</td>
+									</tr>
+									<tr ng-if="listLength <= 4">
+										<td colspan="2"><div class="map_canvas"></div> <input
+											type="text" id="geocomplete57" placeholder="Enter Location"
+											class="form-control" name="currentAddress57"
+											style="width: 100%">
+											<div id="input_5A7" style="position: absolute;"></div>
+											</td>
+										<td><input type="text" name="appxValue57"
+											placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5B7" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage57" placeholder="500,000" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5C7" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo57" placeholder="2,300" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D7" style="position: absolute;"></div></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees57" placeholder="500" class="form-control"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E7" style="position: absolute;"></div></td>
+										<td><select name="ownership57" class="form-control">
+												<option value="" selected>Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+
+												<option value="Joint">Joint</option>
+										</select>
+										<div id="input_5F7" style="position: absolute;"></div></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive7" value="on">
+											</center>
+										</td>
+									</tr>
+									@if(propertyList.length >4){ @for((list,index)
+									<-propertyList.zipWithIndex){
+
+									<tr ng-init="sellingValue=@list.getSelling;">
+										<td colspan="2"><div style="padding-left: 0%;">
+												<div class="map_canvas"></div>
+												<input type="text" id="geocomplete5@{index+1}"
+													placeholder="Enter Location" class="form-control"
+													name="currentAddress5@{index+1}" style="width: 100%"
+													value="@list.getName">
+													<div id="input_5A@{index+1}" style="position: absolute;">
+												
+												</div>
+											</div></td>
+										<td><input type="text" name="appxValue5@{index+1}"
+											placeholder="500,000" class="form-control"
+											value="@list.getValue" onkeypress="return isNumber(event)">
+											<div id="input_5B@{index+1}" style="position: absolute;">
+											</td>
+										<td><input type="number" data-type="input-number"
+											name="mortgage5@{index+1}" placeholder="500,000"
+											class="form-control" value="@list.getMortgageValue"
+											onkeypress="return isNumber(event)">
+											
+											<div id="input_5C@{index+1}" style="position: absolute;"></td>
+										<td><input type="number" data-type="input-number"
+											name="rentMo5@{index+1}" placeholder="2,300"
+											class="form-control" value="@list.getMonthlyRent"
+											onkeypress="return isNumber(event)">
+											<div id="input_5D@{index+1}" style="position: absolute;"></td>
+										<td><input type="number" data-type="input-number"
+											name="condoFees5@{index+1}" placeholder="500"
+											class="form-control" value="@list.getMoCondoFees"
+											onkeypress="return isNumber(event)">
+											<div id="input_5E@{index+1}" style="position: absolute;"></td>
+										<td><select name="ownership5@{index+1}"
+											class="form-control">
+
+												@if(list.getOwnwerShip==applicantName){
+												<option value="@applicantName" selected>@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option> }
+
+
+												@if(list.getOwnwerShip==coApplicantName){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option> }
+
+
+												@if(list.getOwnwerShip=="Joint"){
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!=""){
+												<option value="@coApplicantName">@coApplicantName</option> }
+												<option value="Joint" selected>Joint</option> }
+
+
+
+										</select><div id="input_5F@{index+1}" style="position: absolute;"></td>
+										<td>
+											<center>
+												<input type="checkbox" name="agreeFive@{index+1}"
+													ng-checked="@list.getSelling;" value="on">
+											</center>
+										</td>
+									</tr>
+									} }
+								</table>
+								<br>
+							</div>
+
+						</div>
+						<br>
+						<div class="row" style="width: 100%;">
+							<div class="col-sm-6"
+								style="float: left; padding-left: 2%; width: 50%;">
+								<a href="mortgageBackPage10" class="btn btn-primary"
+									role="button" style="width: 50%;">Back</a>
+							</div>
+							<div class="col-sm-6" align="right"
+								style="float: right; padding-right: 5%; width: 50%;">
+								<input type="submit" class="btn btn-primary btn-block"
+									value="Next" style="width: 50%;">
+								<div align="right" id="submiterror">
+									<font color="red"></font>
+								</div>
+							</div>
+							<br>
+							<br>
+						</div>
+						<br>
+						<div class="container" style="width: 70%;">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="70"
+									aria-valuemin="0" aria-valuemax="100"
+									style="width: 95%; background-color: #6AA84F;">
+									<label>95% complete</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+		</form>
+	</div>
+
+</body>
+</html>

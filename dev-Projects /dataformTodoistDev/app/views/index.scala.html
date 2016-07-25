@@ -1,0 +1,25 @@
+@(helloForm:String)
+
+@import helper._
+
+@main(title = "Todoist") {
+    
+    <h3>ToDoist User Management:</h3>
+      <div align="right"><a href="/logout"><button>Logout</button></a></div>
+     <div align="right"><a href="/editUser"><button>Edit User</button></a></div>
+    
+    
+    <form action="@routes.Application.adduser()" method="get">
+  
+     <b>   Token</b>:
+        <input type="text" name="token" size="50"  required><br>
+       
+        <input type="submit" value="Add">
+       </form>
+         <a href="/Users" ><b>Show Users</b></a> 
+         
+           
+       
+    
+    
+}

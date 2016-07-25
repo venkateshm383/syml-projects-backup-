@@ -1,0 +1,1342 @@
+@(role: String,referralId:Integer,exsist:Integer)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Referral Source Form</title>
+
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script
+	src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="@routes.Assets.at("_resources/angular.min.js")"></script>
+
+<script src="@routes.Assets.at("_resources/ui-bootstrap-tpls.min.js")"></script>
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+ -->
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+
+<script src="@routes.Assets.at("_resources/app.js")"></script>
+
+<script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+<!-- <script src="_resources/jquery.maskedinput.min.js" type="text/javascript"></script>
+ -->
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/style2.css")">
+
+<link rel="stylesheet" href="@routes.Assets.at("_resources/signature-pad.css")">
+
+
+<!-- <link rel="stylesheet"
+	href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+<style>
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#sig-canvas {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+#sig-dataUrl {
+	width: 100%;
+}
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.big-checkbox {
+	padding: 18px;
+}
+
+.big-checkbox:checked:after {
+	font-size: 28px;
+	left: 6px;
+}
+
+.btn {
+	border: 0 none;
+	font-weight: bold;
+}
+
+.btn-primary:active,.btn-primary.active {
+	background: #003f80;
+	color: #ffffff;
+	box-shadow: none;
+}
+</style>
+<style type="text/css">
+.blocks .btn-primary {
+	padding: 9px 6px;
+	margin: 2px 2px;
+	border-radius: 0;
+}
+
+/*for bigger checkbox*/
+*,*:after,*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.switch {
+  position: relative;
+}
+
+.switch label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.switch input {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* DEMO 3 */
+
+.switch.demo3 {
+  width: 125px;
+  height: 30px;
+}
+
+.switch.demo3 label {
+  display: block;
+  width: 40%;
+  height: 70%;
+  background: #ffffff;
+}
+
+.switch.demo3 label:after {
+  content: "";
+  position: absolute;
+  top: -8px; right: -8px; bottom: -8px; left: -8px;
+}
+
+.switch.demo3 label:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18px; right: -18px; bottom: -18px; left: -18px;
+}
+
+
+.switch.demo3 input:checked ~ label i:before {
+   content: url("@routes.Assets.at("_resources/tick.gif")"); 
+  color: #000000;
+  
+  height: 10%;
+  width: 10%;
+}
+</style>
+<style type="text/css">
+
+
+
+/*  #loading {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('@routes.Assets.at("images/page-loader.gif")') 50% 50% no-repeat rgb(249,249,249);
+} */
+
+ #overlay{ 
+	display: none;
+	position: fixed;
+	background: threedhighlight;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+
+} 
+
+#loading{ 
+	padding: 10px 10px 10px 60px; 
+		position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color:threedhighlight;
+    opacity: 0.6;
+    filter: alpha(opacity=60); */
+}
+
+</style> 
+ <script type="text/javascript">
+$(document).ready(function () {
+    $('.collapse')
+        .on('shown.bs.collapse', function() {
+            $(this)
+                .parent()
+                .find(".glyphicon-plus")
+                .removeClass("glyphicon-plus")
+                .addClass("glyphicon-minus");
+            })
+        .on('hidden.bs.collapse', function() {
+            $(this)
+                .parent()
+                .find(".glyphicon-minus")
+                .removeClass("glyphicon-minus")
+                .addClass("glyphicon-plus");
+            });
+        });
+</script>
+</head>
+<body>
+ <div id="loading" style="display: none" align="center" >
+ 
+  
+     <img src="@routes.Assets.at("/images/preloader-image.gif")" alt="" />
+  
+  </div> 
+
+	<div align="center">
+		<img alt="Visdom Logo" height="90" width="260"
+			src="@routes.Assets.at("_resources/visdom-logo.png")" />
+
+	</div>
+	<div style="width: 95%">
+		<form name="myForm" action="referral2" method="POST"
+			onsubmit="return validateForm()">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+
+
+				<div class="col-sm-7 container-bg text-color-blue">
+					<div style="padding-top: 50px"></div>
+
+
+					<div data-ng-app="demoApp" ng-init="role='@role'"
+						style="margin-left: 5%">
+
+
+						<div ng-controller="DemoController" ng-init="newItemType=false">
+							<input type="hidden" name="exsist" value="@exsist"> <input
+								type="hidden" name="referrelID" value="@referralId"> <input
+								type="hidden" name="role" value="@role">
+
+							<div
+								ng-show="role == 'Realtor' || role == 'Financial Planner' || role == 'Professional' "
+								id="cid_45" class="form-input-wide">
+
+								<div id="text_44" class="form-html">
+									<p class="Addenda">
+										<span style="font-size: medium;"><strong>Schedule
+												B</strong></span>
+									</p>
+									<p align="center">
+										<b>REFERRAL FEE SCHEDULE</b>
+									</p>
+									<table border="1" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Min Mortgage
+														Value</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Max Mortgage
+														Value</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Referral Fee</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Renewal Fee</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$50,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$200,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$100.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$50.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$200,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$350,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$250.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$100.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$350,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$600,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$500.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$225.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$600,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$900,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$750.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$350.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$900,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$3,000,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$1,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">$500.00</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div ng-show="role == 'Client' " id="cid_44"
+								class="form-input-wide">
+								<div id="text_45" class="form-html">
+									<p class="Addenda">
+										<span style="font-size: medium;"><strong>Schedule
+												B</strong></span>
+									</p>
+									<p align="center">
+										<b>REFERRAL FEE SCHEDULE</b>
+									</p>
+									<table border="1" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Min Mortgage
+														Value</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Max Mortgage
+														Value</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Referral Fee</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="MTBasic1" align="center">Renewal Fee</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$50,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$200,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$50.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$25.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$200,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$350,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$125.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$50.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$350,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$600,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$250.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$125.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$600,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$900,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$350.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$175.00</p>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$900,001.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$3,000,000.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$500.00</p>
+												</td>
+												<td valign="top" width="28%">
+													<p class="mtbasic10" align="center">$250.00</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+
+
+							<br>
+							<!-- 	<h4>
+								<input  class="glyphicon glyphicon-star-empty" type="checkbox" ng-model="newItemType" style="height: 10px;width: 20px" /> 
+							</h4> -->
+
+
+							<div>
+								<!-- <div class="panel-heading">
+									<h3 class="panel-title">
+										<a data-toggle="collapse" style="text-decoration: none;"
+											data-parent="#accordion" ng-model="val" href="#livingroom-10"
+											class="collapsed"><img height="20" width="20"
+											src="@routes.Assets.at("_resources/plus.png")"  size="10px">
+											Click to expand Terms and Conditions </a>
+									</h3>
+								</div> -->
+								
+								<a data-toggle="collapse" href="#other" style="text-decoration: none">
+    <h3><span class="pull-left glyphicon glyphicon-plus gi-5x"></span>  &nbsp;<font size="4px"> Click to expand / close Terms and Conditions</font></h3>
+  </a>
+								
+							<!-- 	<div id="livingroom-10" class="panel-collapse collapse"
+									style="height: 0px;"> -->
+<div id="other" class="collapse">
+
+
+									<!-- <div ng-show="newItemType"> -->
+
+									<div class="WordSection1">
+										<p>
+											<b>WHEREAS</b> the Referrer has a potential contact base
+											which Visdom Mortgage Solutions Inc. ("<b>Visdom</b>") can
+											benefit from for the purpose of assisting Visdom in selling
+											and distributing the products and services now and hereafter
+											offered by Visdom;
+										</p>
+										<p>
+											<b>AND WHEREAS</b> Visdom desires to compensate the Referrer
+											for providing Referrals to Visdom;
+										</p>
+										<p>
+											<b>NOW THEREFORE THIS AGREEMENT WITNESSES THAT</b> in
+											consideration for the respective covenants and agreements of
+											the parties contained herein and other good and valuable
+											consideration (the receipt and sufficiency of which is hereby
+											acknowledged by each of the parties) it is agreed as follows:
+										</p>
+										<ol>
+											<li>DEFINITIONS</li>
+										</ol>
+										<p class="MTGen2L2">
+											1.1 "<b>Borrower</b>"<b> </b>means a person who is referred
+											to Visdom by a Referrer for the purpose of receiving funding
+											for a Trade in Real Estate.
+										</p>
+										<p class="MTGen2L2">
+											1.2 "<b>Construction Draw Mortgage</b>" is a Mortgage where
+											the Borrower receives Funding on a property under
+											construction and Funding is provided at various stages of
+											completion of the construction.
+										</p>
+										<p class="MTGen2L2">
+											1.3 "<b>Funding</b>" means the day on which the lender or
+											financial institution advances funds to the Borrower on a
+											Mortgage Trade.
+										</p>
+										<p class="MTGen2L2">
+											1.4 "<b>Mortgage</b>"<b> </b>means a mortgage of real
+											property, of a lease of real property, or of a mortgage of
+											real property or a lease of real property OR any charge on
+											real property, on a lease of real property, or on a mortgage
+											of real property or a lease of real property FOR THE PURPOSES
+											OF securing the repayment of money or another consideration.
+										</p>
+										<p class="MTGen2L2">
+											1.5 "<b>Real Estate</b>" means real property, leasehold
+											property or a portable dwelling other than a holiday trailer
+											or recreational vehicle wholly or mainly used for
+											recreational purposes that is defined for use as and is used
+											as a residence, is mounted on or otherwise attached to its
+											own chassis and running gear, is capable of being transported
+											on its own chassis and running gear by towing or other means,
+											and is situated on a site that is used or intended to be
+											used, or that has been represented by the owner of the site
+											as being intended to be used, for residential purposes.
+										</p>
+										<p class="MTGen2L2">
+											1.6 "<b>Referral</b>"<b> </b>shall mean the act of
+											recommending or directing a person for service, assistance or
+											business for a Trade of Real Estate regarding a new Mortgage
+											or Mortgage renewal to Visdom.
+										</p>
+										<p class="MTGen2L2">
+											1.7 "<b>Referrer</b>" means a party who recommends or directs
+											a person, including themselves, for service, assistance or
+											business for a new mortgage or mortgage renewal in the trade
+											of real estate to Visdom. The Referrer may be an individual
+											licensed by a governing provincial realty body, an unlicensed
+											individual or a Canadian corporate entity incorporated in at
+											least one province in Canada (hereinafter referred to as the
+											"Referrer Corporation").
+										</p>
+										<p class="MTGen2L2">
+											1.8 "<b>Referral Fee</b>" means the fee earned by a Referrer
+											for providing a Referral to Visdom for a Mortgage on Real
+											Estate that results in a Funding.
+										</p>
+										<p class="MTGen2L2">
+											1.9 "<b>Referral List</b>" means a list of all of the
+											Referrals made by the Referrer to Visdom.
+										</p>
+										<p class="MTGen2L2">
+											1.10 "<b>Renewal</b>" means a renewal on a Mortgage that
+											results in a brokerage fee to Visdom.
+										</p>
+										<p class="MTGen2L2">
+											1.11 "<b>Renewal Fee</b>" means the fee that is earned upon
+											the Trade in Real Estate for a Mortgage Renewal by the same
+											Borrower on a transaction that previously resulted in the
+											receipt of a Referral Fee by the Referrer from Visdom.
+										</p>
+										<p class="MTGen2L2">
+											1.12 "<b>Trade</b>" includes a disposition or acquisition of,
+											or transaction in, real estate by purchase or sale; an offer
+											to purchase or sell real estate; an offering, advertisement,
+											listing or showing of real estate for purchase or sale;
+											property management; holding oneself out as trading in real
+											estate; the solicitation, negotiation or obtaining of a
+											contract, agreement or any arrangement for an activity
+											referred to above; collecting, or offering or attempting to
+											collect, on behalf of the owner or other person in charge or
+											real estate, money payable as rent for the use of real estate
+											or contributions for the control, management or
+											administration of the real estate; or any conduct or act in
+											furtherance or attempted furtherance of any activity referred
+											to above.
+										</p>
+										<ol>
+											<li>REFERRAL ARRANGEMENT</li>
+										</ol>
+										<p class="MTGen2L2">2.1 Referrer has the right but not the
+											obligation to refer and forward potential customers to Visdom
+											or its related entity, successor or assign in consideration
+											for the Referral Fees or Renewal Fees.</p>
+										<p class="MTGen2L2">2.2 Any Referrals made shall be made
+											on an as is, where is basis and Visdom shall have the
+											responsibility of determining the suitability of any such
+											Referrals as well as the discretion (but not the obligation)
+											as to whether accept each such Referral.</p>
+										<ol>
+											<li>REMUNERATION</li>
+										</ol>
+										<p class="MTGen2L2">3.1 Visdom shall pay a Referral Fee or
+											Renewal Fee to the Referrer, the amount of the Referral Fee
+											or Renewal Fee shall be determined based on Schedule "B"
+											("Fee Schedule").</p>
+										<p class="MTGen2L2">3.2 Visdom has the right to alter,
+											amend and modify Schedule B, without notice or consent of the
+											Referrer.</p>
+										<p class="MTGen2L2">3.3 If a Referrer is a licensed
+											individual as described above they hereby assign and direct
+											their Referral Fee or Renewal Fee to their brokerage. If the
+											Referrer is a licensed individual Visdom will pay the
+											Referral Fee or Renewal Fee to the brokerage, not the
+											Referrer directly.</p>
+										<p class="MTGen2L2">3.4 If the Referrer is an unlicensed
+											individual, Visdom will pay the Referral Fee or Renewal Fee
+											directly to the individual.</p>
+										<p class="MTGen2L2">3.5 If, and only if, the Referrer is a
+											Referrer Corporation incorporated in at least one Province of
+											Canada and in accordance with the laws of any Province in
+											Canada, Schedule "A" ("Additional Referrer Corporation
+											Terms") shall apply to this Agreement.</p>
+										<p class="MTGen2L2">
+											3.6 The Referral Fee or Renewal Fee arising out of or related
+											to such Referrals from the Referrer, shall be inclusive of
+											all sales taxes. The Referrer is solely responsible to file
+											all appropriate reports, elections and returns pertaining to
+											this Agreement. The Referrer is responsible for any sums that
+											may be payable by the Referrer under the <i>Excise Tax
+												Act </i>(Canada) including but not limited to Goods and Services
+											Tax, interest and/or penalties.
+										</p>
+										<p class="MTGen2L2">3.7 Visdom and the Referrer shall both
+											keep a Referral List. The first party preceding all others in
+											time to make a Referral of a Borrower to Visdom shall be
+											entitled to the Referral Fee or Renewal Fee if and only if
+											the Borrower's Mortgage or Renewal is Funded within six (6)
+											months of the Referral. In the case of a Borrower seeking a
+											Construction Draw Mortgage a Referrer is entitled to a
+											Referral Fee or Renewal Fee if and only if there is a Funding
+											of a first draw within six (6) months of the Referral and
+											final Funding is completed within eighteen (18) months of the
+											Referral. Where there is a disagreement as to whether a
+											Referral was made by the Referrer, the Referral Fees or
+											Renewal Fees payable in respect of such Referral shall be
+											paid into Visdom's counsel's trust account (or as the parties
+											may otherwise agree) pending the resolution of the dispute.</p>
+										<p class="MTGen2L2">
+											3.8 Visdom shall pay to the Referrer such Referral Fees or
+											Renewal Fees no later than the sixtieth (60<sup>th</sup>) day
+											immediately following the Funding. Should the Borrower's new
+											mortgage or renewal fail to obtain Funding, Visdom is not
+											responsible to pay any Referral Fees or Renewal Fees to the
+											Referrer.
+										</p>
+										<ol>
+											<li>TERM & TERMINATION</li>
+										</ol>
+										<p class="MTGen2L2">4.1 The term of this Agreement shall
+											commence as of the date first above written and shall
+											continue indefinitely until terminated in accordance with the
+											provisions hereof.</p>
+										<p class="MTGen2L2">4.2 Either party may terminate this
+											Agreement at any time upon delivery to the other party of not
+											less than ninety (90) calendar day&#39;s prior written notice
+											of the effective date of termination (the "Effective Date").</p>
+										<p class="MTGen2L2">4.3 In the case of any fraudulent
+											activities including, without limitation, mortgage fraud for
+											housing, mortgage fraud for profit, mortgage fraud for title
+											and mortgage foreclosure fraud, this Agreement shall be
+											immediately terminable by Visdom without Visdom providing any
+											notice to the Referrer.</p>
+										<p class="MTGen2L2">4.4 In the case that Visdom determines
+											a Referrer falsely represented that it has a bona-fide
+											relationship and substantial connection with the Borrower or
+											the Borrower is not a bona-fide party seeking legal and
+											legitimate Funding, this Agreement shall be immediately
+											terminable by Visdom without Visdom providing any notice to
+											the Referrer.</p>
+										<ol>
+											<li>STATUS OF PARTIES</li>
+										</ol>
+										<p class="MTGen2L2">5.1 The Referrer and Visdom
+											acknowledge that they are independent contracting parties,
+											and this Agreement shall not constitute any such party as an
+											agent, representative, partner, co-venturer, employee,
+											employer or franchisee of any other party, except as
+											expressly provided for herein. None of the Referrer nor
+											Visdom shall assume or create any obligation or
+											responsibility whatsoever on behalf of, or in the name of,
+											any other party except as otherwise provided for herein.</p>
+										<ol>
+											<li>Referrer REPRESENTATIONS AND WARRANTIES</li>
+										</ol>
+										<p class="MTGen2L2">6.1 The Referrer represents that
+											he/she is in compliance with all laws and regulations
+											applicable to making a Referral of the Borrower to Visdom.</p>
+										<p class="MTGen2L2">6.2 The Referrer represents that the
+											execution, delivery and performance of this Agreement by the
+											Referrer will not result in any breaches, violations or
+											defaults of any obligations, duties or requirements
+											whatsoever of the Referrer.</p>
+										<p class="MTGen2L2">6.3 The Referrer represents that they
+											are not a mortgage broker and does not deal in mortgages as
+											defined in the Real Estate Act. A mortgage broker means a
+											person who on or behalf of another person for consideration
+											or other compensation solicits a person to borrow or lend
+											money to be secured by a mortgage; negotiates a mortgage
+											transaction; collects mortgage payments and otherwise
+											administers mortgages; buys, sells or exchanges mortgages or
+											offers to do so or a person who holds out or represents
+											themself as a person who can do any of the above.</p>
+										<p class="MTGen2L2">6.4 The Referrer represents that it
+											has a bona-fide relationship and substantial connection with
+											the Borrower and the Borrower is a bona-fide party seeking
+											legal and legitimate Funding. Determination of bona-fide
+											relationship, substantial connection and a bona-fide party
+											seeking Funding shall be at the sole discretion of Visdom.</p>
+										<p class="MTGen2L2">6.5 The Referrer represents that their
+											declared status as a licensed individual, unlicensed
+											individual or Referrer Corporation as the case may be is
+											true.</p>
+										<p class="MTGen2L2">6.6 Both parties agree that if any one
+											of the above representations and warranties are not true,
+											then this Agreement shall immediately be null and void and
+											shall not be binding on either party.</p>
+										<ol>
+											<li>Visdom representations and warranties</li>
+										</ol>
+										<p class="MTGen2L2">7.1 Visdom represents that it does not
+											exclusively deal with one lender or financial institution for
+											the purpose of securing Funding for a Borrower. Visdom deals
+											with, conducts business with and sources Funding for
+											Borrowers from multiple lenders and financial institutions.</p>
+										<p class="MTGen2L2">7.2 Visdom is a corporation
+											incorporated and organized under the laws of the Province of
+											Alberta and is a valid and subsisting corporation under such
+											laws.</p>
+										<p class="MTGen2L2">7.3 Visdom and its agents have the
+											corporate power and authority to enter into this Agreement
+											and to perform their respective obligations hereunder and
+											thereunder; the execution and delivery of this Agreement and
+											the consummation of the transactions contemplated by this
+											Agreement have been duly authorized by all necessary
+											corporate action on the part of the Visdom, its shareholders
+											and directors.</p>
+										<p class="MTGen2L2">7.4 Visdom is a mortgage brokerage
+											duly licensed to Trade in Real Estate in the jurisdiction of
+											the Borrower.</p>
+										<p class="MTGen2L2">7.5 Both parties agree that if any one
+											of the above representations and warranties are not true,
+											then this Agreement shall immediately be null and void and
+											shall not be binding on either party.</p>
+										<ol>
+											<li>INTERPRETATION AND GENERAL</li>
+										</ol>
+										<p class="MTGen2L2">8.1 The headings in this Agreement are
+											included for convenience of reference only and shall not
+											affect the interpretation hereof.</p>
+										<p class="MTGen2L2">8.2 Visdom shall have the right to
+											assign this Agreement to assigns or transferees without
+											providing notification to the Referrer. The Referrer does not
+											have any rights to assign this Agreement to any other party.</p>
+										<p class="MTGen2L2">8.3 Pursuant to Canada's Anti-Spam
+											Legislation, the Referrer consents to receive commercial
+											electronic messages such as e-mails from Visdom. If the
+											Referrer wishes to withdraw consent to receive communications
+											by electronic means, they must notify Visdom in writing at
+											the address for service noted above.</p>
+										<p class="MTGen2L2">8.4 The Referrer shall provide Visdom
+											written notice of any changes in address, including both
+											e-mail and physical mailing address, promptly. Should the
+											Referrer fail to provide such notice, Visdom is not obligated
+											to pay Referral Fees or Renewal Fees to the Referrer.</p>
+										<p class="MTGen2L2">8.5 This Agreement and any schedules
+											attached hereto sets forth the entire agreement between the
+											parties hereto pertaining to the subject matter hereof and
+											supersedes all prior agreements. There are not and shall not
+											be any oral statements, representations, warranties,
+											undertakings or agreements between the parties.</p>
+										<p class="MTGen2L2">8.6 Time shall in all respects be of
+											the essence hereof and no waiver of any time period
+											prescribed hereunder shall be effective unless in writing
+											signed by the parties hereto.</p>
+										<p class="MTGen2L2">8.7 Words in the singular include the
+											plural and vice versa and words importing gender include all
+											genders.</p>
+										<p class="MTGen2L2">8.8 If any provision of this Agreement
+											or its application to any party or circumstance is
+											restricted, prohibited or unenforceable, such provision shall
+											be ineffective only to the extent of such restriction,
+											prohibition or unenforceability without invalidating the
+											remaining provisions hereof and without affecting the
+											application of such provision to other parties or
+											circumstances.</p>
+										<p class="MTGen2L2">8.9 The Parties agree that good faith
+											is of the essence of this Agreement and further agree that
+											each shall act in good faith to the other in all matters
+											arising in connection with any provisions of this Agreement.</p>
+										<p class="MTGen2L2">8.10 This Agreement shall be governed
+											by and interpreted in accordance with the laws of the
+											Province where the Mortgage is registered and the laws of
+											Canada applicable therein.</p>
+										<p class="MTGen2L2">8.11 Where any provincial sales tax,
+											goods and services tax or any other applicable tax is
+											required to be levied on any of the payments contemplated
+											under this Agreement, all such applicable taxes shall be
+											claimed by Vidsom and any such taxes shall be deducted from
+											the Referral Fees and Renewal Fees prescribed in Schedule B.
+											In the case of an individual Referrer who is not registered
+											with a G.S.T. number, the Referral Fee or Renewal Fee shall
+											not be subject to G.S.T. deduction and Vidsom shall provide a
+											T4A to an individual Referrer who receives more than $500.00
+											in Referral Fees and/or Renewal Fees in any given taxation
+											year. In the case assignment of an individual Referral Fee or
+											Renewal Fee to a brokerage, the Referral Fee or Renewal Fee
+											shall be subject to G.S.T. deduction. In the case of a
+											Referrer Corporation the Referral Fee or Renewal Fee shall be
+											subject to G.S.T. deduction. The Referrer represents that if
+											it is a brokerage or corporation registered with G.S.T.
+											number it will promptly provide this information to Visdom.</p>
+										<p class="MTGen2L2">8.12 Any notice or other communication
+											required or permitted to be given hereunder shall be in
+											writing and, if mailed by prepaid first-class mail at any
+											time other than during a general discontinuance of postal
+											service due to strike, lockout or otherwise, shall be sent to
+											the other party at the last known address of the other party
+											and be deemed to have been received five (5) business days
+											after the post-marked date thereof, or if telecopied, emailed
+											or delivered by another form of recorded communication, shall
+											be deemed to have been received on the next business day
+											following dispatch and acknowledgement of receipt by the
+											recipient's telecopier machine or other form of recorded
+											communication, or if delivered by hand shall be deemed to
+											have been received at the time it is delivered. If either
+											party changes its address during the term of this Agreement,
+											it shall immediately notify the other party of such change of
+											address in the foregoing manner.</p>
+										<p class="MTGen2L2">8.13 All payments required or
+											permitted under this Agreement shall be denominated in the
+											lawful money of Canada unless otherwise expressly indicated
+											herein.</p>
+										<p class="MTGen2L2">8.14 This Agreement may be executed by
+											the Parties in one or more counterparts, each one of which
+											shall be deemed an original. Facsimile and electronic mail or
+											digital copies and photocopies of this document that contain
+											signatures shall be deemed to have the full force and effect
+											of the original.</p>
+									</div>
+									<p>
+										<br clear="all" />
+									</p>
+									<p class="Addenda">
+										<span style="font-size: medium;"><strong>Schedule
+												A</strong></span>
+									</p>
+									<p align="center">
+										<b>ADDITIONAL REFERRER CORPORATION TERMS</b>
+									</p>
+									<ol>
+										<li>EXPENSES</li>
+									</ol>
+									<p class="MTGen2L2">1.1 Except as hereinafter provided, all
+										expenses in connection with the Referrer Corporation's
+										performance of this Agreement, including but not limited to
+										travel, automobile, salaries and supplies, shall be borne by
+										the Referrer Corporation and it shall be solely responsible
+										for the payment thereof. Visdom shall not be responsible for
+										any expenses of the Referrer Corporation.</p>
+									<ol>
+										<li>no power to bind</li>
+									</ol>
+									<p class="MTGen2L2">2.1 The Referrer Corporation does not
+										have the right or authority to create a contract or obligation
+										either express or implied, on behalf of, Visdom unless
+										otherwise agreed in writing.</p>
+									<ol>
+										<li>warranties and representations</li>
+									</ol>
+									<p class="MTGen2L2">3.1 The Referrer Corporation and Visdom
+										represent that their services are provided on a best effort
+										basis. There are no guarantees, warranties and representations
+										of any kind that services will produce any specific results
+										for the benefit of the other. Each of the Referrer Corporation
+										and Visdom represents and warrants to the other that:</p>
+									<p class="MTGen2L3">(a) it is under no contractual
+										restriction or other restrictions or obligations that are
+										inconsistent with this Agreement, the performance of its
+										duties and the covenants hereunder;</p>
+									<p class="MTGen2L3">(b) its management is under no physical
+										or mental disability that would interfere with its keeping and
+										performing all of the agreements, covenants and conditions to
+										be kept or performed hereunder;</p>
+									<p class="MTGen2L3">(c) it is familiar with all Federal and
+										Provincial laws and regulations and regulations of any
+										governing bodies applicable to the performance of its services
+										as contemplated in this Agreement;</p>
+									<p class="MTGen2L3">(d) it will comply with all applicable
+										Federal and Provincial laws and regulations of any governing
+										bodies in the performance of the services under this
+										Agreement; and,</p>
+									<p class="MTGen2L3">(e) nothing herein contained shall be
+										construed to limit or restrict the other party in providing
+										services to others.</p>
+									<ol>
+										<li>indemnity</li>
+									</ol>
+									<p class="MTGen2L2">4.1 Visdom and the Referrer Corporation
+										hold each other harmless and indemnify each other from and
+										against any liability, loss, cost, expenses or damages,
+										including attorney's fees, howsoever caused by reason of any
+										injury or loss sustained by or to any person or property by
+										reason of any actual or alleged wrongful act,
+										misrepresentation or omission except for gross negligence,
+										willful misconduct or malfeasance of, or breach of any
+										representation, warranty or covenant.</p>
+									<ol>
+										<li>no solicitation</li>
+									</ol>
+									<p>A Referrer Corporation may not solicit any officer,
+										director, employee or associate of Visdom for employment or
+										any type of business relationship without prior written
+										consent from Visdom.</p>
+								</div>
+
+							</div>
+					
+						<br> <label class="form-label form-label-top" id="label_35"
+							for="input_35"> Are you using a device with a touch
+							screen currently? </label><font color="red">*</font> <br> <br>
+						<div class="btn-group blocks">
+							<label style="width: 150px;height: 35px"   class="btn btn-primary"
+								btn-radio="'yes'" ng-change="change()" ng-model="company"   onclick="clearforNo();" >
+								Yes </label> <label style="width: 150px;height: 35px" class="btn btn-primary"
+								btn-radio="'no'" ng-change="change()" ng-model="company" onclick="clearforYes();">
+								No </label> <br> <br>
+
+
+						</div>
+						<div id="touchScreen1"></div>
+
+						<input type="hidden" id="role" name="touchScreen"
+							value="{{company}}"> <br> <br> 
+							
+							<br>
+					<div class="row">
+						<div class="col-sm-5">
+							<label>I agree to the terms and conditions <font color="red">*</font></label>
+						</div>
+						<div class="col-sm-4" style="padding-left: 0%;">
+							<div class="switch demo3 col-sm-4">
+	                    	 <input type="checkbox" name="agree" >
+	                   	 	<label style="border-style:inset;border-color: black;height: 85%;width: 30%"><i ></i></label>
+ 	               	 		</div>	
+						</div>
+					</div>
+					<div id="agree1" style="border-color: black;"></div>
+					<br>
+					
+					
+					<div ng-show="company == 'yes' ">
+						<label class="form-label form-label-left form-label-auto"
+							id="label_46" for="input_46"> Signature </label>
+						<div class="row">
+							<div class="col-md-12">
+								<canvas id="sig-canvas" width="350" height="160">  </canvas>
+								<canvas id="blank"  width="350" height="160" style='display:none'></canvas>
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+
+								<label class="btn btn-default" id="sig-clearBtn"> Clear
+									Signature</label>
+							</div>
+						</div>
+						<div id="sign1"></div>
+						<br />
+						<div class="row">
+							<div class="col-md-12">
+								<textarea style="display: none;" id="sig-dataUrl"
+									class="form-control" rows="5" name="sign">
+				  
+											</textarea>
+							</div>
+						</div>
+
+					</div>
+
+	<div ng-show="company == 'no' ">
+	<label for="pwd"><Strong> My typed name below
+								serves as my electronic signature for the above agreement. </Strong> <span
+							style="color: red; font-size: 3">*</span> </label></div>
+					<div ng-show="company == 'no' " style="width: 40%">
+					 <input type="text"
+							name="typedName" class="form-control" id="typed">
+					</div>
+					<div id="typedName1"></div>
+					<br> <br>
+					</div>
+
+					<div align="center">
+
+						<input type="submit" style="width: 280px" class="btn btn-primary"
+							value="Submit" id="sig-submitBtn">
+
+						<div align="center" id="submiterror">
+							<font color="red"></font>
+						</div>
+
+					</div>
+
+	</div>
+
+
+					<div style="padding-bottom: 50px;"></div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+	
+
+	</form>
+	</div>
+
+
+	<script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+	<script src="@routes.Assets.at("_resources/app.js")"></script>
+
+	<script>
+			$(document).ready(function() {
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+
+
+	<script type="text/javascript">
+			var app = angular.module("demoApp", [ 'ui.bootstrap' ]);
+
+			app.controller('DemoController', function($scope) {
+				init();
+				function init() {
+					$scope.newItemType = '';
+					$scope.company = "";
+					$scope.change = function() {
+						console.log($scope.newItemType)
+					};
+				}
+			});
+		</script>
+
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script
+		src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<!--<script src="https://code.angularjs.org/snapshot/angular.min.js"></script>-->
+	<script>
+			(function() {
+
+				// Get a regular interval for drawing to the screen
+				window.requestAnimFrame = (function(callback) {
+					return window.requestAnimationFrame
+							|| window.webkitRequestAnimationFrame
+							|| window.mozRequestAnimationFrame
+							|| window.oRequestAnimationFrame
+							|| window.msRequestAnimaitonFrame
+							|| function(callback) {
+								window.setTimeout(callback, 1000 / 60);
+							};
+				})();
+
+				// Set up the canvas
+				var canvas = document.getElementById("sig-canvas");
+				var ctx = canvas.getContext("2d");
+				ctx.strokeStyle = "#222222";
+				ctx.lineWith = 2;
+
+				// Set up the UI
+				var sigText = document.getElementById("sig-dataUrl");
+				var sigImage = document.getElementById("sig-image");
+				var clearBtn = document.getElementById("sig-clearBtn");
+				var submitBtn = document.getElementById("sig-submitBtn");
+				clearBtn
+						.addEventListener(
+								"click",
+								function(e) {
+									clearCanvas();
+									sigText.innerHTML = "Data URL for your signature will go here!";
+									sigImage.setAttribute("src", "");
+								}, false);
+				submitBtn.addEventListener("click", function(e) {
+
+				
+					var dataUrl = canvas.toDataURL();
+					sigText.innerHTML = dataUrl;
+					sigImage.setAttribute("src", dataUrl);
+				}, false);
+
+				// Set up mouse events for drawing
+				var drawing = false;
+				var mousePos = {
+					x : 0,
+					y : 0
+				};
+				var lastPos = mousePos;
+				canvas.addEventListener("mousedown", function(e) {
+					drawing = true;
+					lastPos = getMousePos(canvas, e);
+				}, false);
+				canvas.addEventListener("mouseup", function(e) {
+					drawing = false;
+				}, false);
+				canvas.addEventListener("mousemove", function(e) {
+					mousePos = getMousePos(canvas, e);
+				}, false);
+
+				// Set up touch events for mobile, etc
+				canvas.addEventListener("touchstart", function(e) {
+					mousePos = getTouchPos(canvas, e);
+					var touch = e.touches[0];
+					var mouseEvent = new MouseEvent("mousedown", {
+						clientX : touch.clientX,
+						clientY : touch.clientY
+					});
+					canvas.dispatchEvent(mouseEvent);
+				}, false);
+				canvas.addEventListener("touchend", function(e) {
+					var mouseEvent = new MouseEvent("mouseup", {});
+					canvas.dispatchEvent(mouseEvent);
+				}, false);
+				canvas.addEventListener("touchmove", function(e) {
+					var touch = e.touches[0];
+					var mouseEvent = new MouseEvent("mousemove", {
+						clientX : touch.clientX,
+						clientY : touch.clientY
+					});
+					canvas.dispatchEvent(mouseEvent);
+				}, false);
+
+				// Prevent scrolling when touching the canvas
+				document.body.addEventListener("touchstart", function(e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				}, false);
+				document.body.addEventListener("touchend", function(e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				}, false);
+				document.body.addEventListener("touchmove", function(e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				}, false);
+
+				// Get the position of the mouse relative to the canvas
+				function getMousePos(canvasDom, mouseEvent) {
+					var rect = canvasDom.getBoundingClientRect();
+					return {
+						x : mouseEvent.clientX - rect.left,
+						y : mouseEvent.clientY - rect.top
+					};
+				}
+
+				// Get the position of a touch relative to the canvas
+				function getTouchPos(canvasDom, touchEvent) {
+					var rect = canvasDom.getBoundingClientRect();
+					return {
+						x : touchEvent.touches[0].clientX - rect.left,
+						y : touchEvent.touches[0].clientY - rect.top
+					};
+				}
+
+				// Draw to the canvas
+				function renderCanvas() {
+					if (drawing) {
+						ctx.moveTo(lastPos.x, lastPos.y);
+						ctx.lineTo(mousePos.x, mousePos.y);
+						ctx.stroke();
+						lastPos = mousePos;
+					}
+				}
+
+				// Clear the canvas
+				function clearCanvas() {
+					canvas.width = canvas.width;
+				}
+
+				// Allow for animation
+				(function drawLoop() {
+					requestAnimFrame(drawLoop);
+					renderCanvas();
+				})();
+
+			})();
+		</script>
+<script type="text/javascript">
+
+function clearforYes(){
+	var canvas = document.getElementById("sig-canvas");
+	console.log("canvas value "+canvas);
+	canvas.width = canvas.width;
+	
+}
+
+function clearforNo(){
+	console.log("inside the clearforNo() ");
+	var typedName = document.getElementById("role").value;
+
+	if(typedName=='no'){
+		//alert(typedName);
+		
+		document.getElementById('typed').value = "";
+		
+		
+	}
+	console.log("typedName: "+typedName);
+	
+}
+</script>
+	<script type="text/javascript">
+			function validateForm() {
+try{
+	var value= true;
+
+				var fname = document.forms["myForm"]["touchScreen"].value;
+
+				if (!fname) {
+					document.getElementById("touchScreen1").innerHTML = "<p style=\"color:red\">Please Select Device Type </p>";
+					document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+					value=false;
+				} else {
+					document.getElementById("touchScreen1").innerHTML = "";
+
+				}
+				var lname = document.forms["myForm"]["agree"].checked;
+
+				
+				if (!lname) {
+
+					document.getElementById("agree1").innerHTML = "<p style=\"color:red\">Please agree the condtion</p>";
+					document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+					value=false;
+				} else {
+					document.getElementById("agree1").innerHTML = "";
+
+				}
+				var typedName = document.forms["myForm"]["typedName"].value;
+
+				if (!typedName && fname == 'no') {
+
+					document.getElementById("typedName1").innerHTML = "<p style=\"color:red\">Please enter the name</p>";
+					document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+					value= false;
+				}else if(typedName.trim().length<2 && fname == 'no'){
+					
+					
+					document.getElementById("typedName1").focus();
+
+					document.getElementById("typedName1").innerHTML="<p style=\"color:red\"> Name Should More than one letter</p>";
+					document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+					value=false;
+					
+					
+				} else {
+					document.getElementById("typedName1").innerHTML = "";
+					if(!typedName.match(/^[a-zA-Z ]*$/)){
+						document.getElementById("typedName1").innerHTML ="<p style=\"color:red\">Please Enter Aplhabets only.</p>";
+						document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+
+						value = false;
+
+					}else{
+						document.getElementById("typedName1").innerHTML = "";
+
+					}
+				}
+
+				var sign = document.forms["myForm"]["sign"].value;
+	
+			
+					var conva=document.getElementById("blank").toDataURL();
+				
+					
+					if ((sign == conva) && fname == 'yes') {
+
+					document.getElementById("sign1").innerHTML = "<p style=\"color:red\"> Electonic Signature Required </p>";
+					document.getElementById("submiterror").innerHTML = "<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+					value= false;
+				} else {
+					document.getElementById("sign1").innerHTML = "";
+
+				}
+				
+
+				if(value){
+					 $('#loading').show();
+				}
+				return value;
+}catch(err){}
+
+
+			}
+		</script>
+	<script type="text/javascript">
+
+jQuery(function ($) {
+    var $active = $('.panel-collapse.in').prev().addClass('active');
+/*     $active.find('a').append('<span class="glyphicon glyphicon-minus pull-left glyphicon-blue"></span>');
+ */    $('.panel-heading').not($active).find('a');
+   
+
+    
+
+});
+</script>
+</body>
+</html>

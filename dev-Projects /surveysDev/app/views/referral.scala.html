@@ -1,0 +1,217 @@
+@(opprtunityid : String,referralId:String,message:Integer)
+
+@main("Referral Survey") {
+<html>
+<head>
+  <link href="@routes.Assets.at("bootstrap/css/zInput_alt_stylesheet_1.css")" rel="stylesheet">
+<title>zInput Demo</title>
+<link id="stylesheet" rel="stylesheet" type="text/css" href="css/zInput_default_stylesheet.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <style>
+ 
+ .btn {
+    border: 0 none;
+    font-weight: normal;
+    
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-warning{
+background:#337ab7 ;
+
+}
+ 
+ 
+ .btn-warning.focus,.btn-warning:active, .btn-warning.active {
+background:#0099cc ;
+
+}
+
+.btn-primary:active, .btn-primary.active {
+     background: #0099cc;
+    color: #ffffff;
+    box-shadow: none;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </style>
+ 
+ 
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <form action="@routes.Application.getReferralSurveydetails()" method="post">
+ 
+<div ><font  style="font-weight: normal;font-size: 15px">How would you rate your recent experience with the Visdom team?</font></div>
+<br>
+
+<div class="btn-group" data-toggle="buttons">
+   <label style="width:100px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Excellent" required> Excellent
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="options" id="option2" value="Good" required> Good
+   </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="options" id="option3" value="Satisfactory" required> Satisfactory
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="options" id="option3"  value="Not So Good" required> Not So Good
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="options" id="option3" value="Yuck" required> Yuck
+   </label>
+</div><br>	<br>
+ <input type="hidden" name="opprtunityId" value="@opprtunityid">
+      <input type="hidden" name="referralId" value="@referralId">
+   
+     
+<!-- <div class="container">          
+  <div>
+    <button type="button" style="width:100px" class="btn btn-primary ">Excellent</button>
+    <button type="button" style="width:100px" class="btn btn-primary">Good</button>
+    <button type="button" style="width:100px"class="btn btn-primary">Satisfactory</button>
+     <button type="button" style="width:100px" class="btn btn-primary">Not So Good</button>
+    <button type="button" style="width:100px" class="btn btn-primary">Yuck</button>
+  
+  </div>
+</div> -->
+
+<div ><font  style="font-weight: normal;font-size: 15px">Would you recommend Visdom to your friends and family?</font></div><br>
+<div class="btn-group" data-toggle="buttons">
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="option" id="option1" value="Excellent" required> Excellent
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="option" id="option2" value="Good" required> Good
+   </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="option" id="option3" value="Satisfactory" required> Satisfactory
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="option" id="option3"  value="Not So Good" required> Not So Good
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="option" id="option3" value="Yuck" required> Yuck
+   </label>
+</div><br><br>
+<!-- <div class="container">          
+  <div>
+    <button type="button" style="width:100px" class="btn btn-primary">Excellent</button>
+    <button type="button" style="width:100px" class="btn btn-primary">Good</button>
+    <button type="button" style="width:100px" class="btn btn-primary">Satisfactory</button>
+     <button type="button" style="width:100px" class="btn btn-primary">Not So Good</button>
+    <button type="button" style="width:100px" class="btn btn-primary">Yuck</button>
+  
+  </div>
+</div> -->
+
+
+
+<div ><font  style="font-weight: normal;font-size: 15px">Would you recommend Visdom to other clients in the future?</font>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+   <label style="width:100px" class="btn btn-primary">
+      <input  type="radio" name="yes" id="option1" value="Yes" required> Yes
+   </label>
+   <label style="width:100px" class="btn btn-primary">
+      <input type="radio" name="yes" id="option2" value="No" required> No
+   </label>
+</div>	<br><br>
+<!-- <div >          
+  <div class="container">
+    <button type="button" style="width:100px" class="btn btn-primary">Yes</button>
+    <button type="button"  style="width:100px"class="btn btn-primary">No</button>
+   
+  
+  </div>
+</div> -->
+
+
+<div><font  style="font-weight: normal;font-size: 15px">In your own words, good or bad, please provide us your feedback regarding your experience with Visdom.</font></div><br>
+
+<div>
+	<textarea rows="5" cols="60" name="text" style="color:black" required></textarea>
+</div><br>
+<div>            <p>  <font size="2">(This is a great place to share with us a testimonial on our service or suggestions on how we can improve)</font></p>
+</div>
+<br><br>
+
+      @if(message==0){
+
+<div ><font  style="font-weight: normal;font-size: 15px">
+Would you like us to send the survey fee of $25 to your email address or donate it to a charity?</font>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+   <label style="width:100px" class="btn btn-primary test1">
+      <input  type="radio" name="sendMe" id="option1" value="Charity" required> Charity
+   </label>
+   <label style="width:100px" class="btn btn-primary test" >
+      <input type="radio" name="sendMe" id="option2" value="Send To Me" required> Send To me
+   </label>
+</div>	<br><br>
+
+
+<div class="collapse">
+<div>
+<font  style="font-weight: normal;font-size: 15px">Which charity would you like us to donate the survey fee to?</font>
+
+</div>
+<select class="form-control" name="charity" style="color:white;background-color:#337ab7;font-size: 1;width: 60%">
+    <option value="Children’s Wish Foundation">Children’s Wish Foundation</option>
+    <option value="Alberta’s Children Hospital Foundation">Alberta’s Children Hospital Foundation
+</option>
+    <option value="Calgary Inter-Faith Food Bank">Calgary Inter-Faith Food Bank</option>
+    <option value="Canadian Red Cross Society">Canadian Red Cross Society</option>
+    <option value="Terry Fox Foundation">Terry Fox Foundation</option>
+    <option value="United Way of Calgary & Area">United Way of Calgary & Area</option>
+    <option value="Habitat for Humanity of Canada">Habitat for Humanity of Canada</option>
+    <option value="Rick Hansen Institute">Rick Hansen Institute</option>
+    <option value="Alberta Cancer Foundation">Alberta Cancer Foundation</option>
+    <option value="Canadian Diabetes Association">Canadian Diabetes Association</option>
+    <option value="Heart & Stroke Foundation">Heart & Stroke Foundation</option>
+
+    <option value="Multiple Sclerosis Society of Canada">Multiple Sclerosis Society of Canada</option>
+    <option value="War Amputations of Canada">War Amputations of Canada</option>
+    <option value="Kidney Foundation of Canada">Kidney Foundation of Canada</option>
+    <option value="Cystic Fibrosis Canada">Cystic Fibrosis Canada</option>
+      <option value="Nature Conservancy of Canada">Nature Conservancy of Canada</option>
+        <option value="Meals on Wheels">Meals on Wheels</option>
+          <option value="Special Olympics">Samartin’s Purse-Canada</option>
+
+</select>
+</div>
+<br><br>
+}
+      <input style="width:100px" type="submit" class="btn btn-primary" value="Submit " id="option1"> 
+<script>
+$(document).ready(function(){
+  
+    $(".test1").click(function(){
+        $(".collapse").collapse('show');
+    });
+    $(".test").click(function(){
+        $(".collapse").collapse('hide');
+    });
+});
+</script>
+
+</form>
+
+</body>
+</html>
+}

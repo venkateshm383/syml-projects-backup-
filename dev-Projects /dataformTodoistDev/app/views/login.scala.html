@@ -1,0 +1,100 @@
+@(name: String)
+
+@main("Login Page") {
+    
+   <html>
+       <head>
+     <script src="https://d2g9qbzl5h49rh.cloudfront.net/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/static/jotform.forms.js?3.3.7810" type="text/javascript"></script>
+<script type="text/javascript">
+   JotForm.init(function(){
+      JotForm.clearFieldOnHide="disable";
+      JotForm.onSubmissionError="jumpToSubmit";
+   });
+</script>
+<link href="https://d2g9qbzl5h49rh.cloudfront.net/static/formCss.css?3.3.7810" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/styles/nova.css?3.3.7810" />
+<link type="text/css" media="print" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/printForm.css?3.3.7810" />
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+</style>
+</head> 
+<body>
+<form class="jotform-form" action="@routes.Application.loginSubmit()" method="post" name="form_51878775173470" id="51878775173470" accept-charset="utf-8">
+  <input type="hidden" name="formID" value="51878775173470" />
+  <div class="form-all">
+    <ul class="form-section page-section">
+     
+      
+     
+      <li class="form-line jf-required" data-type="control_textbox" id="id_3">
+        <label class="form-label form-label-left form-label-auto" id="label_3" for="input_3">
+          User Name :
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_3" class="form-input jf-required">
+          <input type="text" class=" form-textbox validate[required, AlphaNumeric]" data-type="input-textbox" id="input_3" name="userName" size="20" value="" />
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_1">
+        <label class="form-label form-label-left form-label-auto" id="label_1" for="input_1">
+          Password :
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_1" class="form-input jf-required">
+          <input type="password" class=" form-textbox validate[required, AlphaNumeric]" data-type="input-textbox" id="input_1" name="password" size="20" value="" />
+        </div>
+      </li>
+        <li class="form-line jf-required" data-type="control_textbox" id="id_3">
+     
+          <span class="form-required">
+           @name
+          </span>
+      
+       
+      </li>
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide">
+          <div style="margin-left:156px" class="form-buttons-wrapper">
+            <button id="input_2" type="submit" class="form-submit-button">
+              Login
+            </button>
+          </div>
+        </div>
+      </li>
+      <li style="display:none">
+        Should be Empty:
+        <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="51878775173470" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "51878775173470-51878775173470";
+  </script>
+</form>
+</body>
+</html>
+      
+    
+    
+}

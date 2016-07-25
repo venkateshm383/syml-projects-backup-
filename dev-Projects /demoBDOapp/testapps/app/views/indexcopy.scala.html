@@ -1,0 +1,235 @@
+@(opprtunityid : String)
+
+@main("Demo Page") {
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=http%3A%2F%2Fwww.jotform.com%2Fform%2F52633541887463" title="oEmbed Form"><link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=http%3A%2F%2Fwww.jotform.com%2Fform%2F52633541887463" title="oEmbed Form">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="HandheldFriendly" content="true" />
+<title>Title Me</title>
+<link type="text/css" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/static/formCss.css?3.2.5826"/>
+<link href="css/calendarview.css?v3.3.9150" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/styles/nova.css?3.3.9150" />
+<link type="text/css" media="print" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/printForm.css?3.3.9150" />
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+</style>
+
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/prototype.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/vendor/json2.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/protoplus.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/protoplus-ui-form.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/jotform.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/calendarview.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://js.jotform.com/vendor/postMessage.min.js" type="text/javascript"></script>
+<script src="https://js.jotform.com/WidgetsServer.js" type="text/javascript"></script>
+
+</head>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <style>
+ 
+ .btn {
+    border: 0 none;
+    font-weight: normal;
+    
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-warning{
+background:#337ab7 ;
+
+}
+ 
+ 
+ .btn-warning.focus,.btn-warning:active, .btn-warning.active {
+background:#0099cc ;
+
+}
+
+.btn-primary:active, .btn-primary.active {
+     background: #0099cc;
+    color: #ffffff;
+    box-shadow: none;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </style>
+ <script type="text/javascript">
+function test(){
+
+	   var str="{\"oppo\":\""+$("#oppo").val()+"\",\"data\":\""+$(this).val()+"\"}";
+	 
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://dev-documentanalyzer.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	        	
+	            var select = $('#docs');
+	            select.find('option').remove();
+	        	for(var i=0;i<data.length;i++){
+	        	 $('<option>').val(data[i]).text(data[i]).appendTo(select);
+	        	}
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	            setError('Make call failed');
+	        }
+	    });
+}
+
+
+
+</script>
+<body>
+
+  <div class="form-all">
+    <ul class="form-section page-section">
+    <form class="jotform-form" action="Create" method="post" name="form_52633541887463" id="52633541887463" accept-charset="utf-8">
+    
+      <li class="form-line jf-required" data-type="control_fullname" id="id_1">
+        <label class="form-label form-label-top" id="label_1" for="input_1">
+Referral Source Name 
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_1" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align: top">
+            <input class="form-textbox validate[required]" type="text" size="20"   height="40"  name="first" required placeholder="Referral Source First Name " id="first_1" />
+          </span>
+          <span class="form-sub-label-container" style="vertical-align: top">
+            <input class="form-textbox validate[required]" type="text" size="20" style="height:20" name="last"  required placeholder="Referral Source Last Name " id="last_1" />
+
+          </span>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_3">
+        <label class="form-label form-label-top" id="label_3" for="input_3">
+    Demo Referral Source Email
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_3" class="form-input-wide jf-required">
+          <input type="email" class=" form-textbox validate[required, Email]" id="input_3" required name="referralemail" placeholder="Demo Referral Source Email " size="30" value="" />
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_4">
+        <label class="form-label form-label-top" id="label_4" for="input_4">
+       Demo Client Email
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_4" class="form-input-wide jf-required">
+          <input type="email" class=" form-textbox validate[required, Email]" id="input_4" name="applicantEmail" placeholder="Demo Client Email " size="30" value="" />
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_5">
+        <label class="form-label form-label-top" id="label_5" for="input_5">
+        Demo  Opportunity Name
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_5" class="form-input-wide jf-required">
+          <input type="text" list="opportunity" class=" form-textbox validate[required]" data-type="input-textbox" id="input_5" name="opportunity"  placeholder="Demo  Opportunity    
+         " size="50" value="" />
+         
+         <datalist id="opportunity">
+  <option value="Internet Explorer">
+  
+</datalist>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_12">
+        <div id="cid_12" class="form-input-wide">
+          <div style="margin-left:50px" class="form-buttons-wrapper">
+            <button id="input_12" type="submit"  class="btn btn-primary  .btn-md">
+              Go
+            </button>
+          </div>
+        </div>
+      </li>
+       </form>
+  <li class="form-line" data-type="control_widget" id="id_6">
+  
+  <div class="btn-group" data-toggle="buttons">
+   <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option" onselect="test();" value="Completed App" required> Completed App
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Awaiting Docs" required> Awaiting Docs
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="All Product" required> All Product
+   </label>
+<br><br>
+  <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Proposal" required> Proposal
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value=" Post Selection" required> Post Selection
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Lender Submit" required> Lender Submit
+   </label>
+   
+    <br><br>
+    
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Commitment" required> Commitment
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Compensation" required> Compensation
+   </label>
+    <label style="width:150px;" class="btn btn-primary">
+      <input type="radio" name="options" id="option1" value="Paid" required> Paid
+   </label>
+ 
+  
+  </div>
+  
+  
+      </li>
+     
+    </ul>
+  </div>
+</body>
+</html>    
+
+}

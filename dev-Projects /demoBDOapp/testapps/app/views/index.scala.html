@@ -1,0 +1,523 @@
+@(errorMessage: String,opportunityName:String,applicantEmailId:String,referralFirstName:String,referralLastName:String,referralEmail:String,opporunity:List[OpportunityList])
+
+@main("Demo Page") {
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=http%3A%2F%2Fwww.jotform.com%2Fform%2F52633541887463" title="oEmbed Form"><link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=http%3A%2F%2Fwww.jotform.com%2Fform%2F52633541887463" title="oEmbed Form">
+<meta name="HandheldFriendly" content="true" />
+<title>Title Me</title>
+<link type="text/css" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/static/formCss.css?3.2.5826"/>
+<link href="css/calendarview.css?v3.3.9150" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/styles/nova.css?3.3.9150" />
+<link type="text/css" media="print" rel="stylesheet" href="https://d2g9qbzl5h49rh.cloudfront.net/css/printForm.css?3.3.9150" />
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+</style>
+
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/prototype.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/vendor/json2.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/protoplus.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/protoplus-ui-form.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/jotform.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://d2g9qbzl5h49rh.cloudfront.net/js/calendarview.js?v=3.3.9150" type="text/javascript"></script>
+<script src="https://js.jotform.com/vendor/postMessage.min.js" type="text/javascript"></script>
+<script src="https://js.jotform.com/WidgetsServer.js" type="text/javascript"></script>
+
+</head>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <style>
+ 
+ .btn {
+    border: 0 none;
+    font-weight: normal;
+    
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-warning{
+background:#337ab7 ;
+
+}
+ 
+ 
+ .btn-warning.focus,.btn-warning:active, .btn-warning.active {
+background:#0099cc ;
+
+}
+
+.btn-primary:active, .btn-primary.active {
+     background: red;
+    color: #ffffff;
+    box-shadow: none;
+}
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </style>
+
+ <script type="text/javascript">
+ function test(){
+
+	 var x = document.getElementById("option1");
+		var name=document.getElementById("input_5");
+		
+
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+        	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+         	document.getElementById("msg1").innerHTML="";
+
+
+		}
+	} 
+
+ function test1(){
+
+	 var x = document.getElementById("option2");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+        	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+         	document.getElementById("msg1").innerHTML="";
+
+		}
+
+	} 
+
+ function test2(){
+
+	 document.getElementById("msg").innerHTML="Stage changed to All Product sucessfully";
+	  	document.getElementById("msg1").innerHTML="";
+	
+	} 
+
+ 
+ function test3(){
+
+	 var x = document.getElementById("option4");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+     	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+     	document.getElementById("msg1").innerHTML="";
+
+		}
+	} 
+ 
+ function test4(){
+
+	  var x = document.getElementById("option5");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	//document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+     	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+     	document.getElementById("msg1").innerHTML="";
+
+		}
+		
+	  	document.getElementById("msg1").innerHTML="";
+
+	} 
+ function test5(){
+
+	
+	 document.getElementById("msg").innerHTML="Stage changed to Lender Submit sucessfully";
+  	document.getElementById("msg1").innerHTML="";
+	} 
+ 
+ function test6(){
+
+	 var x = document.getElementById("option7");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+     	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+     	document.getElementById("msg1").innerHTML="";
+
+		}
+	} 
+ 
+ function test7(){
+
+	 var x = document.getElementById("option8");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+     	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+     	document.getElementById("msg1").innerHTML="";
+
+		}
+	} 
+ function test8(){
+
+	 var x = document.getElementById("option9");
+		var name=document.getElementById("input_5");
+		var referralName=document.getElementById("first_1");
+
+		var referralEmail=document.getElementById("input_3");
+
+		if(name!=""){
+			var str="{\"oppo\":\""+x.value+"\",\"opportunityName\":\""+name.value+"\",\"referralname\":\""+referralName.value+"\",\"referralEmail\":\""+referralEmail.value+"\"}";
+	
+	    $.ajax({
+	        type : 'POST',
+	        url : "https://demobdo.visdom.ca/data",
+	        data : str,
+	        dataType : "json",
+	        contentType: "application/json; charset=utf-8",
+	        success : function(data) {
+	   
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            //setError('Call succedded');
+	            //$('#test1').attr("src", data)
+	        },
+	        error : function(data) {
+	        	document.getElementById("msg").innerHTML=data[0];
+	         	document.getElementById("msg1").innerHTML="";
+
+	            setError('Make call failed');
+	        }
+	    });
+		}else{
+     	document.getElementById("msg").innerHTML="Please Select Opporunity Name ";
+     	document.getElementById("msg1").innerHTML="";
+		}
+	} 
+
+
+
+</script>
+<body>
+
+  <div class="form-all">
+  <br>
+    <form class="jotform-form" action="Create" method="post" name="form_52633541887463" id="52633541887463" accept-charset="utf-8">
+
+    <ul class="form-section page-section">
+    
+      <li class="form-line jf-required" data-type="control_fullname" id="id_1">
+        <label class="form-label form-label-top" id="label_1" for="input_1">
+Referral Source Name 
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_1" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align: top">
+            <input class="form-textbox validate[required]" type="text"  value="@referralFirstName"     name="first" required placeholder="First Name " id="first_1" />
+          </span>
+          <span class="form-sub-label-container" style="vertical-align: top">
+            <input class="form-textbox validate[required]" type="text"   name="last"  required placeholder="Last Name " id="last_1" value="@referralLastName" />
+
+          </span>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_3">
+        <label class="form-label form-label-top" id="label_3" for="input_3">
+     Referral Source Email
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_3" class="form-input-wide jf-required">
+          <input type="email" style="width: 50%" class=" form-textbox validate[required, Email]" id="input_3" required name="referralemail" placeholder="Email " value="@referralEmail" />
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_4">
+        <label class="form-label form-label-top" id="label_4" for="input_4">
+        Client Email
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_4" class="form-input-wide jf-required">
+          <input type="email" class=" form-textbox validate[required, Email]" style="width: 50%" id="input_4" name="applicantEmail" placeholder="Email "  value="@applicantEmailId" />
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_5">
+        <label class="form-label form-label-top" id="label_5" for="input_5">
+        Opportunity Name
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_5" class="form-input-wide jf-required">
+          <input type="text" list="opportunity" class=" form-textbox validate[required]" data-type="input-textbox" id="input_5" name="opportunity"  placeholder="Opportunity    
+         " style="width: 70%" value="@opportunityName" />
+         
+         <datalist id="opportunity">
+ @for(user <- opporunity){
+  <option value="@user.getOpportunityName">
+}  
+</datalist>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_12">
+        <div id="cid_12" class="form-input-wide">
+          <div style="margin-left:50px" class="form-buttons-wrapper">
+            <button id="input_12" type="submit" style="width: 30%" class="btn btn-primary">
+              Go
+            </button>
+          </div>
+        </div>
+      </li>
+    
+ 
+     
+     
+    </ul>
+  
+     </form>
+     
+     <div align="center">
+     <p id="msg"></p>
+     
+    </div>
+    
+    <div align="center">
+    <p id="msg1">@errorMessage</p>
+    </div>
+  <br>
+  <div style="margin-left: 15%" class="btn-group"  data-toggle="buttons">
+   <label style= " width:32%; margin-right: 1%;" onclick="test();" class="btn btn-primary">
+      <input type="radio" name="options" id="option1"   value="Completed App" required> <font size="1" style="font-weight:bold;" >Completed App
+ </font>  </label>
+    <label style="width:32%;margin-right: 1%;font-size: 90%" onclick="test1();"  class="btn btn-primary">
+      <input type="radio" name="options" id="option2"  value="Awaiting Docs" required><font size="1" style="font-weight:bold;" >Awaiting Docs
+</font> </label>
+    <label style="width:32%;margin-right: 1%;font-size: 90%; background: #0099cc;
+    color: #ffffff;
+    box-shadow: none;  
+     "  onclick="test2();" id="product" class="btn btn-primary">
+      <input type="radio" name="options" id="option3" value="All Product" required> <font size="1" style="font-weight:bold;" >All Product
+</font> </label>
+<br><br>
+  <label style="width:32%;margin-right: 1%" onclick="test3();" class="btn btn-primary">
+      <input type="radio" name="options" id="option4" value="Proposal" required><font size="1" style="font-weight:bold;" > Proposal
+   </font></label>
+    <label style="width:32%;margin-right: 1%;" onclick="test4();"  class="btn btn-primary">
+      <input type="radio" name="options" id="option5" value="Post Selection" required><font size="1" style="font-weight:bold;" > Post Selection
+  </font> </label>
+    <label style="width:32%;margin-right: 1%;background: #0099cc;
+    color: #ffffff;
+    box-shadow: none;" onclick="test5();" class="btn btn-primary">
+      <input type="radio" name="options" id="option6" value="Lender Submit" required><font size="1" style="font-weight:bold;" > Lender Submit
+  </font> </label>
+   
+    <br><br>
+    
+    <label style="width:32%;margin-right: 1%" onclick="test6();" class="btn btn-primary">
+      <input type="radio" name="options" id="option7" value="Commitment" required> <font size="1" style="font-weight:bold;" >Commitment
+  </font> </label>
+    <label style="width:32%;margin-right: 1%" onclick="test7();" class="btn btn-primary">
+      <input type="radio" name="options" id="option8" value="Compensation" required><font size="1" style="font-weight:bold;" > Compensation
+ </font>  </label>
+    <label style="width:32%;margin-right: 1%" onclick="test8();" class="btn btn-primary">
+      <input type="radio" name="options" id="option9" value="Paid" required><font size="1" style="font-weight:bold;" > Paid
+ </font>  </label>
+ 
+  
+  </div>
+  
+  <br>
+  <br>
+  </div>  
+  
+ 
+</body>
+</html>    
+
+}

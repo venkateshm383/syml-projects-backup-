@@ -1,0 +1,32 @@
+﻿{
+    "applicationID":"245",
+    "applicants": [
+        {
+            "firstName": "Christopher",
+            "lastName": "Fuhrer",
+            "email": "chrisjfuhrer@gmail.com",
+            "documents": [
+               
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Jodi",
+            "lastName": "Fuhrer",
+            "email": "jodifuhrer@gmail.com",
+            "documents": [
+                
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Mortgage Statement( 133 Sage Valley Close Northwest , Calgary )",
+        "Property Tax Assessment( 133 Sage Valley Close Northwest , Calgary )",
+        "Fire Insurance"
+    ]
+}

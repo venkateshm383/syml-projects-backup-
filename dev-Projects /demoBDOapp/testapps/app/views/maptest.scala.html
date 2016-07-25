@@ -1,0 +1,183 @@
+@(firstmap:Map[String,Map[String,Object]], mapconfig : Map[String,Object])
+<html>
+<style>
+#divMenu, ul, li, li li {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+ 
+
+#divMenu {
+
+    width: 150px;
+
+    height: 27px;
+
+}
+
+ 
+
+#divMenu ul.dropdown
+
+{
+
+     line-height: 25px;
+     
+
+}
+
+ 
+
+    #divMenu li {
+
+        list-style: none;
+
+        position: relative;
+
+        background: #641b1b;
+
+    }
+
+ 
+
+        #divMenu li li {
+
+            list-style: none;
+
+            position: relative;
+
+            background: #641b1b;
+
+            left: 148px;
+
+            top: -27px;
+
+        }
+
+ 
+
+ 
+
+    #divMenu ul li a {
+
+        width: 148px;
+
+        height: 25px;
+
+        display: block;
+
+        text-decoration: none;
+
+        text-align: center;
+
+        font-family: Georgia,'Times New Roman',serif;
+
+        color:#ffffff;
+
+        border:1px solid #eee;
+
+    }
+
+ 
+
+    #divMenu ul ul {
+
+        position: absolute;
+
+        visibility: hidden;
+
+        top: 27px;
+
+    }
+
+ 
+
+    #divMenu ul li:hover ul {
+
+        visibility: visible;
+
+    }
+
+ 
+
+    #divMenu li:hover {
+
+        background-color: #945c7d;
+
+    }
+
+ 
+
+    #divMenu ul li:hover ul li a:hover {
+
+        background-color: #945c7d;
+
+    }
+
+ 
+
+    #divMenu a:hover {
+
+        font-weight: bold;
+
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!--  <script>
+$(document).ready(function(){
+ 
+    $(".test2").click(function(){
+    	var choosefirst=document.getElementById("choosi");
+        alert(choosefirst);
+        $(".collapse").collapse('show');
+    });
+    $(".test2").click(function(){
+        $(".collapse").collapse('hide');
+    });
+});
+</script>-->
+
+
+<center>
+<body>
+
+
+<br/>
+<br/><br/><br/>
+<h1 style="font:bold; color: Red;"> welcome to EventConfiguration</h1>
+<br/>
+<br/>
+ <div id="divMenu">
+<ul class="dropdown">
+@for((key,value) <- firstmap){
+
+    
+    <li>
+        <a href="#">@key</a>
+
+        <ul>
+        @for((key1,value1) <- value){
+            <li><a href="#">@key1</a>
+            	<ul>
+            		<li>@value1</li>
+            	</ul>
+            </li>
+            }
+        </ul>
+    </li>
+    
+    }
+</ul>
+
+ </div>
+</body>
+</center>
+</html>
+
+

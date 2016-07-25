@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+function insRow()
+{
+    var x=document.getElementById('POITable');
+       // deep clone the targeted row
+    var new_row = x.rows[1].cloneNode(true);
+       // get the total number of rows
+    var len = x.rows.length;
+       // set the innerHTML of the first row 
+   // new_row.cells[0].innerHTML = len;
+    x.appendChild( new_row );
+}
+</script>
+</head>
+<body>
+<div id="POItablediv">
+    <table id="POITable" border="1">
+        <tr>
+            <td>POI</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Delete</td>
+            <td>cd</td>
+        </tr>
+        <tr>
+            <td>ss</td>
+            <td><input size=25 type="text" id="latbox"/></td>
+            <td><input size=25 type="text" id="lngbox"/></td>
+            <td></td>
+        </tr>
+    </table><br>
+    <input type="button" id="addmorePOIbutton" value="Add More POIs" onclick="insRow()"/>
+</div>
+</body>
+</html>

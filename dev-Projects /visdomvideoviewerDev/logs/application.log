@@ -1,0 +1,18 @@
+2016-06-27 10:45:09,917 - [INFO] - from play in pool-14-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2016-06-27 10:48:01,223 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-06-27 10:48:29,904 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+null
+
+2016-06-27 10:48:29,917 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+null
+
+2016-06-27 10:48:29,917 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+null
+
+2016-06-27 10:51:42,409 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

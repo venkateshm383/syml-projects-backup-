@@ -1,0 +1,93 @@
+@import play.api.Play
+@(title: String)(content: Html)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="HandheldFriendly" content="true" />
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>@title</title>
+<style type="text/css">
+.form-all:before {
+  content: "";
+  background-image: url("https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png");
+  display: inline-block;
+  height: 100px;
+  position: absolute;
+  background-size: 299px 100px;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+/* body { 
+  background: url(/assets/images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+</style>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="@routes.Assets.at("images/favicon.ico")" rel="shortcut icon">
+        <link href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("bootstrap/css/bootstrap-theme.css")" rel="stylesheet">
+                <link href="@routes.Assets.at("css/injected.css")" rel="stylesheet">
+        
+        
+    <link href="@routes.Assets.at("stylesheets/template.css")" rel="stylesheet"> 
+<!-- <link type="text/css" rel="stylesheet" href=@routes.Assets.at("_resources/background.css")" />
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")" />
+ -->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+       
+				<div class="container">
+                
+             <div style="padding-bottom:20px; margin-top:20px;padding-left: 15%">
+                		<img alt="Visdom Logo" height="90" width="260"  src="https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png" />
+              
+              
+                	</div>	   	
+                	<div align="center" style="height:100%;width: 100% ">
+ 				<div align="center" style=" width:95%;height: 100% ">
+ 				
+ 				            	@content
+ 				
+ 				
+ 				
+ 				</div>   
+ 				</div>   
+ 				</div>
+       
+          <!--    <div class="container-fluid" >
+            <div class="row">
+            	<div class="col-sm-3"></div>
+            	<div class="col-sm-6 container-bg text-color-blue" > -->
+            <!-- 	<div style="padding-bottom:50px;"></div>
+            	</div>
+            	<div class="col-sm-3"></div>
+            </div>
+        </div>  -->
+        
+        <!-- /.container -->
+
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.2-min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="@routes.Assets.at("javascripts/IE10-viewport-bug.js")" type="text/javascript"></script>
+    </body>
+</html>

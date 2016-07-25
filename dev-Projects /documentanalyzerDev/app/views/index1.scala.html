@@ -1,0 +1,238 @@
+@(message: String,opporunity:List[OpportunityList],users: List[String],appl: List[String],coapp:List[String],appdocs:List[String],coappdocs:List[String],propdocs:List[String],downdocs:List[String],missdocs:List[String],opprtunity:String,id:String,sucess:Integer,docosolo:List[DocoSolo],properDoc:Integer)
+
+
+<html>
+<head>
+
+<title>Document Splitter</title>
+<link type="text/css" rel="stylesheet" href="background.css" />
+<link type="text/css" rel="stylesheet" href="forms.css" />
+<link type="text/css" rel="stylesheet" href="mortgage.css" />
+<style type="text/css">
+
+body {
+	background: url(/assets/images/bg.jpg) no-repeat center center fixed;
+   
+}
+
+
+
+.text-color-blue {
+	color:#237EBA;
+}
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+ <script src="https://oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
+ --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body >
+ <div style="padding-bottom:20px; margin-top:20px;padding-left: 5%">
+                		<img alt="Visdom Logo" height="90" width="260"  src="https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png" />
+              
+              
+                	</div>
+          
+
+<!-- <form action="search" method="post">
+ -->
+ 
+<div style="padding-left: 10%">
+
+<form action="search" method="post">
+
+<input type="text" list="opportunity" value="@opprtunity" name="opportunity" style="height: 35px;width: 550px"  required>
+ 
+
+<datalist id="opportunity">
+ @for(user <- opporunity){
+  <option value="@user.getOpportunityName">
+}
+</datalist> 
+
+<input type="hidden" value="@id" name="id" >
+
+
+<input type="submit" style="height:35px;width: 200px " value="Search">
+</form>
+<!-- <input type="submit" style="height:35px;width: 100px " value="Search">
+ --></div><br>
+<!-- </form>
+ --><form id="maskForm" action="add" method="post">
+<div  style="padding-left: 10%">
+
+<input type="hidden" name="id" value="@id">
+<input type="hidden" name="opportunity" value="@opprtunity">
+
+
+
+<select id="selectMe" name="relatedrecord" placeholder="relatedrecord" style="width: 250px;height: 35px"  required>
+
+ @for(user <- users){
+  <option value="@user">@user</option>
+}</select> 
+     
+<select  class="group1"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px" >
+
+<option> </option>
+
+ 
+ 
+</select>
+
+ @for(user <- appl){
+
+<select id="@user.trim" class="group"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px" >
+
+<option> </option>
+
+ @for(doc <- appdocs){
+<option value="@doc">@doc</option>
+
+}
+ 
+</select>
+
+}
+
+ @for(user <- coapp){
+
+<select id="@user.trim" class="group"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px" >
+
+<option> </option>
+
+ @for(doc <- appdocs){
+<option value="@doc">@doc</option>
+
+}
+ 
+</select>
+
+}
+
+
+<select id="PropertyDocuments" class="group"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px">
+
+<option> </option>
+ @for(doc <- propdocs){
+<option value="@doc">@doc</option>
+
+}
+ 
+ 
+</select>
+
+<select id="DownPayments" class="group"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px" >
+
+<option> </option>
+@for(doc <- downdocs){
+<option value="@doc">@doc</option>
+
+}
+
+ 
+</select>
+
+<select id="MiscellaneousDocuments" class="group"  name="documenttype" placeholder="documenttype" style="width: 350px;height: 35px" >
+
+<option> </option>
+@for(doc <- missdocs){
+<option value="@doc">@doc</option>
+
+}
+ 
+</select>
+
+
+
+
+
+ @if(sucess==0){ 
+<input type="text" id="pages" name="pages" style="height:35px;width: 100px;border-color: red; "      
+      required>
+}else{
+<input type="text" id="pages" name="pages" style="height:35px;width: 100px "      
+      required>
+}
+
+<input type="submit" style="height:35px;width: 100px "  value="Add">
+<div style="width:60%">
+@if(properDoc==0){
+<font color="Red">The document you have split does not belong in the category you selected, please check the Opportunity Document Master to ensure the category of the document you are splitting.See <a href="https://dev-documentanalyzer.visdom.ca/getdoc?id=@id" target="blank">MasterDoc page</a></font>
+}
+</div>
+</div>
+
+</form>
+
+
+<br>
+<div style="padding-left: 10%">
+<table   rules="rows" class="table table-hover"
+			style="width: 90%;background-color: white; width: 71%">
+			<tr><th>Related Record</th><th>Document Type</th> <th>ViewUrl</th><th>Operation</th></tr>
+@for(docsolo<- docosolo){
+<tr>
+<td>@docsolo.getRelatedDoc
+</td>
+<td>@docsolo.getDocumentType
+</td>
+<td><a href="@docsolo.getLink" target="_blank">Link</a>
+</td>
+<td align="center">
+<form action="delete"  method="Post">
+<input type="hidden" name="spliteddocid" value="@docsolo.getDocId">
+<input type="hidden" name="originalid" value="@id">
+<input type="hidden" name="opportunity" value="@opprtunity">
+<input type="submit" style="height:35px;width: 100px" value="Remove"></form></td>
+</tr>
+}
+</table>
+</div>
+<br>
+<br>
+<div align="center" >
+
+<object data="data:application/pdf;base64,@message" type="application/pdf" style="width: 80%;height: 80%" ></object>
+</div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+  
+    $('#selectMe').change(function () {
+    	  $.ajax({
+              type : 'POST',
+              url : "controllers.Application.saveDefaultPhoneForUser",
+              data : $('#controlledPhone option:selected').text(),
+              dataType : "text",
+              success : function(data) {
+                  //setError('Call succedded');
+                  //$('#test1').attr("src", data)
+              },
+              error : function(data) {
+                  setError('Make call failed');
+              }
+          });
+          return false;
+      });
+});
+</script>
+</html>
+
+
+
+
+

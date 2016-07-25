@@ -1,0 +1,24 @@
+﻿{
+    "applicationID":"213",
+    "applicants": [
+        {
+            "firstName": "Cris",
+            "lastName": "Liberatore",
+            "email": "crisliberatore@msn.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+               	"2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "downpaymentDocuments": [
+        "90 Days history bank statements",
+        "90 Days history RRSP",
+        "90 Days history Investment",
+        "Gift Letter",
+        "Copy of Deposit"
+    ]
+}

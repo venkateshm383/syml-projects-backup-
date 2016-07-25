@@ -1,0 +1,36 @@
+﻿{
+    "applicationID": 211,
+    "applicants": [
+        {
+            "firstName": "Zill",
+            "lastName": "Syed",
+            "email": "zill.hussain@live.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Shahana",
+            "lastName": "Syed",
+            "email": "shahanasyed@yahoo.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "downpaymentDocuments": [
+        "90 Days history bankstatements",
+        "90 Days history RRSP",
+        "90 Days history Investment",
+        "Gift Letter",
+        "Copy of Deposit"
+    ]
+}

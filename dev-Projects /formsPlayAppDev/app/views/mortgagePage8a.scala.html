@@ -1,0 +1,648 @@
+@(applicantName:String,emp1:Income,emp2:Income,emp3:Income,emp4:Income,emp5:Income,emp6:Income,emp7:Income,
+emp8:Income,slfEmp1:Income,slfEmp2:Income,slfEmp3:Income,slfEmp4:Income,slfEmp5:Income,slfEmp6:Income,slfEmp7:Income,
+slfEmp8:Income,empCount:Integer,slfCount:Integer)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Income</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <script
+	src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> 
+
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+
+ <script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+	
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+				<!-- <script src="@routes.Assets.at("javascripts/mortgage8a.js")"></script> -->
+				
+				<script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage8a.js")"></script>
+
+<script src="@routes.Assets.at("_resources/jquery.geocomplete.js")"></script>
+	    
+
+
+
+
+
+<style>
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.big-checkbox {
+	padding: 18px;
+}
+
+.big-checkbox:checked:after {
+	font-size: 28px;
+	left: 6px;
+}
+
+.btn {
+	border: 0 none;
+	font-weight: bold;
+}
+
+.btn-primary:active,.btn-primary.active {
+	background: #003f80;
+	color: #ffffff;
+	box-shadow: none;
+}
+</style>
+<style type="text/css">
+.blocks .btn-primary {
+	padding: 9px 6px;
+	margin: 2px 2px;
+	border-radius: 0;
+}
+
+/*for bigger checkbox*/
+*,*:after,*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.switch {
+  position: relative;
+}
+
+.switch label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.switch input {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* DEMO 3 */
+
+.switch.demo3 {
+  width: 125px;
+  height: 30px;
+}
+
+.switch.demo3 label {
+  display: block;
+  width: 40%;
+  height: 70%;
+  background: #ffffff;
+}
+
+.switch.demo3 label:after {
+  content: "";
+  position: absolute;
+  top: -8px; right: -8px; bottom: -8px; left: -8px;
+}
+
+.switch.demo3 label:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18px; right: -18px; bottom: -18px; left: -18px;
+}
+
+
+.switch.demo3 input:checked ~ label i:before {
+   content: url("@routes.Assets.at("_resources/tick.gif")"); 
+  color: #000000;
+  
+  height: 10%;
+  width: 10%;
+}
+</style>
+
+</head>
+<body>
+	<br>
+	<br>
+	<div style="width: 97%">
+		<form name="myForm" action="mortgagePage8a" method="POST"
+			onsubmit="return validateForm()">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-7 container-bg text-color-blue">
+
+					<div align="left"
+						style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+						<img alt="Visdom Logo" height="65" width="210"
+							src="@routes.Assets.at("_resources/visdom-logo.png")" />
+					</div>
+					
+					<div align="left"
+						style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+						<label class="labelfont"> <font size="6">Income </font> </label>
+					</div>
+					
+					<div style="padding-top: 30px"></div>
+					<div data-ng-app="demoApp" style="margin-left: 5%">
+						<div ng-controller="DemoController" ng-init="isDisabled = false">
+							<div></div>
+
+@if(empCount  > 0){
+								<div ng-init="checkEmployee.areUemploye='yes'"></div>
+									<div ng-init="employeecount=@empCount-1"></div>
+				}
+				
+				
+@if(slfCount  > 0){
+								<div ng-init="checkSelfEmployee.areUSelfEmploye='yes'"></div>
+									<div ng-init="slefemployeecount=@slfCount-1"></div>
+				}
+							<!-- <label class="labelfont">@applicantName</label> --><br>
+							<br> <label class="labelfont"> Are you an employee
+								with a company which deducts your income tax?<span
+								style="color: red; font-size: 3">*</span>
+							</label><br>
+						<input type="hidden" name="empCount" id ="empCount" value="@empCount">
+						<input type="hidden" name="slefCount" id ="slefCount" value="@slfCount">
+					
+<br>
+							<div class="col-xs-6 col-sm-5 btn-group"
+								style="width: 100%; padding-left: 0%;">
+								<label style="width: 20%;" class="btn btn-primary labelfont"
+									btn-radio="'yes'" ng-change="change()"
+									ng-model="checkEmployee.areUemploye"> Yes </label> <label
+									style="width: 20%; border-radius: 0px 5px 5px 0px;"
+									class="btn btn-primary labelfont" btn-radio="'no'"
+									ng-change="change()" ng-model="checkEmployee.areUemploye">
+									No </label> <br> <br>
+								<div id="emp" style="position: absolute;"></div>
+							</div>
+							<input type="hidden" name="areYouEmploye" id="employee"
+								value="{{checkEmployee.areUemploye}}" ng-required> <br>
+									 <br>
+							<br>
+<br>
+
+							<div ng-if="checkEmployee.areUemploye == 'yes' ">
+								<table cellspacing="200px">
+									<tr>
+										<th width="17%"><b>Type of Income:</b></th>
+										<th width="43%"><b>Employer:</b></th>
+										<th width="15%"><b> Duration (in months):</b></th>
+										<th width="25%"><b>Position:</b></th>
+									</tr>
+									<tr>
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										
+										<td width="43%"><input type="text"  id="empBusinessName1" name="empBusinessName"
+											placeholder="E.g. Employer name" style="width: 100%;"
+											class="form-control" value="@emp1.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth1"
+											name="empStartMonth" placeholder="eg: 10"
+											  
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value=@emp1.getMonth></td>
+										<td width="25%"><input type="text" id="empPosition1" name="empPosition"
+											placeholder="E.g. Manager" class="form-control" value="@emp1.getPosition"
+											style="width: 100%;" value=""></td>
+									</tr>
+
+								
+									<tr ng-if="employeecount>=1">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName2" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp2.getBusiness"></td>
+										<td width="15%"><input type="number" 
+											name="empStartMonth" id="empStartMonth2" placeholder="eg: 10"
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp2.getMonth"></td>
+										<td width="25%"><input type="text" id="empPosition2" name="empPosition"
+											placeholder="E.g. Manager" class="form-control"
+											style="width: 100%;" value="@emp2.getPosition"></td>
+									</tr>
+
+									<tr ng-if="employeecount>1">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer"  class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName3" name="empBusinessName" 
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp3.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth3"
+											name="empStartMonth" placeholder="eg :10 "
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp3.getMonth"></td>
+										<td width="25%"><input type="text" id="empPosition3" name="empPosition"
+											placeholder="E.g. Manager" class="form-control"
+											style="width: 100%;" value="@emp3.getPosition"></td>
+									</tr>
+								<tr ng-if="employeecount>2">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName4" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp4.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth4"
+											name="empStartMonth" placeholder="eg :10 "
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp4.getMonth"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" id="empPosition4" class="form-control"
+											style="width: 100%;" value="@emp4.getPosition"></td>
+									</tr>
+									
+									<tr ng-if="employeecount>3">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName5" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp5.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth5"
+											name="empStartMonth" placeholder="eg :10 "
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp5.getMonth"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" id="empPosition5" class="form-control"
+											style="width: 100%;" value="@emp5.getPosition"></td>
+									</tr>
+									<tr ng-if="employeecount>4">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName6" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp6.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth6"
+											name="empStartMonth" placeholder="eg :10 "
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp6.getMonth"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" id="empPosition6" class="form-control"
+											style="width: 100%;" value="@emp6.getPosition"></td>
+									</tr>
+									<tr ng-if="employeecount>5">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName7" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp7.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth7"
+											name="empStartMonth" placeholder="eg :10 "
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value="@emp7.getMonth"></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" id="empPosition7" class="form-control"
+											style="width: 100%;" value="@emp7.getPosition"></td>
+									</tr>
+										<tr ng-if="employeecount>6">
+										<td width="17%"><input type="text" name="empIncomeTypes"
+											placeholder="E.g. Employer" class="form-control"
+											value="Employed" style="width: 100%;" readonly="readonly">
+										</td>
+										<td width="43%"><input type="text" id="empBusinessName8" name="empBusinessName"
+											placeholder="Employer name" style="width: 100%;"
+											class="form-control" value="@emp8.getBusiness"></td>
+										<td width="15%"><input type="number" id="empStartMonth8"
+											name="empStartMonth" placeholder="eg :10 "
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control"  value=@emp8.getMonth></td>
+										<td width="25%"><input type="text" name="empPosition"
+											placeholder="E.g. Manager" id="empPosition8" class="form-control"
+											style="width: 100%;" value="@emp8.getPosition"></td>
+									</tr>
+								</table>
+								<a style="padding-left: 4%; font-size: 20; color: black"
+									href="#"  ng-click="addemploye()"> Add
+									Additional Job</a>
+									
+										<a style="padding-left: 4%; font-size: 20; color: black"
+									href="#"  ng-click="removeemploye()"> Remove</a>
+									<input type="hidden" name="totalEmployees" id="totalEmp"
+								value="{{employeecount}}" ng-required>
+<br>	<br>
+							</div>
+	
+							<label class="labelfont"> Do you own a business where you
+								pay your own taxes?<span style="color: red; font-size: 3">*</span>
+							</label><br><br>
+							<div class="col-xs-6 col-sm-5 btn-group"
+								style="width: 100%; padding-left: 0%;">
+								<label style="width: 20%;" class="btn btn-primary labelfont"
+									btn-radio="'yes'" ng-change="change()"
+									ng-model="checkSelfEmployee.areUSelfEmploye"> Yes </label> <label
+									style="width: 20%; border-radius: 0px 5px 5px 0px;"
+									class="btn btn-primary labelfont" btn-radio="'no'"
+									ng-change="change()"
+									ng-model="checkSelfEmployee.areUSelfEmploye"> No </label> <br>
+								<br>
+								<div id="slefemp" style="position: absolute;"></div>
+								
+								
+							</div>
+							<input type="hidden" name="areYouSlefEmploye" id="slefemployee"
+								value="{{checkSelfEmployee.areUSelfEmploye}}" ng-required>
+								<br>
+							<br> 
+							<div ng-if="checkSelfEmployee.areUSelfEmploye == 'yes' ">
+								
+								<table>
+
+									<tr>
+										<th width="17%"><b>Type of Income:</b></th>
+										<th width="43%"><b> Employer:</b></th>
+										<th width="15%"><b> Duration (in months):</b></th>
+										<th width="25%"><b>Position:</b></th>
+									</tr>
+									<tr>
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+											
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName1" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp1.getBusiness"></td>
+										<td width="22%"><input type="number" id="selfStartMon1"
+											name="selfStartMon2" placeholder="eg: 10"
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp1.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition1" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp1.getPosition"></td>
+									</tr>
+
+									<tr ng-if="slefemployeecount>=1">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName2" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp2.getBusiness"></td>
+										<td width="22%"><input type="number" id="selfStartMon2"
+											name="selfStartMon2" placeholder="eg: 10"
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp2.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition2" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp2.getPosition"></td>
+									</tr>
+
+									<tr ng-if="slefemployeecount>1">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName3" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp3.getBusiness"></td>
+										<td width="22%"><input type="number"
+											name="selfStartMon2" id="selfStartMon3" placeholder="eg: 10"
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp3.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition3" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp3.getPosition"></td>
+									</tr>
+									<tr ng-if="slefemployeecount>2">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName4" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp4.getBusiness"></td>
+										<td width="22%"><input type="number" 
+											name="selfStartMon2" id="selfStartMon4" placeholder="eg: 10"
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp4.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition4" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp4.getPosition"></td>
+									</tr>
+										<tr ng-if="slefemployeecount>3">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName5" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp5.getBusiness"></td>
+										<td width="22%"><input type="number" 
+											name="selfStartMon2" id="selfStartMon5" placeholder="eg: 10"
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp5.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition5" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp5.getPosition"></td>
+									</tr>
+										<tr ng-if="slefemployeecount>4">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName6" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp6.getBusiness"></td>
+										<td width="22%"><input type="number" 
+											name="selfStartMon2" id="selfStartMon6" placeholder="eg: 10"
+											
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp6.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition6" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp6.getPosition"></td>
+									</tr>
+									
+									<tr ng-if="slefemployeecount>5">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName7" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp7.getBusiness"></td>
+										<td width="22%"><input type="number" 
+											name="selfStartMon2" id="selfStartMon7" placeholder="eg: 10"
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp7.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition7" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp7.getPosition"></td>
+									</tr>
+									
+										
+									<tr ng-if="slefemployeecount>6">
+										<td width="20%"><input type="text"
+											name="selfIncomeTypes2" placeholder="E.g. Self-Employed"
+											style="width: 100%;" class="form-control"
+											value="Self Employed" readonly="readonly"></td>
+										<td width="38%"><input type="text"
+											name="selfBusinessName2" id="selfBusinessName8" placeholder="Business name"
+											style="width: 100%;" class="form-control"
+											value="@slfEmp8.getBusiness"></td>
+										<td width="22%"><input type="number" 
+											name="selfStartMon2" id="selfStartMon8" placeholder="eg: 10"
+											 
+											style="width: 100%; position: relative; z-index: 100000;"
+											class="form-control" value="@slfEmp8.getMonth"></td>
+										<td width="18%"><input type="text" id="selfPosition8" name="selfPosition2"
+											placeholder="E.g. Manager" style="width: 100%;"
+											class="form-control"
+											value="@slfEmp8.getPosition"></td>
+									</tr>
+								</table>
+
+								<a style="padding-left: 4%; font-size: 20; color: black"
+									  ng-click="addslefemploye()"> Add
+									Additional Job</a>
+									<a style="padding-left: 4%; font-size: 20; color: black"
+									  ng-click="removeslefemploye()"> 
+									Remove </a>
+									
+									<input type="hidden" name="totalslefEmployees" id="totalSlefEmp"
+								value="{{slefemployeecount}}" ng-required>
+							</div>
+
+
+						</div>
+						<br>
+						<br>
+										<div class="row">
+						<div class="col-sm-5">
+							<label> If you don't have three years experience, please check the box to continue.   </label>
+						</div>
+						<div class="col-sm-4" style="padding-left: 0%;">
+							<div class="switch demo3 col-sm-4">
+	                    	 <input type="checkbox" id="agree" name="agree" >
+	                   	 	<label style="border-style:inset;border-color: black;height: 85%;width: 30%"><i ></i></label>
+ 	               	 		</div>	
+						</div>
+					</div>
+					<div id="agree1" style="border-color: black;"></div>		
+													
+						<div id="totalEmprequired" style="position: absolute;"></div>
+						
+						<br><br>
+						     <div class="row" style="width: 100%;">
+								<div class="col-sm-6"
+									style="float: left; padding-left: 2%; width: 50%;">
+									<a href="mortgageBackPage7" class="btn btn-primary"
+										role="button" style="width: 50%;">Back</a>
+								</div>
+							<div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 50%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+					<br>
+						<br>
+						<div class="container" style="width: 70%;">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="70"
+									aria-valuemin="0" aria-valuemax="100"
+									style="width: 70%; background-color: #6AA84F;">
+									<label>70%</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+		</form>
+	</div>
+	
+	
+	
+
+	
+
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* Hack for all Mortgage*** and Mortgage*** Co-Applicant files. This is because basic styling that comes from jotform is different. */
+
+.form-submit-button {
+    background: none repeat scroll 0% 0% #237EBA;
+    color: #FFF7F7;
+    font-weight: normal;
+    text-decoration: none;
+    text-shadow: none;
+    box-shadow: none;
+    border: 1px solid #CCC;
+}

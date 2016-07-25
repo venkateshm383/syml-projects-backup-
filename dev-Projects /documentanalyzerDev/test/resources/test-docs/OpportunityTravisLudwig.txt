@@ -1,0 +1,31 @@
+﻿{
+    "applicationID": 219,
+    "applicants": [
+        {
+            "firstName": "Travis",
+            "lastName": "Ludwig",
+            "email": "tjludwig@telus.net",
+            "documents": [
+                "Copy of Photo ID (Driver’s Licence or Passport)",
+                 "Property Tax Assessment ( most of the place above ,null )",
+                 "Mortgage Statement ( most of the place above ,null )"
+  
+            ]
+        },
+        {
+            "firstName": "Joann",
+            "lastName": "Lacey",
+            "email": "email",
+            "documents": [
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Mortgage Statement  (NE 16-39-1 w5 ,null)",
+        "Property Tax Assessment  (NE 16-39-1 w5 ,null)",
+  	"Fire Insurance"
+    ]
+}

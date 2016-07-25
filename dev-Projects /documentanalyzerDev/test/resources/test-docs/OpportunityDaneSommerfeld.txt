@@ -1,0 +1,18 @@
+﻿{
+    "applicationID":"220",
+    "applicants": [
+        {
+            "firstName": "Dane",
+            "lastName": "Sommerfeld",
+            "email": "danesommerfeld@hotmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ]
+    
+}

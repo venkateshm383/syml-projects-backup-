@@ -1,0 +1,18 @@
+﻿{
+    "applicationID": "218",
+    "applicants": [
+        {
+            "firstName": "Rodney",
+            "lastName": "Opseth",
+            "email": "rodopseth@gmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ]
+   
+}

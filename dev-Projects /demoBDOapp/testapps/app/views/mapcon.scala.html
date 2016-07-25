@@ -1,0 +1,76 @@
+@(firstmap:Map[String,Map[String,Object]], mapconfig : Map[String,Object])
+<html>
+<style>
+ul.menu li ul {
+    display:none;
+}
+
+ ul.menu li:hover > ul {
+    display:inline;
+    position:relative;
+}
+
+/*
+ul.menu li ul:hover ul {
+    display:block;
+    position:relative;
+} */
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!--  <script>
+$(document).ready(function(){
+ 
+    $(".test2").click(function(){
+    	var choosefirst=document.getElementById("choosi");
+        alert(choosefirst);
+        $(".collapse").collapse('show');
+    });
+    $(".test2").click(function(){
+        $(".collapse").collapse('hide');
+    });
+});
+</script>-->
+
+
+<center>
+<body>
+
+
+<br/>
+<br/><br/><br/>
+<h1 style="font:bold; color: Red;"> welcome to EventConfiguration</h1>
+<br/>
+<br/>
+<ul class="menu">
+@for((key,value) <- firstmap){
+
+    
+    <li>
+        <a href="#">@key</a>
+
+        <ul class="menu1">
+        @for((key1,value1) <- value){
+            <li><a href="#">@key1</a>
+            	<ul>
+            		<li>@value1<br/><table>
+            		<tr>
+            		<td><input type="checkbox" name="checkit_@key" readonly="readonly"></td>
+            		</tr>
+            		</table></li>
+            	</ul>
+            </li>
+            }
+        </ul>
+    </li>
+    
+    }
+</ul>
+
+ 
+</body>
+</center>
+</html>
+
+

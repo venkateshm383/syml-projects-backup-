@@ -1,0 +1,208 @@
+@(additionalApplicants: String,buildingType: String,propertystyle:String,sqaurefootage:String,propertyheated:String,getwater:String,propertydispose:String,garagetype:String,garageSize:String)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+ 
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+<script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage3.js")"></script>
+     
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>  
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+<style type="text/css">
+ tr.spaceUnder > td
+{
+  padding-bottom: 1em;
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<div style="width:97%">
+		<form name="myForm" action="mortgagePage3" method="POST" onsubmit="return validateForm()">
+		<input type="hidden" value="@additionalApplicants" name="additionalApplicants">
+		<input type="hidden" value="@buildingType" name="buildingType1">
+		<input type="hidden" value="@propertystyle" name="propertystyle1">
+		<input type="hidden" value="@propertyheated" name="propertyheated1">
+		<input type="hidden" value="@getwater" name="getwater1">
+		<input type="hidden" value="@propertydispose" name="propertydispose1">
+		<input type="hidden" value="@garagetype" name="garagetype1">
+		<input type="hidden" value="@garageSize" name="garageSize1">
+		<div class="row"></div>
+		<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-7 container-bg text-color-blue">
+			
+		<div align="left" style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+			<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")" />
+		</div>
+		<div align="left"
+						style="padding-bottom: 1px; margin-top: 20px; padding-left: 3%">
+						<label class="labelfont"> <font size="6">Mortgage Details </font> </label>
+					</div>
+		<div style="padding-top: 30px"></div>
+		
+		<div data-ng-app="demoApp"  style="margin-left: 5%;">
+		<div ng-controller="DemoController" ng-init="isDisabled = false">
+		<table style="border-collapse: separate;">
+			<tr>
+				<td style="width:400px;"><label class="labelfont" >Building Type?<span
+									style="color: red; font-size: 3">*</span></label></td>
+				<td style="width:400px;"><label class="labelfont">Property Style?<span
+									style="color: red; font-size: 3">*</span></label></td>
+			</tr>
+			<tr class="spaceUnder">
+				<td><select class="selectOption form-control" style="width: 95%;" value="" name="buildingType"  id="propType">
+											<option value="">Please Select</option>
+						  					<option value="House">House</option>
+						  					<option value="Duplex">Duplex</option>
+						  					<option value="Appartment Condo">Apartment Condo</option>
+						  					<option value="Townhouse">Townhouse</option>
+						  					<option value="Rowhouse">Rowhouse</option>
+						  					<option value="Mobile Home">Mobile Home </option>
+						  					<option value="Modular Home">Modular Home</option>
+						  					<option value="Other">Other</option>
+						  					<option value="notSure">Not Sure</option>
+						  					 
+											</select><div id="widget_settings_44" style="position: absolute;"></div></td>
+				<td><select style="width: 95%;" class="form-control" value="" name="propertyStyle" id="propStyles">
+											<option value="">Please Select</option>
+						  					
+						  					<option value="One Story">Bungalow/One Story</option>
+						  					<option value="BiLevel">BiLevel</option>
+						  					<option value="Two Story">Two Story</option>
+						  					<option value="Split Level">Split Level</option>
+						  					<option value="Story and A Half">Story and A Half</option>
+						  					<option value="Three Story">Three Story</option>
+						  					<option value="Other">Other</option>
+						  					
+											</select><div id="widget_settings_65" style="position: absolute;"></div></td>
+			</tr>
+			
+			<tr>
+				<td><label class="labelfont"> Square Footage?<span
+									style="color: red; font-size: 3">*</span></label></td>
+				<td><label class="labelfont">Property heated by?<span
+									style="color: red; font-size: 3">*</span></label></td>
+			</tr>
+			<tr class="spaceUnder">
+				<td><input type="text" id="squareFtID" class="form-control" placeholder="e.g 2300" style="width: 95%;" name="squareFt" value="@sqaurefootage"
+								 data-type="input-number" onkeypress="return isNumber(event)"><div id="input_24" style="position: absolute;" ></div></td>
+				<td><select class="form-control" style="width: 95%;" value="" name="propertyHeat"  id="propHeated" >
+											<option value="">Please Select</option>
+						  					<!-- <option value="Furnace">Furnace</option> -->
+						  					<option value="Electric baseboard">Electric baseboard</option>
+						  					<option value="Forced Air Gas/Oil">Forced Air Gas/Oil</option>
+						  					<option value="Hot water heating">Hot water heating</option>
+						  					<option value="Other">Other</option>
+											</select><div id="widget_settings_58" style="position: absolute;"></div></td>
+			</tr>
+			<tr>
+				<td><label class="labelfont">Water source?<span
+									style="color: red; font-size: 3">*</span></label></td>
+				<td><label class="labelfont">Sewage information?<span
+									style="color: red; font-size: 3">*</span></label></td>
+			</tr>
+			<tr class="spaceUnder">
+				<td><select class="form-control" style="width: 95%;" value="" name="propertyGetWater"  id="propGetWater" >
+											<option value="">Please Select</option>
+						  					<option value="Municipal">Municipal</option>
+						  					<option value="Well"> Well</option>
+						  					
+						  					<option value="Other">Other</option> 
+						  			
+											</select><div id="widget_settings_59" style="position: absolute;"></div></td>
+				<td><select class="form-control" style="width: 95%;" value="" name="propertyDisposeWater"  id="propDispWater">
+											<option value="">Please Select</option>
+						  					<option value="Municipality">Municipal</option>
+						  					<option value="Septic System">Septic</option>
+						  					<option value="Holding Tank">Holding Tank</option>
+						  					<option value="Other">Other</option>
+						  					
+											</select><div id="widget_settings_60" style="position: absolute;"></div></td>
+			</tr>
+			<tr ng-model="type">
+				<td><label class="labelfont"> Garage type?<span
+									style="color: red; font-size: 3">*</span></label></td>
+				<td><label ng-if="type == 'Attached' || type == 'Detached'" class="labelfont">Need to add Garage size? (with choices single, double, triple, none) <span
+									style="color: red; font-size: 3">*</span></label></td>
+			</tr>
+			
+			
+			<tr>
+			<tbody>
+				<td><select class="form-control select" style="width: 95%;" value="" name="typeGarage"  id="typeOfGarage" ng-model="type">
+											<option value="">Please Select</option>
+											<option value="Attached">Attached</option>
+											<option value="Detached">Detached</option>
+						  					<option value="None">None</option>
+										    </select><div id="widget_settings_61" style="position: absolute;"></div></td>
+										  
+				
+						    
+				<td>
+				 <div ng-if="type == 'Attached' || type == 'Detached' ">
+					<select class="form-control" style="width: 95%;" value="" name="garageSize"  id="sizeOfGarage" >
+											<option value="garageSizes">Please Select</option>
+						  					<option value="Single">Single</option>
+						  					<option value="Double">Double</option>
+						  					<option value="Triple">Triple</option>
+						  					<option value="None">None</option>
+											</select><div id="widget_settings_64" style="position: absolute;"></div></div></td>
+											
+										
+			</tr>
+			</tbody>
+		</table>
+			</div>
+	        		     
+	        <br>
+	        		<div class="row" style="width: 100%;">
+					  <div class="col-sm-6" style="float: left; padding-left:5%; width: 50%;">
+					  		<a href="mortgageBackPage2" class="btn btn-primary"
+										role="button" style="width: 50%;">Back</a>
+					  </div>
+					  <div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 50%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+				</div>
+						<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:30%; background-color: #6AA84F;">
+						    <label>30% complete</label>
+						    </div>
+						  </div>
+						</div>
+					 </div>
+					<div class="col-sm-3"></div>
+				</div>
+			
+				<br>
+</form>
+</div>
+
+</body>
+</html>

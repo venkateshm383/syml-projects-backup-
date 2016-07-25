@@ -1,0 +1,354 @@
+@(message: String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Privacy Policy Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js
+"></script>
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+ -->   <script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+    <script src="@routes.Assets.at("_resources/jquery.geocomplete.js")"></script>
+    <script>
+      $(function(){
+        $("#geocomplete").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete").trigger("geocode");
+        });
+      });
+    </script>
+     <script>
+      $(function(){
+        $("#geocomplete1").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete1").trigger("geocode");
+        });
+      });
+    </script>
+
+<!-- <script src="_resources/jquery.maskedinput.min.js" type="text/javascript"></script>
+ -->  <link rel="stylesheet" href="_resources/bootstrap.min.css">
+ <link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>  
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+<style type="text/css">
+h2.form-header {
+line-height: 1.618em;
+font-size: 1.714em;
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+		<form name="myForm" action="referal1" method="POST" onsubmit="return validateForm()">
+		<div class="row"></div>
+		<div class="row">
+		
+			<div class="col-sm-3"></div>
+			<div class="col-sm-7 container-bg text-color-blue">
+			<div>
+				
+				<div style="display:table; width:100%; text-align:right;"><a href="javascript:void(0);" onclick="javascript:window.close();"><u>Close [x]</u></a></div>
+				
+				<div align="left" style="padding-bottom: 20px; margin-top: 30px; padding-left:3%" >
+				<img alt="Visdom Logo" height="65" width="210"
+				src="@routes.Assets.at("_resources/visdom-logo.png")"/>
+				</div>
+			</div>
+				<div style="padding-top: 50px"></div>
+				<div data-ng-app="demoApp" style="margin-left: 5%">
+					
+					<div class="form-header-group">
+          <div class="header-text httal htvam">
+            <h2 id="header_3" class="form-header">
+              Privacy Policy
+            </h2>
+          </div>
+          <div class="form-html">
+
+<p class="welcome-page-text">
+As a Mortgage Brokerage, Visdom Mortgage Solutions <b>(VMS)</b> is entrusted with the personal information of our customers, and we take that responsibility very serious. Federal law
+requires us to tell you how we collect, use, share, and protect our customers&rsquo; information. Protecting the privacy and security of customers&rsquo; personal information is very important to
+us, and this Privacy Policy Statement sets forth the manner in which we safeguard their information. Please read this notice carefully to understand our policy.
+</p>
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;height:60px;">Our Commitment to Our Customers</b></span><br/>
+At VMS, we are committed to our customers, and part of that responsibility is protecting their information. As such, we are committed to the following:
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">We will not sell or share their information to any third-parties who wish to market services to them.</li>
+<li class="welcome-page-text-margin">We have developed stringent policies and procedures to facilitate the protection of their information.</li>  
+<li class="welcome-page-text-margin">Our brokers and management are committed to safeguarding your information as well as enforcing the policies and procedures to facilitate that goal.</li>
+</ul>
+</p>
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">Protection of Customers&rsquo; Information</b></span><br/>
+VMS does a variety of things to protect your information, and the following are just a few of those methods:
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">We limit the access to customer information to those team members who have a reason to know. This limits the exposure of customer information.</li>
+<li class="welcome-page-text-margin">We have implemented policies and procedures to safeguard customer information, and our team members are obligated to follow those policies and procedures.</li>
+<li class="welcome-page-text-margin">Our team members follow company rules regarding the physical security of our workplace and records.</li>
+<li class="welcome-page-text-margin">All of the implemented safeguards were designed to meet the requirements of provincial  and federal laws.</li>
+<li class="welcome-page-text-margin">The third-party vendors we utilize are contractually required to safeguard information in accordance with provincial and federal laws.</li>
+</ul>
+</p> 
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">When We Collect Customer Information</b></span><br/>
+In the course of meeting our customer&rsquo;s needs, we may collect information in the following manner:
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">Through information provided to us on a variety of forms and documents, including an application.</li>
+<li class="welcome-page-text-margin">Information collected from third-parties.</li>
+<li class="welcome-page-text-margin">Information about their computer hardware and software that may be automatically collected including, but not limited to: their IP address, browser type, domain names, and web referring website addresses.</li>
+</ul>
+</p>
+</br>
+ 
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">What We Collect</b></span><br/>
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">Identification information &#45;names, addresses, telephone numbers, and Social Insurance Numbers.</li>
+<li class="welcome-page-text-margin">Application information &#45; information provided to us via their application, which could include amongst other things, information regarding assets, income, liabilities, and employment information.</li> 
+<li class="welcome-page-text-margin">Transaction and Experience information &#45;transaction and account history information such as account balances, payment history, and account usage.</li>
+<li class="welcome-page-text-margin">Consumer Report information &#45; such as credit history and credit reports.</li>
+<li class="welcome-page-text-margin">Information from outside sources &#45; includes information like employment history, loan balances, credit card balances, insurance coverage, and other information.</li>
+</ul>
+</p>
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">Disclosing to Other Parties</b></span><br/>
+VMS does not share customer information with other parties who wish to market or sell their services to consumers. In certain limited instances, VMS may disclose information to the following parties:
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">Government entities, courts or other entities, in response to subpoenas and other legal processes.</li>
+<li class="welcome-page-text-margin">Parties or entities in which the customer requests us to disclose such information.</li>
+<li class="welcome-page-text-margin">Companies that are affiliated with VMS or perform support services to VMS in connection with the fulfillment of our services to the customer.</li>
+</ul>
+</p>
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">Tips to Help Customers&rsquo; Protect Their Information</b></span><br/>
+The following are tips that customers can use to help ensure the safeguarding of their information:
+<ul class="privacy-policy">
+<li class="welcome-page-text-margin">Make sure their information is stored in a secure location (e.g. safes or locked drawers).</li>
+<li class="welcome-page-text-margin">Password protect their home computer, utilize different passwords for the various sites they access, and install a firewall and a virus protection program.</li>
+<li class="welcome-page-text-margin">Use a shredder to destroy documents that have personal information.</li>
+<li class="welcome-page-text-margin">Be sure customers know who they are communicating with if offering sensitive information.</li>
+<li class="welcome-page-text-margin">Review all of their accounts frequently to ensure that the activity taking place is accurate.</li>
+<li class="welcome-page-text-margin">Do not respond to emails requesting account numbers, passwords, or PINs without verifying the legitimacy of the email with the requesting entity.</li>
+</ul>
+</p>
+<br/>
+
+<p class="welcome-page-text">  
+<span><b style="font-size:15px;">Additional Disclosure for Canadian Customers</b></span><br/>
+In accordance with Canadian law, we will not share information we collect about Canadian residents with any other company, except as permitted by law. Residents of Canada have
+the right to request from companies conducting business in Canada, a list of all third-parties to which the company has disclosed personal information during the preceding year for
+direct marketing purposes. Alternatively, the law provides that if the company has a privacy policy that gives either an Opt-Out or Opt-In choice for use of customers&rsquo; personal
+information by third-parties for marketing purposes, the company may instead provide the customer with information on how to exercise their disclosure choice options.
+VMS currently does not share customers&rsquo; information with any non-affiliated third-parties for marketing purposes, thus we are not required to maintain or disclose a list of the 
+third-parties that received their personal information during the preceding year for marketing purposes.
+If a customer is a Canadian resident, and requests information about how to exercise their third-party disclosure choices, they must send a request to the following email address. 
+They may contact us at: infoAtvisdom.ca
+</p>
+<br/>
+
+<p class="welcome-page-text">
+<span><b style="font-size:15px;">Assistance to Victims of Identity Theft</b></b></span><br/>  
+If a customer believes they have been a victim of identity theft as a result of the information provided to us, please have them contact us immediately at <strong>1 - 855 - 699 - 2400.</strong>
+In addition, they should also report this crime to their local law enforcement authority, and the Office of the Privacy Commissioner of Canada (OPC). Information on how to contact the OPC can be found at
+<strong><a href="www.priv.gc.ca">www.priv.gc.ca</a></strong>.
+</p>
+</br/>
+
+          </div>
+        </div>
+							<div class="col-sm-3"></div>
+						</div>
+					</div>
+				</div>
+	</form>
+	
+
+
+<script type="text/javascript">
+	$(function() {
+		$.mask.definitions['~'] = "[+-]";
+
+		$("#phonedatata").mask("999-999-9999");
+	});
+</script>
+
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+ 
+    <script src="jquery.geocomplete.js"></script>
+    <script>
+      $(function(){
+        $("#geocomplete").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete").trigger("geocode");
+        });
+      });
+    </script>
+    
+     <script>
+      $(function(){
+        $("#geocomplete1").geocomplete({
+          map: ".map_canvas",
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete1").trigger("geocode");
+        });
+      });
+    </script>
+    <script type="text/javascript">
+    var app = angular.module("demoApp", ['ui.bootstrap']);
+
+    app.controller('DemoController', function ($scope) {
+        init();
+        function init() {
+            $scope.newItemType = '';
+            $scope.company="";
+            $scope.change = function () {
+                console.log($scope.newItemType)
+            };
+        }
+    });
+    </script>
+    
+    <script type="text/javascript">
+ function validateForm() {
+	 
+	 var fname=document.forms["myForm"]["fname"].value;
+	 
+
+		if(!fname){
+			document.getElementById("fname1").innerHTML="<p style=\"color:red\">FirstName Required</p>";
+			document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+			return false;
+		}else{
+	    	document.getElementById("fname1").innerHTML="";
+
+		} 
+		var lname=document.forms["myForm"]["lname"].value;
+		 
+		if(!lname){
+			
+			document.getElementById("lname1").innerHTML="<p style=\"color:red\">LastName Required</p>";
+			document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+			return false;
+		}
+			else{
+		    	document.getElementById("lname1").innerHTML="";
+
+			} 
+		
+			var phone=document.forms["myForm"]["phone"].value;
+		 
+		if(!phone){
+			document.getElementById("phone1").innerHTML="<p style=\"color:red\">PhoneNumber Required</p>";
+			document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+			return false;
+		}	
+		else{
+	    	document.getElementById("phone1").innerHTML="";
+
+		} 
+	 
+		var email=document.forms["myForm"]["email"].value;
+		 
+		if(!email){
+			
+			document.getElementById("email1").innerHTML="<p style=\"color:red\">Email Required</p>";
+			document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+			return false;
+		}else{
+	    	document.getElementById("email1").innerHTML="";
+
+		}
+	 
+	 
+    var x = document.forms["myForm"]["email"].value;
+    var x2 = document.forms["myForm"]["email2"].value;
+
+    var pattern=/^([a-zA-Z0-9_.-])+@@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+    if(pattern.test(x)){         
+		  
+    }else{   
+		document.getElementById("email1").innerHTML="<p style=\"color:red\"> Proper Email Id Required</p>";
+		document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+		return false;
+    }
+    
+    if(pattern.test(x2)){         
+		  
+    }else{   
+		document.getElementById("error").innerHTML="<p style=\"color:red\"> Proper Email Id Required</p>";
+		document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+		return false;
+    }
+    if (x  != x2) {
+document.getElementById("error").innerHTML="<p style=\"color:red\">Email have to match</p>";
+document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+    	return false;
+    }else{
+    	document.getElementById("error").innerHTML="";
+
+    }
+ }
+    
+    </script>
+  
+
+<script src="@routes.Assets.at("_resources/jquery.maskedinput.min.js")" type="text/javascript"></script>
+</body>
+</html>

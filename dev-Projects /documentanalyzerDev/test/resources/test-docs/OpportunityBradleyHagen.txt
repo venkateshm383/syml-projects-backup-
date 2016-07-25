@@ -1,0 +1,31 @@
+﻿{
+    "applicationID":"217",
+    "applicants": [
+        {
+            "firstName": "Bradley",
+            "lastName": "Hagen",
+            "email": "bradhagen22@gmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+               
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Taylor",
+            "lastName": "Slack",
+            "email": "t.ayslack@hotmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ]
+}

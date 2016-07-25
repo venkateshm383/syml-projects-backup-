@@ -1,0 +1,27 @@
+﻿{
+    "applicationID": "244",
+    "applicants": [
+        {
+            "firstName": "John",
+            "lastName": "Soiseth",
+            "email": "soiseth@live.com",
+            "documents": [
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)",
+                "Child Tax Credit"
+            ]
+        },
+        {
+            "firstName": "Joslyn",
+            "lastName": "Davidson",
+            "email": "soiseth@live.com",
+            "documents": [
+                "Copy of Photo ID (Driver’s Licence or Passport)",
+                "Child Tax Credit"
+            ]
+        }
+    ]
+   
+   
+}

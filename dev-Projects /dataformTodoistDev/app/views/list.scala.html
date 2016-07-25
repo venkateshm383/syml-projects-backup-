@@ -1,0 +1,56 @@
+@(users: List[User])
+
+
+@main("Todoist") {
+
+
+  <div align="right"><a href="/logout"><button>Logout</button></a></div>
+     <div align="right"><a href="/editUser"><button>Edit User</button></a></div>
+     @if(users.size == 0) {
+        
+        <div class="well">
+            <em>Nothing to display</em>
+        </div>
+        
+    } else {
+	
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="header">User Name</th>
+                <th class="header">User Id</th>
+                 <th class="header">Token</th>
+                 <th class="header">Edit/ Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+      @for(user <- users){
+  
+
+            <tr>
+                <td>
+                	@user.getUserName
+               	</td>
+                <td>
+                	@user.getUserId
+               	</td>
+               	<td>
+                	@user.getToken
+               	</td>
+               	
+               	<td>
+                	 <a href="/edit/@user.getUserId">Edit</a>
+                	  <a href="/delete/@user.getUserId">Delete</a>
+               	</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    }
+    
+    <p class="buttons">
+        <a href="/back">Back to the form</a>
+    </p>
+    
+}

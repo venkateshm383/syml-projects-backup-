@@ -1,0 +1,522 @@
+@(message: String,applicantName:String,coApplicantName:String,totalAssetList:TotalAssets)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="demoApp">
+<head>
+<meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mortgage Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+
+
+<script src="@routes.Assets.at("_resources/angular.min.js")"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.min.js
+"></script>
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+<script src="@routes.Assets.at("javascripts/mortgageJs/mortgagePage10Assests.js")"></script>
+
+</head>
+<body>
+<div style="width: 97%;">
+	<!-- <form name="myForm" action="mortgagePage10" method="POST" onsubmit="return validateForm();"> -->
+	<form name="myForm" action="mortgagePage10" method="POST" onsubmit="return validateForm();">
+	
+	<input type="hidden" name="applName" value="@applicantName" id="applNameID">
+	<input type="hidden" name="coAppName" value="@coApplicantName" id="coApplNameID">
+	
+		<div style="width: 90%">
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-7 container-bg text-color-blue">
+					<div style="padding-top: 50px"></div>
+					<img alt="Visdom Logo" height="90" width="260"	src="@routes.Assets.at("_resources/visdom-logo.png")" />
+					<div data-ng-app="demoApp" style="margin-left: 5%">
+						<div ng-controller="DemoController" ng-init="isDisabled = false;vehicleList=@totalAssetList.getVehicle.length;bankAccList=@totalAssetList.getBankAccount.length;rrspList=@totalAssetList.getRrsp.length;investmtList=@totalAssetList.getInvestments.length;otherList=@totalAssetList.getOthers.length;">
+						
+							<input type="hidden" name="ip" value="" id="ip">
+							
+								@if(totalAssetList.getVehicle != null && totalAssetList.getVehicle.length >0){
+								<div ng-init="asset.Vehicle=true"></div>
+								} 
+										
+								
+								@if(totalAssetList.getBankAccount != null && totalAssetList.getBankAccount.length >0){
+								<div ng-init="asset.BankAccount=true"></div>
+								}
+								
+								@if(totalAssetList.getInvestments != null && totalAssetList.getInvestments.length >0){
+								<div ng-init="asset.Investments=true"></div>
+								}
+								
+								@if(totalAssetList.getRrsp != null && totalAssetList.getRrsp.length >0){
+								<div ng-init="asset.RRSPTSFA=true"></div>
+								}
+								
+								
+								
+								@if(totalAssetList.getOthers != null && totalAssetList.getOthers.length >0){
+								<div ng-init="asset.Other=true"></div>
+								}
+								
+								<div ng-repeat="result in asset"></div>
+						
+						
+							<div class="form-group">
+								<label class="labelfont"> <font size="6">Assets </font></label>
+							</div>
+							<div id="text_174" class="form-html form-input-wide">
+								<p>Lenders require information about other assets to verify
+									down-payment or net worth information.</p>
+							</div>
+							<label class="labelfont">Please select all types of assets which you own.<span
+								style="color: red; font-size: 3">*</span></label><br>
+							<div class="btn-group" data-toggle="buttons" style="width: 100%;">
+								<label style="width: 20%;" class="btn btn-primary" ng-true-value="Vehicle" btn-checkbox="'Vehicle'" 
+									ng-change="change()" ng-model="asset.Vehicle">Vehicle </label> 
+								<label	style="width: 20%;" class="btn btn-primary" ng-true-value="BankAccount" btn-checkbox="'BankAccount'"
+									ng-change="change()" ng-model="asset.BankAccount">Bank Account</label>
+								 <label style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" ng-true-value="RRSPTSFA" btn-checkbox="'RRSPTSFA'" 
+								 ng-change="change()" ng-model="asset.RRSPTSFA">RRSP/TSFA</label>
+								 <br><br> 
+								<label style="width: 20%; border-radius: 5px 0px 0px 5px;" class="btn btn-primary" ng-true-value="Investments" btn-checkbox="'Investments'"
+								 ng-change="change()" ng-model="asset.Investments"> Investments </label> 
+								<label style="width: 20%" class="btn btn-primary" ng-true-value="Other" btn-checkbox="'Other'"
+								 ng-change="change()" ng-model="asset.Other"> Other </label>
+								 <label	style="width: 20%; border-radius: 0px 5px 5px 0px;" class="btn btn-primary" ng-true-value="None" btn-checkbox="'None'"
+								 ng-change="change1()"	ng-model="asset.None"> None </label>
+								 
+							
+							</div>
+							
+							<div id="role1"></div>
+								<input type="hidden" name="assetTypes[]" value="{{assetResults}}">
+								<input type="hidden" name="Vehicle" value = {{asset.Vehicle}}	ng-required>
+								<input type="hidden" name="BankAccount" value = {{asset.BankAccount}}	ng-required>
+								<input type="hidden" name="RRSPTSFA" value = {{asset.RRSPTSFA}}	ng-required>
+								<input type="hidden" name="Investments" value={{asset.Investments}} ng-required>
+								<input type="hidden" name="Other" value={{asset.Other}}	ng-required>
+								<input type="hidden" name="None" value={{asset.None}} ng-required>
+								
+								<br><br>
+								<div ng-if="asset.Vehicle || asset.BankAccount || asset.RRSPTSFA || asset.Investments || asset.Other">
+								<table>
+									<th width="17%">Type of Asset:</th>
+									<th width="37%" style="padding-left: 13%;">Description</th>
+									<th width="17%" style="padding-left: 15%;">Value</th>
+									<th width="17%" style="padding-left: 17%;">Ownership</th>
+									<th width="13%"></th>
+								</table>
+								 
+								</div>
+								
+								<div ng-show="asset.Vehicle" class="form-input-wide">
+									<table class="form-table small-text" id="customFields" style="border-collapse: separate;  border-spacing: 0px 10px;">
+										<tr ng-if="vehicleList<1">
+										<th scope="row"><label for="customFieldName"></label></th>
+										<td width="17%"><input type="text" name="asset[]" id="asset"
+											 class="form-control" value="Vehicle" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description[]"
+											placeholder="year/make/model" id="description" class="form-control" value=""></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number" 
+											name="value[]" id="value" placeholder="e.g. 500,000" width="17%" class="form-control" value=""></td>
+										<td width="17%"><select name="designation[]"  class="form-control" >
+												<option value="" >Please Select</option>
+												
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>
+										</select>
+										</td>
+										<td style="width: 13%;"></td>
+									</tr>
+									@if(totalAssetList.getVehicle.length>0){
+									@for((list,index) <-totalAssetList.getVehicle.zipWithIndex){
+									
+									
+									<tr>
+									<th scope="row"><label for="customFieldName2"></label></th>
+										<td width="17%"><input type="text" name="asset[]" id="asset"
+											 class="form-control" value="Vehicle" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description[]"
+											placeholder="year/make/model" id="description"  class="form-control" value="@list.getDescription"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number" 
+											name="value[]" id="value" placeholder="e.g. 500,000" class="form-control" value="@list.getValue"></td>
+										<td width="17%"><select name="designation[]"  class="form-control" >
+												<option value="" >Please Select</option>
+												@if(list.getOwnerShip==applicantName){
+															<option value="@applicantName" selected>@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+													@if(list.getOwnerShip==coApplicantName){
+															<option value="@applicantName" >@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+														@if(list.getOwnerShip=="Joint"){
+															<option value="@applicantName" >@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" >@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option>					
+													}
+												
+												
+												
+										</select>
+										</td>
+										<td style="width: 13%;"><a ng-if="@{{index}} > 0 " href="javascript:void(0);" class="remCF glyphicon glyphicon-remove">Remove</a></td>
+										</tr>
+										
+										}
+									}
+									</table>
+									<div id="description_id"></div>
+									
+									<a  href="javascript:void(0);" class="addCF glyphicon glyphicon-plus"><b>Add</b></a>
+								</div>
+								<div ng-show="asset.BankAccount" class="form-input-wide">
+									<table class="form-table small-text" id="customFields2" style="border-collapse: separate;  border-spacing: 0 10px;">
+										<tr ng-if="bankAccList<1">
+										<th scope="row"><label for="customFieldName2"></label></th>
+										<td width="17%"><input type="text" name="asset1[]"
+											 class="form-control" value="Bank Account" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description1[]"
+											placeholder="Bank/Type " class="form-control"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number"
+											name="value1[]" placeholder="e.g. 500,000" class="form-control"></td>
+										<td width="17%"><select name="designation1[]" class="form-control">
+												<option value="" selected>Please Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>
+										</select>
+										</td>
+										<td style="width: 13%;"></td>
+										</tr>
+										@if(totalAssetList.getBankAccount.length>0){
+										@for((list,index) <-totalAssetList.getBankAccount.zipWithIndex){
+										<tr>
+										<th scope="row"><label for="customFieldName2"></label></th>
+										<td width="17%"><input type="text" name="asset1[]"
+											 class="form-control" value="Bank Account" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description1[]"
+											placeholder="Bank/Type " class="form-control" value="@list.getDescription"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number"
+											name="value1[]" placeholder="e.g. 500,000" class="form-control" value="@list.getValue"></td>
+										<td width="17%"><select name="designation1[]" class="form-control">
+												<option value="" selected>Please Select</option>
+													@if(list.getOwnerShip==applicantName){
+															<option value="@applicantName" selected>@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+													@if(list.getOwnerShip==coApplicantName){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+														@if(list.getOwnerShip=="Joint"){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" >@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option>					
+													}
+												
+												
+										</select>
+										</td>
+										<td style="width: 13%;"><a ng-if="@{{index}} > 0 " href="javascript:void(0);" class="remCF2 glyphicon glyphicon-remove">Remove</a></td>
+										</tr>
+											}
+										}
+									</table>
+									<div id="description_id_2"></div>
+									<a href="javascript:void(0);" class="addCF2 glyphicon glyphicon-plus"><b>Add</b></a>
+								</div>
+								
+								 <div ng-show="asset.RRSPTSFA" class="form-input-wide">
+									<table class="form-table small-text" id="customFields3" style="border-collapse: separate;  border-spacing: 0 10px;">
+										<tr ng-if="rrspList<1">
+										<th scope="row"><label for="customFieldName3"></label></th>
+										<td width="17%"><input type="text" id="asset2" name="asset2[]"
+											 class="form-control" value="RSP-TSFA" readonly="readonly"></td>
+										<td width="36%"><input type="text" id="description2" name="description2[]"
+											placeholder="Bank/Held" class="form-control"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number"
+											name="value2[]" id="value2" placeholder="e.g. 500,000" class="form-control"></td>
+										<td width="17%"><select name="designation2[]" id="designation2" class="form-control">
+												<option value="" selected>Please Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>
+										</select>
+										</td>
+										<td style="width: 13%;"></td>
+										</tr>
+										@if(totalAssetList.getRrsp.length>0){
+										@for((list,index) <-totalAssetList.getRrsp.zipWithIndex){
+										<tr>
+										<th scope="row"><label for="customFieldName3"></label></th>
+										<td width="17%"><input type="text" id="asset2" name="asset2[]"
+											 class="form-control" value="RRSPTSFA" readonly="readonly"></td>
+										<td width="36%"><input type="text" id="description2" name="description2[]"
+											placeholder="Bank/Held" class="form-control" value="@list.getDescription"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number"
+											name="value2[]" id="value2" placeholder="e.g. 500,000" class="form-control" value="@list.getValue"></td>
+										<td width="17%"><select name="designation2[]" id="designation2" class="form-control">
+												<option value="" selected>Please Select</option>@if(list.getOwnerShip==applicantName){
+															<option value="@applicantName" selected>@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+													@if(list.getOwnerShip==coApplicantName){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+														@if(list.getOwnerShip=="Joint"){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" >@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option>					
+													}
+												
+										</select>
+										</td>
+										<td style="width: 13%;"><a ng-if="@{{index}} > 0 " href="javascript:void(0);" class="remCF3 glyphicon glyphicon-remove">Remove</a></td>
+										</tr>
+										}
+									}
+									</table>
+									
+									
+									<div id="description_id_3"></div>
+									<a href="javascript:void(0);" class="addCF3 glyphicon glyphicon-plus"><b>Add</b></a>
+								</div>
+								
+								<div ng-show="asset.Investments" class="form-input-wide">
+									<table class="form-table small-text" id="customFields4" style="border-collapse: separate;  border-spacing: 0 10px;">
+										<tr ng-if="investmtList<1">
+										<th scope="row"><label for="customFieldName4"></label></th>
+										<td width="17%"><input type="text" name="asset3[]" id="asset3" 
+											 class="form-control" value="Investments" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description3[]" id="description3" 
+											placeholder="description" class="form-control"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number" id="value3" 
+											name="value3[]" placeholder="e.g. 500,000" class="form-control"></td>
+										<td width="17%"><select name="designation3[]" id="designation3" class="form-control">
+												<option value="" selected>Please Select</option>
+												<option value="@applicantName">@applicantName</option>
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>
+										</select></td>
+										<td style="width: 13%;"></td>
+										</tr>
+										@if(totalAssetList.getInvestments.length>0){
+										@for((list,index) <-totalAssetList.getInvestments.zipWithIndex){
+										<tr>
+										<th scope="row"><label for="customFieldName4"></label></th>
+										<td width="17%"><input type="text" name="asset3[]" id="asset3" 
+											 class="form-control" value="Investments" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description3[]" id="description3" 
+											placeholder="description" class="form-control" value="@list.getDescription"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number" id="value3" 
+											name="value3[]" placeholder="e.g. 500,000" class="form-control" value="@list.getValue"></td>
+										<td width="17%"><select name="designation3[]" id="designation3" class="form-control">
+												<option value="" selected>Please Select</option>
+												@if(list.getOwnerShip==applicantName){
+															<option value="@applicantName" selected>@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+													@if(list.getOwnerShip==coApplicantName){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+														@if(list.getOwnerShip=="Joint"){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" >@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option>					
+													}
+												
+										</select></td>
+										<td style="width: 13%;"><a ng-if="@{{index}} > 0 " href="javascript:void(0);" class="remCF4 glyphicon glyphicon-remove">Remove</a></td>
+										</tr>
+										}
+										}
+									</table>
+									
+									<div id="description_id_4"></div>
+									
+									<a href="javascript:void(0);" class="addCF4 glyphicon glyphicon-plus"><b>Add</b></a>
+								</div>
+								
+								<div ng-show="asset.Other" class="form-input-wide">
+									<table class="form-table small-text" id="customFields5" style="border-collapse: separate;  border-spacing: 0 10px;">
+										<tr ng-if="otherList<1">
+										<th scope="row"><label for="customFieldName5"></label></th>
+										<td width="17%"><input type="text" name="asset4[]" id="asset4" 
+											value="Other" class="form-control" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description4[]" id="description4" 
+											placeholder="description" class="form-control"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" placeholder=" e.g. 500,000" data-type="input-number"
+											name="value4[]" id="value4" class="form-control"></td>
+										<td width="17%"><select name="designation4[]" id="designation4" class="form-control">
+												<option value="" selected>Please Select</option>
+												<option value="@applicantName">@applicantName</option>
+													@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>
+										</select></td>
+										<td style="width: 13%;"></td>
+										</tr>
+										@if(totalAssetList.getOthers.length>0){
+										@for((list,index) <-totalAssetList.getOthers.zipWithIndex){
+										
+										<tr>
+										<th scope="row"><label for="customFieldName5"></label></th>
+										<td width="17%"><input type="text" name="asset4[]" id="asset4" 
+											value="Other" class="form-control" readonly="readonly"></td>
+										<td width="36%"><input type="text" name="description4[]" id="description4" 
+											placeholder="description" class="form-control" value="@list.getDescription"></td>
+										<td width="17%"><input type="text" onkeypress="return isNumber(event)" data-type="input-number"
+											placeholder="e.g. 500,000" name="value4[]" id="value4" class="form-control" value="@list.getValue"></td>
+										<td width="17%"><select name="designation4[]" id="designation4" class="form-control">
+												<option value="" selected>Please Select</option>
+												@if(list.getOwnerShip==applicantName){
+															<option value="@applicantName" selected>@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName">@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+													@if(list.getOwnerShip==coApplicantName){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" selected>@coApplicantName</option>
+												}
+												<option value="Joint">Joint</option>					
+													}
+													
+													
+														@if(list.getOwnerShip=="Joint"){
+															<option value="@applicantName">@applicantName</option>
+												
+												@if(coApplicantName!="" &&  coApplicantName!=null){
+												<option value="@coApplicantName" >@coApplicantName</option>
+												}
+												<option value="Joint" selected>Joint</option>					
+													}
+												
+										</select></td>
+										<td style="width: 13%;"><a ng-if="@{{index}} > 0 " href="javascript:void(0);" class="remCF5 glyphicon glyphicon-remove">Remove</a></td>
+										</tr>
+}
+}
+									</table>
+									<div id="description_id_5"></div>
+									<a href="javascript:void(0);" class="addCF5 glyphicon glyphicon-plus"><b>Add</b></a>
+								</div>
+						</div>
+						
+						<br>
+						<div class="row" style="width: 100%;">
+								<div class="col-sm-6"
+									style="float: left; padding-left: 2%; width: 45%;">
+									<a href="mortgageBackPage9b" class="btn btn-primary"
+										role="button" style="width: 50%;">Back</a>
+								</div>
+							<div class="col-sm-6" align="right" style="float: right; padding-right:5%; width: 45%;"><input type="submit" class="btn btn-primary btn-block"
+								value="Next" style="width: 50%;">
+							<div align="right" id="submiterror">
+								<font color="red"></font></div>
+					  </div>	
+					</div>
+						<br>
+						<div class="container" style="width: 70%;">
+						  <div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:85%; background-color: #6AA84F;">
+						    <label>85% complete</label>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					
+				
+			</div>
+		</div>
+		</div>
+		<br>
+	</form>
+	</div>
+</body>
+</html>

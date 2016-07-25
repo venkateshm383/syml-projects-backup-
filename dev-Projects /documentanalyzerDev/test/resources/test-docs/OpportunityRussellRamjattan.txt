@@ -1,0 +1,37 @@
+﻿{
+    "applicationID": "166",
+    "applicants": [
+        {
+            "firstName": "Russell",
+            "lastName": "Ramjattan",
+            "email": "email",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Cinty",
+            "lastName": "Ramjattan",
+            "email": "email",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Mortgage Statement (<Address>, <City>)",
+        "Property Tax Assessment (<Address>, <City>),"
+    ],
+    "downpaymentDocuments": [
+        "Offer to Sale of Existing",
+        "Sale MLS Listing"
+    ]
+}

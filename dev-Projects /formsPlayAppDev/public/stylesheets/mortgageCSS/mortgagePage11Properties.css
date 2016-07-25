@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+.verticalLine {
+	height: 300px;
+	border-left: medium groove #336699;
+}
+
+.inline {
+	display: inline;
+}
+
+/*for bigger checkbox*/
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.switch {
+	position: relative;
+}
+
+.switch input {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+/* DEMO 3 */
+.switch.demo3 {
+	width: 50px;
+	height: 30px;
+}
+
+.switch.demo3 label {
+	display: block;
+	width: 90%;
+	height: 100%;
+	background: #ffffff;
+	/* for button like look of checkbox */
+	/* background: black; */
+	/* For browsers that do not support gradients */
+	/* background: -webkit-radial-gradient(red, yellow, green); */
+	/* Safari 5.1 to 6.0 */
+	/* background: -o-radial-gradient(red, yellow, green); */
+	/* For Opera 11.6 to 12.0 */
+	/* background: -moz-radial-gradient(red, yellow, green); */
+	/* For Firefox 3.6 to 15 */
+	/* background: radial-gradient(#666699, #f2f2f2, #669999); */
+	/* Standard syntax (must be last) */
+	/*  box-shadow:
+      inset 0 3px 8px 1px rgba(0,0,0,0.2),
+      0 1px 0 rgba(255,255,255,0.5); */
+}
+
+.switch.demo3 label:after {
+	content: "";
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	bottom: 0px;
+	left: -8px;
+}
+
+.switch.demo3 label:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: -18px;
+	right: -18px;
+	bottom: -18px;
+	left: -18px;
+	s
+}
+
+.switch.demo3 input:checked ~ label i:before {
+	content: url("@routes.Assets.at(" _resources/ tick1.png ")");
+	/* content: url("@routes.Assets.at("_resources/tick2.gif")"); */
+	color: #ffffff;
+}

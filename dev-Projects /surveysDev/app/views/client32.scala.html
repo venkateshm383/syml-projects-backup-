@@ -1,0 +1,205 @@
+@(opprtunityid : String,applicantId:String,message:Integer)
+@import helper._
+@main("Client Survey") {
+<html>
+<head>
+<script src="http://jotformpro.com/static/prototype.forms.js" type="text/javascript"></script>
+<script src="http://jotformpro.com/static/jotform.forms.js?3.3.8290" type="text/javascript"></script>
+<script src="https://js.jotform.com/vendor/postMessage.min.js" type="text/javascript"></script>
+<script src="https://js.jotform.com/WidgetsServer.js" type="text/javascript"></script>
+<script type="text/javascript">
+   JotForm.setConditions([{"action":[{"fields":["16","17"],"visibility":"ShowMultiple"}],"id":"1438334082741","index":"0","link":"Any","priority":"0","terms":[{"field":"15","operator":"equals","value":"Charity"}],"type":"field"}]);
+   JotForm.init(function(){
+	JotForm.clearFieldOnHide="disable";
+	JotForm.onSubmissionError="jumpToSubmit";
+   });
+</script>
+<link href="http://jotformpro.com/static/formCss.css?3.3.8290" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="http://jotformpro.com/css/styles/nova.css?3.3.8290" />
+<link type="text/css" media="print" rel="stylesheet" href="http://jotformpro.com/css/printForm.css?3.3.8290" />
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+        color: #555;
+    }
+
+</style>
+
+<link type="text/css" rel="stylesheet" href="//jotformpro.com/themes/CSS/54945ae9700cc494668b4567.css?session=47473677371769"/>
+</head>
+<form class="jotform-form" action="@routes.Application.getClientSurveydetails()" method="post" name="form_52111132137943" id="52111132137943" accept-charset="utf-8">
+  <input type="hidden" name="formID" value="52111132137943" />
+  <input type="hidden" name="opprtunityId" value="@opprtunityid">
+      <input type="hidden" name="applicantId" value="@applicantId">
+  <div class="form-all">
+    <ul class="form-section page-section">
+      <li class="form-line jf-required" data-type="control_widget" id="id_5">
+        <label class="form-label form-label-top" id="label_5" for="input_5">
+       <font style="font-weight: normal;"> How would you rate your recent experience with the Visdom team?
+        </font>  <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_5" class="form-input-wide jf-required">
+          <div style="width:100%; text-align:Left;">
+            <iframe onload="widgetFrameLoaded(5)" frameborder="0" scrolling="no" allowTransparency="true" class="custom-field-frame" id="customFieldFrame_5" src="" style="border:none;width:600px; height: 60px;">
+            </iframe>
+            <div class="widget-inputs-wrapper">
+              <input id="input_5" class="form-hidden widget-required form-widget" type="hidden" name="options" value="" />
+              <input id="widget_settings_5" class="form-hidden form-widget-settings" type="hidden" value="" data-version="2" />
+            </div>
+            <script>
+            setTimeout(function()
+{
+  document.getElementById("widget_settings_5").value = "%5B%7B%22name%22%3A%22options%22%2C%22value%22%3A%22Excellent%5CnGood%5CnSatisfactory%5CnNot%20So%20Good%5CnYack%22%7D%2C%7B%22name%22%3A%22default%22%2C%22value%22%3A%22Option%201%22%7D%2C%7B%22name%22%3A%22width%22%2C%22value%22%3A%22110%22%7D%2C%7B%22name%22%3A%22row%22%2C%22value%22%3A%220%22%7D%2C%7B%22name%22%3A%22spacing%22%2C%22value%22%3A%222%22%7D%2C%7B%22name%22%3A%22color%22%2C%22value%22%3A%22Blue%22%7D%5D";
+  var _cFieldFrame = document.getElementById("customFieldFrame_5");
+  _cFieldFrame.src = "//widgets.jotform.io/buttonRadios/?qid=5&ref=" + encodeURIComponent(window.location.protocol + "//" + window.location.host);
+  _cFieldFrame.addClassName("custom-field-frame-rendered");
+}, 5);
+            </script>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_widget" id="id_6">
+        <label class="form-label form-label-top" id="label_6" for="input_6">
+         <font style="font-weight: normal;">   Would you recommend Visdom to your friends and family?
+        </font>  <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_6" class="form-input-wide jf-required">
+          <div style="width:100%; text-align:Left;">
+            <iframe onload="widgetFrameLoaded(6)" frameborder="0" scrolling="no" allowTransparency="true" class="custom-field-frame" id="customFieldFrame_6" src="" style="border:none;width:600px; height: 60px;">
+            </iframe>
+            <div class="widget-inputs-wrapper">
+              <input id="input_6" class="form-hidden widget-required form-widget" type="hidden" name="option" value="" />
+              <input id="widget_settings_6" class="form-hidden form-widget-settings" type="hidden" value="" data-version="2" />
+            </div>
+            <script>
+            setTimeout(function()
+{
+  document.getElementById("widget_settings_6").value = "%5B%7B%22name%22%3A%22options%22%2C%22value%22%3A%22Excellent%5CnGood%5CnSatisfactory%5CnNot%20So%20Good%5CnYack%22%7D%2C%7B%22name%22%3A%22default%22%2C%22value%22%3A%22Option%201%22%7D%2C%7B%22name%22%3A%22width%22%2C%22value%22%3A%22110%22%7D%2C%7B%22name%22%3A%22row%22%2C%22value%22%3A%220%22%7D%2C%7B%22name%22%3A%22spacing%22%2C%22value%22%3A%222%22%7D%2C%7B%22name%22%3A%22color%22%2C%22value%22%3A%22Blue%22%7D%5D";
+  var _cFieldFrame = document.getElementById("customFieldFrame_6");
+  _cFieldFrame.src = "//widgets.jotform.io/buttonRadios/?qid=6&ref=" + encodeURIComponent(window.location.protocol + "//" + window.location.host);
+  _cFieldFrame.addClassName("custom-field-frame-rendered");
+}, 5);
+            </script>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textarea" id="id_13">
+        <label class="form-label form-label-top" id="label_13" for="input_13">
+           <font style="font-weight: normal;"> In your own words, good or bad, please provide us your feedback about your experience with us
+      </font>   <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_13" class="form-input-wide jf-required">
+          <textarea id="input_13" class="form-textarea validate[required]" name="text" cols="40" rows="6"></textarea>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_text" id="id_14">
+        <div id="cid_14" class="form-input-wide">
+          <div id="text_14" class="form-html">
+            <p>  <font size="2">(This is a great place to share with us a testimonial on our service or suggestions on how we can improve)</font></p>
+          </div>
+        </div>
+      </li>
+      @if(message==0){
+            
+      
+      <li class="form-line jf-required" data-type="control_widget" id="id_15">
+        <label class="form-label form-label-top" id="label_15" for="input_15">
+          <font style="font-weight: normal;">  Would you like us to send the survey fee of $25 to your email address or donate it to a charity?
+       </font>   <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_15" class="form-input-wide jf-required">
+          <div style="width:100%; text-align:Left;">
+            <iframe onload="widgetFrameLoaded(15)" frameborder="0" scrolling="no" allowTransparency="true" class="custom-field-frame" id="customFieldFrame_15" src="" style="border:none;width:600px; height: 60px;">
+            </iframe>
+            <div class="widget-inputs-wrapper">
+              <input id="input_15" class="form-hidden widget-required form-widget" type="hidden" name="sendMe" value="" />
+              <input id="widget_settings_15" class="form-hidden form-widget-settings" type="hidden" value="" data-version="2" />
+            </div>
+            <script>
+            setTimeout(function()
+{
+  document.getElementById("widget_settings_15").value = "%5B%7B%22name%22%3A%22options%22%2C%22value%22%3A%22Charity%5CnSend%20To%20Me%22%7D%2C%7B%22name%22%3A%22default%22%2C%22value%22%3A%22Option%201%22%7D%2C%7B%22name%22%3A%22width%22%2C%22value%22%3A%22110%22%7D%2C%7B%22name%22%3A%22row%22%2C%22value%22%3A%220%22%7D%2C%7B%22name%22%3A%22spacing%22%2C%22value%22%3A%221%22%7D%2C%7B%22name%22%3A%22color%22%2C%22value%22%3A%22Blue%22%7D%5D";
+  var _cFieldFrame = document.getElementById("customFieldFrame_15");
+  _cFieldFrame.src = "//widgets.jotform.io/buttonRadios/?qid=15&ref=" + encodeURIComponent(window.location.protocol + "//" + window.location.host);
+  _cFieldFrame.addClassName("custom-field-frame-rendered");
+}, 5);
+            </script>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" style="display:none;" data-type="control_widget" id="id_17">
+        <label class="form-label form-label-top" id="label_17" for="input_17">
+        <font style="font-weight: normal;">    Which charity would you like us to donate the survey fee to?
+        </font>  <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_17" class="form-input-wide jf-required">
+          <div style="width:100%; text-align:Left;">
+            <iframe onload="widgetFrameLoaded(17)" frameborder="0" scrolling="no" allowTransparency="true" class="custom-field-frame" id="customFieldFrame_17" src="" style="border:none;width:250px; height: 50px;">
+            </iframe>
+            <div class="widget-inputs-wrapper">
+              <input id="input_17" class="form-hidden widget-required form-widget" type="hidden" name="charity" value="" />
+              <input id="widget_settings_17" class="form-hidden form-widget-settings" type="hidden" value="" data-version="2" />
+            </div>
+            <script>
+            setTimeout(function()
+{
+  document.getElementById("widget_settings_17").value = "%5B%7B%22name%22%3A%22defaultOptions%22%2C%22value%22%3A%22Children%E2%80%99s%20Wish%20Foundation%5CnAlberta%E2%80%99s%20Children%20Hospital%20Foundation%5CnCalgary%20Inter-Faith%20Food%20Bank%5CnCanadian%20Red%20Cross%20Society%5CnCanadian%20National%20Institute%20for%20the%20Blind%5CnTerry%20Fox%20Foundation%5CnUnited%20Way%20of%20Calgary%20%26amp%3B%20Area%5CnHabitat%20for%20Humanity%20of%20Canada%5CnRick%20Hansen%20Institute%5CnAlberta%20Cancer%20Foundation%5CnCanadian%20Diabetes%20Association%5CnHeart%20%26amp%3B%20Stroke%20Foundation%5CnMultiple%20Sclerosis%20Society%20of%20Canada%5CnWar%20Amputations%20of%20Canada%5CnKidney%20Foundation%20of%20Canada%5CnCystic%20Fibrosis%20Canada%5CnNature%20Conservancy%20of%20Canada%5CnMeals%20on%20Wheels%5CnSpecial%20Olympics%20%5CnSamartin%E2%80%99s%20Purse-Canada%22%7D%2C%7B%22name%22%3A%22selectedValue%22%2C%22value%22%3A%22Option%201%22%7D%5D";
+  var _cFieldFrame = document.getElementById("customFieldFrame_17");
+  _cFieldFrame.src = "//data-widgets.jotform.io/userContributedDropdown/?qid=17&ref=" + encodeURIComponent(window.location.protocol + "//" + window.location.host);
+  _cFieldFrame.addClassName("custom-field-frame-rendered");
+}, 5);
+            </script>
+          </div>
+        </div>
+      </li>
+   }
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide">
+          <div style="margin-left:156px" class="form-buttons-wrapper">
+            <button id="input_2" type="submit" class="form-submit-button">
+              Submit
+            </button>
+          </div>
+        </div>
+      </li>
+      <li style="display:none">
+        Should be Empty:
+        <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="52111132137943" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "52111132137943-52111132137943";
+  </script>
+  <script src="http://jotformpro.com/js/widgetResizer.js?REV=3.3.8290" type="text/javascript"></script>
+</form>
+</body>
+</html>
+}
+

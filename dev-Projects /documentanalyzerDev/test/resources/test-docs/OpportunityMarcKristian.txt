@@ -1,0 +1,36 @@
+﻿{
+    "applicationID":"203",
+    "applicants": [
+        {
+            "firstName": "Marc",
+            "lastName": "Kristian",
+            "email": "mkristian1@yahoo.ca",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Mortgage Statement( 47 Wentworth Mount Southwest ,Calgary )",
+        "Property Tax Assessment( 47 Wentworth Mount Southwest ,Calgary )",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Nicole",
+            "lastName": "Kristian",
+            "email": "nickoch7@yahoo.ca",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Mortgage Statement  (<Address>, <City>)",
+        "Property Tax Assessment  (<Address>, <City>)",
+        "Fire Insurance"
+    ]
+}

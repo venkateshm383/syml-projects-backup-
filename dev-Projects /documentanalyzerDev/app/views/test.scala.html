@@ -1,0 +1,124 @@
+@(message: String,users: List[String],docs:List[String],opprtunity:String,id:String,sucess:Integer,docosolo:List[DocoSolo])
+
+
+<html>
+<head>
+
+<title>Document Splitter</title>
+<link type="text/css" rel="stylesheet" href="background.css" />
+<link type="text/css" rel="stylesheet" href="forms.css" />
+<link type="text/css" rel="stylesheet" href="mortgage.css" />
+<style type="text/css">
+
+body {
+	background: url(/assets/images/bg.jpg) no-repeat center center fixed;
+   
+}
+
+
+
+.text-color-blue {
+	color:#237EBA;
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+ <script src="https://oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
+ --> 
+
+</head>
+<body >
+ <div style="padding-bottom:20px; margin-top:20px;padding-left: 5%">
+                		<img alt="Visdom Logo" height="90" width="260"  src="https://www.jotform.com/uploads/viksonaisingh/form_files/visdom-logo.png" />
+              
+              
+                	</div>
+          
+
+<!-- <form action="search" method="post">
+ -->
+ 
+<div style="padding-left: 10%">
+
+
+<input type="text" readonly="readonly" name="opportunity" style="height: 35px;width: 400px" value="@opprtunity" required>
+
+<!-- <input type="submit" style="height:35px;width: 100px " value="Search">
+ --></div><br>
+<!-- </form>
+ --><form id="maskForm" action="add" method="post">
+<div  style="padding-left: 10%">
+<input type="hidden" name="attachment" value="@message">
+<input type="hidden" name="id" value="@id">
+
+
+<select name="relatedrecord" placeholder="relatedrecord" style="width: 250px;height: 35px">
+
+      @for(user <- users){
+<option value="@user">@user</option>
+
+}
+
+
+</select>
+
+<select name="documenttype" placeholder="documenttype" style="width: 300px;height: 35px">
+
+ @for(doc <- docs){
+<option value="@doc">@doc</option>
+
+}
+
+</select>
+ @if(sucess==0){ 
+<input type="text" id="pages" name="pages" style="height:35px;width: 100px;border-color: red; "      
+      required>
+}else{
+<input type="text" id="pages" name="pages" style="height:35px;width: 100px "      
+      required>
+}
+
+<input type="submit" style="height:35px;width: 100px "  value="Add">
+
+</div>
+</form>
+
+<!-- <script>
+jQuery(function($){
+	   $("#pages").mask("9-90");
+	  });
+</script> -->
+<br>
+<br>
+<div style="padding-left: 10%">
+<table  class="table" style="background-color:#E8E8E8;width: 70%">
+@for(docsolo<- docosolo){
+<tr>
+<td>@docsolo.getRelatedDoc
+</td>
+<td>@docsolo.getDocumentType
+</td>
+<td><a href="@docsolo.getLink" target="_blank">Link</a>
+</td>
+<td>
+<a href="delete?@docsolo.getLink,@id"><button>Remove</button></a></td>
+</tr>
+}
+</table>
+</div>
+<br>
+<br>
+<div align="center" >
+
+<object data="data:application/pdf;base64,@message" type="application/pdf" style="width: 80%;height: 80%" ></object>
+</div>
+</body>
+</html>
+
+

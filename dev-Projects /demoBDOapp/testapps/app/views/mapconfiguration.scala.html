@@ -1,0 +1,92 @@
+@(firstmap:Map[String,Map[String,Object]], mapconfig : Map[String,Object])
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<body>
+
+<select id="selectMe">
+ 
+<option value=""> --Select--</option>
+
+
+@for((key, value) <- firstmap){
+
+
+<option value="@key" >  @key</option>
+
+
+}
+</select>
+@for((key, value) <- firstmap){
+
+<div id="@key" class="group">
+<select id="selectmore@key">
+<option value=""> --Select--</option>
+
+@for((key1, value1) <- value){
+
+<option value="@key1">  @key1</option>
+
+}
+</select>
+
+
+
+</div>
+
+}
+
+@for((key, value) <- firstmap){
+
+
+@for((key1, value1) <- value){
+
+<div id="@key1" class="group1">
+
+<table class="table">
+<tr>
+<th>event Key></th>
+<th>event config</th>
+</tr>
+<tr>
+<td>@key1</td><br/>
+<td>@value1</td>
+</tr>
+
+
+</table>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.group1').hide();
+  
+    $('#selectmore@key').change(function () {
+        $('.group1').hide();
+        alert("in second select ");
+        
+        $('#'+$(this).val()).show();
+    })
+});
+</script>
+}
+
+
+
+}
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.group').hide();
+  
+    $('#selectMe').change(function () {
+        $('.group').hide();
+        alert("in first select ");
+        $('#'+$(this).val()).show();
+    })
+});
+</script>
+
+</body>
+</html>
+

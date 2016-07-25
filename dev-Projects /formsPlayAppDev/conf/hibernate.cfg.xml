@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- hibernate.cfg.xml -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- POSTGRESQL CONNECTION PROPERTIES -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://postgres-01.cd3syw7xmhzz.us-east-1.rds.amazonaws.com:5432/symlsys</property>
+		<property name="connection.username">erpuser</property>
+		<property name="connection.password">erpuser</property>
+
+		<!--POSTGRESQL HIBERNATE PROPERTIES -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+		<!--LOCATION MAPPING FILE -->
+		<!-- <mapping resource="com/syml/hibernate/config/person.hbm.xml"/> -->
+		<!-- <hibernate-mapping class="com.syml.hibernate.model.Person"></mapping> -->
+		<mapping class="controllers.Lead"></mapping>
+		<mapping class="controllers.Referral_Source" />
+		<mapping class="controllers.Applicant" />
+		<mapping class="controllers.Opportunity" />
+		<mapping class="controllers.Address" />
+		<mapping class="controllers.Income" />
+		<mapping class="controllers.Assetes" />
+		<mapping class="controllers.Property" />
+		<mapping class="controllers.Mortgages" />
+		<mapping class="controllers.Lead" />
+		<mapping class="controllers.Referral_Source" />
+		<mapping class="controllers.Contact" />
+		<mapping class="controllers.State" />
+		<mapping class="controllers.ApplicantOpportunityRelationShip" />
+		
+	</session-factory>
+</hibernate-configuration>

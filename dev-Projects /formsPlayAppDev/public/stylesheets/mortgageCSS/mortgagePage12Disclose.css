@@ -1,0 +1,33 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#sig-dataUrl {
+	width: 100%;
+}
+
+
+#sig-canvas {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+#sig-canvas1 {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}
+
+#sig-canvas2 {
+	border: 2px dotted Black;
+	border-radius: 5px;
+	cursor: crosshair;
+	background: white;
+	color: black;
+}

@@ -1,0 +1,317 @@
+2016-07-05 20:12:07,961 - [INFO] - from play in pool-4-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2016-07-05 20:12:50,654 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-07-05 20:12:52,775 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+(.)Inside mortgagePage2 
+
+2016-07-05 20:12:53,804 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:12:59,155 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:12:59,815 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+applicant list size = 1
+
+2016-07-05 20:12:59,815 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+applicant Exist no
+
+2016-07-05 20:12:59,817 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+applicant size at last 1
+
+2016-07-05 20:12:59,818 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+Inside createApplicant() of Service Csass
+
+2016-07-05 20:12:59,840 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+createApplicant of PostgresDAOOpportunity [id=4581, application_no=null, hr_department_id=1, application_date=null, what_is_your_lending_goal=3, province=null, down_payment_amount=null, purchase_price=null, bank_account=null, rrsp_amount=null, stage_id=10, type=opportunity, active=null, borrowed_amount=null, sale_of_existing_amount=null, gifted_amount=null, personal_cash_amount=null, existing_equity_amount=null, sweat_equity_amount=null, monthly_rental_income=null, mls=null, address=null, city=null, living_in_property=null, postal_code=null, buy_new_vehicle=null, property_value=null, heating=null, water=null, property_type=null, property_style=null, garage_type=null, garage_size=null, square_footage=null, sewage=null, desired_mortgage_type=null, desired_term=null, desired_amortization=null, income_decreased_worried=null, future_family=null, lifestyle_change=null, financial_risk_taker=null, property_less_then_5_years=null, job_5_years=null, opportunity_id=null, applicants=[Applicant [id=3207, applicant_name=tttttttt, applicant_last_name=dddddd, email_personal=manoj.prajapati@bizruntime.com, work=null, home=null, cell=122-343-2432, dob=null, relationship_status=Single, sin=null, non_resident=null, opportunities=[], listOfAddress=[], incomes=[], assetList=[], properties=[], listOfMortgages=[], movedToCannada=null, dependant=null, electronicSign=null, normalSign=null, additionalReason=null]], areUsingTouchScreenDevice=null, isAdditionalApplicantExist=no, liveDetails=null, pogressStatus=10, investment=null, additional_amount=null, expireDate=07/07/2016, forms=Forms [deviceType=Desktop, ip=null, pages=null, startTime=null, geoCoordinates=null], referralSourceName=Billy, referralSourceEmail=guy@visdom.ca, mortgage_Brokerage_Disclosures_Id=null, user_id=26, create_uid=26, role=C, additionalFunds=null, mlsListed=null, lendingGoal=Refinance, propertyType=null, propertyStyle=null, squareFootage=null, propertyHeated=null, propertyWater=null, propertySewage=null, garageType=null, garageSize=null, propertyAddress=null]
+
+2016-07-05 20:12:59,847 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+size1
+
+2016-07-05 20:12:59,849 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+Before creating SESSION_FACTORY null
+
+2016-07-05 20:14:14,029 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+After creating SESSION_FACTORY org.hibernate.internal.SessionFactoryImpl@480b184f
+
+2016-07-05 20:14:15,776 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+Update on Opportunity and Applicant is sucessful.
+
+2016-07-05 20:14:15,776 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+inside (.) setSession   with opporunity = Opportunity [id=4581, application_no=null, hr_department_id=1, application_date=null, what_is_your_lending_goal=3, province=null, down_payment_amount=null, purchase_price=null, bank_account=null, rrsp_amount=null, stage_id=10, type=opportunity, active=null, borrowed_amount=null, sale_of_existing_amount=null, gifted_amount=null, personal_cash_amount=null, existing_equity_amount=null, sweat_equity_amount=null, monthly_rental_income=null, mls=null, address=null, city=null, living_in_property=null, postal_code=null, buy_new_vehicle=null, property_value=null, heating=null, water=null, property_type=null, property_style=null, garage_type=null, garage_size=null, square_footage=null, sewage=null, desired_mortgage_type=null, desired_term=null, desired_amortization=null, income_decreased_worried=null, future_family=null, lifestyle_change=null, financial_risk_taker=null, property_less_then_5_years=null, job_5_years=null, opportunity_id=null, applicants=[Applicant [id=3207, applicant_name=tttttttt, applicant_last_name=dddddd, email_personal=manoj.prajapati@bizruntime.com, work=null, home=null, cell=122-343-2432, dob=null, relationship_status=Single, sin=null, non_resident=null, opportunities=[], listOfAddress=[], incomes=[], assetList=[], properties=[], listOfMortgages=[], movedToCannada=null, dependant=null, electronicSign=null, normalSign=null, additionalReason=null]], areUsingTouchScreenDevice=null, isAdditionalApplicantExist=no, liveDetails=null, pogressStatus=10, investment=null, additional_amount=null, expireDate=07/07/2016, forms=Forms [deviceType=Desktop, ip=null, pages=null, startTime=null, geoCoordinates=null], referralSourceName=Billy, referralSourceEmail=guy@visdom.ca, mortgage_Brokerage_Disclosures_Id=null, user_id=26, create_uid=26, role=C, additionalFunds=null, mlsListed=null, lendingGoal=Refinance, propertyType=null, propertyStyle=null, squareFootage=null, propertyHeated=null, propertyWater=null, propertySewage=null, garageType=null, garageSize=null, propertyAddress=null]
+
+2016-07-05 20:14:15,777 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
+applicant size 1
+
+2016-07-05 20:14:17,956 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+Insert of page Two details sucess Full Opportunity [id=4581, application_no=null, hr_department_id=1, application_date=null, what_is_your_lending_goal=3, province=null, down_payment_amount=null, purchase_price=null, bank_account=null, rrsp_amount=null, stage_id=10, type=opportunity, active=null, borrowed_amount=null, sale_of_existing_amount=null, gifted_amount=null, personal_cash_amount=null, existing_equity_amount=null, sweat_equity_amount=null, monthly_rental_income=null, mls=null, address=null, city=null, living_in_property=null, postal_code=null, buy_new_vehicle=null, property_value=null, heating=null, water=null, property_type=null, property_style=null, garage_type=null, garage_size=null, square_footage=null, sewage=null, desired_mortgage_type=null, desired_term=null, desired_amortization=null, income_decreased_worried=null, future_family=null, lifestyle_change=null, financial_risk_taker=null, property_less_then_5_years=null, job_5_years=null, opportunity_id=null, applicants=[Applicant [id=3207, applicant_name=tttttttt, applicant_last_name=dddddd, email_personal=manoj.prajapati@bizruntime.com, work=null, home=null, cell=122-343-2432, dob=null, relationship_status=Single, sin=null, non_resident=null, opportunities=[], listOfAddress=[], incomes=[], assetList=[], properties=[], listOfMortgages=[], movedToCannada=null, dependant=null, electronicSign=null, normalSign=null, additionalReason=null]], areUsingTouchScreenDevice=null, isAdditionalApplicantExist=no, liveDetails=null, pogressStatus=10, investment=null, additional_amount=null, expireDate=07/07/2016, forms=Forms [deviceType=Desktop, ip=null, pages=null, startTime=null, geoCoordinates=null], referralSourceName=Billy, referralSourceEmail=guy@visdom.ca, mortgage_Brokerage_Disclosures_Id=null, user_id=26, create_uid=26, role=C, additionalFunds=null, mlsListed=null, lendingGoal=Refinance, propertyType=null, propertyStyle=null, squareFootage=null, propertyHeated=null, propertyWater=null, propertySewage=null, garageType=null, garageSize=null, propertyAddress=null]
+
+2016-07-05 20:14:54,026 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside mortgagePage2Ref Refinance Selected.
+
+2016-07-05 20:14:54,069 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside (.) updatePage2RefDetails of MortgageAppliationPage2RefService 
+
+2016-07-05 20:14:54,070 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:14:56,042 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:15:07,216 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+
+ formattedAddress  3 Cougar Ridge Green SW, Calgary, AB T3H 4E5, Canada
+ refinancing1  :350000
+ bankAccount: 
+ living4Financing  Renter
+
+2016-07-05 20:15:07,917 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+350000<------------->28000
+
+2016-07-05 20:15:40,353 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+living4Financing   Renter
+
+2016-07-05 20:15:40,353 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Renter
+
+2016-07-05 20:15:40,354 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside for loop [Ljava.lang.String;@7d81eab5
+
+2016-07-05 20:15:40,359 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside insertOpportunityPage2Details() of Service Csass
+
+2016-07-05 20:15:40,359 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside updateOpportunityPage2 of PostgresDAO
+
+2016-07-05 20:15:41,512 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+What_is_your_lending_goal 3
+
+2016-07-05 20:15:41,516 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Refinance Selected
+
+2016-07-05 20:15:41,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Province ABAddress 3 Cougar Ridge Green SWCity CalgaryPostal_code T3H 4E5
+ Property_value 350000.0
+ Additional_amount 28000.0
+ Living_in_property 2
+ Monthly_rental_income 55555.0LiveDetails Rentermls null
+
+2016-07-05 20:15:41,516 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+assignOppertunityReFinance updated
+
+2016-07-05 20:15:42,213 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Page2 details updated successfully.
+
+2016-07-05 20:24:30,320 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-07-05 20:24:30,379 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside (.) mortgageBackPage2 of Mortgage Ctrlr
+
+2016-07-05 20:24:30,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:24:32,396 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:24:32,559 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside (.) getRefinanceDetails of MortgageApplicationPage2RefService 
+
+2016-07-05 20:24:32,571 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside insertOpportunityPage2Details() of Service Csass
+
+2016-07-05 20:24:32,592 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside updateOpportunityPage2 of PostgresDAO
+
+2016-07-05 20:24:32,597 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Before creating SESSION_FACTORY null
+
+2016-07-05 20:25:40,302 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+After creating SESSION_FACTORY org.hibernate.internal.SessionFactoryImpl@11d1a996
+
+2016-07-05 20:25:40,773 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+What_is_your_lending_goal 3
+
+2016-07-05 20:25:40,775 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Refinance Selected
+
+2016-07-05 20:25:40,776 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Province nullAddress nullCity nullPostal_code null
+ Property_value null
+ Additional_amount null
+ Living_in_property null
+ Monthly_rental_income nullLiveDetails nullmls nullLTV0.0
+
+2016-07-05 20:25:40,776 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+assignOppertunityReFinance updated
+
+2016-07-05 20:25:41,465 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Page2 details updated successfully.
+
+2016-07-05 20:25:50,817 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside mortgagePage2Ref Refinance Selected.
+
+2016-07-05 20:25:50,827 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside (.) updatePage2RefDetails of MortgageAppliationPage2RefService 
+
+2016-07-05 20:25:50,836 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:25:52,856 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:25:59,077 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+
+ formattedAddress  3 Cougar Ridge Green SW, Calgary, AB T3H 4E5, Canada
+ refinancing1  :350000
+ bankAccount: 
+ living4Financing  Renter
+
+2016-07-05 20:25:59,704 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+350000<------------->28000
+
+2016-07-05 20:26:04,894 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+LtvValue : 1250.0
+
+2016-07-05 20:27:18,050 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+living4Financing   Renter
+
+2016-07-05 20:27:18,051 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Renter
+
+2016-07-05 20:27:18,052 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside for loop [Ljava.lang.String;@1f42b7eb
+
+2016-07-05 20:27:18,054 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside insertOpportunityPage2Details() of Service Csass
+
+2016-07-05 20:27:18,054 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Inside updateOpportunityPage2 of PostgresDAO
+
+2016-07-05 20:27:19,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+What_is_your_lending_goal 3
+
+2016-07-05 20:27:19,196 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Refinance Selected
+
+2016-07-05 20:27:19,197 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+Province ABAddress 3 Cougar Ridge Green SWCity CalgaryPostal_code T3H 4E5
+ Property_value 350000.0
+ Additional_amount 28000.0
+ Living_in_property 2
+ Monthly_rental_income 55555.0LiveDetails Rentermls nullLTV1250.0
+
+2016-07-05 20:27:19,197 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+assignOppertunityReFinance updated
+
+2016-07-05 20:27:19,903 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+Page2 details updated successfully.
+
+2016-07-05 20:27:55,321 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-07-05 20:27:55,372 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Inside (.) mortgageBackPage2 of Mortgage Ctrlr
+
+2016-07-05 20:27:55,380 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:27:57,312 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:27:57,442 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Inside (.) getRefinanceDetails of MortgageApplicationPage2RefService 
+
+2016-07-05 20:27:57,451 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Inside insertOpportunityPage2Details() of Service Csass
+
+2016-07-05 20:27:57,478 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Inside updateOpportunityPage2 of PostgresDAO
+
+2016-07-05 20:27:57,482 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+Before creating SESSION_FACTORY null
+
+2016-07-05 20:29:04,960 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+After creating SESSION_FACTORY org.hibernate.internal.SessionFactoryImpl@3a85d319
+
+2016-07-05 20:29:05,445 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+What_is_your_lending_goal 3
+
+2016-07-05 20:29:05,447 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Refinance Selected
+
+2016-07-05 20:29:05,447 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+Province nullAddress nullCity nullPostal_code null
+ Property_value null
+ Additional_amount null
+ Living_in_property null
+ Monthly_rental_income nullLiveDetails nullmls nullLTV1250.0
+
+2016-07-05 20:29:05,448 - [DEBUG] - from application in play-akka.actor.default-dispatcher-12 
+assignOppertunityReFinance updated
+
+2016-07-05 20:29:06,167 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+Page2 details updated successfully.
+
+2016-07-05 20:30:29,220 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Inside mortgagePage2Ref Refinance Selected.
+
+2016-07-05 20:30:29,226 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Inside (.) updatePage2RefDetails of MortgageAppliationPage2RefService 
+
+2016-07-05 20:30:29,227 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+session Object {crmLeadId=4581, applicantLasttName=dddddd, referralName=Billy, co_applicantLastName=manoj, applicantFirstName=tttttttt, applicantEmail=manoj.prajapati@bizruntime.com, co_applicantFirstName=Prajapati, leadingGoal=Refinance, referralEmail=guy@visdom.ca, additionalApplicants=no, applicantID2=3196, isMobile=Desktop, applicantID=3207, co_applicantEmail=venkatesh.m@bizruntime.com}
+
+2016-07-05 20:30:31,131 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+COuchbase Data Json Data for Opportunirty ID = 4581
+
+2016-07-05 20:30:31,212 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+
+ formattedAddress  3 Cougar Ridge Green SW, Calgary, AB T3H 4E5, Canada
+ refinancing1  :35000
+ bankAccount: 
+ living4Financing  Renter
+
+2016-07-05 20:30:31,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+35000<------------->28000
+
+2016-07-05 20:30:31,216 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+LtvValue : 80.0
+
+2016-07-05 20:30:31,217 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+living4Financing   Renter
+
+2016-07-05 20:30:31,225 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+Renter
+
+2016-07-05 20:30:31,226 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Inside for loop [Ljava.lang.String;@72c2ec7f
+
+2016-07-05 20:30:31,227 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Inside insertOpportunityPage2Details() of Service Csass
+
+2016-07-05 20:30:31,228 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Inside updateOpportunityPage2 of PostgresDAO
+
+2016-07-05 20:30:32,391 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+What_is_your_lending_goal 3
+
+2016-07-05 20:30:32,396 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Refinance Selected
+
+2016-07-05 20:30:32,396 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+Province ABAddress 3 Cougar Ridge Green SWCity CalgaryPostal_code T3H 4E5
+ Property_value 35000.0
+ Additional_amount 28000.0
+ Living_in_property 2
+ Monthly_rental_income 55555.0LiveDetails Rentermls nullLTV80.0
+
+2016-07-05 20:30:32,396 - [DEBUG] - from application in play-akka.actor.default-dispatcher-11 
+assignOppertunityReFinance updated
+
+2016-07-05 20:30:33,115 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Page2 details updated successfully.
+

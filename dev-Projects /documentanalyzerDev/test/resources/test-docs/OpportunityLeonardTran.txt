@@ -1,0 +1,41 @@
+﻿{
+    "applicationID":"191",
+    "applicants": [
+        {
+            "firstName": "Leo",
+            "lastName": "Tran",
+            "email": "leo.tran@outlook.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        },
+        {
+            "firstName": "Cindy",
+            "lastName": "Hai",
+            "email": "cindy.hai@gmail.com",
+            "documents": [
+                "Letter of Employment",
+                "Paystub",
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Offer to Purchase",
+        "MLS Listing",
+        "Floor plans/Specs"
+    ],
+    "downpaymentDocuments": [
+        "90 Days history bankstatements",
+        "90 Days history RRSP",
+        "90 Days history Investment",
+        "Gift Letter",
+        "Copy of Deposit"
+    ]
+}

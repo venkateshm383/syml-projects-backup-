@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.verticalLine {
+	height: 590px;
+	border-left: medium groove #336699;
+}
+
+.blocks .btn-primary {
+	font-weight: bold;
+	padding: 9px 6px;
+	margin: 2px 2px;
+	background-color: #0086b3;
+	border-radius: 0;
+}
+

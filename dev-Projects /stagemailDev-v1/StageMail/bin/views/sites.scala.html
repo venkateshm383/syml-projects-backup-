@@ -1,0 +1,106 @@
+@(pr:String)
+<html ng-app="myApp">
+
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans"
+	rel='stylesheet' type='text/css'>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link
+	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+	rel="stylesheet">
+<script
+	src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<link href="@routes.Assets.at("stylesheets/angular.treeview.css")" rel="stylesheet">
+
+<script>
+	(function() {
+
+		//angular module
+		var myApp = angular.module('myApp', [ 'angularTreeview' ]);
+//test config
+		myApp .config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/node', {
+        templateUrl: '/nodelist.html',
+        controller: 'NodeListController'
+      }).
+      when('/policygroup', {
+        templateUrl: '/policygroup.html',
+        controller: 'PolicyGroupController'
+      }).
+      when('/policy',{
+    	  templateUrl: 'templates/policy.html',
+      	  controller: 'PolicyController'
+      }).
+        otherwise({
+        redirectTo: '/home'
+      });
+  }]);
+		myApp.controller('NodeListController', function($scope) {
+		     
+		    $scope.message = 'This is list of nodes';
+		     
+		});
+		
+		//test controller
+		myApp.controller('myController', function($scope, $http) {
+
+			$http.get('db').success(function(response) {
+				//$scope.roleList = response
+				$scope.roleList = [{"nodeName":"GAP","nodeId":"1","type":"tenant","children":[{"nodeName":"site-GAP","nodeId":"2","type":"site","hasChildren":true,"children":[{"nodeName":"Printing","nodeId":"3","type":"feature","hasChildren":"true","children":[{"nodeName":"Printing Policy","nodeId":"4","type":"policyGroup","hasChildren":"false","children":[]}]},{"nodeName":"Printing2","nodeId":"5","type":"feature","hasChildren":"true","children":[{"nodeName":"Printing Policy2","nodeId":"6","type":"policyGroup","hasChildren":"false","children":[]}]}]}]},{"nodeName":"Apple","nodeId":"7","type":"tenant","children":[{"nodeName":"site-Apple","nodeId":"8","type":"site","hasChildren":true,"children":[{"nodeName":"PrintingApple","nodeId":"9","type":"feature","hasChildren":"true","children":[{"nodeName":"Printing Policy","nodeId":"10","type":"policyGroup","hasChildren":"false","children":[]}]}]}]}];
+			});
+
+		});
+
+	})();
+</script>
+</head>
+<body>
+
+	<div>
+		<div ng-controller="myController">
+
+			<div class="header">
+				<div class="left">
+					<ul class="menu">
+						<li><a href="#" class="logo">R O I</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="body">
+				<div class="sidemenu">
+					<div data-angular-treeview="true" 
+						 data-tree-id="tree"
+						 data-tree-model="roleList"
+						 data-node-id="nodeId"
+						 data-node-label="nodeName"
+						 data-node-children="children">
+					</div>
+				</div>
+				<div class="pagecontent">
+					<div
+						style="margin: 10px 0 30px 0; padding: 10px; background-color: #EEEEEE; border-radius: 5px; font: 12px Tahoma;">
+						<span><b>Selected Node ID</b> : {{tree.currentNode.nodeId}}</span> <span><b>Selected Node Name</b> : {{tree.currentNode.nodeName}}</span> <span><b>Selected Node Type</b> : {{tree.currentNode.type}}</span>
+					</div>
+										
+					<div>
+					<ul class="nav nav-pills">
+  					  <li role="presentation"><a href="policygroup">PolicyGroup</a></li>
+  					  <li role="presentation"><a href="#">Policies</a></li>
+					</ul>
+					</div>
+					<div ng-view></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <script src="@routes.Assets.at("javascripts/angular.treeview.js")"></script>
+	<!-- <script src="@routes.Assets.at("javascripts/angular.treeview.min.js")"></script> --> 
+
+</body>
+</html>

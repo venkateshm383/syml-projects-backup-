@@ -1,0 +1,31 @@
+﻿{
+    "applicationID":"235",
+    "applicants": [
+        {
+            "firstName": "Justin",
+            "lastName": "Chick",
+            "email": "justin@coltenergy.cal",
+            "documents": [
+                "2013 Notice of Assessment",
+                "2014 T4",
+                "Copy of Photo ID (Driver’s Licence or Passport)"
+            ]
+        }
+    ],
+    "propertyDocuments": [
+        "Offer to Purchase()",
+        "MLS Listing()",
+        "Mortgage Statement()",
+        "PropertyTaxAssessment()",
+        "Floor plans/Specs"
+    ],
+    "downpaymentDocuments": [
+        "Offer to Sale of Existing(whenapplicable)",
+        "Sale MLS Listing(ifsold)",
+        "90 Days history bankstatements",
+        "90 Days history RRSP",
+        "90 Days history Investment",
+        "Gift Letter",
+        "Copy of Deposit"
+    ]
+}

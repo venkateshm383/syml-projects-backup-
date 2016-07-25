@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+/* for vertical line */
+.verticalLine {
+	height: 200px;
+	border-left: medium groove #336699;
+}
+
+/*Welcome page info in hyphen(-) format line code*/
+.ul-dash {
+	margin: 0;
+}
+
+.ul-dash {
+	margin-left: 0em;
+	padding-left: 4em;
+}
+
+.ul-dash {
+	list-style: none;
+}
+
+.ul-dash>li:before {
+	content: "–";
+	text-indent: 0;
+	display: inline-block;
+	width: 0;
+	position: relative;
+	left: -1em;
+	font-weight: bolder;
+}

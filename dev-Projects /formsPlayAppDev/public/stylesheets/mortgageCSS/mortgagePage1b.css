@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+.verticalLine {
+	height: 200px;
+	border-left: medium groove #336699;
+}

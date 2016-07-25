@@ -1,0 +1,514 @@
+@(role: String)
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Referral Source Form</title>
+
+<link rel="shortcut icon" href="@routes.Assets.at("_resources/favicon.ico")">
+<script
+    src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+ <script src="@routes.Assets.at("_resources/angular.min.js")"></script>
+  
+<script
+    src="@routes.Assets.at("_resources/ui-bootstrap-tpls.min.js")"></script>
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+ -->
+<script src="@routes.Assets.at("_resources/jquery-2.1.4.min.js")"></script>
+
+<script src="@routes.Assets.at("_resources/app.js")"></script>
+
+<script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+<!-- <script src="_resources/jquery.maskedinput.min.js" type="text/javascript"></script>
+ -->
+<link rel="stylesheet" href="_resources/bootstrap.min.css">
+<link rel="stylesheet" href="@routes.Assets.at("_resources/bootstrap.min.css")">
+<script src=@routes.Assets.at("_resources/bootstrap.min.js")"></script>
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/background.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/forms.css")">
+<link type="text/css" rel="stylesheet" href="@routes.Assets.at("_resources/template.css")">
+
+
+
+<link rel="stylesheet" href="@routes.Assets.at("_resources/signature-pad.css")">
+
+
+<!-- <link rel="stylesheet"
+    href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+<style>
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#sig-canvas {
+    border: 2px dotted Black;
+    border-radius: 5px;
+    cursor: crosshair;
+    background: white;
+    color: black;
+}
+
+#sig-dataUrl {
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+
+    <div style="padding-bottom: 20px; margin-top: 20px; padding-left: 45%">
+        <img alt="Visdom Logo" height="90" width="260"
+            src="@routes.Assets.at("_resources/visdom-logo.png")" />
+
+    </div>
+    <div style="width: 95%">
+        <form name="myForm" action="visdomReferral3" method="POST" onsubmit="return validateForm()">
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+
+
+                <div class="col-sm-7 container-bg text-color-blue">
+                    <div style="padding-top: 50px"></div>
+
+
+                    <div data-ng-app="demoApp" ng-init="role=''"
+                        style="margin-left: 5%">
+
+
+                        <div ng-controller="DemoController" ng-init="newItemType=false">
+
+
+
+
+                           
+
+                           
+
+
+
+                            
+
+                    <br> <label class="form-label form-label-top" id="label_35"
+                            for="input_35"> What type of smartphone do you use?
+                            </label><font color="red">*</font> <br>
+                            <br>
+                            <div  class="btn-group">
+                            <label style="width: 180px" class="btn btn-primary" btn-radio="'IPhone'"
+                                ng-change="change()"  ng-model="newItemType"> iPhone
+                                
+                            </label> <label style="width: 180px" class="btn btn-primary" btn-radio="'Android'"
+                                ng-change="change()"  ng-model="newItemType"> Android
+                            </label>
+                            <!-- <br>
+                            <br> -->
+                            
+                                <label style="width: 180px" class="btn btn-primary" btn-radio="'Neither'"
+                                ng-change="change()" ng-model="newItemType">Neither
+                                
+                            </label> <!-- <label style="width: 180px" class="btn btn-primary" btn-radio="'Client'"
+                                ng-change="change()" ng-model="newItemType"> Client
+                            </label> -->
+                              <div id="role1"> </div>
+                            
+                        </div>
+                        
+                        
+                        <br>
+                            
+        <input type="hidden" id="role" name="role" value="{{newItemType}}" ng-required>
+                           <br><br><br> 
+                           
+                            <div ng-show="newItemType=='IPhone'">
+
+                                <div class="WordSection1">
+                                <p><span style="font-size:medium;">iPhone</span></p>
+                                    <p>To provide             a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit  you with the referral) and a little bit of information about the  client. </p>
+                                    <p>To make this process quick and simple on your iPhone, please take a moment to do the following steps:</p>
+                                    <p>1) Using your phone, click this weblink to open the Visdom Referrals Page in Safari.<a target="_blank" title="Visdom Referrals Page" href="https://forms.visdom.ca/clientrefV">https://forms.visdom.ca/clientrefV</a></p><br>
+                                  
+                                    <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="iPhone Step 1" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/iPhone-Step-1.JPG")" />
+    								</div>
+    								<br>
+                                    <p>2) At the bottom of the screen you'll see an icon depicting an arrow that  looks like it's trying to get away from a square. Tap this button and you'll have a few options.</p>
+                                    <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="iPhone Step-2" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/iPhoneStep-2.JPG")" />
+    								</div>
+                                    <p>3) Tap the "Add to Home Screen" button.  You'll  be asked to choose a name for the home screen icon. <em></em></p>
+                                    <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="iPhone Step-3" height="70%" width="30"
+								            src="@routes.Assets.at("_resources/iPhone-Step-3.JPG")" />
+    								</div>
+                                    <p><em></em>4) Name the Icon Visdom Referrals</p>
+                                    <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="iPhone Step 4" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/iPhone-Step-4.JPG")" />
+    								</div>
+                                     <p>Please note we have also emailed you these instructions in case you are rushed for time currently.  Now that you have this set up, all you need to do to send your first referral to Visdom is tap the icon on your home screen and begin earning referral fees.  The referrals you send will  receive a welcome message by email which outlines the              process of securing their financing quickly and easily through Visdom.  As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.</p>
+                                      <p>Once again, welcome to Visdom and we look forward to helping you increase your income.</p>
+                                    
+                                </div>
+                                </div>
+                                <div ng-show="newItemType == 'Android'">
+                                   <div class="WordSection1">
+                                   
+                                    <p><span style="font-size:medium;">Android</span></p>
+            <p>To provide             a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit  you with the referral) and a little bit of information about the  client. </p>
+            <p>To make this process quick and simple on your iPhone, please take a moment to do the following steps:</p>
+            <p>1) Using your phone, click this weblink to open the Visdom Referrals Page in Safari.<a target="_blank" title="Visdom Referrals Page" href="https://forms.visdom.ca/clientrefV">https://forms.visdom.ca/clientrefV</a></p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Android Step 1" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Android-Step-1.JPG")" />
+    								</div>
+            <p>2) At the bottom of the screen you'll see an icon depicting an arrow that  looks like it's trying to get away from a square. Tap this button and you'll have a few options.</p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Android Step 2" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Android-Step-2.JPG")" />
+    								</div>
+            <p>3) Tap the "Add to Home Screen" button.  You'll  be asked to choose a name for the home screen icon. <em></em></p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Android Step 3" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Android-Step-3.JPG")" />
+    								</div>
+            <p><em></em>4) Name the Icon Visdom Referrals</p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Android Step 4" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Android-Step-4.JPG")" />
+    								</div>
+            <p>Please note we have also emailed you these instructions in case you are rushed for time currently.  Now that you have this set up, all you need to do to send your first referral to Visdom is tap the icon on your home screen and begin earning referral fees.  The referrals you send will  receive a welcome message by email which outlines the              process of securing their financing quickly and easily through Visdom.  As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.</p>
+            <p>Once again, welcome to Visdom and we look forward to helping you increase your income.</p>
+                               
+                                
+                                </div>
+                                </div>
+                                
+                               <div ng-show="newItemType == 'Neither'">
+
+                           <div class="WordSection1">
+                                <p><span style="font-size:medium;">Neither<br /></span></p>
+            <p>To provide             a referral, all you need to do is go to Visdom's confidential referrals webpage, provide your name and email address (so we know to credit  you with the referral) and a little bit of information about the  client. </p>
+            <p>To make this process quick and simple on your Android phone, please take a moment to do the following steps:</p>
+            <p>1) On your computer or tablet, click this weblink to open the Visdom Referrals Page. <a target="_blank" title="Visdom Referrals Page" href="https://forms.visdom.ca/clientrefV">https://forms.visdom.ca/clientrefV</a></p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Email-Step-1a" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Email-Step-1a.JPG")" />
+    								</div>
+            
+            <p>2) Press the bookmarks or favorites icon in your browser.</p>
+            <div style="padding-bottom: 10px; margin-top: 10px; padding-left: 10%">
+        								<img alt="Email Step 2A" height="70%" width="30%"
+								            src="@routes.Assets.at("_resources/Email-Step-2A.JPG")" />
+    								</div>
+            <p><em></em>3) Name the bookmark Visdom Referrals and click OK to add it.</p>
+            <p>4) When you need to submit a referral, open your bookmarks and click the Visdom Referrals bookmark you just created.</p>
+            <p>Please note we have also emailed you these instructions in case you are rushed for time currently.  Now that you have this set up, all you need to do to send your first referral to Visdom is open your bookmarks and tap the Visdom Referrals bookmark.  The referrals you send will  receive a welcome message by email which outlines the              process of securing their financing quickly and easily through Visdom.  As they are working though the financing process, you will receive status emails periodically to keep you informed of each important event.</p>
+            <p>Once again, welcome to Visdom and we look forward to helping you increase your income.</p>
+                                    
+                            </div>
+                            </div> 
+                                
+                               
+                                
+                               
+                              
+                          
+
+                       
+
+                        
+                           
+                            
+                            
+
+
+                            
+
+
+
+                               <br>
+
+                                <div align="center">
+
+                                  <!--   <input type="submit" class="btn btn-primary "                                 value="Submit" id="sig-submitBtn">
+ -->
+                                    <div align="center" id="submiterror">
+                                        <font color="red"></font>
+                                    </div>
+
+                                </div>
+ </div>
+
+
+
+                                <div style="padding-bottom: 50px;"></div>
+                            </div>
+                            <div class="col-sm-3"></div>
+                    </div>
+                </div>
+</form>
+
+
+                <script src="@routes.Assets.at("_resources/signature_pad.js")"></script>
+                <script src="@routes.Assets.at("_resources/app.js")"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('[data-toggle="tooltip"]').tooltip();
+                    });
+                </script>
+
+
+                <script type="text/javascript">
+                    var app = angular.module("demoApp", [ 'ui.bootstrap' ]);
+
+                    app.controller('DemoController', function($scope) {
+                        init();
+                        function init() {
+                            $scope.newItemType = '';
+                            $scope.company = "";
+                            $scope.change = function() {
+                                console.log($scope.newItemType)
+                            };
+                        }
+                    });
+                </script>
+
+                <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+                <script
+                    src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+                <!--<script src="https://code.angularjs.org/snapshot/angular.min.js"></script>-->
+               
+               <script type="text/javascript">
+    var app = angular.module("demoApp", ['ui.bootstrap']);
+
+    app.controller('DemoController', function ($scope) {
+        init();
+        function init() {
+            $scope.newItemType = '';
+            $scope.company="";
+            $scope.change = function () {
+                console.log($scope.newItemType)
+            };
+        }
+    });
+    </script>
+               
+               
+               
+                <script>
+                
+                
+                
+                    (function() {
+
+                        // Get a regular interval for drawing to the screen
+                        window.requestAnimFrame = (function(callback) {
+                            return window.requestAnimationFrame
+                                    || window.webkitRequestAnimationFrame
+                                    || window.mozRequestAnimationFrame
+                                    || window.oRequestAnimationFrame
+                                    || window.msRequestAnimaitonFrame
+                                    || function(callback) {
+                                        window.setTimeout(callback, 1000 / 60);
+                                    };
+                        })();
+
+                        // Set up the canvas
+                        var canvas = document.getElementById("sig-canvas");
+                        var ctx = canvas.getContext("2d");
+                        ctx.strokeStyle = "#222222";
+                        ctx.lineWith = 2;
+
+                        // Set up the UI
+                        var sigText = document.getElementById("sig-dataUrl");
+                        var sigImage = document.getElementById("sig-image");
+                        var clearBtn = document.getElementById("sig-clearBtn");
+                        var submitBtn = document
+                                .getElementById("sig-submitBtn");
+                        clearBtn
+                                .addEventListener(
+                                        "click",
+                                        function(e) {
+                                            clearCanvas();
+                                            sigText.innerHTML = "Data URL for your signature will go here!";
+                                            sigImage.setAttribute("src", "");
+                                        }, false);
+                        submitBtn.addEventListener("click", function(e) {
+                            var dataUrl = canvas.toDataURL();
+                            sigText.innerHTML = dataUrl;
+                            sigImage.setAttribute("src", dataUrl);
+                        }, false);
+
+                        // Set up mouse events for drawing
+                        var drawing = false;
+                        var mousePos = {
+                            x : 0,
+                            y : 0
+                        };
+                        var lastPos = mousePos;
+                        canvas.addEventListener("mousedown", function(e) {
+                            drawing = true;
+                            lastPos = getMousePos(canvas, e);
+                        }, false);
+                        canvas.addEventListener("mouseup", function(e) {
+                            drawing = false;
+                        }, false);
+                        canvas.addEventListener("mousemove", function(e) {
+                            mousePos = getMousePos(canvas, e);
+                        }, false);
+
+                        // Set up touch events for mobile, etc
+                        canvas.addEventListener("touchstart", function(e) {
+                            mousePos = getTouchPos(canvas, e);
+                            var touch = e.touches[0];
+                            var mouseEvent = new MouseEvent("mousedown", {
+                                clientX : touch.clientX,
+                                clientY : touch.clientY
+                            });
+                            canvas.dispatchEvent(mouseEvent);
+                        }, false);
+                        canvas.addEventListener("touchend", function(e) {
+                            var mouseEvent = new MouseEvent("mouseup", {});
+                            canvas.dispatchEvent(mouseEvent);
+                        }, false);
+                        canvas.addEventListener("touchmove", function(e) {
+                            var touch = e.touches[0];
+                            var mouseEvent = new MouseEvent("mousemove", {
+                                clientX : touch.clientX,
+                                clientY : touch.clientY
+                            });
+                            canvas.dispatchEvent(mouseEvent);
+                        }, false);
+
+                        // Prevent scrolling when touching the canvas
+                        document.body.addEventListener("touchstart",
+                                function(e) {
+                                    if (e.target == canvas) {
+                                        e.preventDefault();
+                                    }
+                                }, false);
+                        document.body.addEventListener("touchend", function(e) {
+                            if (e.target == canvas) {
+                                e.preventDefault();
+                            }
+                        }, false);
+                        document.body.addEventListener("touchmove",
+                                function(e) {
+                                    if (e.target == canvas) {
+                                        e.preventDefault();
+                                    }
+                                }, false);
+
+                        // Get the position of the mouse relative to the canvas
+                        function getMousePos(canvasDom, mouseEvent) {
+                            var rect = canvasDom.getBoundingClientRect();
+                            return {
+                                x : mouseEvent.clientX - rect.left,
+                                y : mouseEvent.clientY - rect.top
+                            };
+                        }
+
+                        // Get the position of a touch relative to the canvas
+                        function getTouchPos(canvasDom, touchEvent) {
+                            var rect = canvasDom.getBoundingClientRect();
+                            return {
+                                x : touchEvent.touches[0].clientX - rect.left,
+                                y : touchEvent.touches[0].clientY - rect.top
+                            };
+                        }
+
+                        // Draw to the canvas
+                        function renderCanvas() {
+                            if (drawing) {
+                                ctx.moveTo(lastPos.x, lastPos.y);
+                                ctx.lineTo(mousePos.x, mousePos.y);
+                                ctx.stroke();
+                                lastPos = mousePos;
+                            }
+                        }
+
+                        // Clear the canvas
+                        function clearCanvas() {
+                            canvas.width = canvas.width;
+                        }
+
+                        // Allow for animation
+                        (function drawLoop() {
+                            requestAnimFrame(drawLoop);
+                            renderCanvas();
+                        })();
+
+                    })();
+                </script>
+                
+                <script type="text/javascript">
+                
+                function validateForm() {
+                     
+                     var fname=document.forms["myForm"]["touchScreen"].value;
+                     
+
+                        if(!fname){
+                            document.getElementById("touchScreen1").innerHTML="<p style=\"color:red\">Please Select which Device Using </p>";
+                            document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+                            return false;
+                        }else{
+                            document.getElementById("touchScreen1").innerHTML="";
+
+                        } 
+                        var lname=document.forms["myForm"]["agree"].value;
+                         
+                        if(!lname){
+                            
+                            document.getElementById("agree1").innerHTML="<p style=\"color:red\">Please agree the condtion</p>";
+                            document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+                            return false;
+                        }
+                            else{
+                                document.getElementById("agree1").innerHTML="";
+
+                            } 
+                        
+                        
+                        
+                        var typedName=document.forms["myForm"]["typedName"].value;
+                         
+                        if(!typedName&&fname=='no'){
+                            
+                            document.getElementById("typedName1").innerHTML="<p style=\"color:red\">Please enter the name</p>";
+                            document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+                            return false;
+                        }
+                            else{
+                                document.getElementById("typedName1").innerHTML="";
+
+                            } 
+                        
+                        
+                        var sign=document.forms["myForm"]["sign"].value;
+                         
+                        if(!sign&&fname=='yes'){
+                            
+                            document.getElementById("sign1").innerHTML="<p style=\"color:red\">Please write elctonic sign</p>";
+                            document.getElementById("submiterror").innerHTML="<p style=\"color:red\">There are errors on the form. Please fix them before continuing.</p>";
+
+                            return false;
+                        }
+                            else{
+                                document.getElementById("sign1").innerHTML="";
+
+                            } 
+                        
+                }
+                
+                </script>
+</body>
+</html>
